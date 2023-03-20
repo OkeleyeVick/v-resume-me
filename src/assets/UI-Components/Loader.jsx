@@ -1,8 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import "../css/animation.css";
 
-const Loader = () => {
+const LoadingBig = () => {
 	return (
 		<>
 			{createPortal(
@@ -15,4 +14,4 @@ const Loader = () => {
 	);
 };
 
-export default Loader;
+export default LoadingBig;

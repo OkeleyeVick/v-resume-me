@@ -1,5 +1,6 @@
-import Modal from "./assets/UI-Components/Modal";
-import Off_OnlineStatus from "./assets/UI-Components/Off_OnlineStatus";
+import "./assets/css/animation.css";
+
+import R_Offcanvas from "./assets/UI-Components/R_Offcanvas";
 
 function App() {
 	// Create a new Blob object with the file content
@@ -23,9 +24,7 @@ function App() {
 		<div className="App  bg-red-50">
 			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, neque maxime veniam est consequuntur dicta sapiente asperiores
 			mollitia incidunt, placeat sit quisquam esse consectetur molestias cum, possimus libero dolores molestiae!
-			<Modal>
-				<Off_OnlineStatus />
-			</Modal>
+			<R_Offcanvas />
 		</div>
 	);
 }

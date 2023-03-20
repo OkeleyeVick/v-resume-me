@@ -6,13 +6,17 @@ const Off_OnlineStatus = () => {
 	const { isOnline } = useIsOnline();
 	return (
 		<>
-			<div className={`rounded-lg bg-white shadow-sm transition duration-300`}>
+			<div className={`rounded-lg bg-white  transition duration-300 shadow-custom_1`}>
 				<div className="border-b py-3 px-4 flex items-center justify-between">
 					<span className="flex items-center gap-2">
 						<span className="font-bold">STATUS:</span>
-						<span className={``}>ONLINE</span>
+						<span className={`uppercase font-bold ${isOnline ? "text-green-600" : "text-red-600"}`}>
+							{isOnline ? "online" : "offline"}
+						</span>
 					</span>
-					<button type="button" className="p-2 rounded-full transition hover:bg-gray-100">
+					<button
+						type="button"
+						className="p-2 rounded-full transition relative before:inset-0 before:bg-gray-100 before:[content: ''] before:absolute before:rounded-full before:scale-0 before:transition before:duration-200 before:ease-in-out hover:before:scale-100 before:-z-[1] isolate">
 						<Icon icon="heroicons:x-mark-20-solid" className="w-6 h-6" />
 					</button>
 				</div>
@@ -25,10 +29,9 @@ const Off_OnlineStatus = () => {
 							}`}
 						/>
 					</div>
-					<div className="">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam ut distinctio? Quos labore quod distinctio, quae
-						nostrum inventore iusto soluta fuga reiciendis ullam ea, beatae quasi perspiciatis, non nisi?
-					</div>
+					<span className="text-lg">
+						{isOnline ? "Welcome back! 🎉, let's keep on cooking your Resumé😃" : "🙁 Ensure you are connected to the internet ❗"}
+					</span>
 				</div>
 			</div>
 		</>
