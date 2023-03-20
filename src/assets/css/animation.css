@@ -1,3 +1,9 @@
+.glassmorphism {
+	backdrop-filter: blur(3px) saturate(180%);
+	-webkit-backdrop-filter: blur(3px) saturate(180%);
+	background: rgba(0 0 0 / 50%);
+}
+
 .loader-pointer {
 	animation: scaleOutMain 1.2s ease-in-out infinite;
 }
