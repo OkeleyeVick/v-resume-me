@@ -20,9 +20,7 @@ const Off_OnlineStatus = () => {
 					<div className="relative w-16 h-16 grid place-content-center rounded-full bg-gray-100">
 						<Icon
 							icon={isOnline ? "ci:wifi-high" : "ph:wifi-x-bold"}
-							className={`w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-600 ${
-								isOnline ? "opacity-0" : "opacity-1"
-							}`}
+							className={`w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-600`}
 						/>
 						{/* <Icon
 							icon="ph:wifi-x-bold"
