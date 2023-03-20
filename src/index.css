@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: FONT-FAMILY;
+	src: url("./assets/fonts/IBMPlexSans-Regular.ttf") format("truetype");
+}
+* {
+	font-family: FONT-FAMILY;
+}
