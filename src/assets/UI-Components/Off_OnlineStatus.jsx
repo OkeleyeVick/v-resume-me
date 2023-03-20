@@ -19,6 +19,12 @@ const Off_OnlineStatus = () => {
 				<div className="p-4 flex flex-col items-center gap-y-8 text-center">
 					<div className="relative w-16 h-16 grid place-content-center rounded-full bg-gray-100">
 						<Icon
+							icon={isOnline ? "ci:wifi-high" : "ph:wifi-x-bold"}
+							className={`w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-600 ${
+								isOnline ? "opacity-0" : "opacity-1"
+							}`}
+						/>
+						{/* <Icon
 							icon="ph:wifi-x-bold"
 							className={`w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-red-600 ${
 								isOnline ? "opacity-0" : "opacity-1"
@@ -29,7 +35,7 @@ const Off_OnlineStatus = () => {
 							className={`w-10 h-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-green-600 ${
 								isOnline ? "opacity-1" : "opacity-0"
 							}`}
-						/>
+						/> */}
 					</div>
 					<div className="">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magnam ut distinctio? Quos labore quod distinctio, quae
