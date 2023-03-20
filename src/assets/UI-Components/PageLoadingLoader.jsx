@@ -1,7 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-const LoadingBig = () => {
+const PageLoadingLoader = () => {
 	return (
 		<>
 			{createPortal(
@@ -14,4 +14,4 @@ const LoadingBig = () => {
 	);
 };
 
-export default LoadingBig;
+export default PageLoadingLoader;

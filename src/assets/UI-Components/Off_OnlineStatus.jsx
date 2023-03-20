@@ -17,7 +17,7 @@ const Off_OnlineStatus = () => {
 					<button
 						type="button"
 						className="p-2 rounded-full transition relative before:inset-0 before:bg-gray-100 before:[content: ''] before:absolute before:rounded-full before:scale-0 before:transition before:duration-200 before:ease-in-out hover:before:scale-100 before:-z-[1] isolate">
-						<Icon icon="heroicons:x-mark-20-solid" className="w-6 h-6" />
+						<Icon icon="heroicons:x-mark-20-solid" className="w-6 lg:w-7 h-6 lg:h-7" />
 					</button>
 				</div>
 				<div className="p-4 flex flex-col items-center gap-y-8 text-center">

@@ -1,3 +1,7 @@
+:root {
+	--primary: #14c08c;
+}
+
 .glassmorphism {
 	backdrop-filter: blur(2px) saturate(180%);
 	-webkit-backdrop-filter: blur(2px) saturate(180%);
@@ -15,4 +19,16 @@
 		opacity: 0;
 		scale: 1.2;
 	}
+}
+
+/* from R_OFFCANVAS Component */
+.right-offcanvas::-webkit-scrollbar {
+	width: 0.5rem;
+}
+.right-offcanvas::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+.right-offcanvas::-webkit-scrollbar-thumb {
+	border-radius: 12px;
+	background-color: var(--primary);
 }
