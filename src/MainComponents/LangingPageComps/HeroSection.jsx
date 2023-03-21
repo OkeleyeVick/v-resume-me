@@ -9,7 +9,7 @@ const HeroSection = () => {
 					<div className="my-4 md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9">
 						<small className="uppercase font-semibold text-text_clr">free online resume builder</small>
 					</div>
-					<div className="md:col-start-1 md:col-end-11 mt-4 flex flex-col">
+					<div className="md:col-start-1 md:col-end-11 mt-4 flex flex-col px-1">
 						<h1 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-text_clr">
 							Create one of the finest well presentable Resumés you've ever had to present
 						</h1>
