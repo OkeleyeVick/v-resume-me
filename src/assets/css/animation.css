@@ -9,7 +9,7 @@
 }
 
 .loader-pointer {
-	animation: scaleOutMain 1.2s ease-in-out infinite;
+	animation: scaleOutMain 900ms ease-in-out infinite;
 }
 @keyframes scaleOutMain {
 	0% {

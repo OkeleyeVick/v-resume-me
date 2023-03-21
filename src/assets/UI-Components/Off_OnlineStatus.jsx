@@ -1,12 +1,13 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 import { useIsOnline } from "react-use-is-online";
 
 const Off_OnlineStatus = () => {
 	const { isOnline } = useIsOnline();
+	const [s, D] = useState(false);
 	return (
 		<>
-			<div className={`rounded-lg bg-white  transition duration-300 shadow-custom_1`}>
+			<div className={`${s ? "translate-y-0" : "translate-y-10"} rounded-lg bg-white transition duration-200 shadow-custom_1`}>
 				<div className="border-b py-3 px-4 flex items-center justify-between">
 					<span className="flex items-center gap-2">
 						<span className="font-bold">STATUS:</span>
@@ -16,6 +17,9 @@ const Off_OnlineStatus = () => {
 					</span>
 					<button
 						type="button"
+						onClick={() => {
+							D((prev) => !prev);
+						}}
 						className="p-2 rounded-full transition relative before:inset-0 before:bg-gray-100 before:[content: ''] before:absolute before:rounded-full before:scale-0 before:transition before:duration-200 before:ease-in-out hover:before:scale-100 before:-z-[1] isolate">
 						<Icon icon="heroicons:x-mark-20-solid" className="w-6 lg:w-7 h-6 lg:h-7" />
 					</button>

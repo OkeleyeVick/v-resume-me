@@ -1,7 +1,5 @@
 import "./assets/css/animation.css";
 
-import R_Offcanvas from "./assets/UI-Components/R_Offcanvas";
-
 function App() {
 	// Create a new Blob object with the file content
 	// const fileContent = "This is the content of my file.";
@@ -21,12 +19,10 @@ function App() {
 	// downloadLink.click();
 
 	return (
-		<div className="App  bg-red-50 selection:text-green-800 selection:bg-main selection:bg-opacity-10">
+		<div className="App selection:text-green-800 selection:bg-main selection:bg-opacity-10">
 			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, neque maxime veniam est consequuntur dicta sapiente asperiores
 			mollitia incidunt, placeat sit quisquam esse consectetur molestias cum, possimus libero dolores molestiae!
-			<R_Offcanvas />
 		</div>
 	);
 }
-
 export default App;
