@@ -9,3 +9,6 @@
 * {
 	font-family: FONT-FAMILY;
 }
+body::-webkit-scrollbar {
+	display: none;
+}
