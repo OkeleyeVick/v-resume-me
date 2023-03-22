@@ -22,7 +22,9 @@ const FinalSection = () => {
 				<img src={img_five} className="animate-rotate bg-gray-50 max-w-[110px] hidden md:inline w-full" alt="alt 1" />
 				<div className=" flex flex-col items-center gap-y-8">
 					<img src={img} alt="alt-3" className="max-w-sm w-full" />
-					<Link to="" className="text-white selection:text-white bg-main rounded-md py-4 px-6 font-semibold">
+					<Link
+						to=""
+						className="text-white transition duration-500 ease-in-out hover:bg-hoverBgClr selection:text-white bg-main rounded-md py-4 px-6 font-semibold">
 						Create my Resume
 					</Link>
 				</div>
