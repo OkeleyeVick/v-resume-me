@@ -18,6 +18,19 @@ module.exports = {
 			boxShadow: {
 				custom_1: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
 			},
+			animation: {
+				rotate: "rotateY 10s linear infinite",
+			},
+			keyframes: {
+				rotateY: {
+					"0%": {
+						transform: "rotateY(0deg)",
+					},
+					"100%": {
+						transform: "rotateY(360deg)",
+					},
+				},
+			},
 		},
 	},
 	plugins: [],
