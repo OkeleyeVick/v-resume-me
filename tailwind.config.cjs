@@ -4,12 +4,15 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundColor: {
-				main: "#49DCB1",
+				main: "#8390FA",
 				main_2: "#EFF2F9",
 				main_3: "#0F141E",
+				hoverBgClr: "#6274F8",
 			},
 			colors: {
-				main: "#49DCB1",
+				main: "#8390FA",
+				main_2: "#EFF2F9",
+				main_3: "#0F141E",
 				text_clr: "#1E2532",
 			},
 			boxShadow: {

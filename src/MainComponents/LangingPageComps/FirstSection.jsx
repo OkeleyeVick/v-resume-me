@@ -1,18 +1,25 @@
 import React from "react";
-import video from "../../assets/images/job-recruiter.gif";
+import { Link } from "react-router-dom";
 
 const FirstSection = () => {
 	return (
-		<div className="py-10">
-			<div className="grid grid-cols-2 gap-8">
-				<div className="col-span-full md:col-start-1 md:col-end-2">
-					<img src={video} alt="" className="max-w-lg mx-auto w-full" />
-				</div>
-				<div className="col-span-full md:col-start-2 md:col-end-3 p-4 md:p-8">
-					<span>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente sunt cupiditate, assumenda minima tenetur recusandae
-						expedita eaque quasi, beatae velit laudantium. Magnam beatae fuga qui iusto sit quod atque repellat?
-					</span>
+		<div className="bg-main_2 md:grid md:grid-cols-12 p-8 py-16 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
+			<div className="relative flex flex-col md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-11 md:grid md:grid-cols-10">
+				<div className="col-span-full text-center mt-8">
+					<h2 className="text-3xl md:text-4xl lg:text-5xl text-text_clr font-extrabold">User-friendly. Job-Worthy. Standard</h2>
+					<div className="w-full md:w-4/5 mx-auto mt-5">
+						<span>
+							How long does it take to write a Resume? Hours? Days? With <b className="text-main">Resumé.me</b> you can be done in
+							minutes. Create a convincing and effective application resumé in several clicks. Use our pre-generated phrases, choose a
+							design, fill in your details and ideas. Fast and simple.
+						</span>
+					</div>
+					<div className="mt-8">
+						<Link to="" className="font-semibold bg-main transition duration-500 ease-in-out hover:bg-hoverBgClr text-white">
+							Try It Now
+						</Link>
+						<Link to=""></Link>
+					</div>
 				</div>
 			</div>
 		</div>

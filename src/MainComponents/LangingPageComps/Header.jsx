@@ -7,7 +7,7 @@ const Header = () => {
 		<div className="flex items-center justify-between p-5 md:px-16">
 			<Link to="/" className="flex items-center gap-2">
 				<Icon icon="carbon:document-multiple-01" className="h-6 w-6 md:w-8 md:h-8 text-main" />
-				<span className="font-semibold md:font-bold text-main">Resume.me</span>
+				<span className="font-semibold md:font-bold text-main">Resumé.me</span>
 			</Link>
 		</div>
 	);

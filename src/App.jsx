@@ -5,7 +5,7 @@ import ResumePage from "./MainComponents/ResumePageComps/ResumePage";
 
 function App() {
 	return (
-		<div className="App selection:text-green-800 selection:bg-main selection:bg-opacity-10">
+		<div className="App selection:text-main selection:bg-main group selection:bg-opacity-10">
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/create-resume" element={<ResumePage />} />
