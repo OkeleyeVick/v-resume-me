@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const FirstSection = () => {
 	return (
 		<div className="bg-main_2 md:grid md:grid-cols-12 p-8 py-28 md:py-40 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
-			<div className="relative flex flex-col md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-11 md:grid md:grid-cols-10">
+			<div className="relative flex flex-col md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 md:grid md:grid-cols-10">
 				<div className="col-span-full text-center my-8">
 					<h2 className="text-3xl md:text-4xl lg:text-5xl text-text_clr font-extrabold">User-friendly. Job-Worthy. Standard</h2>
 					<div className="w-full md:w-4/5 mx-auto mt-5">
