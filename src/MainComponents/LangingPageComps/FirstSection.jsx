@@ -4,11 +4,16 @@ import video from "../../assets/images/job-recruiter.gif";
 const FirstSection = () => {
 	return (
 		<div className="py-10">
-			<div className="flex flex-col md:flex-row">
-				<div className="">
-					<img src={video} alt="" />
+			<div className="grid grid-cols-2 gap-8">
+				<div className="col-span-full md:col-start-1 md:col-end-2">
+					<img src={video} alt="" className="max-w-lg mx-auto w-full" />
 				</div>
-				<div className=""></div>
+				<div className="col-span-full md:col-start-2 md:col-end-3 p-4 md:p-8">
+					<span>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente sunt cupiditate, assumenda minima tenetur recusandae
+						expedita eaque quasi, beatae velit laudantium. Magnam beatae fuga qui iusto sit quod atque repellat?
+					</span>
+				</div>
 			</div>
 		</div>
 	);

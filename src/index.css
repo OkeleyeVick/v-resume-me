@@ -8,6 +8,7 @@
 }
 * {
 	font-family: FONT-FAMILY;
+	transition: 300ms ease-in-out;
 }
 body::-webkit-scrollbar {
 	display: none;

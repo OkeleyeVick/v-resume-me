@@ -6,6 +6,7 @@ module.exports = {
 			backgroundColor: {
 				main: "#49DCB1",
 				main_2: "#EFF2F9",
+				main_3: "#0F141E",
 			},
 			colors: {
 				main: "#49DCB1",
