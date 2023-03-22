@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import FirstSection from "./FirstSection";
 import Header from "./Header";
 import HeroSection from "./HeroSection";
+import SecondSection from "./SecondSection";
 
 const LandingPage = () => {
 	return (
@@ -11,6 +12,7 @@ const LandingPage = () => {
 			<HeroSection />
 			<AnimatedSection />
 			<FirstSection />
+			<SecondSection />
 		</div>
 	);
 };
