@@ -20,14 +20,23 @@ module.exports = {
 			},
 			animation: {
 				rotate: "rotateY 10s linear infinite",
+				rotateAndGoDown: "rotateAndGoDown 20s linear infinite",
 			},
 			keyframes: {
 				rotateY: {
 					"0%": {
-						transform: "rotateY(0deg)",
+						transform: "rotateY(0deg) ",
 					},
 					"100%": {
-						transform: "rotateY(360deg)",
+						transform: "rotateY(360deg) ",
+					},
+				},
+				rotateAndGoDown: {
+					"0%": {
+						transform: "rotateY(0deg) translateY(-200px)",
+					},
+					"100%": {
+						transform: "rotateY(360deg) translateY(800px)",
 					},
 				},
 			},
