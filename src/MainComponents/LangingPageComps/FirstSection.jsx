@@ -6,22 +6,22 @@ const FirstSection = () => {
 	return (
 		<div className="bg-main_2 md:grid md:grid-cols-12 p-8 py-28 md:py-40 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
 			<div className="absolute inset-0 h-full w-full p-4 overflow-hidden flex items-start justify-evenly gap-8">
-				<div className="w-[130px] transition ease-linear -mt-40 relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear -mt-40 relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
-				<div className="w-[130px] transition ease-linear mt-40 relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear mt-40 relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
-				<div className="w-[130px] transition ease-linear -mt-72 relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear -mt-72 relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
-				<div className="w-[130px] transition ease-linear -mt-[10rem] duration-500 relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear -mt-[10rem] duration-500 relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
-				<div className="w-[130px] transition ease-linear -mt-60 relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear -mt-60 relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
-				<div className="w-[130px] transition ease-linear relative animate-rotateAndGoDown">
+				<div className="min-w-[130px] md:w-[130px] transition ease-linear relative animate-rotateAndGoDown">
 					<img src={skeletonImage} alt="" className="isolate" />
 				</div>
 			</div>
