@@ -27,7 +27,7 @@ const ThirdSection = () => {
 							<img src={documentFormat} alt="" />
 						</div>
 					</div>
-					<div className="text-start md:text-center">
+					<div className="text-center">
 						<Link
 							to="/select-template"
 							className="text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 selection:bg-main text-sm font-bold py-4 px-6 rounded-md">
