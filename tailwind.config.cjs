@@ -35,10 +35,10 @@ module.exports = {
 				},
 				rotateAndGoDown: {
 					"0%": {
-						transform: "rotateY(0deg) translateY(-200px)",
+						transform: "rotateY(0deg) translateY(-250px)",
 					},
 					"100%": {
-						transform: "rotateY(360deg) translateY(800px)",
+						transform: "rotateY(360deg) translateY(1000px)",
 					},
 				},
 			},

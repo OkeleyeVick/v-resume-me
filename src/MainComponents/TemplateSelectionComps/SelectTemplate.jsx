@@ -24,7 +24,7 @@ const SelectTemplate = () => {
 								const { image } = resume;
 								return (
 									<React.Fragment key={resumeIndex}>
-										<div className="">
+										<div>
 											<div className="border border-main rounded-md overflow-hidden">
 												<img src={image} alt="" />
 											</div>

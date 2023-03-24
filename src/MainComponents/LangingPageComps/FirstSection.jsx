@@ -6,24 +6,16 @@ const FirstSection = () => {
 	return (
 		<div className="bg-main_2 md:grid md:grid-cols-12 p-8 py-28 md:py-40 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
 			<div className="absolute inset-0 h-full w-full p-4 overflow-hidden flex items-start justify-evenly gap-5 md:gap-8">
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear -mt-40 relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear mt-40 relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear -mt-72 relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear -mt-[10rem] duration-500 relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear -mt-60 relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
-				<div className="min-w-[96px] md:w-[130px] transition ease-linear relative animate-rotateAndGoDown">
-					<img src={skeletonImage} alt="" className="isolate" />
-				</div>
+				{Array.apply(null, Array(7)).map((i, index) => {
+					return (
+						<div
+							className={`min-w-[96px] md:w-[130px] transition ease-linear -mt-52 relative animate-rotateAndGoDown $`}
+							key={index}
+							style={{ animationDelay: `${Math.ceil(Math.random() * 12)}s` }}>
+							<img src={skeletonImage} alt="" className="isolate" />
+						</div>
+					);
+				})}
 			</div>
 			<div className="relative flex flex-col md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 md:grid md:grid-cols-10">
 				<div className="col-span-full text-center my-8">
