@@ -1,6 +1,6 @@
 import React from "react";
 
-const ResumePage = () => {
+const CreateResumePage = () => {
 	// Create a new Blob object with the file content
 	// const fileContent = "This is the content of my file.";
 	// const blob = new Blob([fileContent], { type: "text/plain" });
@@ -17,7 +17,7 @@ const ResumePage = () => {
 	// downloadLink.href = url;
 	// downloadLink.download = fileName;
 	// downloadLink.click();
-	return <div>ResumePage</div>;
+	return <div>CreateResumePage</div>;
 };
 
-export default ResumePage;
+export default CreateResumePage;

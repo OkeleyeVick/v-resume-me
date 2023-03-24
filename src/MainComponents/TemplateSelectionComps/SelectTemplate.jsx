@@ -1,4 +1,6 @@
+import { Icon } from "@iconify/react";
 import React from "react";
+import { Link } from "react-router-dom";
 import resumeOne from "../../assets/images/resume-1.png";
 import resumeTwo from "../../assets/images/resume-2.png";
 import resumeThree from "../../assets/images/resume-3.png";
@@ -23,10 +25,14 @@ const SelectTemplate = () => {
 										<div className="border border-main rounded-md overflow-hidden">
 											<img src={image} alt="" />
 										</div>
-										<div className="flex items-center justify-between">
-											<button type="button" className="text-sm ">
-												View template
+										<div className="flex items-center justify-between mt-3">
+											<button
+												type="button"
+												className="text-sm selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-5 text-white">
+												<span className="hidden md:inline">View template</span>
+												<Icon icon="carbon:document-view" className="md:hidden w-5 h-5" />
 											</button>
+											<Link to=""></Link>
 										</div>
 									</div>
 								</React.Fragment>
