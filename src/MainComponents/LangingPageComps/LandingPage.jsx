@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import PageLoader from "../PageLoader";
+import Header from "../GeneralComponents/Header";
+import PageLoader from "../GeneralComponents/PageLoader";
 import AnimatedSection from "./AnimatedSection";
 import FinalSection from "./FinalSection";
 import FirstSection from "./FirstSection";
-import Header from "./Header";
 import HeroSection from "./HeroSection";
 import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";

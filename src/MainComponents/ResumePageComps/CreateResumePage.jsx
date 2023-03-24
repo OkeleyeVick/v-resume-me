@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "../GeneralComponents/Header";
 
 const CreateResumePage = () => {
 	// Create a new Blob object with the file content
@@ -17,7 +18,12 @@ const CreateResumePage = () => {
 	// downloadLink.href = url;
 	// downloadLink.download = fileName;
 	// downloadLink.click();
-	return <div>CreateResumePage</div>;
+	return (
+		<React.Fragment>
+			<Header />
+			<div>CreateResumePage</div>
+		</React.Fragment>
+	);
 };
 
 export default CreateResumePage;
