@@ -2,6 +2,7 @@ import React from "react";
 import image from "../../assets/images/cv-woman.svg";
 import downloadformat from "../../assets/images/download-types.svg";
 import documentFormat from "../../assets/images/document-svg.svg";
+import { Link } from "react-router-dom";
 
 const ThirdSection = () => {
 	return (
@@ -25,6 +26,13 @@ const ThirdSection = () => {
 						<div className="max-w-[16rem]">
 							<img src={documentFormat} alt="" />
 						</div>
+					</div>
+					<div className="text-start md:text-center">
+						<Link
+							to=""
+							className="text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 selection:bg-main text-sm font-bold py-4 px-6 rounded-md">
+							Create my Resume
+						</Link>
 					</div>
 				</div>
 				<div className="col-span-full md:col-start-2 md:col-end-3">

@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./assets/css/animation.css";
 import LandingPage from "./MainComponents/LangingPageComps/LandingPage";
 import ResumePage from "./MainComponents/ResumePageComps/ResumePage";
+import SelectTemplate from "./MainComponents/ResumePageComps/SelectTemplate";
 
 function App() {
 	return (
@@ -9,6 +10,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/create-resume" element={<ResumePage />} />
+				<Route path="/select-template" element={<SelectTemplate />} />
 			</Routes>
 		</div>
 	);
