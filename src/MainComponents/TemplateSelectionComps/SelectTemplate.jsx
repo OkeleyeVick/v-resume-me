@@ -18,35 +18,33 @@ const SelectTemplate = () => {
 					<small className="text-sm">You can only select one template for use</small>
 				</div>
 				<div className="py-8 px-4 md:py-16">
-					<div className="">
-						<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10 md:gap-8 md:gap-y-20">
-							{resumes.map((resume, resumeIndex) => {
-								const { image } = resume;
-								return (
-									<React.Fragment key={resumeIndex}>
-										<div>
-											<div className="border border-main rounded-md overflow-hidden">
-												<img src={image} alt="" />
-											</div>
-											<div className="flex items-center justify-between mt-3">
-												<button
-													type="button"
-													className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-5 text-white">
-													<span className="hidden md:inline">View template</span>
-													<Icon icon="carbon:document-view" className="md:hidden w-5 h-4" />
-												</button>
-												<Link
-													to=""
-													className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-3 text-white">
-													Use Template
-												</Link>
-											</div>
+					<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10 md:gap-8 md:gap-y-20">
+						{resumes.map((resume, resumeIndex) => {
+							const { image } = resume;
+							return (
+								<React.Fragment key={resumeIndex}>
+									<div>
+										<div className="border border-main rounded-md overflow-hidden">
+											<img src={image} alt="" />
 										</div>
-									</React.Fragment>
-								);
-							})}
-						</ul>
-					</div>
+										<div className="flex items-center justify-between mt-3 gap-1">
+											<button
+												type="button"
+												className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-3 sm:px-5 text-white">
+												<span className="hidden md:inline">View template</span>
+												<Icon icon="carbon:document-view" className="md:hidden w-5 h-4" />
+											</button>
+											<Link
+												to=""
+												className="text-[11px] sm:text-sm selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white">
+												Use Template
+											</Link>
+										</div>
+									</div>
+								</React.Fragment>
+							);
+						})}
+					</ul>
 				</div>
 			</div>
 		</React.Fragment>
