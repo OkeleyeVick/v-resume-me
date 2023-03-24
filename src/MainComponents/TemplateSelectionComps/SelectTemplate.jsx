@@ -19,7 +19,7 @@ const SelectTemplate = () => {
 				</div>
 				<div className="py-8 px-4 md:py-16">
 					<div className="">
-						<ul className="grid grid-cols-2 lg:grid-cols-3 gap-8 gap-y-10 md:gap-y-20">
+						<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10 md:gap-8 md:gap-y-20">
 							{resumes.map((resume, resumeIndex) => {
 								const { image } = resume;
 								return (
@@ -37,7 +37,7 @@ const SelectTemplate = () => {
 												</button>
 												<Link
 													to=""
-													className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-5 text-white">
+													className="text-[12px] md:text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-3 text-white">
 													Use Template
 												</Link>
 											</div>
