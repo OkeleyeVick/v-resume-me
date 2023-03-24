@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import image from "../../assets/images/dart-bullseye.svg";
 
 const SecondSection = () => {
-	useEffect(() => {
-		var string1 = "Fishingweeksare";
-		var intvalue = 35;
-		alert(string1 + intvalue);
-	}, []);
-
 	return (
 		<div className="bg-main_3 py-28 px-4 text-white">
 			<div className="text-center flex items-center justify-center">
