@@ -29,7 +29,7 @@ const ThirdSection = () => {
 					</div>
 					<div className="text-start md:text-center">
 						<Link
-							to=""
+							to="/select-template"
 							className="text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 selection:bg-main text-sm font-bold py-4 px-6 rounded-md">
 							Create my Resume
 						</Link>

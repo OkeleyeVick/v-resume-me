@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./assets/css/animation.css";
 import LandingPage from "./MainComponents/LangingPageComps/LandingPage";
 import ResumePage from "./MainComponents/ResumePageComps/ResumePage";
-import SelectTemplate from "./MainComponents/ResumePageComps/SelectTemplate";
+import SelectTemplate from "./MainComponents/TemplateSelectionComps/SelectTemplate";
 
 function App() {
 	return (
