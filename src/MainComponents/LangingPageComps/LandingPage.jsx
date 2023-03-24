@@ -9,7 +9,7 @@ import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";
 
 const LandingPage = () => {
-	// const [showPreloader, setShowPreloader] = useState(true);
+	const [showPreloader, setShowPreloader] = useState(true);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -21,18 +21,18 @@ const LandingPage = () => {
 
 	return (
 		<div>
-			{/* {showPreloader && <PageLoader />} */}
-			{/* {!showPreloader && (
-			)} */}
-			<>
-				<Header />
-				<HeroSection />
-				<AnimatedSection />
-				<FirstSection />
-				<SecondSection />
-				<ThirdSection />
-				<FinalSection />
-			</>
+			{showPreloader && <PageLoader />}
+			{!showPreloader && (
+				<>
+					<Header />
+					<HeroSection />
+					<AnimatedSection />
+					<FirstSection />
+					<SecondSection />
+					<ThirdSection />
+					<FinalSection />
+				</>
+			)}
 		</div>
 	);
 };
