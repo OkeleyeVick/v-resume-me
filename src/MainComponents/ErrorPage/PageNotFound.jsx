@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 
 const PageNotFound = () => {
@@ -6,6 +7,7 @@ const PageNotFound = () => {
 		<React.Fragment>
 			<Header />
 			<div>PageNotFound</div>
+			<Footer />
 		</React.Fragment>
 	);
 };

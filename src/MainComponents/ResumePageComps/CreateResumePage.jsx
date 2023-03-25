@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 
 const CreateResumePage = () => {
@@ -22,6 +23,7 @@ const CreateResumePage = () => {
 		<React.Fragment>
 			<Header />
 			<div>CreateResumePage</div>
+			<Footer />
 		</React.Fragment>
 	);
 };

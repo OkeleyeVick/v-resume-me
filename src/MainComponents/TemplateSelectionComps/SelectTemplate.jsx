@@ -6,6 +6,7 @@ import resumeTwo from "../../assets/images/resume-2.png";
 import resumeThree from "../../assets/images/resume-3.png";
 import resumeFive from "../../assets/images/resume-5.png";
 import resumeSix from "../../assets/images/resume-6.png";
+import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 
 const SelectTemplate = () => {
@@ -36,7 +37,7 @@ const SelectTemplate = () => {
 											</button>
 											<Link
 												to=""
-												className="text-[11px] sm:text-sm selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white">
+												className="text-[11px] sm:text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white">
 												Use Template
 											</Link>
 										</div>
@@ -47,6 +48,7 @@ const SelectTemplate = () => {
 					</ul>
 				</div>
 			</div>
+			<Footer />
 		</React.Fragment>
 	);
 };
