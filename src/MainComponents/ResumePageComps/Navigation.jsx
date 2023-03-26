@@ -24,7 +24,7 @@ const Navigation = () => {
 				</div>
 				<div className="flex flex-col mt-4">
 					{navLinks.map((link, index) => {
-						const { icon_name, linkname, component } = link;
+						const { icon_name, linkname, component, size } = link;
 						return (
 							<React.Fragment key={index}>
 								<button
@@ -33,7 +33,7 @@ const Navigation = () => {
 									onClick={() => {
 										setComponent(component);
 									}}>
-									<Icon icon={icon_name} className="w-6 h-6" />
+									<Icon icon={icon_name} className={`${size}`} />
 									<span className="text-xs font-semibold capitalize">{linkname}</span>
 								</button>
 							</React.Fragment>
@@ -52,25 +52,31 @@ const navLinks = [
 		icon_name: "prime:user-edit",
 		linkname: "personal",
 		component: <PersonalComponent />,
+		size: "w-8 h-8",
 	},
 	{
 		icon_name: "fluent:globe-24-regular",
 		linkname: "Social",
 		component: <SocialComponent />,
+		size: "w-6 h-6",
 	},
 	{
-		icon_name: "fluent:globe-24-regular",
+		icon_name: "ph:note-pencil",
 		linkname: "Summary",
 		component: <SummaryComponent />,
+		size: "w-6 h-6",
 	},
 	{
-		icon_name: "fluent:globe-24-regular",
+		// icon_name: "simple-line-icons:briefcase",
+		icon_name: "ph:toolbox",
 		linkname: "Experience",
 		component: <WorkExperienceComponent />,
+		size: "w-6 h-6",
 	},
 	{
-		icon_name: "fluent:globe-24-regular",
+		icon_name: "carbon:tool-kit",
 		linkname: "Skills",
 		component: <SkillComponent />,
+		size: "w-7 h-7",
 	},
 ];
