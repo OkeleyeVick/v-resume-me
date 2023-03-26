@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import NavigationSublet from "./NavigationSublet";
 import Navigation from "./Navigation";
 import TemplateDisplay from "./TemplateDisplay";
-
 import PersonalComponent from "./NavComponents/PersonalComponent";
 
 export const componentContext = createContext();
@@ -11,7 +10,7 @@ const CreateResumePage = () => {
 
 	return (
 		<React.Fragment>
-			<componentContext.Provider value={component}>
+			<componentContext.Provider value={{ component, setComponent }}>
 				<div className="flex min-h-screen">
 					<div className="flex items-center w-[31.5%] h-screen">
 						<Navigation />
