@@ -16,7 +16,6 @@ const LandingPage = () => {
 		const timer = setTimeout(() => {
 			setShowPreloader(false);
 		}, 2500);
-
 		return () => clearTimeout(timer);
 	}, []);
 

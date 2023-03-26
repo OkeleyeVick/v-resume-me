@@ -35,7 +35,7 @@ const ThirdSection = () => {
 						</Link>
 					</div>
 				</div>
-				<div className="col-span-full md:col-start-2 md:col-end-3">
+				<div className="col-span-full md:col-start-2 md:col-end-3 flex items-center">
 					<img src={image} alt="" />
 				</div>
 			</div>
