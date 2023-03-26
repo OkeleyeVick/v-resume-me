@@ -29,7 +29,7 @@ const Navigation = () => {
 							<React.Fragment key={index}>
 								<button
 									type="button"
-									className={`p-3 flex flex-col items-center text-gray-300 hover:bg-custom_2`}
+									className={`p-3 flex flex-col items-center text-gray-300 hover:shadow-pink-500 hover:bg-custom_2`}
 									onClick={() => {
 										setComponent(component);
 									}}>
@@ -52,31 +52,31 @@ const navLinks = [
 		icon_name: "prime:user-edit",
 		linkname: "personal",
 		component: <PersonalComponent />,
-		size: "w-8 h-8",
+		size: "w-6 h-6",
 	},
 	{
 		icon_name: "fluent:globe-24-regular",
 		linkname: "Social",
 		component: <SocialComponent />,
-		size: "w-6 h-6",
+		size: "w-5 h-5",
 	},
 	{
 		icon_name: "ph:note-pencil",
 		linkname: "Summary",
 		component: <SummaryComponent />,
-		size: "w-6 h-6",
+		size: "w-5 h-5",
 	},
 	{
 		// icon_name: "simple-line-icons:briefcase",
 		icon_name: "ph:toolbox",
 		linkname: "Experience",
 		component: <WorkExperienceComponent />,
-		size: "w-6 h-6",
+		size: "w-5 h-5",
 	},
 	{
-		icon_name: "carbon:tool-kit",
+		icon_name: "codicon:tools",
 		linkname: "Skills",
 		component: <SkillComponent />,
-		size: "w-7 h-7",
+		size: "w-5 h-5",
 	},
 ];
