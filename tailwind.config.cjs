@@ -8,6 +8,7 @@ module.exports = {
 				main_2: "#EFF2F9",
 				main_3: "#0F141E",
 				hoverBgClr: "#6274F8",
+				button: "rgb(81 95 209)",
 			},
 			colors: {
 				main: "#8390FA",
