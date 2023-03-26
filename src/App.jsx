@@ -10,8 +10,8 @@ function App() {
 		<div className="App selection:text-main selection:bg-main group selection:bg-opacity-10">
 			<Routes>
 				<Route path="/" element={<LandingPage />} />
-				<Route path="/create-resume" element={<CreateResumePage />} />
 				<Route path="/select-template" element={<SelectTemplate />} />
+				<Route path="/create-resume/:id/*" element={<CreateResumePage />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>

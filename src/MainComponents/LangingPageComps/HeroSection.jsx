@@ -18,7 +18,7 @@ const HeroSection = () => {
 						</span>
 						<div className="mt-10">
 							<Link
-								to="/create-resume"
+								to="/"
 								className="text-base text-white bg-main rounded-md py-4 px-6 md:py-5 transition ease-in-out duration-500 hover:bg-hoverBgClr selection:text-white font-semibold">
 								Let's create you a resumé
 							</Link>

@@ -21,7 +21,7 @@ const SelectTemplate = () => {
 				<div className="py-8 px-4 md:py-16">
 					<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10 md:gap-8 md:gap-y-20">
 						{resumes.map((resume, resumeIndex) => {
-							const { image } = resume;
+							const { image, resumetype } = resume;
 							return (
 								<React.Fragment key={resumeIndex}>
 									<div>
@@ -36,7 +36,7 @@ const SelectTemplate = () => {
 												<Icon icon="carbon:document-view" className="md:hidden w-5 h-4" />
 											</button>
 											<Link
-												to=""
+												to={`/create-resume/${resumetype}`}
 												className="text-[11px] sm:text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white">
 												Use Template
 											</Link>
@@ -58,17 +58,22 @@ export default SelectTemplate;
 const resumes = [
 	{
 		image: resumeFive,
+		resumetype: "basic",
 	},
 	{
 		image: resumeSix,
+		resumetype: "standard",
 	},
 	{
 		image: resumeThree,
+		resumetype: "premium",
 	},
 	{
 		image: resumeTwo,
+		resumetype: "professional",
 	},
 	{
 		image: resumeOne,
+		resumetype: "expert",
 	},
 ];

@@ -13,6 +13,8 @@ module.exports = {
 				main: "#8390FA",
 				main_2: "#EFF2F9",
 				main_3: "#0F141E",
+				custom_1: "#182341",
+				custom_2: "#273250",
 				text_clr: "#1E2532",
 			},
 			boxShadow: {
