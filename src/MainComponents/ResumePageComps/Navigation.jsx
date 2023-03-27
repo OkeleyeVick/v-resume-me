@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { componentContext } from "./CreateResumePage";
 import SkillComponent from "./NavComponents/SkillComponent";
@@ -12,6 +12,52 @@ import EducationComponent from "./NavComponents/EducationComponent";
 
 const Navigation = () => {
 	const { setComponent } = useContext(componentContext);
+	const [buttonActive, setButtonActive] = useState(0);
+
+	const navLinks = [
+		{
+			icon_name: "prime:user-edit",
+			linkname: "personal",
+			component: <PersonalComponent />,
+			size: "w-6 h-6",
+		},
+		{
+			icon_name: "ph:note-pencil",
+			linkname: "Summary",
+			component: <SummaryComponent />,
+			size: "w-5 h-5",
+		},
+		{
+			icon_name: "carbon:education",
+			linkname: "Education",
+			component: <EducationComponent />,
+			size: "w-5 h-5",
+		},
+		{
+			icon_name: "fluent:globe-24-regular",
+			linkname: "Socials",
+			component: <SocialComponent />,
+			size: "w-5 h-5",
+		},
+		{
+			icon_name: "ph:toolbox",
+			linkname: "Experience",
+			component: <WorkExperienceComponent />,
+			size: "w-5 h-5",
+		},
+		{
+			icon_name: "codicon:tools",
+			linkname: "Skills",
+			component: <SkillComponent />,
+			size: "w-5 h-5",
+		},
+		{
+			icon_name: "ci:swatches-palette",
+			linkname: "Theme",
+			component: <ThemeComponent />,
+			size: "w-6 h-6",
+		},
+	];
 
 	return (
 		<div className="flex items-center justify-between bg-custom_1 h-full">
@@ -31,12 +77,17 @@ const Navigation = () => {
 							<React.Fragment key={index}>
 								<button
 									type="button"
-									className={`outline-none p-3 flex flex-col items-center text-gray-300 hover:bg-slate-900 hover:bg-opacity-50`}
+									className={`${
+										buttonActive === index
+											? "bg-slate-900 text-main hover:bg-slate-800"
+											: "hover:bg-opacity-80 hover:bg-gray-700 text-gray-300"
+									} outline-none p-3 flex flex-col items-center `}
 									onClick={() => {
 										setComponent(component);
+										setButtonActive(index);
 									}}>
 									<Icon icon={icon_name} className={`${size}`} />
-									<span className="text-xs font-semibold capitalize">{linkname}</span>
+									<span className={`text-xs font-semibold capitalize`}>{linkname}</span>
 								</button>
 							</React.Fragment>
 						);
@@ -48,49 +99,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
-const navLinks = [
-	{
-		icon_name: "prime:user-edit",
-		linkname: "personal",
-		component: <PersonalComponent />,
-		size: "w-6 h-6",
-	},
-	{
-		icon_name: "ph:note-pencil",
-		linkname: "Summary",
-		component: <SummaryComponent />,
-		size: "w-5 h-5",
-	},
-	{
-		icon_name: "carbon:education",
-		// icon_name: "material-symbols:school-outline-rounded",
-		linkname: "Education",
-		component: <EducationComponent />,
-		size: "w-5 h-5",
-	},
-	{
-		icon_name: "fluent:globe-24-regular",
-		linkname: "Social",
-		component: <SocialComponent />,
-		size: "w-5 h-5",
-	},
-	{
-		icon_name: "ph:toolbox",
-		linkname: "Experience",
-		component: <WorkExperienceComponent />,
-		size: "w-5 h-5",
-	},
-	{
-		icon_name: "codicon:tools",
-		linkname: "Skills",
-		component: <SkillComponent />,
-		size: "w-5 h-5",
-	},
-	{
-		icon_name: "ci:swatches-palette",
-		linkname: "Theme",
-		component: <ThemeComponent />,
-		size: "w-6 h-6",
-	},
-];

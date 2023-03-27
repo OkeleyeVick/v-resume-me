@@ -12,7 +12,7 @@ const linkInputs = [
 	{
 		label: "LinkedIn",
 		placeholder: "Enter Linkedin link",
-		icon: "mingcute:mail-fill",
+		icon: "ri:linkedin-box-fill",
 		name: "linkedin-profile-link",
 	},
 	{
@@ -48,20 +48,36 @@ const SocialComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="flex flex-col gap-8 mt-8">
-				{linkInputs.map((linkItem, linkIndex) => {
-					const { label, placeholder, icon, name } = linkItem;
-					return (
-						<React.Fragment key={linkIndex}>
-							<LinkInput
-								label={label}
-								icon={<Icon icon={icon} className="text-gray-500 w-6 h-6" />}
-								placeholder={placeholder}
-								name={name}
-							/>
-						</React.Fragment>
-					);
-				})}
+			<div className="flex items-center overflow-y-scroll mt-5 pt-4 h-[85vh] no-scroll pr-2">
+				<form action="" className="w-full my-8">
+					<div className="flex flex-col gap-8 mt-8">
+						{linkInputs.map((linkItem, linkIndex) => {
+							const { label, placeholder, icon, name } = linkItem;
+							return (
+								<React.Fragment key={linkIndex}>
+									<LinkInput
+										label={label}
+										icon={<Icon icon={icon} className="text-gray-500 w-6 h-6" />}
+										placeholder={placeholder}
+										name={name}
+									/>
+								</React.Fragment>
+							);
+						})}
+					</div>
+					<div className="mt-6 flex items-center gap-2">
+						<button
+							type="submit"
+							className="text-sm text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
+							Save
+						</button>
+						<button
+							type="button"
+							className="text-sm text-gray-300 border-[1.5px] border-main rounded-md px-6 py-3 hover:bg-main hover:text-white hover:border-hoverBgClr">
+							Cancel all
+						</button>
+					</div>
+				</form>
 			</div>
 		</React.Fragment>
 	);

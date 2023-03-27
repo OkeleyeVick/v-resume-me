@@ -15,6 +15,7 @@ module.exports = {
 				main_2: "#EFF2F9",
 				main_3: "#0F141E",
 				custom_1: "#182341",
+				hoverBgClr: "#6274F8",
 				custom_2: "#273250",
 				text_clr: "#1E2532",
 			},
