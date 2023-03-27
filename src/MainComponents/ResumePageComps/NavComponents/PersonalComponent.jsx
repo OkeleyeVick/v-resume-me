@@ -4,6 +4,11 @@ import Input from "../../GeneralComponents/Input";
 const PersonalComponent = () => {
 	return (
 		<React.Fragment>
+			<div className="text-end">
+				<button type="button" className="rounded-md bg-main text-slate-200 text-[.9rem] px-4 py-3 hover:bg-hoverBgClr">
+					Take hints
+				</button>
+			</div>
 			<div className="flex flex-col gap-8 mt-8">
 				<Input label="Fullname" type="text" aria-label="Name input" ariaLabel="Name input" placeholder="Enter your name" />
 				<Input label="Position" type="text" aria-label="position" ariaLabel="position" placeholder="Enter your position" />
