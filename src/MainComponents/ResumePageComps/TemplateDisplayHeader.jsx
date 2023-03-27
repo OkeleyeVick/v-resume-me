@@ -4,15 +4,20 @@ import React from "react";
 const TemplateDisplayHeader = () => {
 	return (
 		<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
-			<div className="flex items-center justify-between gap-2 group">
+			<div className="flex items-center justify-between gap-2 group/inputParent">
 				<input
 					type="text"
-					placeholder="Enter file name"
+					placeholder="Add a filename"
 					aria-label="filename"
-					className=" bg-transparent border-[1.5px] transition duration-300 ease-in-out border-gray-400 focus:border-main w-64 rounded-md focus:outline focus:shadow-none min-h-[2.8rem] p-2 text-white text-sm font-normal"
+					className="bg-transparent border-[1.5px] transition duration-300 ease-in-out border-gray-400 focus:border-main w-64 rounded-md focus:outline focus:shadow-none min-h-[2.8rem] p-2 text-white text-sm font-normal"
 				/>
-				<button type="button" className=" opacity-0 pointer-event-none group-focus-within:opacity-100 group-focus-within:pointer-event-auto">
-					<Icon icon="fluent:chat-warning-20-filled" className="text-main w-6 h-6" />
+				<button
+					type="button"
+					onClick={function () {
+						console.log(this);
+					}}
+					className="outline-none opacity-0 pointer-event-none group-focus-within/inputParent:opacity-100 group-focus-within/inputParent:pointer-event-auto">
+					<Icon icon="fluent:chat-warning-20-filled" className="text-main w-6 h-6 animate-bounce" />
 				</button>
 			</div>
 			<div className="flex items-center gap-x-4">

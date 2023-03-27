@@ -7,6 +7,7 @@ import PersonalComponent from "./NavComponents/PersonalComponent";
 import SocialComponent from "./NavComponents/SocialComponent";
 import SummaryComponent from "./NavComponents/SummaryComponent";
 import WorkExperienceComponent from "./NavComponents/WorkExperienceComponent";
+import ThemeComponent from "./NavComponents/ThemeComponent";
 
 const Navigation = () => {
 	const { setComponent } = useContext(componentContext);
@@ -22,14 +23,14 @@ const Navigation = () => {
 						</div>
 					</Link>
 				</div>
-				<div className="flex flex-col mt-4">
+				<div className="flex flex-col mt-4 relative">
 					{navLinks.map((link, index) => {
 						const { icon_name, linkname, component, size } = link;
 						return (
 							<React.Fragment key={index}>
 								<button
 									type="button"
-									className={`p-3 flex flex-col items-center text-gray-300 hover:shadow-pink-500 hover:bg-custom_2`}
+									className={`outline-none p-3 flex flex-col items-center text-gray-300 hover:bg-custom_2`}
 									onClick={() => {
 										setComponent(component);
 									}}>
@@ -67,7 +68,6 @@ const navLinks = [
 		size: "w-5 h-5",
 	},
 	{
-		// icon_name: "simple-line-icons:briefcase",
 		icon_name: "ph:toolbox",
 		linkname: "Experience",
 		component: <WorkExperienceComponent />,
@@ -78,5 +78,11 @@ const navLinks = [
 		linkname: "Skills",
 		component: <SkillComponent />,
 		size: "w-5 h-5",
+	},
+	{
+		icon_name: "ci:swatches-palette",
+		linkname: "Theme",
+		component: <ThemeComponent />,
+		size: "w-6 h-6",
 	},
 ];
