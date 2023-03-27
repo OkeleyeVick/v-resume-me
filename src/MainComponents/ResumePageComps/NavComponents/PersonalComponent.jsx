@@ -15,7 +15,7 @@ const PersonalComponent = () => {
 				<Input label="Phone" type="number" aria-label="position" ariaLabel="position" placeholder="Enter number" />
 				<Input label="Address" type="text" aria-label="address" ariaLabel="address" placeholder="Enter address" />
 				<Input label="State" type="text" aria-label="text" ariaLabel="text" placeholder="Enter state" />
-				<Input label="ZIP Code" type="text" aria-label="text" ariaLabel="text" placeholder="Enter zip code" />
+				<Input label="ZIP Code" type="text" aria-label="text" ariaLabel="text" placeholder="Enter ZIP code" />
 			</div>
 		</React.Fragment>
 	);

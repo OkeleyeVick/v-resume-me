@@ -42,21 +42,28 @@ const linkInputs = [
 ];
 const SocialComponent = () => {
 	return (
-		<div className="flex flex-col gap-8 mt-8">
-			{linkInputs.map((linkItem, linkIndex) => {
-				const { label, placeholder, icon, name } = linkItem;
-				return (
-					<React.Fragment key={linkIndex}>
-						<LinkInput
-							label={label}
-							icon={<Icon icon={icon} className="text-gray-500 w-6 h-6" />}
-							placeholder={placeholder}
-							name={name}
-						/>
-					</React.Fragment>
-				);
-			})}
-		</div>
+		<React.Fragment>
+			<div className="text-end">
+				<button type="button" className="rounded-md bg-main text-slate-200 text-[.9rem] px-4 py-3 hover:bg-hoverBgClr">
+					Take hints
+				</button>
+			</div>
+			<div className="flex flex-col gap-8 mt-8">
+				{linkInputs.map((linkItem, linkIndex) => {
+					const { label, placeholder, icon, name } = linkItem;
+					return (
+						<React.Fragment key={linkIndex}>
+							<LinkInput
+								label={label}
+								icon={<Icon icon={icon} className="text-gray-500 w-6 h-6" />}
+								placeholder={placeholder}
+								name={name}
+							/>
+						</React.Fragment>
+					);
+				})}
+			</div>
+		</React.Fragment>
 	);
 };
 

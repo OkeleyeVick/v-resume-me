@@ -8,6 +8,7 @@ import SocialComponent from "./NavComponents/SocialComponent";
 import SummaryComponent from "./NavComponents/SummaryComponent";
 import WorkExperienceComponent from "./NavComponents/WorkExperienceComponent";
 import ThemeComponent from "./NavComponents/ThemeComponent";
+import EducationComponent from "./NavComponents/EducationComponent";
 
 const Navigation = () => {
 	const { setComponent } = useContext(componentContext);
@@ -56,15 +57,22 @@ const navLinks = [
 		size: "w-6 h-6",
 	},
 	{
-		icon_name: "fluent:globe-24-regular",
-		linkname: "Social",
-		component: <SocialComponent />,
-		size: "w-5 h-5",
-	},
-	{
 		icon_name: "ph:note-pencil",
 		linkname: "Summary",
 		component: <SummaryComponent />,
+		size: "w-5 h-5",
+	},
+	{
+		icon_name: "carbon:education",
+		// icon_name: "material-symbols:school-outline-rounded",
+		linkname: "Education",
+		component: <EducationComponent />,
+		size: "w-5 h-5",
+	},
+	{
+		icon_name: "fluent:globe-24-regular",
+		linkname: "Social",
+		component: <SocialComponent />,
 		size: "w-5 h-5",
 	},
 	{
