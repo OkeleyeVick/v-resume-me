@@ -11,6 +11,8 @@ const Input = ({ ariaLabel, placeholder, type, label }) => {
 				</label>
 				<input
 					className="bg-transparent text-slate-300 border-gray-300 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-sm"
+					spellCheck="false"
+					autoComplete="false"
 					placeholder={placeholder}
 					type={type}
 					aria-label={ariaLabel}
