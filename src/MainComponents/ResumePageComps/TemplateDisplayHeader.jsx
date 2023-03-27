@@ -1,16 +1,12 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import Input from "../GeneralComponents/Input";
 
 const TemplateDisplayHeader = () => {
 	return (
 		<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
 			<div className="flex items-center justify-between gap-2 group/inputParent">
-				<input
-					type="text"
-					placeholder="Add a filename"
-					aria-label="filename"
-					className="bg-transparent border-[1.5px] transition duration-300 ease-in-out border-gray-400 focus:border-main w-64 rounded-md focus:outline focus:shadow-none min-h-[2.8rem] p-2 text-white text-sm font-normal"
-				/>
+				<Input type="text" placeholder="Add a filename" ariaLabel="filename" aria-label="filename" />
 				<button
 					type="button"
 					onClick={function () {

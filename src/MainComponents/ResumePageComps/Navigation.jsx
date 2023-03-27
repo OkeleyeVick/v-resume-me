@@ -30,7 +30,7 @@ const Navigation = () => {
 							<React.Fragment key={index}>
 								<button
 									type="button"
-									className={`outline-none p-3 flex flex-col items-center text-gray-300 hover:bg-custom_2`}
+									className={`outline-none p-3 flex flex-col items-center text-gray-300 hover:bg-slate-900 hover:bg-opacity-50`}
 									onClick={() => {
 										setComponent(component);
 									}}>
