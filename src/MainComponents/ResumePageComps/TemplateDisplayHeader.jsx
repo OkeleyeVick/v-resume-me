@@ -6,7 +6,7 @@ const TemplateDisplayHeader = () => {
 	return (
 		<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
 			<div className="flex items-center justify-between gap-2 group/inputParent">
-				<Input type="text" placeholder="Add a filename" ariaLabel="filename" aria-label="filename" />
+				<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
 				<button
 					type="button"
 					onClick={function () {
