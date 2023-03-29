@@ -1,5 +1,4 @@
-import React from "react";
-import Input from "../../GeneralComponents/Input";
+import React, { useState } from "react";
 
 const SkillComponent = () => {
 	return <React.Fragment></React.Fragment>;
