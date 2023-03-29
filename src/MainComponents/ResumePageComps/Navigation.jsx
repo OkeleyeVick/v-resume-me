@@ -63,8 +63,10 @@ const Navigation = () => {
 		<div className="flex items-center justify-between bg-custom_1 h-full">
 			<div className="h-full">
 				<div className="p-2">
-					<Link to="/" className="flex flex-col items-center border-2 border-main p-1 gap-y-1 py-4 ">
-						<div className="font-bold text-xs uppercase flex flex-col items-center leading-none text-main">
+					<Link
+						to="/"
+						className="relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full flex flex-col items-center border-2 border-main p-1 gap-y-1 py-4 ">
+						<div className="font-bold relative text-xs uppercase flex flex-col items-center leading-none text-main">
 							<span>Resume</span>
 							<span>.me</span>
 						</div>
@@ -77,17 +79,19 @@ const Navigation = () => {
 							<React.Fragment key={index}>
 								<button
 									type="button"
-									className={`${
+									className={`
+									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full
+									${
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
 											: "hover:bg-opacity-80 hover:bg-gray-700 text-gray-300"
-									} outline-none p-3 flex flex-col items-center `}
+									} outline-none p-3 flex flex-col items-center`}
 									onClick={() => {
 										setComponent(component);
 										setButtonActive(index);
 									}}>
-									<Icon icon={icon_name} className={`${size}`} />
-									<span className={`text-xs font-semibold capitalize`}>{linkname}</span>
+									<Icon icon={icon_name} className={`${size} relative`} />
+									<span className={`text-xs font-semibold capitalize relative`}>{linkname}</span>
 								</button>
 							</React.Fragment>
 						);

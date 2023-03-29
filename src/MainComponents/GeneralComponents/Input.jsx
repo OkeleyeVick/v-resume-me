@@ -10,7 +10,7 @@ const Input = ({ ariaLabel, placeholder, type, label }) => {
 					{label}
 				</label>
 				<input
-					className="bg-transparent text-slate-300 text-[.9rem] border-gray-300 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-sm"
+					className="bg-transparent text-slate-300 text-[.9rem] border-gray-500 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-sm"
 					spellCheck="false"
 					autoComplete="false"
 					placeholder={placeholder}

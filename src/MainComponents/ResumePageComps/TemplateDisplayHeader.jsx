@@ -10,7 +10,7 @@ const TemplateDisplayHeader = () => {
 				<button
 					type="button"
 					onClick={function () {
-						console.log(this);
+						console.log("Well done");
 					}}
 					className="outline-none opacity-0 pointer-event-none group-focus-within/inputParent:opacity-100 group-focus-within/inputParent:pointer-event-auto">
 					<Icon icon="fluent:chat-warning-20-filled" className="text-main w-6 h-6 animate-bounce" />
