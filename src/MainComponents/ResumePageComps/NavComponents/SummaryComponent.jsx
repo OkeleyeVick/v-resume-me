@@ -12,7 +12,7 @@ const SummaryComponent = () => {
 			</div>
 			<div className="mt-5 pt-4 h-[85vh] pr-2">
 				<div className="my-4 text-end">
-					<span className="text-sm text-main">Not more than 250 character</span>
+					<span className="text-sm text-main">Not more than 1000 characters.</span>
 				</div>
 				<form action="">
 					<TextArea summary={textAreaRef} label="Summary" name="summary" />
