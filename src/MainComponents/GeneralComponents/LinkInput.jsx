@@ -15,7 +15,7 @@ const LinkInput = ({ name, ariaLabel, icon, placeholder, label }) => {
 				autoComplete="off"
 				aria-label={ariaLabel}
 				placeholder={placeholder}
-				className="bg-transparent text-gray-300 text-[.9rem] border-gray-400 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 pl-9 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-sm"
+				className="bg-transparent text-gray-300 text-[.8rem] border-gray-400 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 pl-9 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-[.8rem]"
 			/>
 		</div>
 	);

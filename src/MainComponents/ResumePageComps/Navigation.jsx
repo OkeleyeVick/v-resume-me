@@ -13,6 +13,12 @@ import EducationComponent from "./NavComponents/EducationComponent";
 const Navigation = () => {
 	const { setComponent } = useContext(componentContext);
 	const [buttonActive, setButtonActive] = useState(0);
+	const [top, setTop] = useState(0);
+
+	const handleSpanHeight = (index) => {
+		const multiple = index * 65;
+		setTop(multiple);
+	};
 
 	const navLinks = [
 		{
@@ -73,6 +79,9 @@ const Navigation = () => {
 					</Link>
 				</div>
 				<div className="flex flex-col mt-4 relative">
+					<div
+						className="bg-main w-[3px] h-[65px] absolute top-0 right-0 z-[1] transition ease-in-out duration-300"
+						style={{ translate: `0px ${top}px`, transition: "300ms ease-in-out !important" }}></div>
 					{navLinks.map((link, index) => {
 						const { icon_name, linkname, component, size } = link;
 						return (
@@ -80,7 +89,7 @@ const Navigation = () => {
 								<button
 									type="button"
 									className={`
-									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full
+									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[65px]
 									${
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
@@ -89,6 +98,7 @@ const Navigation = () => {
 									onClick={() => {
 										setComponent(component);
 										setButtonActive(index);
+										handleSpanHeight(index);
 									}}>
 									<Icon icon={icon_name} className={`${size} relative`} />
 									<span className={`text-xs font-semibold capitalize relative`}>{linkname}</span>
