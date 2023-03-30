@@ -11,8 +11,8 @@ const SecondSection = () => {
 				<h1 className="font-extrabold text-4xl md:text-5xl">Proven resumé templates</h1>
 				<div className="my-8">
 					<span className="text-slate-400">
-						Win over employers and recruiters by using one of our 5 professionally-designed cover letter templates. Download to Word or
-						PDF.
+						Win over employers and recruiters by using one of our 5 professionally-designed resume templates. Download as Word docx format
+						or PDF format.
 					</span>
 				</div>
 			</div>
