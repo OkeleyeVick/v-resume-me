@@ -80,8 +80,8 @@ const Navigation = () => {
 				</div>
 				<div className="flex flex-col mt-4 relative">
 					<div
-						className="bg-main w-[3px] h-[65px] absolute top-0 right-0 z-[1] transition ease-in-out duration-300"
-						style={{ translate: `0px ${top}px`, transition: "300ms ease-in-out !important" }}></div>
+						className="bg-main w-[3px] h-[65px] absolute top-0 right-0 z-[1]"
+						style={{ translate: `0px ${top}px`, transition: "300ms ease-in-out" }}></div>
 					{navLinks.map((link, index) => {
 						const { icon_name, linkname, component, size } = link;
 						return (
