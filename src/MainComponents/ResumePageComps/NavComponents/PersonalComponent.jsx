@@ -3,6 +3,10 @@ import GoBackButton from "../../GeneralComponents/GoBackButton";
 import Input from "../../GeneralComponents/Input";
 
 const PersonalComponent = () => {
+	function doThis() {
+		console.log("I love you");
+	}
+
 	return (
 		<React.Fragment>
 			<div className="flex items-center justify-between">

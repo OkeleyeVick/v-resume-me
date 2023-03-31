@@ -7,7 +7,7 @@ const BasicTemplate = () => {
 			<section className="col-span-1 bg-[#DEAB52] p-4" style={{ backgroundColor: "" }}>
 				<PersonalDetails />
 			</section>
-			<section className="col-span-2 text-sm">
+			<section className="col-span-2 text-xs">
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero necessitatibus nihil doloribus fuga quae magnam aut temporibus fugit
 				dicta, neque numquam amet totam? Porro sequi corrupti et, nulla ad perspiciatis est dolorem! Consequuntur tempore hic laudantium
 				voluptatibus ut similique neque voluptatem, eligendi accusamus ipsa unde aut labore quaerat odio nostrum quos temporibus assumenda

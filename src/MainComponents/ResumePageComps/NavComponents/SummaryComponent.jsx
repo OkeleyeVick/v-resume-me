@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
+import GoBackButton from "../../GeneralComponents/GoBackButton";
 import TextArea from "../../GeneralComponents/TextArea";
 
 const SummaryComponent = () => {
 	const textAreaRef = useRef();
 	return (
 		<React.Fragment>
-			<div className="text-end">
+			<div className="flex items-center justify-between">
+				<GoBackButton />
 				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr">
 					Take hints
 				</button>
