@@ -6,7 +6,7 @@ const SummaryComponent = () => {
 	return (
 		<React.Fragment>
 			<div className="text-end">
-				<button type="button" className="rounded-md bg-main text-slate-200 text-[.9rem] px-4 py-3 hover:bg-hoverBgClr">
+				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr">
 					Take hints
 				</button>
 			</div>
