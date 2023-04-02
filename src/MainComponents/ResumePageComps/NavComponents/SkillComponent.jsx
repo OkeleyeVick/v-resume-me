@@ -26,7 +26,7 @@ const SkillComponent = () => {
 			skillname: "Python",
 		},
 		{
-			skillname: "Python",
+			skillname: "Flutter",
 		},
 	];
 
@@ -75,9 +75,9 @@ const SkillComponent = () => {
 					<div className="flex flex-col gap-8">
 						<div>
 							<h5 className="text-main text-sm font-semibold my-1">Add skill</h5>
-							<Input ariaLabel="skill" aria-label="skill" />
+							<Input ariaLabel="skill" aria-label="skill" placeholder="Enter your skills" />
 						</div>
-						<div className="relative">
+						<div className="relative isolate">
 							<span className="text-sm text-main font-bold">View mode</span>
 							<button
 								// disabled
@@ -89,8 +89,8 @@ const SkillComponent = () => {
 							</button>
 							<div
 								className={`${
-									isActive ? "h-0 opacity-0" : "opacity-100 h-[170px]"
-								} overflow-hidden absolute w-full top-full rounded-md mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top`}>
+									isActive ? "h-0 opacity-0" : "opacity-100 h-[175px]"
+								} overflow-hidden absolute w-full top-full rounded-md isolate mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top py-1`}>
 								<input type="hidden" name="" />
 								<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
 									{viewOptions.map((items, itemIndex) => {
