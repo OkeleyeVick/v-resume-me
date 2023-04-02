@@ -12,7 +12,7 @@ const ThemeComponent = () => {
 	useEffect(() => {}, []);
 	return (
 		<React.Fragment>
-			<div className="relative flex flex-col items-center justify-end">
+			<div className="relative flex items-center justify-end">
 				<button
 					type="button"
 					className="border border-gray-400 rounded-md py-2 px-4"
