@@ -59,8 +59,8 @@ const SkillComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="flex flex-col overflow-y-auto h-[85vh] no-scroll pr-2 mt-4">
-				<div className="border flex flex-wrap border-main text-xs p-2 gap-1 rounded-lg bg-gray-900 mt-3 group">
+			<div className="flex flex-col justify-start overflow-y-auto h-[85vh] no-scroll pr-2 mt-4 gap-3">
+				<div className="border flex flex-wrap border-main text-xs p-2 gap-1 rounded-lg bg-gray-900 group">
 					{skills.map(({ skillname }, index) => {
 						return (
 							<React.Fragment key={index}>
