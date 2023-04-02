@@ -3,19 +3,46 @@ import React from "react";
 import Input from "../GeneralComponents/Input";
 
 const TemplateDisplayHeader = () => {
+	const formats = [{ format: ".pdf" }, { format: ".docx" }];
+
 	return (
 		<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
-			<div className="flex items-center justify-between gap-2 group/inputParent">
-				<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
-				<button
-					type="button"
-					onClick={function () {
-						console.log("Well done");
-					}}
-					className="outline-none opacity-0 pointer-event-none group-focus-within/inputParent:opacity-100 group-focus-within/inputParent:pointer-event-auto">
-					<Icon icon="fluent:chat-warning-20-filled" className="text-main w-6 h-6 animate-bounce" />
-				</button>
-			</div>
+			<form action="">
+				<div className="flex items-center gap-3">
+					<div className="flex items-center gap-2 group/inputParent">
+						<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
+						<button
+							type="button"
+							onClick={function () {
+								console.log("Well done");
+							}}
+							className="outline-none opacity-0 pointer-event-none group-focus-within/inputParent:opacity-100 group-focus-within/inputParent:pointer-event-auto">
+							<Icon icon="fluent:chat-warning-20-filled" className="text-main w-6 h-6 animate-bounce" />
+						</button>
+					</div>
+					{/* button to select file format */}
+					<div className="relative">
+						<button
+							type="button"
+							className="cursor-pointer border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3">
+							<span>.pdf</span>
+							<Icon icon="ion:chevron-down-outline" />
+						</button>
+						<div className="absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem]">
+							<input type="hidden" name="" />
+							{formats.map(({ format }, formatIndex) => (
+								<React.Fragment key={formatIndex}>
+									<button
+										type="button"
+										className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md">
+										<span className="text-xs">{format}</span>
+									</button>
+								</React.Fragment>
+							))}
+						</div>
+					</div>
+				</div>
+			</form>
 			<div className="flex items-center gap-x-4">
 				<button
 					type="button"
