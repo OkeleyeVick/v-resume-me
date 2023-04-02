@@ -11,6 +11,9 @@ const SkillComponent = () => {
 			skillname: "HTML",
 		},
 		{
+			skillname: "CSS",
+		},
+		{
 			skillname: "Javascript",
 		},
 		{
@@ -56,8 +59,8 @@ const SkillComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="flex flex-col overflow-y-auto h-[85vh] no-scroll pr-2">
-				<div className="border flex flex-wrap border-main text-xs p-2 gap-1 rounded-lg bg-gray-900 mt-6 group">
+			<div className="flex flex-col overflow-y-auto h-[85vh] no-scroll pr-2 mt-4">
+				<div className="border flex flex-wrap border-main text-xs p-2 gap-1 rounded-lg bg-gray-900 mt-3 group">
 					{skills.map(({ skillname }, index) => {
 						return (
 							<React.Fragment key={index}>
@@ -72,10 +75,11 @@ const SkillComponent = () => {
 					})}
 				</div>
 				<form action="" className="w-full mt-3">
-					<div className="flex flex-col gap-8">
+					<div className="flex flex-col gap-4">
 						<div>
 							<h5 className="text-main text-sm font-semibold my-1">Add skill</h5>
 							<Input ariaLabel="skill" aria-label="skill" placeholder="Enter your skills" />
+							<button className="bg-main text-xs rounded-md py-3 mt-2 px-5 w-full hover:bg-hoverBgClr">Add</button>
 						</div>
 						<div className="relative isolate">
 							<span className="text-sm text-main font-bold">View mode</span>
@@ -89,7 +93,7 @@ const SkillComponent = () => {
 							</button>
 							<div
 								className={`${
-									isActive ? "h-0 opacity-0" : "opacity-100 h-[175px]"
+									isActive ? "opacity-100 h-[175px]" : "h-0 opacity-0"
 								} overflow-hidden absolute w-full top-full rounded-md isolate mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top py-1`}>
 								<input type="hidden" name="" />
 								<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
