@@ -1,9 +1,34 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import GoBackButton from "../../GeneralComponents/GoBackButton";
+import Input from "../../GeneralComponents/Input";
 
 const SkillComponent = () => {
 	const [isActive, setIsActive] = useState(false);
+
+	const skills = [
+		{
+			skillname: "HTML",
+		},
+		{
+			skillname: "Javascript",
+		},
+		{
+			skillname: "PHP",
+		},
+		{
+			skillname: "Typescript",
+		},
+		{
+			skillname: "Go	",
+		},
+		{
+			skillname: "Python",
+		},
+		{
+			skillname: "Python",
+		},
+	];
 
 	const viewOptions = [
 		{
@@ -32,43 +57,56 @@ const SkillComponent = () => {
 				</button>
 			</div>
 			<div className="flex flex-col overflow-y-auto h-[85vh] no-scroll pr-2">
-				<div className="border border-main text-xs p-1 rounded-lg bg-gray-900 mt-6">
-					// This place should contain each skill and tool added with a delete button so that when done, they can paste it in the pdf format
-					or delete them before pasting them
+				<div className="border flex flex-wrap border-main text-xs p-2 gap-1 rounded-lg bg-gray-900 mt-6 group">
+					{skills.map(({ skillname }, index) => {
+						return (
+							<React.Fragment key={index}>
+								<span className="flex items-center gap-1 bg-slate-700 rounded-md p-1 px-[.5rem]">
+									<span className="text-xs">{skillname}</span>
+									<button className="rounded-full p-1 bg-transparent hover:bg-slate-900">
+										<Icon icon="tabler:x" className="w-3 h-3" />
+									</button>
+								</span>
+							</React.Fragment>
+						);
+					})}
 				</div>
 				<form action="" className="w-full mt-3">
-					<div className="flex flex-col gap-8 mt-8">
-						<h5 className="text-main text-sm font-semibold">Add skill</h5>
-					</div>
-					<div className="relative">
-						<span className="text-sm text-main font-bold">View mode</span>
-						<button
-							// disabled
-							type="button"
-							className={`flex //cursor-not-allowed mt-2 justify-between w-full items-center rounded-md border-main border p-3`}
-							onClick={() => setIsActive((prev) => !prev)}>
-							<h6 className="text-sm text-gray-200">Tabs</h6>
-							<Icon icon="ph:caret-up-down-fill" className="text-main w-5 h-5" />
-						</button>
-						<div
-							className={`${
-								isActive ? "h-0 opacity-0" : "opacity-100 h-[170px]"
-							} overflow-hidden absolute w-full top-full rounded-md mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top`}>
-							<input type="hidden" name="" />
-							<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
-								{viewOptions.map((items, itemIndex) => {
-									const { icon, name } = items;
-									return (
-										<React.Fragment key={itemIndex}>
-											<button
-												type="button"
-												className="text-slate-400 flex items-center justify-start gap-2 hover:bg-slate-800 hover:text-slate-200 rounded-lg p-3">
-												<Icon icon={icon} />
-												<span className="text-xs capitalize">{name}</span>
-											</button>
-										</React.Fragment>
-									);
-								})}
+					<div className="flex flex-col gap-8">
+						<div>
+							<h5 className="text-main text-sm font-semibold my-1">Add skill</h5>
+							<Input ariaLabel="skill" aria-label="skill" />
+						</div>
+						<div className="relative">
+							<span className="text-sm text-main font-bold">View mode</span>
+							<button
+								// disabled
+								type="button"
+								className={`flex //cursor-not-allowed mt-2 justify-between w-full items-center rounded-md border-main border p-3 outline-none`}
+								onClick={() => setIsActive((prev) => !prev)}>
+								<h6 className="text-sm text-gray-200">Tabs</h6>
+								<Icon icon="ph:caret-up-down-fill" className="text-main w-5 h-5" />
+							</button>
+							<div
+								className={`${
+									isActive ? "h-0 opacity-0" : "opacity-100 h-[170px]"
+								} overflow-hidden absolute w-full top-full rounded-md mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top`}>
+								<input type="hidden" name="" />
+								<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
+									{viewOptions.map((items, itemIndex) => {
+										const { icon, name } = items;
+										return (
+											<React.Fragment key={itemIndex}>
+												<button
+													type="button"
+													className="text-slate-400 flex items-center justify-start gap-2 hover:bg-slate-800 hover:text-slate-200 rounded-lg p-3">
+													<Icon icon={icon} />
+													<span className="text-xs capitalize">{name}</span>
+												</button>
+											</React.Fragment>
+										);
+									})}
+								</div>
 							</div>
 						</div>
 					</div>
