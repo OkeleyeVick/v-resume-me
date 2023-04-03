@@ -1,15 +1,17 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 import Input from "../GeneralComponents/Input";
 
 const TemplateDisplayHeader = () => {
 	const formats = [{ format: ".pdf" }, { format: ".docx" }];
 
+	const [dropdownActive, setDropdownIsActive] = useState(false);
+
 	return (
 		<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
 			<form action="">
-				<div className="flex items-center gap-3">
-					<div className="flex items-center gap-2 group/inputParent">
+				<div className="flex items-center gap-2">
+					<div className="flex items-center gap-1 group/inputParent">
 						<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
 						<button
 							type="button"
@@ -24,17 +26,24 @@ const TemplateDisplayHeader = () => {
 					<div className="relative">
 						<button
 							type="button"
-							className="cursor-pointer border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3">
+							className="cursor-pointer border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3"
+							onClick={() => setDropdownIsActive((prev) => !prev)}>
 							<span>.pdf</span>
 							<Icon icon="ion:chevron-down-outline" />
 						</button>
-						<div className="absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem]">
+						<div
+							className={`absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
+								dropdownActive ? "translate-y-0 opacity-100 pointer-events-auto" : "translate-y-2 opacity-0 pointer-events-none"
+							}`}>
 							<input type="hidden" name="" />
 							{formats.map(({ format }, formatIndex) => (
 								<React.Fragment key={formatIndex}>
 									<button
 										type="button"
-										className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md">
+										className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md"
+										onClick={() => {
+											setDropdownIsActive(false);
+										}}>
 										<span className="text-xs">{format}</span>
 									</button>
 								</React.Fragment>

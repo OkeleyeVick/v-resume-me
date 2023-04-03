@@ -9,7 +9,6 @@ const ThemeComponent = () => {
 		colorRef.current !== null ? colorRef.current.click() : "";
 	}
 
-	useEffect(() => {}, []);
 	return (
 		<React.Fragment>
 			<div className="relative flex items-center justify-end">
