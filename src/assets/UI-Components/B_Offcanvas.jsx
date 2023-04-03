@@ -5,11 +5,11 @@ const B_Offcanvas = () => {
 	const [x, sX] = useState(false);
 	return (
 		<div
-			className={`glassmorphism transition duration-300 ease-in-out absolute inset-0 overflow-hidden ${
+			className={`glassmorphism transition duration-300 ease-in-out fixed inset-0 overflow-hidden ${
 				x ? "pointer-events-none opacity-0" : "pointer-events-auto opacity-100"
 			}`}>
 			<div
-				className={`transition shadow-custom_1 duration-300 ease-in-out md:w-full md:h-5/6 absolute bg-white bottom-0 rounded-t-3xl ${
+				className={`transition shadow-custom_1 duration-300 ease-in-out md:w-full md:h-5/6 fixed bg-white bottom-0 right-0 left-0 rounded-t-3xl ${
 					x ? "translate-y-full" : "translate-y-0"
 				}`}>
 				<div className="flex items-center justify-end py-4 px-6">
