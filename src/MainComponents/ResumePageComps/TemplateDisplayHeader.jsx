@@ -44,7 +44,7 @@ const TemplateDisplayHeader = () => {
 										onClick={() => {
 											setDropdownIsActive(false);
 										}}>
-										<span className="text-xs">{format}</span>
+										<span className="text-xs leading-none">{format}</span>
 									</button>
 								</React.Fragment>
 							))}
