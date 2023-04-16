@@ -97,8 +97,7 @@ const SkillComponent = () => {
 								} overflow-hidden absolute w-full top-full rounded-md isolate mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top py-1`}>
 								<input type="hidden" name="" />
 								<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
-									{viewOptions.map((items, itemIndex) => {
-										const { icon, name } = items;
+									{viewOptions.map(({ icon, name }, itemIndex) => {
 										return (
 											<React.Fragment key={itemIndex}>
 												<button
