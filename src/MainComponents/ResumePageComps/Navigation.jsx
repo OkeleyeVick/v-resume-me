@@ -81,9 +81,8 @@ const Navigation = () => {
 				<div className="flex flex-col mt-4 relative">
 					<div
 						className="bg-main w-[3px] h-[65px] absolute top-0 right-0 z-[1]"
-						style={{ translate: `0px ${top}px`, transition: "300ms ease-in-out" }}></div>
-					{navLinks.map((link, index) => {
-						const { icon_name, linkname, component, size } = link;
+						style={{ top: `${top}px`, transition: "300ms ease-in-out" }}></div>
+					{navLinks.map(({ icon_name, linkname, component, size }, index) => {
 						return (
 							<React.Fragment key={index}>
 								<button

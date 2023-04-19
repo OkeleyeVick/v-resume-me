@@ -13,6 +13,7 @@ const Input = ({ ariaLabel, placeholder, type, label }) => {
 					className="bg-transparent text-slate-300 text-[.8rem] border-gray-500 outline-none border-[1.5px] rounded-md min-h-[3rem] w-full p-2 px-3 transition duration-500 ease-in-out focus:border-main focus:shadow-inputShadow placeholder:text-[.8rem]"
 					spellCheck="false"
 					autoComplete="false"
+					id={label}
 					placeholder={placeholder}
 					type={type}
 					aria-label={ariaLabel}

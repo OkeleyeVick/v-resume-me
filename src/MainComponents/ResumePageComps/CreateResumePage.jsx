@@ -12,11 +12,11 @@ const CreateResumePage = () => {
 		<React.Fragment>
 			<componentContext.Provider value={{ component, setComponent }}>
 				<div className="flex min-h-screen">
-					<div className="flex items-center w-[31.5%] h-screen">
+					<div className="flex items-center fixed z-[99] w-4/5 sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen">
 						<Navigation />
 						<NavigationSublet />
 					</div>
-					<div className="h-screen w-[69.5%] bg-custom_1">
+					<div className="h-screen lg:w-[65%] xl:w-[69.5%] bg-custom_1">
 						<TemplateDisplay />
 					</div>
 				</div>
