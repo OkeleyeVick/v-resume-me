@@ -8,6 +8,11 @@ import FirstSection from "./FirstSection";
 import HeroSection from "./HeroSection";
 import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";
+import "../../assets/css/fonts.css";
+
+const baseFont = {
+	Syne: "Rubik",
+};
 
 const LandingPage = () => {
 	const [showPreloader, setShowPreloader] = useState(true);
@@ -20,7 +25,7 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<div>
+		<div style={{ fontFamily: baseFont.Syne }}>
 			{showPreloader && <PageLoader />}
 			{!showPreloader && (
 				<>

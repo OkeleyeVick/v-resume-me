@@ -2,12 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: FONT-FAMILY;
-	src: url("./assets/fonts/Rubik-VariableFont_wght.ttf") format("truetype");
-}
 * {
-	font-family: FONT-FAMILY;
 	transition: all 300ms ease-in-out;
 }
 body::-webkit-scrollbar {

@@ -1,10 +1,17 @@
 import React from "react";
 import PersonalDetails from "./BasicTemplateComponents/PersonalDetails";
+import "../assets/css/fonts.css";
+
+const fonts = {
+	Syne: "Syne",
+	Rubik: "Rubik",
+	Sora: "Sora",
+};
 
 const BasicTemplate = () => {
 	return (
-		<div className="bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4">
-			<section className="col-span-1 bg-[#DEAB52] p-4" style={{ backgroundColor: "" }}>
+		<div className="bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4" style={{ fontFamily: fonts.Syne, fontSize: "10px" }}>
+			<section className="col-span-1 bg-[#DEAB52] p-4">
 				<PersonalDetails />
 			</section>
 			<section className="col-span-2 text-xs">
@@ -24,33 +31,6 @@ const BasicTemplate = () => {
 				suscipit voluptas, ea blanditiis fuga iure? Animi quos sequi earum molestias incidunt nulla corporis, consequuntur explicabo a vitae
 				adipisci minus quisquam molestiae ad ut reiciendis dolore eos numquam sunt dicta ipsa repellendus itaque et? Ratione quis reiciendis
 				ab! Ut ipsum, laudantium, nisi commodi ad corrupti tempora architecto veniam expedita a minus ea eligendi ab iusto. Magni recusandae
-				laudantium natus quibusdam ab eius eaque, eum unde excepturi, vitae a labore quos nulla non architecto ullam incidunt veritatis, quia
-				id odio alias aut illo at neque? Repellat ut ullam libero numquam molestias. Consequatur quis, nihil blanditiis sint temporibus
-				officiis quae eos, quo asperiores, sit quod. Blanditiis, voluptatem ut. Maxime dolore iusto, ea quisquam voluptatem nam fugit, qui
-				expedita nihil ipsum consectetur incidunt nemo officia nesciunt totam sunt consequatur, delectus assumenda voluptas. Itaque nemo
-				consequuntur expedita perferendis consequatur veniam eum cumque officiis tempore, quibusdam vitae perspiciatis voluptate dolor
-				reprehenderit aut nulla alias recusandae? Nobis excepturi beatae amet placeat earum doloremque quidem nihil sit! Unde minima ipsam
-				consequatur sed atque tempore at quia, molestiae in quidem obcaecati deleniti eaque illum excepturi sequi facilis cumque quos
-				doloremque pariatur amet. Expedita, aliquam recusandae! Quae explicabo voluptatem reprehenderit quas quis minus animi reiciendis
-				ratione rem voluptates quos dolorem eos amet tempora dolor, eligendi ipsa sapiente fuga consectetur velit quasi veritatis?
-				Necessitatibus nesciunt magnam atque asperiores eveniet voluptates itaque incidunt. Rem nam labore illum esse dignissimos? Soluta non
-				eaque consequatur delectus magnam minus fugiat tenetur incidunt laboriosam ab aliquam necessitatibus veniam, hic similique quae nam
-				facilis dignissimos voluptatibus exercitationem impedit nihil qui. Temporibus odit molestias magnam voluptas rerum corporis unde
-				ducimus ipsa, soluta voluptates! Repellendus accusantium quam, dicta excepturi cum quidem sunt quas nesciunt. Delectus enim placeat
-				assumenda, suscipit, perspiciatis accusamus, blanditiis dignissimos iure voluptatem voluptatum ea ipsa nisi laudantium deleniti ipsam
-				earum? Rem ratione laborum quaerat cupiditate omnis esse fuga quasi quas ex ipsam? Facilis dignissimos nam quas possimus natus cum eos
-				optio consequatur error nobis temporibus, ad porro id rem officiis repellat unde saepe, quis architecto odit consectetur libero? Nulla
-				quaerat aliquam eum debitis dolorem quod suscipit corrupti, rerum veritatis id officia impedit deleniti excepturi minima eveniet? Rem,
-				eum velit quas sint amet quae tempora magnam facere voluptates fugit esse iste, explicabo porro commodi ut distinctio suscipit optio
-				molestiae ipsam. Sit consectetur sunt, optio nemo mollitia perspiciatis pariatur maxime debitis nobis repellat velit dolorum aperiam
-				natus iure accusantium est expedita cum sed. Commodi pariatur, illo laudantium laboriosam nihil vero quasi est facilis consequatur
-				totam quo unde inventore amet. Tempore sunt necessitatibus ab deserunt nam in consectetur magnam quis explicabo inventore odio autem
-				sapiente praesentium id ratione error consequuntur unde odit tempora, obcaecati a officia cupiditate quas. Vel atque tenetur
-				repellendus possimus neque consequuntur maiores dignissimos deleniti, cupiditate adipisci officiis nihil iste. Vero porro ex aliquam
-				dolorem laborum, nulla necessitatibus repellat consequatur dicta nesciunt eius reprehenderit amet atque nemo architecto eveniet quia
-				quasi tempora. Reprehenderit voluptatibus distinctio sequi nisi fugiat? Quis numquam vitae molestiae placeat temporibus possimus
-				mollitia ea quae autem deserunt necessitatibus fugiat pariatur nobis dolores suscipit, dicta ullam velit, assumenda distinctio
-				nesciunt nisi earum eaque iure rerum! Corporis quae delectus voluptatem incidunt! Laudantium nostrum sed culpa nisi. Magni dolore
 				recusandae perferendis blanditiis distinctio iste hic sed laudantium, eaque et repellendus laboriosam labore eligendi in natus nobis
 				animi quas voluptate. Quibusdam alias assumenda dolorem! Culpa modi quasi tempore fuga facilis sed quidem deserunt dolorem totam
 				eligendi suscipit sapiente eveniet itaque omnis reprehenderit, consequatur voluptas neque nobis voluptate nesciunt illum quibusdam

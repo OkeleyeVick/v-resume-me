@@ -1,6 +1,29 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 
+const links = [
+	{
+		icon: "ph:share-network-light",
+		button: true,
+	},
+	{
+		icon: "uit:twitter-alt",
+		link: "https://twitter.com/I_am_Justus",
+	},
+	{
+		icon: "ph:envelope-simple-light",
+		link: "https://gmailto:justusofnigeria@gmail.com",
+	},
+	{
+		icon: "akar-icons:github-outline-fill",
+		link: "https://github.com/OkeleyeVick",
+	},
+	{
+		icon: "ph:linkedin-logo-light",
+		link: "https://github.com/OkeleyeVick",
+	},
+];
+
 const Footer = () => {
 	const handleShare = function ({ link, title }) {
 		if ("share" in navigator) {
@@ -33,11 +56,11 @@ const Footer = () => {
 									title: "Resume.me",
 								})
 							}>
-							{icon}
+							<Icon icon={icon} className="w-5 h-5" />
 						</button>
 					) : (
 						<a href={link} key={index} className="hover:text-main transition duration-[100ms] ease-in-out">
-							{icon}
+							<Icon icon={icon} className="w-5 h-5" />
 						</a>
 					);
 				})}
@@ -47,26 +70,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-const links = [
-	{
-		icon: <Icon icon="ph:share-network-light" className="w-5 h-5" />,
-		button: true,
-	},
-	{
-		icon: <Icon icon="uit:twitter-alt" className="w-5 h-5" />,
-		link: "https://twitter.com/I_am_Justus",
-	},
-	{
-		icon: <Icon icon="ph:envelope-simple-light" className="w-5 h-5" />,
-		link: "https://gmailto:justusofnigeria@gmail.com",
-	},
-	{
-		icon: <Icon icon="akar-icons:github-outline-fill" className="w-5 h-5" />,
-		link: "https://github.com/OkeleyeVick",
-	},
-	{
-		icon: <Icon icon="ph:linkedin-logo-light" className="w-5 h-5" />,
-		link: "https://github.com/OkeleyeVick",
-	},
-];
