@@ -10,7 +10,10 @@ const NavigationSublet = () => {
 			<div className="h-full py-3 px-3 transition duration-500 ease-in-out relative">
 				<button
 					type="button"
-					className="absolute bg-main_3 shadow-custom_3 p-2 rounded-full -right-10 top-4 transition ease-in-out duration-300 border border-main hover:bg-main">
+					className="absolute bg-main_3 bg-opacity-90 shadow-custom_3 p-2 rounded-full -right-10 top-4 transition ease-in-out duration-300 border border-main hover:bg-opacity-100 lg:invisible"
+					onClick={() => {
+						console.log("Close");
+					}}>
 					<Icon icon="ph:x-bold" />
 				</button>
 				<div>{component}</div>
