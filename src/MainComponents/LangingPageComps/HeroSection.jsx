@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
 	return (
 		<div className="bg-main_2 text-center">
-			<div className="md:grid md:grid-cols-10 py-16">
+			<div className="md:grid md:grid-cols-10 py-16 px-[.6rem]">
 				<div className="flex flex-col md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9 md:grid md:grid-cols-10">
 					<div className="my-4 md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9">
 						<small className="uppercase font-semibold text-text_clr">free online resume builder</small>
