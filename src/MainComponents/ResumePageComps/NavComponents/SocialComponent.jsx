@@ -50,9 +50,9 @@ const SocialComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="flex items-center overflow-y-auto mt-5 pt-4 h-[85vh] no-scroll pr-2">
-				<form action="" className="w-full my-8">
-					<div className="flex flex-col gap-8 mt-8">
+			<div className="overflow-y-auto h-[85vh] no-scroll pr-2 pb-5 my-4">
+				<form action="" className="w-full mt-8 mb-4">
+					<div className="flex flex-col gap-8 sm:mt-8">
 						{linkInputs.map(({ label, placeholder, icon, name }, linkIndex) => {
 							return (
 								<React.Fragment key={linkIndex}>
