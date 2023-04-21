@@ -5,7 +5,7 @@ import TemplateDisplayHeader from "./TemplateDisplayHeader";
 
 const TemplateDisplay = () => {
 	return (
-		<div className="w-full h-full overflow-y-scroll no-scroll">
+		<div className="w-full h-full overflow-y-auto overflow-x-hidden no-scroll">
 			<TemplateDisplayHeader />
 			<TemplateDisplayBodyWrapper>
 				<TemplateDisplayBody />
