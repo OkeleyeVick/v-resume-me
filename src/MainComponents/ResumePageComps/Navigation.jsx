@@ -88,7 +88,7 @@ const Navigation = () => {
 								<button
 									type="button"
 									className={`
-									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[50px] md:h-[65px]
+									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[55px] md:h-[65px]
 									${
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
