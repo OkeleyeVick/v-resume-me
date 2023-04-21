@@ -16,13 +16,16 @@ const Navigation = () => {
 	const [top, setTop] = useState(0);
 
 	const handleSpanHeight = (index) => {
-		const multiple = index * 65;
+		const multiple = index * 60;
 		setTop(multiple);
 	};
 
 	const navLinks = [
 		{
-			icon_name: "prime:user-edit",
+			// icon_name: "prime:user-edit",
+			// icon_name: "mingcute:user-1-line",
+			// icon_name: "clarity:user-line",
+			icon_name: "bx:user",
 			linkname: "personal",
 			component: <PersonalComponent />,
 			size: "w-6 h-6",
@@ -72,7 +75,7 @@ const Navigation = () => {
 					<Link
 						to="/"
 						className="relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full flex flex-col items-center border-2 border-main p-1 gap-y-1 py-4 ">
-						<div className="font-bold relative text-xs uppercase flex flex-col items-center leading-none text-main">
+						<div className="font-semibold relative text-xs uppercase flex flex-col items-center leading-none text-main">
 							<span>Resume</span>
 							<span>.me</span>
 						</div>
@@ -80,7 +83,7 @@ const Navigation = () => {
 				</div>
 				<div className="flex flex-col mt-4 relative">
 					<div
-						className="bg-main w-[3px] h-[65px] absolute top-0 right-0 z-[1] hidden md:block"
+						className="bg-main w-[2px] h-[60px] absolute top-0 right-0 z-[1] hidden md:block"
 						style={{ top: `${top}px`, transition: "300ms ease-in-out" }}></div>
 					{navLinks.map(({ icon_name, linkname, component, size }, index) => {
 						return (
@@ -88,7 +91,7 @@ const Navigation = () => {
 								<button
 									type="button"
 									className={`
-									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[55px] md:h-[65px]
+									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[55px] md:h-[60px]
 									${
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"

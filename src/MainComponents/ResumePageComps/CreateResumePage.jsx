@@ -10,22 +10,29 @@ const baseFont = {
 };
 
 export const componentContext = createContext();
+export const MobileMenuContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
+	const [isActiveMobileMenu, setMobileMenu] = useState(false);
 
 	return (
 		<React.Fragment>
-			<componentContext.Provider value={{ component, setComponent }}>
-				<div className="lg:flex min-h-screen" style={{ fontFamily: baseFont.Syne }}>
-					<div className="flex items-center fixed z-[99] w-[90%] sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen">
-						<Navigation />
-						<NavigationSublet />
+			<MobileMenuContext.Provider value={{ isActiveMobileMenu, setMobileMenu }}>
+				<componentContext.Provider value={{ component, setComponent }}>
+					<div className="lg:flex min-h-screen" style={{ fontFamily: baseFont.Syne }}>
+						<div
+							className={`flex items-center fixed z-[99] left-0 w-[90%] sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen ${
+								isActiveMobileMenu ? "" : "-left-full"
+							}`}>
+							<Navigation />
+							<NavigationSublet />
+						</div>
+						<div className="h-screen lg:w-[65%] xl:w-[69.5%] bg-custom_1">
+							<TemplateDisplay />
+						</div>
 					</div>
-					<div className="h-screen lg:w-[65%] xl:w-[69.5%] bg-custom_1">
-						<TemplateDisplay />
-					</div>
-				</div>
-			</componentContext.Provider>
+				</componentContext.Provider>
+			</MobileMenuContext.Provider>
 		</React.Fragment>
 	);
 };

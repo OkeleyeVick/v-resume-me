@@ -12,7 +12,14 @@ import "../../assets/css/fonts.css";
 import B_Offcanvas from "../../assets/UI-Components/B_Offcanvas";
 
 const baseFont = {
-	Syne: "Rubik",
+	Syne: "Syne ",
+	Rubik: "Rubik",
+	Montserrat: "Montserrat",
+	Sora: "Sora",
+	Comfortaa: "Comfortaa",
+	IBMPlexSans: "IBMPlexSans",
+	Oxygen: "Montserrat",
+	Mulish: "Montserrat",
 };
 
 const resumes = [
@@ -41,7 +48,7 @@ const resumes = [
 const SelectTemplate = () => {
 	return (
 		<React.Fragment>
-			<div style={{ fontFamily: baseFont.Syne }}>
+			<div style={{ fontFamily: baseFont.Rubik }}>
 				<Header />
 				<div className="py-8 md:p-16 lg:px-20">
 					<div className="text-center">

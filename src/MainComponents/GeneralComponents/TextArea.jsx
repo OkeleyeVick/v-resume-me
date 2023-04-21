@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 
-const TextArea = forwardRef(({ name, label }, summary) => {
+const TextArea = forwardRef(({ name, label, onChange }, summaryRef) => {
 	return (
 		<div className="relative">
 			<label
@@ -11,7 +11,8 @@ const TextArea = forwardRef(({ name, label }, summary) => {
 			<textarea
 				name={name}
 				id={name}
-				ref={summary}
+				onChange={onChange}
+				ref={summaryRef}
 				cols="30"
 				maxLength="1000"
 				rows="10"

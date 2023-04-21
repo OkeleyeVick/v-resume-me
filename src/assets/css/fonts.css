@@ -10,3 +10,23 @@
 	font-family: "Sora";
 	src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
 }
+@font-face {
+	font-family: "Comfortaa";
+	src: url("../fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "IBMPlexSans";
+	src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Oxygen";
+	src: url("../fonts/Oxygen-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Mulish";
+	src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}

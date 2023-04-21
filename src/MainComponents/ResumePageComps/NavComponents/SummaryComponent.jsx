@@ -8,7 +8,7 @@ const SummaryComponent = () => {
 		<React.Fragment>
 			<div className="flex items-center justify-between">
 				<GoBackButton />
-				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr">
+				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr animate-scaleInOut">
 					Take hints
 				</button>
 			</div>
@@ -17,7 +17,7 @@ const SummaryComponent = () => {
 					<span className="text-sm text-main">Not more than 1000 characters.</span>
 				</div>
 				<form action="">
-					<TextArea summary={textAreaRef} label="Summary" name="summary" />
+					<TextArea summaryRef={textAreaRef} label="Summary" name="summary" onChange={(e) => console.log(e.target.value)} />
 					<div className="mt-6 flex items-center gap-2">
 						<button
 							type="submit"

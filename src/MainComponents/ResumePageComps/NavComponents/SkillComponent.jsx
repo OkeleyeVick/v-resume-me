@@ -55,7 +55,7 @@ const SkillComponent = () => {
 		<React.Fragment>
 			<div className="flex items-center justify-between">
 				<GoBackButton />
-				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr">
+				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr animate-scaleInOut">
 					Take hints
 				</button>
 			</div>
@@ -77,12 +77,12 @@ const SkillComponent = () => {
 				<form action="" className="w-full mt-3">
 					<div className="flex flex-col gap-4">
 						<div>
-							<h5 className="text-main text-sm font-semibold my-1">Add skill</h5>
+							<h5 className="text-main text-sm my-1 font-semibold">Add skill</h5>
 							<Input ariaLabel="skill" aria-label="skill" placeholder="Enter your skills" />
 							<button className="bg-main text-xs rounded-md py-3 mt-2 px-5 w-full hover:bg-hoverBgClr">Add</button>
 						</div>
 						<div className="relative isolate">
-							<span className="text-sm text-main font-bold">View mode</span>
+							<span className="text-sm text-main font-semibold">View mode</span>
 							<button
 								// disabled
 								type="button"

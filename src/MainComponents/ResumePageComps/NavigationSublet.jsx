@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { componentContext } from "./CreateResumePage";
+import { MobileMenuContext, componentContext } from "./CreateResumePage";
 import OffcanvasLoader from "../../assets/UI-Components/OffcanvasLoader";
 import { Icon } from "@iconify/react";
 
 const NavigationSublet = () => {
 	const { component } = useContext(componentContext);
+	const { setMobileMenu } = useContext(MobileMenuContext);
 	return (
 		<div className="bg-custom_2 w-full h-full text-white relative">
 			<div className="h-full py-3 px-3 transition duration-500 ease-in-out relative">
@@ -12,7 +13,7 @@ const NavigationSublet = () => {
 					type="button"
 					className="absolute bg-main_3 bg-opacity-90 shadow-custom_3 p-2 rounded-full -right-10 top-4 transition ease-in-out duration-300 border border-main hover:bg-opacity-100 lg:invisible"
 					onClick={() => {
-						console.log("Close");
+						setMobileMenu(false);
 					}}>
 					<Icon icon="ph:x-bold" />
 				</button>

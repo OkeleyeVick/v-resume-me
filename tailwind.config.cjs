@@ -28,6 +28,7 @@ module.exports = {
 			animation: {
 				rotate: "rotateY 10s linear infinite",
 				rotateAndGoDown: "rotateAndGoDown 20s linear infinite",
+				scaleInOut: "scaleInOut 2s ease-in-out infinite",
 			},
 			keyframes: {
 				rotateY: {
@@ -44,6 +45,14 @@ module.exports = {
 					},
 					"100%": {
 						transform: "rotateY(360deg) translateY(1000px)",
+					},
+				},
+				scaleInOut: {
+					"0%, 100%": {
+						transform: "scale(1)",
+					},
+					"50%": {
+						transform: "scale(1.05)",
 					},
 				},
 			},
