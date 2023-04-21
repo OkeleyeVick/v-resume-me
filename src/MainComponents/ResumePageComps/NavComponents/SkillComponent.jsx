@@ -64,7 +64,7 @@ const SkillComponent = () => {
 					{skills.map(({ skillname }, index) => {
 						return (
 							<React.Fragment key={index}>
-								<span className="flex items-center gap-1 bg-slate-700 rounded-[5px] p-1 px-[.5rem]">
+								<span className="flex items-center justify-between gap-1 flex-grow bg-slate-700 rounded-[5px] p-1 px-[.5rem]">
 									<span className="text-xs">{skillname}</span>
 									<button className="rounded-full p-1 bg-transparent hover:bg-slate-900">
 										<Icon icon="tabler:x" className="w-3 h-3" />

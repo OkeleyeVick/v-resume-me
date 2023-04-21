@@ -15,7 +15,7 @@ const PersonalComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="overflow-y-scroll h-[85vh] no-scroll pr-2 pb-5 my-4">
+			<div className="overflow-y-auto h-[85vh] no-scroll pr-2 pb-5 my-4">
 				<form action="">
 					<div className="flex flex-col gap-8 mt-8">
 						<Input label="Fullname" type="text" aria-label="Name input" ariaLabel="Name input" placeholder="Enter your name" />
