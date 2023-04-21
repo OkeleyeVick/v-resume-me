@@ -53,8 +53,7 @@ const SocialComponent = () => {
 			<div className="flex items-center overflow-y-scroll mt-5 pt-4 h-[85vh] no-scroll pr-2">
 				<form action="" className="w-full my-8">
 					<div className="flex flex-col gap-8 mt-8">
-						{linkInputs.map((linkItem, linkIndex) => {
-							const { label, placeholder, icon, name } = linkItem;
+						{linkInputs.map(({ label, placeholder, icon, name }, linkIndex) => {
 							return (
 								<React.Fragment key={linkIndex}>
 									<LinkInput
