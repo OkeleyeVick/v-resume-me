@@ -7,7 +7,7 @@ const TemplateDisplayHeader = () => {
 	const formats = [{ format: ".pdf" }, { format: ".docx" }];
 
 	const [dropdownActive, setDropdownIsActive] = useState(false);
-	const { isActiveMobileMenu, setMobileMenu } = useContext(MobileMenuContext);
+	const { setMobileMenu } = useContext(MobileMenuContext);
 
 	return (
 		<React.Fragment>

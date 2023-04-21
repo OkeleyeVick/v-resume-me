@@ -21,8 +21,8 @@ const CreateResumePage = () => {
 				<componentContext.Provider value={{ component, setComponent }}>
 					<div className="lg:flex min-h-screen" style={{ fontFamily: baseFont.Syne }}>
 						<div
-							className={`flex items-center fixed z-[99] left-0 w-[90%] sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen ${
-								isActiveMobileMenu ? "" : "-left-full"
+							className={`flex items-center fixed z-[99] w-[90%] sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen ${
+								isActiveMobileMenu ? "left-0" : "-left-full lg:left-0"
 							}`}>
 							<Navigation />
 							<NavigationSublet />
