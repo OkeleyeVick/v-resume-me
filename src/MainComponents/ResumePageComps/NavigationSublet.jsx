@@ -7,7 +7,7 @@ const NavigationSublet = () => {
 	const { component } = useContext(componentContext);
 	const { setMobileMenu } = useContext(MobileMenuContext);
 	return (
-		<div className="bg-custom_2 w-full h-full text-white relative">
+		<div className="bg-custom_2 w-full h-full text-white relative p-0 m-0">
 			<div className="h-full py-3 px-3 transition duration-500 ease-in-out relative">
 				<button
 					type="button"

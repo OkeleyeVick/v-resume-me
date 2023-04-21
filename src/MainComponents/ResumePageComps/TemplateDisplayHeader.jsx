@@ -16,13 +16,13 @@ const TemplateDisplayHeader = () => {
 					type="button"
 					className="transition duration-500 rounded-full bg-transparent p-2 hover:bg-hoverBgClr hover:bg-opacity-80 outline-none"
 					onClick={() => setMobileMenu((current) => !current)}>
-					<Icon icon="solar:hamburger-menu-outline" className="text-gray-300 w-6 h-6" />
+					<Icon icon="codicon:menu" className="text-gray-300 w-7 h-7 flex" />
 				</button>
 			</div>
-			<div className="border-gray-700 border-b-[.5px] flex items-center justify-between px-3 py-3">
+			<div className="border-gray-700 border-b-[.5px] flex justify-between flex-col sm:flex-row gap-y-3 px-3 py-3">
 				<form action="">
 					<div className="flex items-center gap-2">
-						<div className="flex items-center gap-1 group/inputParent">
+						<div className="flex items-center gap-1 group/inputParent flex-grow">
 							<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
 							<button
 								type="button"
@@ -36,11 +36,10 @@ const TemplateDisplayHeader = () => {
 								/>
 							</button>
 						</div>
-						{/* button to select file format */}
 						<div className="relative">
 							<button
 								type="button"
-								className="cursor-pointer border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3"
+								className="cursor-pointer w-full border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3 min-h-[2.9rem] leading-4"
 								onClick={() => setDropdownIsActive((prev) => !prev)}>
 								<span>.pdf</span>
 								<Icon icon="ion:chevron-down-outline" />
@@ -69,14 +68,14 @@ const TemplateDisplayHeader = () => {
 				<div className="flex items-center gap-x-4">
 					<button
 						type="button"
-						className="flex items-center gap-2 px-5 py-3 hover:bg-button rounded-md bg-main transition ease-in-out duration-300">
-						<span className="text-white text-xs font-semibold leading-4">Share</span>
+						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
+						<span className="text-white text-xs font-semibold leading-4 flex items-center">Share</span>
 						<Icon icon="carbon:share" className="text-white h-5 w-5" />
 					</button>
 					<button
 						type="button"
-						className="flex items-center gap-2 px-5 py-3 hover:bg-button rounded-md bg-main transition ease-in-out duration-300">
-						<span className="text-white text-xs font-semibold leading-4">Download</span>
+						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
+						<span className="text-white text-xs font-semibold leading-4 flex items-center">Download</span>
 						<Icon icon="ph:download-simple" className="text-white h-5 w-5" />
 					</button>
 				</div>

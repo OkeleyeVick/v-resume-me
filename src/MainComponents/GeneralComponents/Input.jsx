@@ -3,7 +3,7 @@ import React from "react";
 const Input = ({ ariaLabel, placeholder, type, label }) => {
 	return (
 		<React.Fragment>
-			<div className={`relative`}>
+			<div className={`relative flex-grow`}>
 				<label
 					htmlFor={label}
 					className={`text-slate-300 absolute top-0 left-0 leading-none -translate-y-[.4rem] translate-x-2 bg-custom_2 px-1 text-[.85rem]`}>
