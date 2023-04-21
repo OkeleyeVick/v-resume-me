@@ -12,7 +12,7 @@ const SummaryComponent = () => {
 					Take hints
 				</button>
 			</div>
-			<div className="mt-5 pt-4 h-[85vh] pr-2">
+			<div className="mt-5 pt-4 h-[85vh]">
 				<div className="my-4 text-end">
 					<span className="text-sm text-main">Not more than 1000 characters.</span>
 				</div>
