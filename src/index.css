@@ -22,3 +22,9 @@ body::-webkit-scrollbar {
 	background: #182341;
 	border-radius: 90px;
 }
+
+@media all and (max-width: 500px) {
+	html {
+		font-size: 14px;
+	}
+}
