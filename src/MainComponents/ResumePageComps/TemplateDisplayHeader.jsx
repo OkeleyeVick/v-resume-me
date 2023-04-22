@@ -1,13 +1,27 @@
 import { Icon } from "@iconify/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Input from "../GeneralComponents/Input";
 import { MobileMenuContext } from "./CreateResumePage";
 
 const TemplateDisplayHeader = () => {
-	const formats = [{ format: ".pdf" }, { format: ".docx" }];
-
 	const [dropdownActive, setDropdownIsActive] = useState(false);
 	const { setMobileMenu } = useContext(MobileMenuContext);
+
+	const dropdown = document.querySelector(".format__dropdown");
+	const formats = [{ format: ".pdf" }, { format: ".docx" }];
+
+	useEffect(() => {
+		function removeDropdown(e) {
+			if (dropdown && e.target != dropdown) {
+				setDropdownIsActive(false);
+			}
+		}
+		document.addEventListener("mousedown", removeDropdown);
+
+		return () => {
+			document.removeEventListener("mousedown", removeDropdown);
+		};
+	});
 
 	return (
 		<React.Fragment>
@@ -45,7 +59,7 @@ const TemplateDisplayHeader = () => {
 								<Icon icon="ion:chevron-down-outline" />
 							</button>
 							<div
-								className={`absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
+								className={`format__dropdown absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
 									dropdownActive ? "translate-y-0 opacity-100 pointer-events-auto" : "translate-y-2 opacity-0 pointer-events-none"
 								}`}>
 								<input type="hidden" name="" />
