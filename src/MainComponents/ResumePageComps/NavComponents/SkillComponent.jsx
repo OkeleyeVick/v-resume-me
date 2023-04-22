@@ -94,9 +94,9 @@ const SkillComponent = () => {
 							<div
 								className={`${
 									isActive ? "opacity-100 h-[175px]" : "h-0 opacity-0"
-								} overflow-hidden absolute w-full top-full rounded-md isolate mt-1 z-[2] right-0 left-0  border-main border bg-slate-900 origin-top py-1`}>
+								} overflow-hidden absolute w-full top-full rounded-md isolate mt-1 z-[2] right-0 left-0 border-main border bg-slate-900 origin-top py-1`}>
 								<input type="hidden" name="" />
-								<div className="flex flex-col  py-[.2rem]  px-[.25rem]">
+								<div className="flex flex-col py-[.2rem] px-[.25rem]">
 									{viewOptions.map(({ icon, name }, itemIndex) => {
 										return (
 											<React.Fragment key={itemIndex}>
@@ -116,13 +116,8 @@ const SkillComponent = () => {
 					<div className="mt-6 flex items-center gap-2">
 						<button
 							type="submit"
-							className="text-sm text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
-							Save
-						</button>
-						<button
-							type="button"
-							className="text-sm text-gray-300 border-[1.5px] border-main rounded-md px-6 py-3 hover:bg-main hover:text-white hover:border-hoverBgClr">
-							Cancel all
+							className="text-sm w-full text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
+							Save all
 						</button>
 					</div>
 				</form>

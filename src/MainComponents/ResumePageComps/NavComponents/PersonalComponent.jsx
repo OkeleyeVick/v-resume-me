@@ -27,13 +27,8 @@ const PersonalComponent = () => {
 					<div className="mt-6 flex items-center gap-2">
 						<button
 							type="submit"
-							className="text-sm text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
+							className="text-sm w-full text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
 							Save
-						</button>
-						<button
-							type="button"
-							className="text-sm text-gray-300 border-main border-[1.5px] rounded-md px-6 py-3 hover:bg-main hover:text-white hover:border-hoverBgClr">
-							Cancel all
 						</button>
 					</div>
 				</form>
