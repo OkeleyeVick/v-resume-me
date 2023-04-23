@@ -6,7 +6,7 @@ const AnimatedSection = () => {
 		<div className="py-20">
 			<div className="grid grid-cols-2 gap-8">
 				<div className="col-span-full md:col-start-1 md:col-end-2">
-					<img src={video} alt="" className="max-w-lg mx-auto w-full" />
+					<video src={video} className="max-w-lg mx-auto w-full"></video>
 				</div>
 				<div className="col-span-full md:col-start-2 md:col-end-3 p-4 md:p-8">
 					<span>
