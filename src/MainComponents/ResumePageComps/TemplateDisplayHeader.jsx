@@ -5,7 +5,7 @@ import { MobileMenuContext } from "./CreateResumePage";
 
 const TemplateDisplayHeader = () => {
 	const [dropdownActive, setDropdownIsActive] = useState(false);
-	const { setMobileMenu } = useContext(MobileMenuContext);
+	const { isActiveMobileMenu, setMobileMenu } = useContext(MobileMenuContext);
 
 	const dropdown = document.querySelector(".format__dropdown");
 	const formats = [{ format: ".pdf" }, { format: ".docx" }];
@@ -28,9 +28,11 @@ const TemplateDisplayHeader = () => {
 			<div className="lg:hidden flex items-center justify-end p-2">
 				<button
 					type="button"
-					className="transition duration-500 rounded-full bg-transparent p-2 hover:bg-hoverBgClr hover:bg-opacity-80 outline-none"
+					className={`transition duration-500 rounded-full p-[.35rem] hover:bg-hoverBgClr hover:bg-opacity-80 outline-none ${
+						isActiveMobileMenu ? "bg-hoverBgClr" : "bg-transparent"
+					}`}
 					onClick={() => setMobileMenu((current) => !current)}>
-					<Icon icon="codicon:menu" className="text-gray-300 w-7 h-7 flex" />
+					<Icon icon="ion:menu-outline" className={`text-gray-300 w-8 h-8 flex`} />
 				</button>
 			</div>
 			<div className="border-gray-700 border-b-[.5px] flex justify-between flex-col sm:flex-row gap-y-3 px-3 py-3">

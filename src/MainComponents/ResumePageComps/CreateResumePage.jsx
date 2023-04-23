@@ -19,7 +19,11 @@ const CreateResumePage = () => {
 		<React.Fragment>
 			<MobileMenuContext.Provider value={{ isActiveMobileMenu, setMobileMenu }}>
 				<componentContext.Provider value={{ component, setComponent }}>
-					<div className="lg:flex min-h-screen" style={{ fontFamily: baseFont.Syne }}>
+					<div className="lg:flex min-h-screen relative" style={{ fontFamily: baseFont.Syne }}>
+						<div
+							className={`fixed w-full h-full z-[90] backdrop-blur-[2px] bg-black bg-opacity-20 ${
+								isActiveMobileMenu ? "opacity-100 pointer-events-auto" : "pointer-events-none opacity-0"
+							}`}></div>
 						<div
 							className={`flex items-center fixed z-[99] w-[90%] sm:w-3/5 md:w-2/4 lg:relative lg:w-[35%] xl:w-[31.5%] h-screen ${
 								isActiveMobileMenu ? "left-0 translate-x-0" : "-left-full lg:left-0 -translate-x-3 lg:-translate-x-0"
