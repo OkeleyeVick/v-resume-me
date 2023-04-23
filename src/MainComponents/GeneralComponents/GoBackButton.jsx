@@ -11,7 +11,7 @@ const GoBackButton = () => {
 			onClick={() => {
 				goBack(-1);
 			}}>
-			<button className="flex items-center gap-2 text-main">
+			<button className="flex items-center gap-2 text-main" name="go-back">
 				<Icon icon="solar:arrow-left-outline" className="w-5 h-5" />
 				<span className="text-[.8rem]">Back</span>
 			</button>
