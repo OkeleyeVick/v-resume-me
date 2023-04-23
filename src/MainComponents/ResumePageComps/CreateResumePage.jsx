@@ -14,11 +14,12 @@ export const MobileMenuContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [isActiveMobileMenu, setMobileMenu] = useState(false);
+	const [font, setFont] = useState("Arial");
 
 	return (
 		<React.Fragment>
 			<MobileMenuContext.Provider value={{ isActiveMobileMenu, setMobileMenu }}>
-				<componentContext.Provider value={{ component, setComponent }}>
+				<componentContext.Provider value={{ font, setFont, component, setComponent }}>
 					<div className="lg:flex min-h-screen relative" style={{ fontFamily: baseFont.Syne }}>
 						<div
 							className={`fixed lg:hidden w-full h-full z-[90] backdrop-blur-[2px] bg-black bg-opacity-20 ${

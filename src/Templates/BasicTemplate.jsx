@@ -1,21 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import PersonalDetails from "./BasicTemplateComponents/PersonalDetails";
 import "../assets/css/fonts.css";
-
-const fonts = {
-	Rubik: "Rubik",
-	Syne: "Syne",
-	Montserrat: "Montserrat",
-	Sora: "Sora",
-	Comfortaa: "Comfortaa",
-	IBMPlexSans: "IBMPlexSans",
-	Oxygen: "Oxygen",
-	Mulish: "Mulish",
-};
+import { componentContext } from "../MainComponents/ResumePageComps/CreateResumePage";
 
 const BasicTemplate = () => {
+	const { font, setFont } = useContext(componentContext);
 	return (
-		<div className="bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4" style={{ fontFamily: fonts.Comfortaa, fontSize: "10px" }}>
+		<div className="bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4" style={{ fontFamily: font, fontSize: "10px" }}>
 			<section className="col-span-1 bg-[#DEAB52] p-4">
 				<PersonalDetails />
 			</section>

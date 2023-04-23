@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useContext } from "react";
 import { useRef, useState } from "react";
 import "../../../assets/css/fonts.css";
+import { componentContext } from "../CreateResumePage";
 
 const baseFont = [
 	{ font: "Arial" },
@@ -18,7 +19,8 @@ const baseFont = [
 const ThemeComponent = () => {
 	const [defaultColor, setDefaultColor] = useState("#ffffff");
 	const [fontDropdownState, setFontDropdownState] = useState(false);
-	const [font, setFont] = useState("Arial");
+	// const [font, setFont] = useState("Arial");
+	const { font, setFont } = useContext(componentContext);
 	const colorRef = useRef();
 	const fontRef = useRef();
 
