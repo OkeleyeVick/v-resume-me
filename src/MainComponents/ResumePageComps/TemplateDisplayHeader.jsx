@@ -61,7 +61,7 @@ const TemplateDisplayHeader = () => {
 								<Icon icon="ion:chevron-down-outline" />
 							</button>
 							<div
-								className={`format__dropdown absolute border mt-1 top-full border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
+								className={`format__dropdown absolute border mt-1 top-full right-0 border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
 									dropdownActive ? "translate-y-0 opacity-100 pointer-events-auto" : "translate-y-2 opacity-0 pointer-events-none"
 								}`}>
 								<input type="hidden" name="" />
