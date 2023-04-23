@@ -28,37 +28,37 @@ const Navigation = () => {
 			icon_name: "bx:user",
 			linkname: "personal",
 			component: <PersonalComponent />,
-			size: "w-6 h-6",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "ph:note-pencil",
 			linkname: "Summary",
 			component: <SummaryComponent />,
-			size: "w-5 h-5",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "carbon:education",
 			linkname: "Education",
 			component: <EducationComponent />,
-			size: "w-5 h-5",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "fluent:globe-24-regular",
 			linkname: "Socials",
 			component: <SocialComponent />,
-			size: "w-5 h-5",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "ph:toolbox",
 			linkname: "Experience",
 			component: <WorkExperienceComponent />,
-			size: "w-5 h-5",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "codicon:tools",
 			linkname: "Skills",
 			component: <SkillComponent />,
-			size: "w-5 h-5",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
 			icon_name: "ci:swatches-palette",
@@ -96,7 +96,7 @@ const Navigation = () => {
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
 											: "hover:bg-opacity-80 hover:bg-gray-700 text-gray-300"
-									} outline-none p-3 flex flex-col items-center`}
+									} outline-none p-2 md:p-3 flex flex-col items-center`}
 									onClick={() => {
 										setComponent(component);
 										setButtonActive(index);

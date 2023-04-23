@@ -21,7 +21,7 @@ const CreateResumePage = () => {
 				<componentContext.Provider value={{ component, setComponent }}>
 					<div className="lg:flex min-h-screen relative" style={{ fontFamily: baseFont.Syne }}>
 						<div
-							className={`fixed w-full h-full z-[90] backdrop-blur-[2px] bg-black bg-opacity-20 ${
+							className={`fixed lg:hidden w-full h-full z-[90] backdrop-blur-[2px] bg-black bg-opacity-20 ${
 								isActiveMobileMenu ? "opacity-100 pointer-events-auto" : "pointer-events-none opacity-0"
 							}`}></div>
 						<div
