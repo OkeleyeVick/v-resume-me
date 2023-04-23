@@ -64,3 +64,15 @@
   // const blob = new Blob([pdf.buffer], { type: 'application/pdf' });
   // window.open(URL.createObjectURL(blob));
 
+
+
+
+
+
+
+
+
+//Options to store user details and make them persist
+1. IndexedDB
+2. Redux-persist
+3. Localstorage
