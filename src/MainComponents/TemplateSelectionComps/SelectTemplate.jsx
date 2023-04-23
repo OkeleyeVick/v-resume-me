@@ -8,8 +8,8 @@ import resumeFive from "../../assets/images/resume-5.png";
 import resumeSix from "../../assets/images/resume-6.png";
 import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
-import "../../assets/css/fonts.css";
 import B_Offcanvas from "../../assets/UI-Components/B_Offcanvas";
+import "../../assets/css/fonts.css";
 
 const baseFont = {
 	Syne: "Syne ",

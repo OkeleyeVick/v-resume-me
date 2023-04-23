@@ -12,7 +12,7 @@ const TemplateDisplayHeader = () => {
 
 	useEffect(() => {
 		function removeDropdown(e) {
-			if (dropdown && e.target != dropdown) {
+			if (dropdown && e.target !== dropdown) {
 				setDropdownIsActive(false);
 			}
 		}
