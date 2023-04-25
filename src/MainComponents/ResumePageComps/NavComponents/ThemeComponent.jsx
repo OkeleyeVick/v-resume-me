@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useRef, useState } from "react";
 import "../../../assets/css/fonts.css";
 import { componentContext } from "../CreateResumePage";
@@ -19,7 +19,6 @@ const baseFont = [
 const ThemeComponent = () => {
 	const [defaultColor, setDefaultColor] = useState("#ffffff");
 	const [fontDropdownState, setFontDropdownState] = useState(false);
-	// const [font, setFont] = useState("Arial");
 	const { font, setFont } = useContext(componentContext);
 	const colorRef = useRef();
 	const fontRef = useRef();
@@ -27,6 +26,10 @@ const ThemeComponent = () => {
 	function handleColorShow() {
 		colorRef.current !== null ? colorRef.current.click() : "";
 	}
+
+	useEffect(() => {
+		fontRef.current.value = font;
+	}, [font]);
 
 	return (
 		<React.Fragment>

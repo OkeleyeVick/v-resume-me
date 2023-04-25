@@ -102,7 +102,8 @@ const SkillComponent = () => {
 											<React.Fragment key={itemIndex}>
 												<button
 													type="button"
-													className="text-slate-400 flex items-center justify-start gap-2 hover:bg-slate-800 hover:text-slate-200 rounded-lg p-3">
+													className="text-slate-400 flex items-center justify-start gap-2 hover:bg-slate-800 hover:text-slate-200 rounded-lg p-3"
+													onClick={() => setIsActive(false)}>
 													<Icon icon={icon} />
 													<span className="text-xs capitalize">{name}</span>
 												</button>
