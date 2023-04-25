@@ -91,7 +91,7 @@ const ThemeComponent = () => {
 									name="fontSize"
 									id={name}
 									aria-label={name}
-									className="w-5 h-5 cursor-pointer transition duration-300 ease-in"
+									className="w-5 h-5 cursor-pointer transition duration-300 ease-in bg-gray-200"
 								/>
 								<label htmlFor={name} className="text-sm leading-none text-gray-300">
 									{visualName}

@@ -64,7 +64,7 @@ const Navigation = () => {
 			icon_name: "ci:swatches-palette",
 			linkname: "Theme",
 			component: <ThemeComponent />,
-			size: "w-6 h-6",
+			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 	];
 
