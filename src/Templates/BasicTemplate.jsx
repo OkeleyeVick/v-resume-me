@@ -7,7 +7,7 @@ const BasicTemplate = () => {
 	const { font } = useContext(componentContext);
 	return (
 		<div className="bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4" style={{ fontFamily: font, fontSize: "10px" }}>
-			<section className="col-span-1 bg-[#DEAB52] p-4">
+			<section className="col-span-1 bg-[#DEAB52] py-4 px-3">
 				<PersonalDetails />
 			</section>
 			<section className="col-span-2 text-xs">
