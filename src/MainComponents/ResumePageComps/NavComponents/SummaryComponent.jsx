@@ -8,7 +8,10 @@ const SummaryComponent = () => {
 		<React.Fragment>
 			<div className="flex items-center justify-between">
 				<GoBackButton />
-				<button type="button" className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr animate-scaleInOut">
+				<button
+					type="button"
+					name="take-hints"
+					className="rounded-md bg-main text-slate-200 text-[.8rem] px-4 py-3 hover:bg-hoverBgClr animate-scaleInOut">
 					Take hints
 				</button>
 			</div>
@@ -21,6 +24,7 @@ const SummaryComponent = () => {
 					<div className="mt-6 flex items-center gap-2">
 						<button
 							type="submit"
+							name="submit-form-button"
 							className="text-sm w-full text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
 							Save
 						</button>

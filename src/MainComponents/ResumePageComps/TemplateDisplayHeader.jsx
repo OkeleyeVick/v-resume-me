@@ -30,6 +30,7 @@ const TemplateDisplayHeader = () => {
 			<div className="lg:hidden flex items-center justify-end p-2">
 				<button
 					type="button"
+					name="sidebar__button"
 					className={`transition duration-500 rounded-full p-[.35rem] hover:bg-hoverBgClr hover:bg-opacity-80 outline-none ${
 						isActiveMobileMenu ? "bg-hoverBgClr" : "bg-transparent"
 					}`}
@@ -44,6 +45,7 @@ const TemplateDisplayHeader = () => {
 							<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
 							<button
 								type="button"
+								name="get-hint"
 								onClick={function () {
 									console.log("Well done");
 								}}
@@ -57,6 +59,7 @@ const TemplateDisplayHeader = () => {
 						<div className="relative">
 							<button
 								type="button"
+								name="select-format-trigger"
 								className="cursor-pointer w-full border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3 min-h-[2.9rem] leading-4"
 								onClick={() => setDropdownIsActive((prev) => !prev)}>
 								<span>{formaType}</span>
@@ -71,6 +74,7 @@ const TemplateDisplayHeader = () => {
 									<React.Fragment key={formatIndex}>
 										<button
 											type="button"
+											name="each-format"
 											className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md"
 											onClick={() => {
 												setDropdownIsActive(false);
@@ -87,12 +91,14 @@ const TemplateDisplayHeader = () => {
 				<div className="flex items-center gap-x-4">
 					<button
 						type="button"
+						name="share"
 						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
 						<span className="text-white text-xs font-semibold leading-4 flex items-center">Share</span>
 						<Icon icon="carbon:share" className="text-white h-5 w-5" />
 					</button>
 					<button
 						type="button"
+						name="download-file"
 						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
 						<span className="text-white text-xs font-semibold leading-4 flex items-center">Download</span>
 						<Icon icon="ph:download-simple" className="text-white h-5 w-5" />

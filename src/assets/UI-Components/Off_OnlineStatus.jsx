@@ -17,6 +17,7 @@ const Off_OnlineStatus = () => {
 					</span>
 					<button
 						type="button"
+						name="offline-online-status-button"
 						onClick={() => {
 							D((prev) => !prev);
 						}}

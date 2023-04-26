@@ -56,6 +56,7 @@ const ThemeComponent = () => {
 					<div className="relative flex items-center mt-[.6rem] ">
 						<button
 							type="button"
+							name="fontSelection-trigger"
 							className="border border-gray-500 rounded-md py-3 px-4 w-full flex items-center justify-between hover:border-main"
 							onClick={() => setFontDropdownState((current) => !current)}>
 							<span className="text-sm">{font}</span>
@@ -68,6 +69,7 @@ const ThemeComponent = () => {
 							<input type="hidden" name="fontFamily" ref={fontRef} />
 							{baseFont.map(({ font }, index) => (
 								<button
+									name="font-button"
 									key={index}
 									type="button"
 									className="text-start p-2 bg-transparent hover:bg-gray-700 hover:pl-3 hover:text-sm text-xs duration-100 rounded-md"
@@ -105,6 +107,7 @@ const ThemeComponent = () => {
 					<div className="relative flex items-center mt-2 mb-1 ">
 						<button
 							type="button"
+							name="color-selection"
 							className="border border-gray-500 rounded-md py-2 px-4 hover:border-main"
 							onClick={() => {
 								handleColorShow();
@@ -132,6 +135,7 @@ const ThemeComponent = () => {
 				</div>
 				<div className="mt-6 flex items-center gap-2">
 					<button
+						name="submit-form"
 						type="submit"
 						className="text-sm w-full text-gray-300 bg-main border-[1.5px] border-main hover:border-hoverBgClr hover:bg-hoverBgClr rounded-md px-6 py-3">
 						Save all

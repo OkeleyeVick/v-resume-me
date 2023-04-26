@@ -67,6 +67,7 @@ const SelectTemplate = () => {
 											<div className="flex items-center justify-between mt-3 gap-1">
 												<button
 													type="button"
+													name="view-template"
 													className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-3 sm:px-5 text-white"
 													onClick={() => console.log("welll")}>
 													<span className="hidden md:inline">View template</span>
