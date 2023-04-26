@@ -9,6 +9,7 @@ const TemplateDisplayHeader = () => {
 	const [formaType, setFormatType] = useState("pdf");
 
 	const dropdown = document.querySelector(".format__dropdown");
+
 	const formats = [{ format: ".pdf" }, { format: ".docx" }];
 
 	useEffect(() => {
@@ -73,7 +74,7 @@ const TemplateDisplayHeader = () => {
 											className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md"
 											onClick={() => {
 												setDropdownIsActive(false);
-												setFormatType(formaType);
+												setFormatType(format);
 											}}>
 											<span className="text-xs leading-none">{format}</span>
 										</button>
