@@ -8,6 +8,7 @@ const R_Offcanvas = ({ children }) => {
 				<div className="flex items-center justify-start p-2 relative border-b">
 					<button
 						type="button"
+						name="dismiss-offcanvas"
 						className="p-2 rounded-full transition relative before:inset-0 before:bg-gray-200 before:[content: ''] before:absolute before:rounded-full before:scale-0 before:transition before:duration-200 before:ease-in-out hover:before:scale-100 before:-z-[1] isolate">
 						<Icon icon="heroicons:x-mark-20-solid" className="w-6 lg:w-7 h-6 lg:h-7" />
 					</button>

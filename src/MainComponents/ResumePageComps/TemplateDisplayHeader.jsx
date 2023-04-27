@@ -6,15 +6,13 @@ import { MobileMenuContext } from "./CreateResumePage";
 const TemplateDisplayHeader = () => {
 	const [dropdownActive, setDropdownIsActive] = useState(false);
 	const { isActiveMobileMenu, setMobileMenu } = useContext(MobileMenuContext);
-	const [formaType, setFormatType] = useState("pdf");
-
+	const [formatType, setFormatType] = useState("pdf");
+	const formats = [{ format: "pdf" }, { format: "docx" }];
 	const dropdown = document.querySelector(".format__dropdown");
-
-	const formats = [{ format: ".pdf" }, { format: ".docx" }];
 
 	useEffect(() => {
 		function removeDropdown(e) {
-			if (dropdown && e.target !== dropdown) {
+			if (e.currentTarget !== dropdown) {
 				setDropdownIsActive(false);
 			}
 		}
@@ -62,14 +60,14 @@ const TemplateDisplayHeader = () => {
 								name="select-format-trigger"
 								className="cursor-pointer w-full border-main border-[1.5px] rounded-md p-2 flex items-center text-gray-200 text-sm gap-2 px-3 min-h-[2.9rem] leading-4"
 								onClick={() => setDropdownIsActive((prev) => !prev)}>
-								<span>{formaType}</span>
+								<span>{formatType}</span>
 								<Icon icon="ion:chevron-down-outline" />
 							</button>
 							<div
 								className={`format__dropdown absolute border mt-1 top-full right-0 border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
 									dropdownActive ? "translate-y-0 opacity-100 pointer-events-auto" : "translate-y-2 opacity-0 pointer-events-none"
 								}`}>
-								<input type="hidden" name="format" value={formaType} />
+								<input type="hidden" name="format" value={formatType} />
 								{formats.map(({ format }, formatIndex) => (
 									<React.Fragment key={formatIndex}>
 										<button
@@ -77,8 +75,8 @@ const TemplateDisplayHeader = () => {
 											name="each-format"
 											className="text-slate-200 outline-none text-start p-1 px-[.6rem] hover:bg-slate-700 rounded-md"
 											onClick={() => {
-												setDropdownIsActive(false);
 												setFormatType(format);
+												setDropdownIsActive(false);
 											}}>
 											<span className="text-xs leading-none">{format}</span>
 										</button>
