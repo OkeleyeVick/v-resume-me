@@ -3,6 +3,15 @@ import GoBackButton from "../../GeneralComponents/GoBackButton";
 import Input from "../../GeneralComponents/Input";
 
 const PersonalComponent = () => {
+	// Get all elements in the DOM
+	const elements = document.querySelectorAll("*");
+
+	// Loop through all elements and log their font size to the console
+	for (let i = 0; i < elements.length; i++) {
+		const fontSize = window.getComputedStyle(elements[i]).getPropertyValue("font-size");
+		// console.log(`Element ${i}: Font size is ${fontSize.split("px")[0] * 0.5}`);
+	}
+
 	function doThis() {
 		console.log("I love you");
 	}
@@ -16,7 +25,7 @@ const PersonalComponent = () => {
 			</div>
 			<div className="overflow-y-auto h-[85vh] no-scroll pr-2 pb-5 my-4">
 				<form action="">
-					<div className="flex flex-col gap-8 mt-8">
+					<div className="flex flex-col gap-6 mt-8">
 						<Input label="Fullname" type="text" aria-label="Name input" ariaLabel="Name input" placeholder="Enter your name" />
 						<Input label="Position" type="text" aria-label="position" ariaLabel="position" placeholder="Enter your position" />
 						<Input label="Phone" type="number" aria-label="position" ariaLabel="position" placeholder="Enter number" />

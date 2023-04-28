@@ -10,6 +10,14 @@ const TemplateDisplayHeader = () => {
 	const formats = [{ format: "pdf" }, { format: "docx" }];
 	const dropdown = document.querySelector(".format__dropdown");
 
+	function shareFile() {
+		console.log("You are trying to share the file");
+	}
+
+	function DownloadFile() {
+		console.log("your file is being downloaded...");
+	}
+
 	return (
 		<React.Fragment>
 			<div className="lg:hidden flex items-center justify-end p-2">
@@ -77,14 +85,16 @@ const TemplateDisplayHeader = () => {
 					<button
 						type="button"
 						name="share"
-						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
+						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-30"
+						onClick={() => shareFile()}>
 						<span className="text-white text-xs font-semibold leading-4 flex items-center">Share</span>
 						<Icon icon="carbon:share" className="text-white h-5 w-5" />
 					</button>
 					<button
 						type="button"
 						name="download-file"
-						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300">
+						className="flex items-center justify-center gap-2 px-5 py-3 hover:bg-button flex-grow rounded-md bg-main transition ease-in-out duration-300"
+						onClick={() => DownloadFile()}>
 						<span className="text-white text-xs font-semibold leading-4 flex items-center">Download</span>
 						<Icon icon="ph:download-simple" className="text-white h-5 w-5" />
 					</button>
