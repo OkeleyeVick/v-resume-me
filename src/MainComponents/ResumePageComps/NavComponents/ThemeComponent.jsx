@@ -19,15 +19,15 @@ const baseFont = [
 const fontSizeRadioTypes = [
 	{
 		name: "smFontSize",
-		visualName: "Small",
+		visualName: "Very small",
 	},
 	{
 		name: "mdFontSize",
-		visualName: "Medium",
+		visualName: "Small",
 	},
 	{
 		name: "LgFontSize",
-		visualName: "Large",
+		visualName: "Medium",
 	},
 ];
 
@@ -39,12 +39,12 @@ const ThemeComponent = () => {
 	const fontRef = useRef();
 
 	function handleColorShow() {
-		colorRef.current !== null ? colorRef.current.click() : "";
+		colorRef.current !== null || undefined ? colorRef.current.click() : "";
 	}
 
 	useEffect(() => {
 		fontRef.current.value = font;
-	}, [font]);
+	}, [font, defaultColor]);
 
 	return (
 		<React.Fragment>
@@ -93,9 +93,9 @@ const ThemeComponent = () => {
 									name="fontSize"
 									id={name}
 									aria-label={name}
-									className="w-5 h-5 cursor-pointer transition duration-300 ease-in bg-gray-200"
+									className="w-4 h-4 cursor-pointer transition duration-300 ease-in bg-gray-200"
 								/>
-								<label htmlFor={name} className="text-sm leading-none text-gray-300">
+								<label htmlFor={name} className="text-[.8rem] leading-none text-gray-300">
 									{visualName}
 								</label>
 							</div>
@@ -119,15 +119,13 @@ const ThemeComponent = () => {
 						</button>
 						<div className="absolute bottom-0 right-0 transition duration-300 ease-in-out">
 							<input
-								style={{ backgroundColor: `${defaultColor}`, border: "none" }}
 								type="color"
-								ref={colorRef}
 								value={defaultColor}
-								onChange={() => {
-									setDefaultColor(colorRef.current.value);
+								ref={colorRef}
+								onChange={(e) => {
+									setDefaultColor(e.target.value);
 								}}
-								name=""
-								id=""
+								name="theme-color"
 								hidden
 							/>
 						</div>
