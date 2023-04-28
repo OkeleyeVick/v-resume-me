@@ -4,6 +4,7 @@
 
 * {
 	transition: all 300ms ease-in-out;
+	text-rendering: optimizeLegibility;
 }
 body::-webkit-scrollbar {
 	display: none;
