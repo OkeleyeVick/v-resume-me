@@ -11,7 +11,9 @@ const BasicTemplate = () => {
 			<section className="col-span-2 text-xs">
 				<div className="">
 					<h3 className="uppercase font-semibold text-slate-900 tracking-wider">Summary</h3>
-					<div className="">Details</div>
+					<div className=""></div>
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed magnam vitae beatae fuga! Quaerat exercitationem ab sequi culpa in
+					similique impedit quae ipsum, et eius aliquam, maiores dolor, nostrum saepe?
 				</div>
 			</section>
 		</div>
