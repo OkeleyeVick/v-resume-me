@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import image from "../../assets/images/dart-bullseye.svg";
 
 const SecondSection = () => {
@@ -20,4 +20,4 @@ const SecondSection = () => {
 	);
 };
 
-export default SecondSection;
+export default memo(SecondSection);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import skeletonImage from "../../assets/images/skeleton-image.webp";
 
@@ -40,4 +40,4 @@ const FirstSection = () => {
 	);
 };
 
-export default FirstSection;
+export default memo(FirstSection);

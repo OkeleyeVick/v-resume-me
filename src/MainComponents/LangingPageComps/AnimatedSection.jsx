@@ -1,5 +1,6 @@
 import React from "react";
 import video from "../../assets/images/job-recruiter.gif";
+import { memo } from "react";
 
 const AnimatedSection = () => {
 	return (
@@ -19,4 +20,4 @@ const AnimatedSection = () => {
 	);
 };
 
-export default AnimatedSection;
+export default memo(AnimatedSection);

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import PersonalDetails from "./BasicTemplateComponents/PersonalDetails";
 import "../assets/css/fonts.css";
+import { memo } from "react";
 
 const BasicTemplate = () => {
 	return (
@@ -21,4 +22,4 @@ const BasicTemplate = () => {
 	);
 };
 
-export default BasicTemplate;
+export default memo(BasicTemplate);

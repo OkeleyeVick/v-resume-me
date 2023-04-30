@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 import PageLoader from "../GeneralComponents/PageLoader";
@@ -43,4 +43,4 @@ const LandingPage = () => {
 	);
 };
 
-export default LandingPage;
+export default memo(LandingPage);

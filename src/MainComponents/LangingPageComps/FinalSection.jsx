@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/images/get-a-job.svg";
 import img_two from "../../assets/images/resume-1.png";
@@ -41,4 +41,4 @@ const FinalSection = () => {
 	);
 };
 
-export default FinalSection;
+export default memo(FinalSection);

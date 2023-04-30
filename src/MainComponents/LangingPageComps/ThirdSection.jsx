@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import image from "../../assets/images/cv-woman.svg";
 import downloadformat from "../../assets/images/download-types.svg";
 import documentFormat from "../../assets/images/document-svg.svg";
@@ -43,4 +43,4 @@ const ThirdSection = () => {
 	);
 };
 
-export default ThirdSection;
+export default memo(ThirdSection);

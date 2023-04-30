@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { createPortal } from "react-dom";
 
 const PageLoader = () => {
@@ -16,4 +16,4 @@ const PageLoader = () => {
 	);
 };
 
-export default PageLoader;
+export default memo(PageLoader);
