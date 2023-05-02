@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { memo } from "react";
 
 const links = [
 	{
@@ -69,4 +69,4 @@ const Footer = () => {
 	);
 };
 
-export default Footer;
+export default memo(Footer);
