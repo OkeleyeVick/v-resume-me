@@ -1,11 +1,22 @@
-import React, { useContext } from "react";
+// import React, { useContext, useEffect, useRef } from "react";
 import PersonalDetails from "./BasicTemplateComponents/PersonalDetails";
 import "../assets/css/fonts.css";
 import { memo } from "react";
 
 const BasicTemplate = () => {
+	// const zoomRef = useRef();
+	// useEffect(() => {
+	// 	// Change zoom level on mount
+	// 	zoomRef.current.style.zoom = "80%";
+
+	// 	return () => {
+	// 		// Restore default value
+	// 		zoomRef.current.style.zoom = "100%";
+	// 	};
+	// });
+
 	return (
-		<div className={`bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4 touch-pinch-zoom`}>
+		<div className={`bg-white min-h-[100vh] p-4 grid grid-cols-3 gap-4`}>
 			<section className="col-span-1 bg-[#DEAB52] py-4 px-3">
 				<PersonalDetails />
 			</section>
