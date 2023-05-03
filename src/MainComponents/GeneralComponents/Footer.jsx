@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React, { memo } from "react";
+import { Link } from "react-router-dom";
 
 const links = [
 	{
@@ -20,7 +21,7 @@ const links = [
 	},
 	{
 		icon: "ph:linkedin-logo-light",
-		link: "https://github.com/OkeleyeVick",
+		link: "https://linkedin.com/in/OkeleyeVick",
 	},
 ];
 
@@ -43,8 +44,7 @@ const Footer = () => {
 				</a>
 			</span>
 			<div className="flex items-center gap-4 md:gap-6">
-				{links.map((item, index) => {
-					const { icon, link, button } = item;
+				{links.map(({ icon, link, button }, index) => {
 					return button ? (
 						<button
 							key={index}
@@ -59,9 +59,9 @@ const Footer = () => {
 							<Icon icon={icon} className="w-5 h-5" />
 						</button>
 					) : (
-						<a href={link} key={index} className="hover:text-main transition duration-[100ms] ease-in-out">
+						<Link to={link} key={index} className="hover:text-main transition duration-[100ms] ease-in-out">
 							<Icon icon={icon} className="w-5 h-5" />
-						</a>
+						</Link>
 					);
 				})}
 			</div>
