@@ -35,7 +35,14 @@ const TemplateDisplayHeader = () => {
 				<form action="">
 					<div className="flex items-center gap-2">
 						<div className="flex items-center gap-1 group/inputParent flex-grow">
-							<Input type="text" placeholder="Add a filename" ariaLabel="filename" className="bg-custom_2" aria-label="filename" />
+							<Input
+								type="text"
+								placeholder="Add a filename"
+								ariaLabel="filename"
+								className="bg-custom_2"
+								aria-label="filename"
+								onChange={(e) => console.log(e.target.value)}
+							/>
 							<button
 								type="button"
 								name="get-hint"

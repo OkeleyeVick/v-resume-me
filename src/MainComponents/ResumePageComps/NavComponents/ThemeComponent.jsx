@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useContext, useEffect } from "react";
+import React, { memo, useContext, useEffect } from "react";
 import { useRef, useState } from "react";
 import "../../../assets/css/fonts.css";
 import { componentContext } from "../CreateResumePage";
@@ -14,6 +14,8 @@ const baseFont = [
 	{ font: "Comfortaa" },
 	{ font: "IBMPlexSans" },
 	{ font: "Montserrat" },
+	{ font: "Stolzl" },
+	{ font: "Söhne" },
 ];
 
 const fontSizeRadioTypes = [
@@ -144,4 +146,4 @@ const ThemeComponent = () => {
 	);
 };
 
-export default ThemeComponent;
+export default memo(ThemeComponent);

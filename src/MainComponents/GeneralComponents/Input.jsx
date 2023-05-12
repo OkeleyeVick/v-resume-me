@@ -14,6 +14,7 @@ const Input = ({ ariaLabel, placeholder, type, label }) => {
 					spellCheck="false"
 					autoComplete="false"
 					id={label}
+					onChange={(e) => console.log(e.target.value)}
 					placeholder={placeholder}
 					type={type}
 					aria-label={ariaLabel}

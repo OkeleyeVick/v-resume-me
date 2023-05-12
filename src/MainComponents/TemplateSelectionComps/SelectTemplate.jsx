@@ -12,14 +12,7 @@ import B_Offcanvas from "../../assets/UI-Components/B_Offcanvas";
 import "../../assets/css/fonts.css";
 
 const baseFont = {
-	Syne: "Syne ",
 	Rubik: "Rubik",
-	Montserrat: "Montserrat",
-	Sora: "Sora",
-	Comfortaa: "Comfortaa",
-	IBMPlexSans: "IBMPlexSans",
-	Oxygen: "Montserrat",
-	Mulish: "Montserrat",
 };
 
 const resumes = [

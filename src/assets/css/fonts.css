@@ -27,6 +27,14 @@
 	src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
+	font-family: "Söhne";
+	src: url("../fonts/Shone-Regular.otf") format("opentype");
+}
+@font-face {
 	font-family: "Montserrat";
 	src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Stolzl";
+	src: url("../fonts/Stolzl-Book.ttf") format("truetype");
 }
