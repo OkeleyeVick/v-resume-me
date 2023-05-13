@@ -108,9 +108,11 @@ const SelectTemplate = () => {
 													<Icon icon="carbon:document-view" className="md:hidden w-5 h-4" />
 												</button>
 												<Link
-													to={`/create-resume/${name}`}
-													className="text-[11px] sm:text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white">
-													Use Template
+													to={locked ? "" : `/create-resume/${name}`}
+													className={`${
+														locked ? "cursor-not-allowed bg-main/70" : " bg-main cursor-pointer hover:bg-hoverBgClr"
+													} text-[11px] sm:text-xs selection:text-white transition ease-in-out duration-500 rounded-md py-3 px-2 sm:px-3 text-white`}>
+													{locked ? "Unavailable" : "Use Template"}
 												</Link>
 											</div>
 										</div>
