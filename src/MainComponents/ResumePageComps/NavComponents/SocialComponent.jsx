@@ -8,7 +8,7 @@ const linkInputs = [
 		label: "Website",
 		placeholder: "Enter your website link",
 		icon: "fluent:globe-20-filled",
-		name: "portfoli-link",
+		name: "portfolio-link",
 	},
 	{
 		label: "LinkedIn",

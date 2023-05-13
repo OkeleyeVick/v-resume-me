@@ -12,7 +12,7 @@ function App() {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/select-template" element={<SelectTemplate />} />
 				<Route path="/create-resume/:id/*" element={<CreateResumePage />} />
-				<Route path="*" element={<PageNotFound />} />
+				<Route path={`*`} element={<PageNotFound />} />
 			</Routes>
 		</div>
 	);
