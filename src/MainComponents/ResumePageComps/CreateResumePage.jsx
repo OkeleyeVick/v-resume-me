@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, memo, useState } from "react";
 import NavigationSublet from "./NavigationSublet";
 import Navigation from "./Navigation";
 import TemplateDisplay from "./TemplateDisplay";
@@ -42,4 +42,4 @@ const CreateResumePage = () => {
 	);
 };
 
-export default CreateResumePage;
+export default memo(CreateResumePage);
