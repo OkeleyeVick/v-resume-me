@@ -68,20 +68,20 @@ const Navigation = () => {
 	return (
 		<div className="flex items-center justify-between bg-custom_1 h-full">
 			<div className="h-full">
-				<div className="p-2">
+				<div className="py-[0.3rem] px-[0.2rem]">
 					<Link
 						to="/"
-						className="relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full flex flex-col items-center border-2 border-main p-1 gap-y-1 py-4 ">
+						className="relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full flex flex-col items-center border-2 border-main p-1 gap-y-1 py-4 rounded-tl-[10px] rounded-br-[10px]">
 						<div className="font-semibold relative text-xs uppercase flex flex-col items-center leading-none text-main">
 							<span>Resume</span>
 							<span>.me</span>
 						</div>
 					</Link>
 				</div>
-				<div className="flex flex-col mt-4 relative">
+				<div className="flex flex-col mt-8 relative">
 					<div
 						className="bg-main w-[2px] h-[60px] absolute top-0 right-0 z-[1] hidden md:block"
-						style={{ top: `${top}px`, transition: "300ms ease-in-out" }}></div>
+						style={{ top: `${top}px`, transition: "250ms ease" }}></div>
 					{navLinks.map(({ icon_name, linkname, component, size }, index) => {
 						return (
 							<React.Fragment key={index}>
@@ -93,7 +93,7 @@ const Navigation = () => {
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
 											: "hover:bg-opacity-80 hover:bg-gray-700 text-gray-300"
-									} outline-none p-2 md:p-3 flex flex-col items-center`}
+									} outline-none p-2 md:px-[0.4rem] md:py-[0.3rem] flex flex-col justify-center items-center`}
 									onClick={() => {
 										setComponent(component);
 										setButtonActive(index);

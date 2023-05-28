@@ -114,7 +114,7 @@ const ThemeComponent = () => {
 							}}>
 							<div className="flex items-center gap-3">
 								<div className={`rounded-md w-6 h-6`} style={{ backgroundColor: `${defaultColor}` }}></div>
-								<span className="text-gray-200 text-sm uppercase font-semibold">{defaultColor}</span>
+								<span className="text-gray-200 text-[.8rem] tracking-wider uppercase font-semibold">{defaultColor}</span>
 							</div>
 						</button>
 						<div className="absolute bottom-0 right-0 transition duration-300 ease-in-out">

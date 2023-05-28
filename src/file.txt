@@ -76,3 +76,8 @@
 1. IndexedDB
 2. Redux-persist
 3. Localstorage
+
+//state management
+1. Redux Toolkit
+2. useState + useContext
+3. useState + useReducer
