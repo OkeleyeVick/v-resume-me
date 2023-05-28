@@ -11,10 +11,6 @@
 	src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Comfortaa";
-	src: url("../fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
-}
-@font-face {
 	font-family: "IBMPlexSans";
 	src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
 }

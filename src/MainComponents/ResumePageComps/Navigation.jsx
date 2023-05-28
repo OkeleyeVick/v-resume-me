@@ -22,10 +22,7 @@ const Navigation = () => {
 
 	const navLinks = [
 		{
-			// icon_name: "prime:user-edit",
-			// icon_name: "mingcute:user-1-line",
-			// icon_name: "clarity:user-line",
-			icon_name: "bx:user",
+			icon_name: "mingcute:user-1-line",
 			linkname: "personal",
 			component: <PersonalComponent />,
 			size: "w-4 h-4 md:w-5 md:h-5",
