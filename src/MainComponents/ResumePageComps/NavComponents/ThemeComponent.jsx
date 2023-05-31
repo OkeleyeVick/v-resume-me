@@ -74,7 +74,8 @@ const ThemeComponent = () => {
 									name="font-button"
 									key={index}
 									type="button"
-									className="text-start p-2 bg-transparent hover:bg-gray-700 hover:pl-3 hover:text-sm text-xs duration-100 rounded-md"
+									className="text-start p-2 bg-transparent hover:bg-gray-700 hover:pl-3 md:hover:font-semibold md:hover:tracking-wider hover:text-sm text-xs duration-100 rounded-md"
+									style={{ fontFamily: `${font}` }}
 									onClick={() => {
 										setFontDropdownState(false), setFont(font);
 									}}>

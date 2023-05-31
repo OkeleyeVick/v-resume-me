@@ -58,10 +58,13 @@ const Navigation = () => {
 			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
-			icon_name: "ci:swatches-palette",
+			// icon_name: "ci:swatches-palette",
+			// icon_name: "ph:paint-brush",
+			icon_name: "fluent:paint-brush-24-regular",
 			linkname: "Theme",
 			component: <ThemeComponent />,
-			size: "w-4 h-4 md:w-5 md:h-5",
+			// size: "w-4 h-4 md:w-5 md:h-5",
+			size: "w-5 h-5 md:w-6 md:h-6", // if you use flend:paint,
 		},
 	];
 
