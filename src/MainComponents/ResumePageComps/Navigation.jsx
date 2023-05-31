@@ -96,7 +96,7 @@ const Navigation = () => {
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
 											: "hover:bg-opacity-80 hover:bg-gray-700 text-gray-300"
-									} outline-none p-2 md:px-[0.4rem] md:py-[0.3rem] flex flex-col justify-center items-center`}
+									} outline-none p-2 md:px-[0.3rem] md:py-[0.3rem] flex flex-col justify-center items-center`}
 									onClick={() => {
 										setComponent(component);
 										setButtonActive(index);

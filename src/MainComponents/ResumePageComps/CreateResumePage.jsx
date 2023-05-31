@@ -14,7 +14,7 @@ export const MobileMenuContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [isActiveMobileMenu, setMobileMenu] = useState(false);
-	const [font, setFont] = useState("Arial");
+	const [font, setFont] = useState("Mulish");
 
 	return (
 		<React.Fragment>

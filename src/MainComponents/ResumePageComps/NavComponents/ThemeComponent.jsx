@@ -5,7 +5,6 @@ import "../../../assets/css/fonts.css";
 import { componentContext } from "../CreateResumePage";
 
 const baseFont = [
-	{ font: "Arial" },
 	{ font: "Syne" },
 	{ font: "Rubik" },
 	{ font: "Sora" },
