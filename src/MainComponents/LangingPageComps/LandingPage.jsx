@@ -14,10 +14,6 @@ const baseFont = {
 	Syne: "Rubik",
 };
 
-const x = [1, 2, 4];
-x.length = 20;
-console.log(x);
-
 const LandingPage = () => {
 	const [showPreloader, setShowPreloader] = useState(true);
 

@@ -34,3 +34,11 @@
 	font-family: "Stolzl";
 	src: url("../fonts/Stolzl-Book.ttf") format("truetype");
 }
+@font-face {
+	font-family: "Nunito Sans";
+	src: url("../fonts/NunitoSans-VariableFont.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Ubuntu";
+	src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+}

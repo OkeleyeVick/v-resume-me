@@ -14,6 +14,8 @@ const baseFont = [
 	{ font: "Montserrat" },
 	{ font: "Stolzl" },
 	{ font: "Söhne" },
+	{ font: "Nunito Sans" },
+	{ font: "Ubuntu" },
 ];
 
 const fontSizeRadioTypes = [
