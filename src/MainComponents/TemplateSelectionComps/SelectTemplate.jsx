@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
-import React, { memo, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { memo, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import resumeOne from "../../assets/images/resume-1.png";
 import resumeTwo from "../../assets/images/resume-2.png";
 import resumeThree from "../../assets/images/resume-3.png";
@@ -63,6 +63,10 @@ const resumes = [
 ];
 
 const SelectTemplate = () => {
+	const { pathname } = useLocation();
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
 	return (
 		<React.Fragment>
 			<div style={{ fontFamily: baseFont.Rubik }}>

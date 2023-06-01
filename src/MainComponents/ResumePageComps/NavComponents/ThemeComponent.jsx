@@ -15,6 +15,8 @@ const baseFont = [
 	{ font: "Söhne" },
 	{ font: "Nunito Sans" },
 	{ font: "Ubuntu" },
+	{ font: "Lora" },
+	{ font: "Quicksand" },
 ];
 
 const fontSizeRadioTypes = [

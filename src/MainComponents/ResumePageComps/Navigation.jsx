@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { componentContext } from "./CreateResumePage";
 import SkillComponent from "./NavComponents/SkillComponent";
@@ -13,10 +13,11 @@ import EducationComponent from "./NavComponents/EducationComponent";
 const Navigation = () => {
 	const { setComponent } = useContext(componentContext);
 	const [buttonActive, setButtonActive] = useState(0);
+	const [height] = useState(60);
 	const [top, setTop] = useState(0);
 
 	const handleSpanHeight = (index) => {
-		const multiple = index * 60;
+		const multiple = index * height;
 		setTop(multiple);
 	};
 
@@ -34,7 +35,9 @@ const Navigation = () => {
 			size: "w-4 h-4 md:w-5 md:h-5",
 		},
 		{
-			icon_name: "carbon:education",
+			// icon_name: "carbon:education",
+			// icon_name: "cil:education",
+			icon_name: "ion:school-outline",
 			linkname: "Education",
 			component: <EducationComponent />,
 			size: "w-4 h-4 md:w-5 md:h-5",
@@ -91,7 +94,7 @@ const Navigation = () => {
 								<button
 									type="button"
 									className={`
-									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[55px] md:h-[60px]
+									relative before:absolute before:inset-0 overflow-hidden before:bg-slate-900 hover:before:bg-opacity-50 before:scale-0 before:transition before:duration-500 before:ease-in-out hover:before:scale-150 before:rounded-full h-[55px] md:h-[${height}px]
 									${
 										buttonActive === index
 											? "bg-slate-900 text-main hover:bg-slate-800"
@@ -114,4 +117,4 @@ const Navigation = () => {
 	);
 };
 
-export default Navigation;
+export default memo(Navigation);
