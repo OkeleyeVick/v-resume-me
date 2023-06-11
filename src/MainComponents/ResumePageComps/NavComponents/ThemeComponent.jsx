@@ -6,6 +6,7 @@ import { componentContext } from "../CreateResumePage";
 
 const baseFont = [
 	{ font: "Syne" },
+	{ font: "Georgia" },
 	{ font: "Rubik" },
 	{ font: "Sora" },
 	{ font: "Mulish" },
