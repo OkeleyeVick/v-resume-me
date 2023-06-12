@@ -1,7 +1,7 @@
 import React, { memo } from "react";
-import image from "../../assets/images/cv-woman.svg";
-import downloadformat from "../../assets/images/download-types.svg";
-import documentFormat from "../../assets/images/document-svg.svg";
+import image from "../../assets/images/PageImages/cv-woman.svg";
+import downloadformat from "../../assets/images/PageImages/download-types.svg";
+import documentFormat from "../../assets/images/PageImages/document-svg.svg";
 import { Link } from "react-router-dom";
 
 const ThirdSection = () => {
@@ -15,7 +15,9 @@ const ThirdSection = () => {
 							<span className="block text-sm">Create your resume and download it in a PDF (.pdf) or DOCX (.docx) format.</span>
 						</div>
 						<div className="max-w-[16rem]">
-							<img src={downloadformat} alt="" />
+							<figure>
+								<img src={downloadformat} alt="" />
+							</figure>
 						</div>
 					</div>
 					<div className="flex items-center  flex-col-reverse md:flex-row justify-center md:justify-around text-center rounded-[12px] overflow-hidden p-3">
@@ -36,7 +38,9 @@ const ThirdSection = () => {
 					</div>
 				</div>
 				<div className="col-span-full md:col-start-2 md:col-end-3 flex items-center">
-					<img src={image} alt="" />
+					<figure>
+						<img src={image} alt="" />
+					</figure>
 				</div>
 			</div>
 		</div>

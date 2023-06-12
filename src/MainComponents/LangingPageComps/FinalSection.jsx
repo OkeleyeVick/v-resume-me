@@ -1,41 +1,51 @@
 import React, { memo } from "react";
-import { Link } from "react-router-dom";
-import img from "../../assets/images/get-a-job.svg";
-import img_two from "../../assets/images/resume-1.png";
-import img_three from "../../assets/images/resume-2.png";
-import img_four from "../../assets/images/resume-3.png";
-import img_five from "../../assets/images/resume-4.jpg";
-import img_six from "../../assets/images/resume-5.png";
-import img_seven from "../../assets/images/resume-6.png";
+import img from "../../assets/images/PageImages/get-a-job.svg";
+import img_one from "../../assets/images/ResumeImages/thumbnail.png";
+import img_two from "../../assets/images/ResumeImages/thumbnail 2.png";
+import img_three from "../../assets/images/ResumeImages/thumbnail 3.png";
+import img_four from "../../assets/images/ResumeImages/thumbnail 4.png";
+import img_five from "../../assets/images/ResumeImages/thumbnail 5.png";
+import img_six from "../../assets/images/ResumeImages/thumbnail 6.png";
 
 const FinalSection = () => {
 	return (
 		<div className="grid grid-cols-12 py-10 bg-main_2 overflow-x-hidden">
 			<div className="col-span-full flex items-center -mb-16 justify-center md:hidden">
-				<img src={img_two} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="alt 1" />
+				<figure>
+					<img src={img_two} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="alt 1" />
+				</figure>
 			</div>
 			<div className="col-span-full md:col-start-1 md:col-end-13 p-4 px-8 lg:col-start-4 lg:col-end-10 flex items-center justify-center gap-40">
-				<img src={img_three} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="Alternate image with error" />
-				<img src={img_four} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="Alternate image with error" />
+				<figure>
+					<img src={img_three} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="Alternate image with error" />
+				</figure>
+				<figure>
+					<img src={img_four} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="Alternate image with error" />
+				</figure>
 			</div>
-			<div className="col-span-full md:col-start-1 md:col-end-13 p-4 lg:col-start-1 text-center lg:col-end-13 flex items-center justify-around gap-8">
-				<img src={img_five} className="animate-rotate bg-gray-50 max-w-[110px] hidden md:inline w-full" alt="alt 1" />
+			<div className="col-span-full md:col-start-1 md:col-end-13 p-4 lg:col-start-1 text-center lg:col-end-13 flex items-center justify-center gap-16">
+				<figure>
+					<img src={img_five} className="animate-rotate bg-gray-50 max-w-[80px] hidden md:inline w-full" alt="alt 1" />
+				</figure>
 				<div className=" flex flex-col items-center gap-y-8">
 					<img src={img} alt="alt-3" className="max-w-sm w-full" />
-					<Link
-						to=""
-						className="text-white transition duration-500 ease-in-out hover:bg-hoverBgClr selection:text-white bg-main rounded-md py-4 px-6 font-semibold">
-						Create my Resume
-					</Link>
 				</div>
-				<img src={img_six} className="animate-rotate bg-gray-50 max-w-[110px] hidden md:inline w-full" alt="alt 2" />
+				<figure>
+					<img src={img_six} className="animate-rotate bg-gray-50 max-w-[80px] hidden md:inline w-full" alt="alt 2" />
+				</figure>
 			</div>
 			<div className="col-span-full md:col-start-1 md:col-end-13 p-4 lg:col-start-4 lg:col-end-10 flex items-center justify-center gap-40">
-				<img src={img_five} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="Alternate image with error" />
-				<img src={img_seven} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="Alternate image with error" />
+				<figure>
+					<img src={img_five} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="Alternate image with error" />
+				</figure>
+				<figure>
+					<img src={img_one} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="Alternate image with error" />
+				</figure>
 			</div>
 			<div className="col-span-full flex items-center justify-center md:hidden -mt-16">
-				<img src={img_seven} className="animate-rotate bg-gray-50 max-w-[110px] w-full" alt="alt 2" />
+				<figure>
+					<img src={img_six} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="alt 2" />
+				</figure>
 			</div>
 		</div>
 	);

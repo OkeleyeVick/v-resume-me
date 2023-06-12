@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
-import skeletonImage from "../../assets/images/skeleton-image.webp";
+import skeletonImage from "../../assets/images/PageImages/skeleton-image.webp";
 
 const FirstSection = () => {
 	return (

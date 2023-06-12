@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { MobileMenuContext, componentContext } from "./CreateResumePage";
-import OffcanvasLoader from "../../assets/UI-Components/OffcanvasLoader";
 import { Icon } from "@iconify/react";
 
 const NavigationSublet = () => {

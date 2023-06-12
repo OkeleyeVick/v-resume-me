@@ -10,6 +10,9 @@ module.exports = {
 				hoverBgClr: "#6274F8",
 				button: "rgb(81 95 209)",
 			},
+			backgroundImage: {
+				"pattern-1": "url('./src/assets/images/BackgroundSVGs/hollowed-boxes.svg')",
+			},
 			colors: {
 				main: "#8390FA",
 				main_2: "#EFF2F9",

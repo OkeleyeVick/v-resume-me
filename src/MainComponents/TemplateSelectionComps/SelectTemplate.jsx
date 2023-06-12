@@ -1,16 +1,15 @@
 import { Icon } from "@iconify/react";
 import React, { memo, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import resumeOne from "../../assets/images/resume-1.png";
-import resumeTwo from "../../assets/images/resume-2.png";
-import resumeThree from "../../assets/images/resume-3.png";
-import resumeFive from "../../assets/images/resume-5.png";
-import resumeSix from "../../assets/images/resume-6.png";
-import resumeSeven from "../../assets/images/resume-7.jpg";
-import resumeEight from "../../assets/images/resume-8.jpg";
+import resumeOne from "../../assets/images/ResumeImages/resume-1.png";
+import resumeTwo from "../../assets/images/ResumeImages/resume-2.png";
+import resumeThree from "../../assets/images/ResumeImages/resume-3.png";
+import resumeFive from "../../assets/images/ResumeImages/resume-5.png";
+import resumeSix from "../../assets/images/ResumeImages/resume-6.png";
+import resumeSeven from "../../assets/images/ResumeImages/resume-7.jpg";
+import resumeEight from "../../assets/images/ResumeImages/resume-8.jpg";
 import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
-import B_Offcanvas from "../../assets/UI-Components/B_Offcanvas";
 import "../../assets/css/fonts.css";
 
 const baseFont = {

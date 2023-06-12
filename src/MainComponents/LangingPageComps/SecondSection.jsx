@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import image from "../../assets/images/dart-bullseye.svg";
+import image from "../../assets/images/PageImages/dart-bullseye.svg";
 
 const SecondSection = () => {
 	return (
