@@ -4,6 +4,7 @@ import LandingPage from "./MainComponents/LangingPageComps/LandingPage";
 import CreateResumePage from "./MainComponents/ResumePageComps/CreateResumePage";
 import SelectTemplate from "./MainComponents/TemplateSelectionComps/SelectTemplate";
 import PageNotFound from "./MainComponents/ErrorPage/PageNotFound";
+import ResumeIndex from "./MainComponents/ResumeComponent/ResumeIndex";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				<Route path="/" element={<LandingPage />} />
 				<Route path="/select-template" element={<SelectTemplate />} />
 				<Route path="/create-resume/:id/*" element={<CreateResumePage />} />
+				<Route path="/create-resume-page/:id/*" element={<ResumeIndex />}></Route>
 				<Route path={`*`} element={<PageNotFound />} />
 			</Routes>
 		</div>
