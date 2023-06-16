@@ -42,7 +42,6 @@ const BackgroundPatterns = () => {
 											className={`w-10 h-5 rounded-sm`}
 											style={{
 												backgroundImage: `url(/src/assets/images/BackgroundSVGs/${pattern}.svg)`,
-												fontFamily: "Syne",
 												backgroundPosition: "center center",
 												backgroundRepeat: `${patternRepeat ? "repeat" : "no-repeat"}`,
 												backgroundSize: "cover",

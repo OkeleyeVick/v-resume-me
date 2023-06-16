@@ -9,6 +9,8 @@ module.exports = {
 				main_3: "#0F141E",
 				hoverBgClr: "#6274F8",
 				button: "rgb(81 95 209)",
+				ash_white: "#FAFAFA",
+				border_clr: "#e9e9e9",
 			},
 			backgroundImage: {
 				"pattern-1": "url('./src/assets/images/BackgroundSVGs/hollowed-boxes.svg')",

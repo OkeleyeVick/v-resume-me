@@ -9,6 +9,7 @@ import HeroSection from "./HeroSection";
 import SecondSection from "./SecondSection";
 import ThirdSection from "./ThirdSection";
 import "../../assets/css/fonts.css";
+import { MotionConfig, motion } from "framer-motion";
 
 const baseFont = {
 	Syne: "Rubik",
@@ -26,18 +27,26 @@ const LandingPage = () => {
 
 	return (
 		<div style={{ fontFamily: baseFont.Syne }}>
-			{showPreloader && <PageLoader />}
+			{showPreloader && (
+				<MotionConfig>
+					<motion.div animate={{ opacity: 0 }}>
+						<PageLoader />
+					</motion.div>
+				</MotionConfig>
+			)}
 			{!showPreloader && (
-				<>
-					<Header />
-					<HeroSection />
-					<AnimatedSection />
-					<FirstSection />
-					<SecondSection />
-					<ThirdSection />
-					<FinalSection />
-					<Footer />
-				</>
+				<React.Fragment>
+					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+						<Header />
+						<HeroSection />
+						<AnimatedSection />
+						<FirstSection />
+						<SecondSection />
+						<ThirdSection />
+						<FinalSection />
+						<Footer />
+					</motion.div>
+				</React.Fragment>
 			)}
 		</div>
 	);
