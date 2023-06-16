@@ -1,8 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import React, { useState } from "react";
+import "../css/fonts.css";
 
 const BackgroundPatterns = () => {
-	const [selectedBG, setSelectedBG] = useState("");
+	const [selectedBG, setSelectedBG] = useState({ bg: "", repeat: false, name: "" });
 	const patterns = [
 		{ id: 1, name: "Pattern 1", pattern: "patternpad", patternRepeat: true },
 		{ id: 2, name: "Pattern 2", pattern: "abstract-timekeeper", patternRepeat: true },
@@ -10,34 +11,45 @@ const BackgroundPatterns = () => {
 		{ id: 4, name: "3d Box 1", pattern: "protruding-squares", patternRepeat: true },
 		{ id: 5, name: "3d Box 2", pattern: "large-triangles", patternRepeat: true },
 		{ id: 6, name: "Square share", pattern: "radiant-gradient", patternRepeat: false },
+		{ id: 7, name: "Snow", pattern: "Snow", patternRepeat: false },
 	];
 
-	function handleChange() {}
-
+	function handleChange(pattern, patternRepeat, name) {
+		setSelectedBG({
+			bg: pattern,
+			repeat: patternRepeat,
+			name: name,
+		});
+	}
 	return (
 		<div className="p-8">
 			<React.Fragment>
 				<div className="w-64">
-					<FormControl fullWidth>
-						<InputLabel id="demo-simple-select-label" className="bg-white px-2">
+					<FormControl fullWidth sx={{ m: 1, minWidth: 120 }} size="small" className="hover:border-pink-50">
+						<InputLabel id="bg-pattern-select-label" className="bg-white px-2">
 							Background-Image
 						</InputLabel>
-						<Select labelId="demo-simple-select-label" id="demo-simple-select" value={selectedBG} label="Age" onChange={handleChange}>
+						<Select labelId="bg-pattern-select-label" value={selectedBG} label="background-pattern">
 							{patterns.map(({ name, pattern, patternRepeat, id }) => (
-								<div className="flex items-center">
-									<MenuItem key={id}>
+								<MenuItem
+									key={id}
+									value={pattern}
+									className="hover:bg-main hover:bg-opacity-20 transition duration-300 ease-in-out"
+									onClick={() => handleChange(pattern, patternRepeat, name)}>
+									<div className="flex items-center gap-x-3">
 										<div
-											value={selectedBG}
-											className={`w-8 h-4 rounded-sm cursor-pointer`}
+											value={selectedBG.bg}
+											className={`w-10 h-5 rounded-sm`}
 											style={{
 												backgroundImage: `url(/src/assets/images/BackgroundSVGs/${pattern}.svg)`,
+												fontFamily: "Syne",
 												backgroundPosition: "center center",
-												backgroundRepeat: `${patternRepeat ? "no-repeat" : "repeat"}`,
+												backgroundRepeat: `${patternRepeat ? "repeat" : "no-repeat"}`,
 												backgroundSize: "cover",
 											}}></div>
 										<span>{name}</span>
-									</MenuItem>
-								</div>
+									</div>
+								</MenuItem>
 							))}
 						</Select>
 					</FormControl>

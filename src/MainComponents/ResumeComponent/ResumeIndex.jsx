@@ -1,13 +1,18 @@
 import React from "react";
 import BackgroundPatterns from "../../assets/utilities/BackgroundPatterns";
 import "../../assets/css/fonts.css";
-import Header from "../GeneralComponents/Header";
+import BuildResume from "./BuildResume";
 
 const fonts = {
 	syne: "Syne",
 };
 const ResumeIndex = () => {
-	return <Header />;
+	return (
+		<div style={{ fontFamily: `${fonts.syne}` }}>
+			<BuildResume />
+			{/* <BackgroundPatterns /> */}
+		</div>
+	);
 };
 
 export default ResumeIndex;
