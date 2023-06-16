@@ -9,10 +9,12 @@ const FirstSection = () => {
 				{Array.apply(null, Array(7)).map((_, index) => {
 					return (
 						<div
-							className={`min-w-[96px] md:w-[130px] transition ease-linear -mt-52 relative animate-rotateAndGoDown`}
+							className={`min-w-[96px] md:w-[96px] transition ease-linear -mt-52 relative animate-rotateAndGoDown`}
 							key={index}
 							style={{ animationDelay: `${Math.ceil(Math.random() * 12)}s` }}>
-							<img src={skeletonImage} alt="Resume template model" className="isolate" />
+							<figure>
+								<img src={skeletonImage} alt="Resume template model" className="isolate" />
+							</figure>
 						</div>
 					);
 				})}
