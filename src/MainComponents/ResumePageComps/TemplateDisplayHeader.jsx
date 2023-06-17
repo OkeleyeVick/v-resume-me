@@ -5,7 +5,6 @@ import { MobileMenuContext } from "./CreateResumePage";
 
 const TemplateDisplayHeader = () => {
 	const [dropdownActive, setDropdownIsActive] = useState(false);
-	const { isActiveMobileMenu, setMobileMenu } = useContext(MobileMenuContext);
 	const [formatType, setFormatType] = useState("pdf");
 	const formats = [{ format: "pdf" }, { format: "docx" }];
 	const dropdown = document.querySelector(".format__dropdown");

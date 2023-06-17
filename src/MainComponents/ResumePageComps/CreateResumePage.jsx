@@ -4,13 +4,25 @@ import Navigation from "./Navigation";
 import TemplateDisplay from "./TemplateDisplay";
 import PersonalComponent from "./NavComponents/PersonalComponent";
 import "../../assets/css/fonts.css";
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 
 const baseFont = {
 	Syne: "Syne",
 };
 
 export const componentContext = createContext();
-export const MobileMenuContext = createContext();
+
+<Accordion>
+	<AccordionSummary expandIcon={"+"} aria-controls="panel1a-content" id="panel1a-header">
+		<Typography>Accordion 1</Typography>
+	</AccordionSummary>
+	<AccordionDetails>
+		<Typography>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
+		</Typography>
+	</AccordionDetails>
+</Accordion>;
+
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [isActiveMobileMenu, setMobileMenu] = useState(false);
@@ -18,9 +30,8 @@ const CreateResumePage = () => {
 
 	return (
 		<React.Fragment>
-			<MobileMenuContext.Provider value={{ isActiveMobileMenu, setMobileMenu }}>
-				<componentContext.Provider value={{ font, setFont, component, setComponent }}>
-					<div className="lg:flex min-h-screen relative" style={{ fontFamily: baseFont.Syne }}>
+			<componentContext.Provider value={{ font, setFont, component, setComponent }}>
+				{/* <div className="lg:flex min-h-screen relative" style={{ fontFamily: baseFont.Syne }}>
 						<div
 							className={`fixed lg:hidden w-full h-full z-[90] backdrop-blur-[2px] bg-black bg-opacity-20 ${
 								isActiveMobileMenu ? "opacity-100 pointer-events-auto" : "pointer-events-none opacity-0"
@@ -35,9 +46,16 @@ const CreateResumePage = () => {
 						<div className="h-screen lg:w-[65%] xl:w-[69.5%] bg-custom_1">
 							<TemplateDisplay />
 						</div>
+					</div> */}
+				<div className="flex" style={{ fontFamily: baseFont.Syne }}>
+					<div id="navigation">
+						<Navigation />
 					</div>
-				</componentContext.Provider>
-			</MobileMenuContext.Provider>
+					<div id="display-page">
+						<div></div>
+					</div>
+				</div>
+			</componentContext.Provider>
 		</React.Fragment>
 	);
 };

@@ -26,29 +26,29 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<div style={{ fontFamily: baseFont.Syne }}>
-			{showPreloader && (
-				<MotionConfig>
-					<motion.div animate={{ opacity: 0 }}>
+		<MotionConfig>
+			<div style={{ fontFamily: baseFont.Syne }}>
+				{showPreloader && (
+					<motion.div exit={{ opacity: 0 }}>
 						<PageLoader />
 					</motion.div>
-				</MotionConfig>
-			)}
-			{!showPreloader && (
-				<React.Fragment>
-					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-						<Header />
-						<HeroSection />
-						<AnimatedSection />
-						<FirstSection />
-						<SecondSection />
-						<ThirdSection />
-						<FinalSection />
-						<Footer />
-					</motion.div>
-				</React.Fragment>
-			)}
-		</div>
+				)}
+				{!showPreloader && (
+					<React.Fragment>
+						<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+							<Header />
+							<HeroSection />
+							<ThirdSection />
+							<FirstSection />
+							<SecondSection />
+							<AnimatedSection />
+							<FinalSection />
+							<Footer />
+						</motion.div>
+					</React.Fragment>
+				)}
+			</div>
+		</MotionConfig>
 	);
 };
 
