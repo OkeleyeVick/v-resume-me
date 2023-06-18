@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Input from "../GeneralComponents/Input";
-import { MobileMenuContext } from "./CreateResumePage";
 
 const TemplateDisplayHeader = () => {
 	const [dropdownActive, setDropdownIsActive] = useState(false);

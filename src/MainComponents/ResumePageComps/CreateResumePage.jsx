@@ -1,13 +1,15 @@
 import React, { createContext, memo, useState } from "react";
-import NavigationSublet from "./NavigationSublet";
-import Navigation from "./Navigation";
-import TemplateDisplay from "./TemplateDisplay";
 import PersonalComponent from "./NavComponents/PersonalComponent";
 import "../../assets/css/fonts.css";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
+import Input from "../FormComponent/InputComponent";
+import ResumePreviewPage from "./ResumePreviewPage";
 
 const baseFont = {
 	Syne: "Syne",
+	Rubik: "Rubik",
+	Lora: "Lora",
+	Stolzl: "Stolzl",
 };
 
 export const componentContext = createContext();
@@ -25,7 +27,6 @@ export const componentContext = createContext();
 
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
-	const [isActiveMobileMenu, setMobileMenu] = useState(false);
 	const [font, setFont] = useState("Mulish");
 
 	return (
@@ -47,12 +48,12 @@ const CreateResumePage = () => {
 							<TemplateDisplay />
 						</div>
 					</div> */}
-				<div className="flex" style={{ fontFamily: baseFont.Syne }}>
-					<div id="navigation">
-						<Navigation />
+				<div className="grid grid-cols-2">
+					<div className="bg-ash_white min-h-screen p-4" style={{ fontFamily: baseFont.Syne }}>
+						<Input aria-label="fullname" label="Fullname" className="bg-red-300" />
 					</div>
-					<div id="display-page">
-						<div></div>
+					<div className={`bg-[rgb(134,138,173)] p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
+						<ResumePreviewPage />
 					</div>
 				</div>
 			</componentContext.Provider>
