@@ -2,7 +2,7 @@ import React, { createContext, memo, useState } from "react";
 import PersonalComponent from "./NavComponents/PersonalComponent";
 import "../../assets/css/fonts.css";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
-import Input from "../FormComponent/InputComponent";
+import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
 
 const baseFont = {
@@ -28,6 +28,15 @@ export const componentContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [font, setFont] = useState("Mulish");
+	const [fname, setFname] = useState("");
+	const [age, setAge] = useState("");
+
+	const handleNameInput = (event) => {
+		setFname((previous) => (previous = event.target.value));
+	};
+	const handleAgeInput = (event) => {
+		setAge((previous) => (previous = event.target.value));
+	};
 
 	return (
 		<React.Fragment>
@@ -49,8 +58,18 @@ const CreateResumePage = () => {
 						</div>
 					</div> */}
 				<div className="grid grid-cols-2">
-					<div className="bg-ash_white min-h-screen p-4" style={{ fontFamily: baseFont.Syne }}>
-						<Input aria-label="fullname" label="Fullname" className="bg-red-300" />
+					<div className="bg-white min-h-screen p-4" style={{ fontFamily: baseFont.Syne }}>
+						<InputWithLabel
+							aria-label="fullname"
+							value={fname}
+							name="fullname"
+							label="Fullname"
+							addInput={handleNameInput}
+							inputMode="text"
+						/>
+						{fname}
+						<InputWithLabel aria-label="age" label="Age" value={age} name="age" addInput={handleAgeInput} inputMode="numeric" />
+						{age}
 					</div>
 					<div className={`bg-[rgb(134,138,173)] p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
 						<ResumePreviewPage />

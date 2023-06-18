@@ -18,6 +18,13 @@ body::-webkit-scrollbar {
 	border-radius: 9999px;
 }
 
+.input_container::before {
+	transition: 300ms ease;
+	transform: scaleX(0);
+}
+.input_container:focus-within::before {
+	transform: scaleX(1);
+}
 /* Handle */
 .no-scroll::-webkit-scrollbar-thumb {
 	background: #182341;
