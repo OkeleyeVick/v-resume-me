@@ -4,6 +4,8 @@ import "../../assets/css/fonts.css";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
+import { motion } from "framer-motion";
+import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
 
 const baseFont = {
 	Syne: "Syne",
@@ -28,14 +30,10 @@ export const componentContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [font, setFont] = useState("Mulish");
-	const [fname, setFname] = useState("");
-	const [age, setAge] = useState("");
+	const [position, setJobPosition] = useState("");
 
 	const handleNameInput = (event) => {
-		setFname((previous) => (previous = event.target.value));
-	};
-	const handleAgeInput = (event) => {
-		setAge((previous) => (previous = event.target.value));
+		setJobPosition(event.target.value);
 	};
 
 	return (
@@ -58,20 +56,20 @@ const CreateResumePage = () => {
 						</div>
 					</div> */}
 				<div className="grid grid-cols-2">
-					<div className="bg-white min-h-screen p-4" style={{ fontFamily: baseFont.Syne }}>
+					<div className="bg-white min-h-screen p-4 grid grid-cols-2 pt-3" style={{ fontFamily: baseFont.Syne }}>
 						<InputWithLabel
-							aria-label="fullname"
-							value={fname}
-							name="fullname"
-							label="Fullname"
+							aria-label="position"
+							value={position}
+							name="position"
+							label="Position"
 							addInput={handleNameInput}
 							inputMode="text"
 						/>
-						{fname}
-						<InputWithLabel aria-label="age" label="Age" value={age} name="age" addInput={handleAgeInput} inputMode="numeric" />
-						{age}
+						<ImageUploadComponent name="user-image" label="Upload photo" />
 					</div>
-					<div className={`bg-[rgb(134,138,173)] p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
+					<div className={`bg-[rgb(134,138,173)] text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut pariatur fugiat magnam minima doloribus! Accusantium,
+						minima blanditiis doloribus, tempore odit id quos aperiam tempora nihil eius eligendi incidunt. Quasi.
 						<ResumePreviewPage />
 					</div>
 				</div>

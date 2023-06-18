@@ -11,6 +11,7 @@ module.exports = {
 				button: "rgb(81 95 209)",
 				ash_white: "#FAFAFA",
 				border_clr: "#e9e9e9",
+				input_clr: "rgb(239,242,249)",
 			},
 			backgroundImage: {
 				"pattern-1": "url('./src/assets/images/BackgroundSVGs/hollowed-boxes.svg')",
@@ -24,6 +25,7 @@ module.exports = {
 				border_clr: "#e9e9e9 ",
 				custom_2: "#273250",
 				text_clr: "#1E2532",
+				input_clr: "rgb(239,242,249)",
 			},
 			boxShadow: {
 				custom_1: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",

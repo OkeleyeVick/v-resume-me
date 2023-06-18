@@ -6,13 +6,16 @@ import "./index.css";
 import store from "./features/store";
 // import { Provider } from "react-redux";
 import { StyledEngineProvider } from "@mui/material";
+import { MotionConfig } from "framer-motion";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		{/* <Provider store={store}> */}
 		<StyledEngineProvider injectFirst>
 			<BrowserRouter>
-				<App />
+				<MotionConfig>
+					<App />
+				</MotionConfig>
 			</BrowserRouter>
 		</StyledEngineProvider>
 		{/* </Provider> */}
