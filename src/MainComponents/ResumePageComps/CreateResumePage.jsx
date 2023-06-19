@@ -4,7 +4,6 @@ import "../../assets/css/fonts.css";
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
-import { motion } from "framer-motion";
 import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
 
 const baseFont = {
@@ -55,19 +54,21 @@ const CreateResumePage = () => {
 							<TemplateDisplay />
 						</div>
 					</div> */}
-				<div className="grid grid-cols-2">
-					<div className="bg-white min-h-screen p-4 grid grid-cols-2 pt-3" style={{ fontFamily: baseFont.Syne }}>
-						<InputWithLabel
-							aria-label="position"
-							value={position}
-							name="position"
-							label="Position"
-							addInput={handleNameInput}
-							inputMode="text"
-						/>
-						<ImageUploadComponent name="user-image" label="Upload photo" />
+				<div className="grid grid-cols-2 min-h-screen">
+					<div className="bg-white h-full pt-3 p-12 " style={{ fontFamily: baseFont.Syne }}>
+						<div className="grid grid-cols-2 items-end">
+							<ImageUploadComponent label="Upload photo" />
+							<InputWithLabel
+								aria-label="position"
+								value={position}
+								name="position"
+								label="Position"
+								addInput={handleNameInput}
+								inputMode="text"
+							/>
+						</div>
 					</div>
-					<div className={`bg-[rgb(134,138,173)] text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
+					<div className={`bg-[rgb(134,138,173)] h-full text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut pariatur fugiat magnam minima doloribus! Accusantium,
 						minima blanditiis doloribus, tempore odit id quos aperiam tempora nihil eius eligendi incidunt. Quasi.
 						<ResumePreviewPage />
