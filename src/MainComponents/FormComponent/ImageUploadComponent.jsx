@@ -1,17 +1,32 @@
 import { Icon } from "@iconify/react";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Modal from "../ResumePageComps/Components/Modal";
 
 const ImageUploadComponent = ({ label }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
+	const [imageError, setImageError] = useState(null);
+
 	const handleClick = () => {
 		imageRef.current.click();
 	};
 
+	function checkFileType(imageFileType) {
+		let isValid = true;
+		const allowedExtension = ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/webp"];
+
+		if (allowedExtension.indexOf(imageFileType) < 0) {
+			isValid = false;
+			setImageError("Upload image in jpeg, png, jpg, gif or webp format ");
+		}
+		return isValid;
+	}
+
 	function handleImageUpload(event) {
 		const imageObject = event.target.files;
-		setImageForDisplay(URL.createObjectURL(imageObject[0]));
+		const isValid = checkFileType(imageObject[0].type);
+		isValid ? setImageForDisplay(URL.createObjectURL(imageObject[0])) : null;
 	}
 
 	function handleRemoveImage() {
@@ -32,6 +47,10 @@ const ImageUploadComponent = ({ label }) => {
 			action: handleRemoveImage,
 		},
 	];
+
+	if (imageError) {
+		return <Modal errorType={imageError} />;
+	}
 	return (
 		<div id="userImage_container" className="hover:text-main group/image">
 			<div className="flex items-center gap-4 group">
@@ -43,8 +62,9 @@ const ImageUploadComponent = ({ label }) => {
 					onClick={() => handleClick()}>
 					{image ? (
 						<motion.img
+							accept="image/*, .png, .jpeg, .jpg, .webp"
 							src={image}
-							alt=""
+							alt="user-image"
 							className="w-full h-full object-cover"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -59,14 +79,10 @@ const ImageUploadComponent = ({ label }) => {
 						{label}
 					</label>
 				) : (
-					<motion.div
-						className="flex flex-col items-start gap-1"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.3 }}>
-						{imageEditOptions.map(({ label, icon, action }) => {
+					<motion.div className="flex flex-col items-start gap-1" animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+						{imageEditOptions.map(({ label, icon, action }, indexValue) => {
 							return (
-								<React.Fragment>
+								<React.Fragment key={indexValue}>
 									<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
 										<Icon icon={icon} className="group-hover/edit-options:text-main w-5 h-5 text-gray-400" />
 										<label htmlFor={label} className="group-hover/edit-options:text-main cursor-pointer text-gray-600">

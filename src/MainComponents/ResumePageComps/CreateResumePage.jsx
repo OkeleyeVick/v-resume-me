@@ -54,7 +54,7 @@ const CreateResumePage = () => {
 							<TemplateDisplay />
 						</div>
 					</div> */}
-				<div className="grid grid-cols-2 min-h-screen">
+				<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 					<div className="bg-white h-full pt-3 p-12 " style={{ fontFamily: baseFont.Syne }}>
 						<div className="grid grid-cols-2 gap-16 items-end">
 							<InputWithLabel
@@ -67,6 +67,7 @@ const CreateResumePage = () => {
 							/>
 							<ImageUploadComponent label="Upload photo" />
 						</div>
+						<div className=""></div>
 					</div>
 					<div className={`bg-[rgb(134,138,173)] h-full text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut pariatur fugiat magnam minima doloribus! Accusantium,
