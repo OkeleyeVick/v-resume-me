@@ -17,7 +17,7 @@ const InputWithLabel = ({ label, "aria-label": ariaLabel, name, addInput, value,
 				spellCheck="false"
 				inputMode={inputMode}
 				aria-label={ariaLabel}
-				className={`caret-main bg-input_clr py-0 transition 300ms ease-out outline-none border-none p-4 min-h-[3rem] text-ash-600 text-sm rounded-sm`}
+				className={`caret-main bg-input_clr py-0 transition 300ms ease-out outline-none border-none p-4 min-h-[2.8rem] text-ash-600 text-sm rounded-sm`}
 			/>
 		</div>
 	);

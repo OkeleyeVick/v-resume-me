@@ -56,8 +56,7 @@ const CreateResumePage = () => {
 					</div> */}
 				<div className="grid grid-cols-2 min-h-screen">
 					<div className="bg-white h-full pt-3 p-12 " style={{ fontFamily: baseFont.Syne }}>
-						<div className="grid grid-cols-2 items-end">
-							<ImageUploadComponent label="Upload photo" />
+						<div className="grid grid-cols-2 gap-16 items-end">
 							<InputWithLabel
 								aria-label="position"
 								value={position}
@@ -66,6 +65,7 @@ const CreateResumePage = () => {
 								addInput={handleNameInput}
 								inputMode="text"
 							/>
+							<ImageUploadComponent label="Upload photo" />
 						</div>
 					</div>
 					<div className={`bg-[rgb(134,138,173)] h-full text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>

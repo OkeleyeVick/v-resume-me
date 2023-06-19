@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*:not(svg) {
+*:not(svg, label) {
 	transition: all 300ms ease-in-out;
 	text-rendering: optimizeLegibility;
 }
