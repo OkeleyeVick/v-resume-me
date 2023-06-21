@@ -18,7 +18,7 @@ const ImageUploadComponent = ({ label }) => {
 
 		if (allowedExtension.indexOf(imageFileType) < 0) {
 			isValid = false;
-			setImageError("Upload image in jpeg, png, jpg, gif or webp format ");
+			setImageError("Upload image in jpeg, png, jpg, gif or webp format");
 		}
 		return isValid;
 	}
@@ -39,7 +39,7 @@ const ImageUploadComponent = ({ label }) => {
 		{
 			label: "Edit photo",
 			icon: "fluent:image-edit-20-regular",
-			action: () => handleClick(),
+			action: handleClick,
 		},
 		{
 			label: "Delete photo",

@@ -22,9 +22,7 @@ const TemplateDisplayHeader = () => {
 				<button
 					type="button"
 					name="sidebar__button"
-					className={`transition duration-500 rounded-full p-[.35rem] hover:bg-hoverBgClr hover:bg-opacity-80 outline-none ${
-						isActiveMobileMenu ? "bg-hoverBgClr" : "bg-transparent"
-					}`}
+					className={`transition duration-500 rounded-full p-[.35rem] hover:bg-hoverBgClr hover:bg-opacity-80 outline-none`}
 					onClick={() => setMobileMenu((current) => !current)}>
 					<Icon icon="ion:menu-outline" className={`text-gray-300 w-8 h-8 flex`} />
 				</button>
@@ -64,9 +62,7 @@ const TemplateDisplayHeader = () => {
 								<Icon icon="ion:chevron-down-outline" />
 							</button>
 							<div
-								className={`absolute border mt-1 top-full right-0 border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] ${
-									dropdownActive ? "translate-y-0 opacity-100 pointer-events-auto" : "translate-y-2 opacity-0 pointer-events-none"
-								}`}>
+								className={`absolute border mt-1 top-full right-0 border-main rounded-md flex flex-col p-1 z-[2] bg-gray-900 w-28 px-[.2rem] `}>
 								<input type="hidden" name="format" value={formatType} />
 								{formats.map(({ format }, formatIndex) => (
 									<React.Fragment key={formatIndex}>

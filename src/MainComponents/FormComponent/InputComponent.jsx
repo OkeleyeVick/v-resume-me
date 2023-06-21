@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputWithLabel = ({ label, "aria-label": ariaLabel, name, addInput, value, inputMode }) => {
+const InputWithLabel = ({ label, type, "aria-label": ariaLabel, name, addInput, value, inputMode }) => {
 	return (
 		<div
 			className={`input_container flex flex-col relative before:block before:absolute before:content-[''] before:bg-main before:w-full before:h-[2px] before:bottom-0 before:transition before:duration-300 before:origin-center h-fit`}>
@@ -13,11 +13,11 @@ const InputWithLabel = ({ label, "aria-label": ariaLabel, name, addInput, value,
 				value={value}
 				onChange={addInput}
 				autoComplete="off"
-				type="text"
+				type={type ?? "text"}
 				spellCheck="false"
 				inputMode={inputMode}
 				aria-label={ariaLabel}
-				className={`caret-main bg-input_clr py-0 transition 300ms ease-out outline-none border-none p-4 min-h-[2.8rem] text-ash-600 text-sm rounded-sm`}
+				className={`caret-main bg-input_clr py-[12px] transition 300ms ease-out outline-none border-none px-4 text-ash-600 text-sm rounded-sm`}
 			/>
 		</div>
 	);
