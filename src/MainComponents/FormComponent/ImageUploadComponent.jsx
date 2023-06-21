@@ -38,13 +38,14 @@ const ImageUploadComponent = ({ label }) => {
 	const imageEditOptions = [
 		{
 			label: "Edit photo",
-			icon: "fluent:image-edit-20-regular",
+			icon: "uil:image-edit",
 			action: handleClick,
 		},
 		{
 			label: "Delete photo",
-			icon: "fluent:delete-32-regular",
+			icon: "mi:delete",
 			action: handleRemoveImage,
+			style: "group-hover/edit-options:text-red-500",
 		},
 	];
 
@@ -80,12 +81,17 @@ const ImageUploadComponent = ({ label }) => {
 					</label>
 				) : (
 					<motion.div className="flex flex-col items-start gap-1" animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-						{imageEditOptions.map(({ label, icon, action }, indexValue) => {
+						{imageEditOptions.map(({ label, icon, action, style }, indexValue) => {
 							return (
 								<React.Fragment key={indexValue}>
 									<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
-										<Icon icon={icon} className="group-hover/edit-options:text-main w-5 h-5 text-gray-400" />
-										<label htmlFor={label} className="group-hover/edit-options:text-main cursor-pointer text-gray-600">
+										<Icon
+											icon={icon}
+											className={`w-5 h-5 text-gray-400 ${style ? style : "group-hover/edit-options:text-main"}`}
+										/>
+										<label
+											htmlFor={label}
+											className={`cursor-pointer text-gray-600 ${style ? style : "group-hover/edit-options:text-main"}`}>
 											{label}
 										</label>
 									</button>

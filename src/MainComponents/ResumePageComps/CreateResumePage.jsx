@@ -5,8 +5,8 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/
 import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
 import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
-import NavigationSublet from "./NavigationSublet";
-import TemplateDisplay from "./TemplateDisplay";
+// import NavigationSublet from "./NavigationSublet";
+// import TemplateDisplay from "./TemplateDisplay";
 
 const baseFont = {
 	Syne: "Syne",
@@ -62,20 +62,60 @@ const CreateResumePage = () => {
 			emailPhone: [
 				{
 					ariaLabel: "email",
-					value: "justusofnigeria@gmail.com",
 					nameLabel: "Email",
 					type: "email",
+					value: "",
 					inputMode: "email",
 					actionFunction: () => console.log("I am for here"),
 				},
 				{
 					ariaLabel: "phone",
 					hasExtraInfo: true,
-					tooltip: "Tip: Write start your phone number ",
+					tooltipData: "Tip: Write start your phone number ",
 					value: "0909737340",
 					type: "phone",
 					nameLabel: "phone",
 					inputMode: "numeric",
+					actionFunction: () => console.log("I am for here"),
+				},
+			],
+		},
+		{
+			CountryCity: [
+				{
+					ariaLabel: "country",
+					nameLabel: "Country",
+					type: "text",
+					value: "",
+					inputMode: "text",
+					actionFunction: () => console.log("I am for here"),
+				},
+				{
+					ariaLabel: "city",
+					nameLabel: "city",
+					type: "text",
+					value: "",
+					inputMode: "text",
+					actionFunction: () => console.log("I am for here"),
+				},
+			],
+		},
+		{
+			CountryCity: [
+				{
+					ariaLabel: "country",
+					nameLabel: "Country",
+					type: "text",
+					value: "",
+					inputMode: "text",
+					actionFunction: () => console.log("I am for here"),
+				},
+				{
+					ariaLabel: "city",
+					nameLabel: "city",
+					type: "text",
+					value: "",
+					inputMode: "text",
 					actionFunction: () => console.log("I am for here"),
 				},
 			],
@@ -97,12 +137,13 @@ const CreateResumePage = () => {
 				</div> */}
 				<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
 					<div className="bg-white h-full p-5 md:p-11 " style={{ fontFamily: baseFont.Syne }}>
-						<div className="flex flex-col md:grid grid-cols-2 gap-x-10 gap-y-6 md:items-end mb-6">
+						<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-6">
 							<InputWithLabel
 								aria-label="position"
 								value={position}
 								name="position"
 								label="Position"
+								placeholder="e.g. Teacher"
 								addInput={handleNameInput}
 								inputMode="text"
 							/>
@@ -110,9 +151,9 @@ const CreateResumePage = () => {
 						</div>
 						{userDetails.map((eachDivWrapper, wrapperIndex) => {
 							return (
-								<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-10 gap-y-6 md:items-end mb-6">
+								<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-6">
 									{Object.values(eachDivWrapper).map((detail) => {
-										return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, nameLabel }, useDetailIndex) => {
+										return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
 											return (
 												<React.Fragment key={useDetailIndex}>
 													<InputWithLabel inputMode={inputMode} label={nameLabel} aria-label={ariaLabel} type={type} />
