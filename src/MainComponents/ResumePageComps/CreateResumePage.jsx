@@ -105,6 +105,8 @@ const CreateResumePage = () => {
 				{
 					ariaLabel: "country",
 					nameLabel: "Country",
+					hasExtraInfo: true,
+					tooltipData: "Your country ghas be Naija abi ",
 					type: "text",
 					value: "",
 					inputMode: "text",
@@ -156,7 +158,14 @@ const CreateResumePage = () => {
 										return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
 											return (
 												<React.Fragment key={useDetailIndex}>
-													<InputWithLabel inputMode={inputMode} label={nameLabel} aria-label={ariaLabel} type={type} />
+													<InputWithLabel
+														inputMode={inputMode}
+														label={nameLabel}
+														aria-label={ariaLabel}
+														type={type}
+														tooltip={tooltipData}
+														hasExtraInfo={hasExtraInfo}
+													/>
 												</React.Fragment>
 											);
 										});
