@@ -24,6 +24,7 @@ module.exports = {
 				hoverBgClr: "#6274F8",
 				border_clr: "#e9e9e9 ",
 				custom_2: "#273250",
+				label_clr: "rgb(130,139,162)",
 				text_clr: "#1E2532",
 				input_clr: "rgb(239,242,249)",
 			},

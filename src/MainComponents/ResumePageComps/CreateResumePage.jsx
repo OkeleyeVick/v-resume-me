@@ -1,7 +1,6 @@
 import React, { createContext, memo, useState } from "react";
 import PersonalComponent from "./NavComponents/PersonalComponent";
 import "../../assets/css/fonts.css";
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
 import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
@@ -22,17 +21,6 @@ const baseFont = {
 };
 
 export const componentContext = createContext();
-
-<Accordion>
-	<AccordionSummary expandIcon={"+"} aria-controls="panel1a-content" id="panel1a-header">
-		<Typography>Accordion 1</Typography>
-	</AccordionSummary>
-	<AccordionDetails>
-		<Typography>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-		</Typography>
-	</AccordionDetails>
-</Accordion>;
 
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
