@@ -50,3 +50,23 @@
 	font-family: "Quicksand";
 	src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
 }
+@font-face {
+	font-family: "Bianco";
+	src: url("../fonts/BiancoSerif-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "CASaygon";
+	src: url("../fonts/CASaygonText-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Cormonrant";
+	src: url("../fonts/CormorantInfant-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Roobert";
+	src: url("../fonts/Roobert-Regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "SpaceGrotesk";
+	src: url("../fonts/SpaceGrotesk.ttf") format("truetype");
+}

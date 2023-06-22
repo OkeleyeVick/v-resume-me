@@ -5,6 +5,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/
 import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
 import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
+import EducationSectionBase from "./EducationSection/EducationSectionBase";
 // import NavigationSublet from "./NavigationSublet";
 // import TemplateDisplay from "./TemplateDisplay";
 
@@ -13,6 +14,11 @@ const baseFont = {
 	Rubik: "Rubik",
 	Lora: "Lora",
 	Stolzl: "Stolzl",
+	Mulish: "Mulish",
+	Bianco: "Bianco",
+	Cormonrant: "Cormonrant",
+	Roobert: "Roobert",
+	SpaceGrotesk: "SpaceGrotesk",
 };
 
 export const componentContext = createContext();
@@ -71,7 +77,7 @@ const CreateResumePage = () => {
 				{
 					ariaLabel: "phone",
 					hasExtraInfo: true,
-					tooltipData: "Tip: Write start your phone number ",
+					tooltipData: "Write start your phone number starting with your country code",
 					value: "0909737340",
 					type: "phone",
 					nameLabel: "phone",
@@ -84,6 +90,8 @@ const CreateResumePage = () => {
 			CountryCity: [
 				{
 					ariaLabel: "country",
+					hasExtraInfo: true,
+					tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
 					nameLabel: "Country",
 					type: "text",
 					value: "",
@@ -101,20 +109,18 @@ const CreateResumePage = () => {
 			],
 		},
 		{
-			CountryCity: [
+			postalcode: [
 				{
-					ariaLabel: "country",
-					nameLabel: "Country",
-					hasExtraInfo: true,
-					tooltipData: "Your country ghas be Naija abi ",
+					ariaLabel: "postal code",
+					nameLabel: "postal code",
 					type: "text",
 					value: "",
 					inputMode: "text",
 					actionFunction: () => console.log("I am for here"),
 				},
 				{
-					ariaLabel: "city",
-					nameLabel: "city",
+					ariaLabel: "address",
+					nameLabel: "address",
 					type: "text",
 					value: "",
 					inputMode: "text",
@@ -137,46 +143,54 @@ const CreateResumePage = () => {
 						<TemplateDisplay />
 					</div>
 				</div> */}
-				<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-					<div className="bg-white h-full p-5 md:p-11 " style={{ fontFamily: baseFont.Syne }}>
-						<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-6">
-							<InputWithLabel
-								aria-label="position"
-								value={position}
-								name="position"
-								label="Position"
-								placeholder="e.g. Teacher"
-								addInput={handleNameInput}
-								inputMode="text"
-							/>
-							<ImageUploadComponent label="Upload photo" />
-						</div>
-						{userDetails.map((eachDivWrapper, wrapperIndex) => {
-							return (
-								<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-6">
-									{Object.values(eachDivWrapper).map((detail) => {
-										return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
-											return (
-												<React.Fragment key={useDetailIndex}>
-													<InputWithLabel
-														inputMode={inputMode}
-														label={nameLabel}
-														aria-label={ariaLabel}
-														type={type}
-														tooltip={tooltipData}
-														hasExtraInfo={hasExtraInfo}
-													/>
-												</React.Fragment>
+				<div className="min-h-screen flex items-stretch">
+					<div className="bg-white h-full p-5 md:p-11 w-1/2" style={{ fontFamily: baseFont.SpaceGrotesk }}>
+						<section id="user-info">
+							<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
+								<InputWithLabel
+									aria-label="position"
+									value={position}
+									name="position"
+									hasDropdown
+									label="Position"
+									placeholder="e.g. Teacher"
+									addInput={handleNameInput}
+									inputMode="text"
+								/>
+								<ImageUploadComponent label="Upload photo" />
+							</div>
+							{userDetails.map((eachDivWrapper, wrapperIndex) => {
+								return (
+									<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
+										{Object.values(eachDivWrapper).map((detail) => {
+											return detail.map(
+												({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
+													return (
+														<React.Fragment key={useDetailIndex}>
+															<InputWithLabel
+																inputMode={inputMode}
+																label={nameLabel}
+																aria-label={ariaLabel}
+																type={type}
+																tooltip={tooltipData}
+																hasExtraInfo={hasExtraInfo}
+															/>
+														</React.Fragment>
+													);
+												}
 											);
-										});
-									})}
-								</div>
-							);
-						})}
+										})}
+									</div>
+								);
+							})}
+						</section>
+						<section id="user-edu">
+							<EducationSectionBase />
+						</section>
 					</div>
-					<div className={`bg-[rgb(134,138,173)] h-full text-sm p-8 select-none relative`} style={{ fontFamily: baseFont.Syne }}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut pariatur fugiat magnam minima doloribus! Accusantium,
-						minima blanditiis doloribus, tempore odit id quos aperiam tempora nihil eius eligendi incidunt. Quasi.
+					<div
+						className={`w-1/2 right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
+						style={{ fontFamily: baseFont.Syne }}>
 						<ResumePreviewPage />
 					</div>
 				</div>
@@ -186,3 +200,9 @@ const CreateResumePage = () => {
 };
 
 export default memo(CreateResumePage);
+
+// htmls tags
+// <s><s/> for strike through
+// <u></u> for underline
+// <b><b/> for bold text
+// all three tags has to do with the selection first

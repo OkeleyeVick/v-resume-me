@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
 	display: none;
 }
 .no-scroll::-webkit-scrollbar {
-	width: 5px;
+	display: none;
 }
 
 .no-scroll::-webkit-scrollbar-track {
