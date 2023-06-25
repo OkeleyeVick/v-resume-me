@@ -57,7 +57,7 @@ const ImageUploadComponent = ({ label }) => {
 			<div className="flex items-center gap-4 group">
 				<input type="file" ref={imageRef} aria-label={label} hidden onChange={handleImageUpload} />
 				<div
-					className={`flex items-center justify-center bg-input_clr w-14 h-14 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
+					className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-14 md:h-14 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
 						image ? "cursor-default pointer-events-none" : "cursor-pointer"
 					}`}
 					onClick={() => handleClick()}>
@@ -76,7 +76,7 @@ const ImageUploadComponent = ({ label }) => {
 					)}
 				</div>
 				{image === null ? (
-					<label htmlFor={label} className="text-xs cursor-pointer hover:text-main" onClick={() => handleClick()}>
+					<label htmlFor={label} className="text-sm cursor-pointer hover:text-main" onClick={() => handleClick()}>
 						{label}
 					</label>
 				) : (

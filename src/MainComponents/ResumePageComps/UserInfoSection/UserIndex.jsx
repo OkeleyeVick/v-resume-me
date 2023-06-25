@@ -99,7 +99,7 @@ const UserIndex = () => {
 
 	return (
 		<React.Fragment>
-			<div id="title" className="select-none mb-4">
+			<div id="title" className="select-none mb-6">
 				<span className="flex items-end gap-x-3 text-slate-700">
 					<Icon icon="uiw:user" className="w-8 h-8" />
 					<h2 className="font-bold text-xl">Personal Information</h2>
