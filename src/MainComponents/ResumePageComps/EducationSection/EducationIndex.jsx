@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import Accordion from "../Components/Accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
-import { accordionIndexContext } from "../CreateResumePage";
+import { EachComponentAccordionState } from "../CreateResumePage";
 
 const EducationIndex = () => {
-	const { accordionIndex, setAccordionIndex } = useContext(accordionIndexContext);
-	const [educationValue, setEducationValue] = useState("");
-	const [date, setNewDate] = useState(null);
+	const { education } = useContext(EachComponentAccordionState);
+	const { educationState, setEducationState } = education;
+	const [educationValue, setEducationValue] = useState(""); // use for inputs in education section
 
 	function handleEducationInput(event) {
 		setEducationValue(event.target.value);
@@ -35,38 +35,32 @@ const EducationIndex = () => {
 		},
 	];
 
-	function toggleAccordion(event) {
-		console.log(event.target);
-	}
-
 	return (
 		<React.Fragment>
-			<div className="mt-8">
-				<Accordion toggleAccordion={toggleAccordion}>
-					{educationDetails.map((eachDivWrapper, wrapperIndex) => {
-						return (
-							<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
-								{Object.values(eachDivWrapper).map((detail) => {
-									return detail.map(({ inputMode, ariaLabel, type, actionFunction, value, nameLabel }, useDetailIndex) => {
-										return (
-											<React.Fragment key={useDetailIndex}>
-												<InputWithLabel
-													aria-label={ariaLabel}
-													handleInputChange={handleEducationInput}
-													value={value}
-													inputMode={inputMode}
-													type={type}
-													label={nameLabel}
-												/>
-											</React.Fragment>
-										);
-									});
-								})}
-							</div>
-						);
-					})}
-				</Accordion>
-			</div>
+			<Accordion title="education" icon="cil:education" toggle={{ state: educationState, action: setEducationState }}>
+				{educationDetails.map((eachDivWrapper, wrapperIndex) => {
+					return (
+						<div key={wrapperIndex} className={`flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4`}>
+							{Object.values(eachDivWrapper).map((detail) => {
+								return detail.map(({ inputMode, ariaLabel, type, actionFunction, value, nameLabel }, useDetailIndex) => {
+									return (
+										<React.Fragment key={useDetailIndex}>
+											<InputWithLabel
+												aria-label={ariaLabel}
+												handleInputChange={handleEducationInput}
+												value={value}
+												inputMode={inputMode}
+												type={type}
+												label={nameLabel}
+											/>
+										</React.Fragment>
+									);
+								});
+							})}
+						</div>
+					);
+				})}
+			</Accordion>
 		</React.Fragment>
 	);
 };

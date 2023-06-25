@@ -3,6 +3,7 @@ import "../../assets/css/fonts.css";
 import ResumePreviewPage from "./ResumePreviewPage";
 import EducationIndex from "./EducationSection/EducationIndex";
 import UserIndex from "./UserInfoSection/UserIndex";
+import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 
 const baseFont = {
 	Syne: "Syne",
@@ -16,28 +17,17 @@ const baseFont = {
 	SpaceGrotesk: "SpaceGrotesk",
 };
 
+export const EachComponentAccordionState = createContext();
 export const fontContext = createContext();
-export const accordionIndexContext = createContext();
 
 const CreateResumePage = () => {
 	const [font, setFont] = useState("Mulish");
-	const [accordionIndex, setAccordionIndex] = useState(null);
+	const [educationState, setEducationState] = useState(false);
+	const [workExperienceState, setWorkExperienceState] = useState(false);
 
 	function toggleIndex(event, wrapperIndex) {
 		event.stopPropagation();
-		setAccordionIndex(wrapperIndex);
 	}
-
-	const sectionsWrapper = [
-		{
-			id: 1,
-			component: <EducationIndex />,
-		},
-		{
-			id: 1,
-			component: <EducationIndex />,
-		},
-	];
 
 	return (
 		<React.Fragment>
@@ -47,15 +37,18 @@ const CreateResumePage = () => {
 						<section id="user-info">
 							<UserIndex />
 						</section>
-						<accordionIndexContext.Provider value={{ accordionIndex, setAccordionIndex }}>
-							{sectionsWrapper.map(({ id, component }, wrapperIndex) => {
-								return (
-									<section onClick={(event) => toggleIndex(event, wrapperIndex)} key={wrapperIndex} id="user-education">
-										{component}
-									</section>
-								);
-							})}
-						</accordionIndexContext.Provider>
+						<EachComponentAccordionState.Provider
+							value={{
+								education: { educationState, setEducationState },
+								workExperience: { workExperienceState, setWorkExperienceState },
+							}}>
+							<section id="user-education">
+								<EducationIndex />
+							</section>
+							<section id="work-experience">
+								<WorkExperienceIndex />
+							</section>
+						</EachComponentAccordionState.Provider>
 					</div>
 					<div
 						className={`w-1/2 right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
