@@ -40,7 +40,7 @@ const EducationIndex = () => {
 			<Accordion title="education" icon="cil:education" toggle={{ state: educationState, action: setEducationState }}>
 				{educationDetails.map((eachDivWrapper, wrapperIndex) => {
 					return (
-						<div key={wrapperIndex} className={`flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4`}>
+						<div key={wrapperIndex} className={`flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4`}>
 							{Object.values(eachDivWrapper).map((detail) => {
 								return detail.map(({ inputMode, ariaLabel, type, actionFunction, value, nameLabel }, useDetailIndex) => {
 									return (

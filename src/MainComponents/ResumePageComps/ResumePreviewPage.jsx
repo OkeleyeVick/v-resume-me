@@ -5,7 +5,9 @@ const ResumePreviewPage = () => {
 	return (
 		<React.Fragment>
 			<div mode="view-mode">
-				<div>Top part</div>
+				<div name="resume-wrapper" className="relative flex items-center justify-center">
+					<div name="resume" className="bg-white w-[300px] h-[450px] shadow-md rounded-md aspect-[3/1] "></div>
+				</div>
 				<div className="absolute bottom-0 -translate-y-4 text-center">
 					<DownloadButton />
 				</div>

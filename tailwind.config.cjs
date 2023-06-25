@@ -29,8 +29,8 @@ module.exports = {
 				input_clr: "rgb(239,242,249)",
 			},
 			boxShadow: {
-				custom_1: "rgba(190, 196, 213, 0.7) 0px 14px 16px -10px, rgba(190, 196, 213, 0.12) 0px 20px 40px -8px",
-				custom_2: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;",
+				custom_1: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
+				custom_2: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
 				custom_3: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
 				inputShadow: "0px 0px 2px -1px rgb(131, 144, 250, 0.8)",
 			},

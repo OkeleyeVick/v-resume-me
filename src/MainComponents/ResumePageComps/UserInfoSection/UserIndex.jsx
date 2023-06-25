@@ -102,7 +102,7 @@ const UserIndex = () => {
 			<div id="title" className="select-none mb-6">
 				<span className="flex items-end gap-x-3 text-slate-700">
 					<Icon icon="uiw:user" className="w-8 h-8" />
-					<h2 className="font-bold text-xl">Personal Information</h2>
+					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
 			</div>
 			<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
@@ -120,7 +120,7 @@ const UserIndex = () => {
 			</div>
 			{userDetails.map((eachDivWrapper, wrapperIndex) => {
 				return (
-					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
+					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
 						{Object.values(eachDivWrapper).map((detail) => {
 							return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
 								return (
