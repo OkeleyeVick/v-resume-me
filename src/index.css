@@ -25,6 +25,14 @@ body::-webkit-scrollbar {
 .input_container:focus-within::before {
 	transform: scaleX(1);
 }
+.textarea_container::before {
+	transform: scaleX(0) translateY(-2px);
+	transition: 300ms ease;
+	top: 100%;
+}
+.textarea_container:focus-within::before {
+	transform: scaleX(1);
+}
 /* Handle */
 .no-scroll::-webkit-scrollbar-thumb {
 	background: #182341;

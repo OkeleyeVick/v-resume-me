@@ -10,7 +10,7 @@ const InputWithLabel = ({
 	placeholder,
 	"aria-label": ariaLabel,
 	name,
-	addInput,
+	handleInputChange,
 	value,
 	inputMode,
 	tooltip,
@@ -39,15 +39,15 @@ const InputWithLabel = ({
 				name={name}
 				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={addInput}
-				autoComplete="off"
-				type={type ?? "text"}
+				onChange={handleInputChange}
 				spellCheck="false"
 				inputMode={inputMode}
 				aria-label={ariaLabel}
-				className={`caret-main bg-input_clr py-[12px] transition 300ms ease-out outline-none border-none px-4 text-ash-600 text-sm rounded-[3px]`}
+				autoComplete="off"
+				type={type ?? "text"}
+				className={`caret-main placeholder:text-xs bg-input_clr py-[13.5px] transition 300ms ease-out outline-none border-none px-4 text-ash-600 text-sm rounded-[3px]`}
 			/>
-			{hasDropdown ? (
+			{/* {hasDropdown ? (
 				<React.Fragment>
 					<motion.div className={"absolute z-10 top-full bg-[rgb(239,242,249)] text-xs rounded-[3px] shadow-custom_3"}>
 						<ul className="my-3 no-scroll overflow-x-hidden h-36 px-1 ">
@@ -67,7 +67,7 @@ const InputWithLabel = ({
 				</React.Fragment>
 			) : (
 				""
-			)}
+			)} */}
 		</div>
 	);
 };

@@ -1,12 +1,9 @@
 import React, { createContext, memo, useState } from "react";
 import PersonalComponent from "./NavComponents/PersonalComponent";
 import "../../assets/css/fonts.css";
-import InputWithLabel from "../FormComponent/InputComponent";
 import ResumePreviewPage from "./ResumePreviewPage";
-import ImageUploadComponent from "../FormComponent/ImageUploadComponent";
-import EducationSectionBase from "./EducationSection/EducationSectionBase";
-// import NavigationSublet from "./NavigationSublet";
-// import TemplateDisplay from "./TemplateDisplay";
+import EducationIndex from "./EducationSection/EducationIndex";
+import UserIndex from "./UserInfoSection/UserIndex";
 
 const baseFont = {
 	Syne: "Syne",
@@ -25,98 +22,6 @@ export const componentContext = createContext();
 const CreateResumePage = () => {
 	const [component, setComponent] = useState(<PersonalComponent />);
 	const [font, setFont] = useState("Mulish");
-	const [position, setJobPosition] = useState("");
-
-	const handleNameInput = (event) => {
-		setJobPosition(event.target.value);
-	};
-
-	const userDetails = [
-		{
-			names: [
-				{
-					ariaLabel: "firstname",
-					value: "Victor",
-					nameLabel: "firstname",
-					inputMode: "text",
-					type: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-				{
-					ariaLabel: "lastname",
-					value: "Okeleye",
-					nameLabel: "Lastname",
-					inputMode: "text",
-					type: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-			],
-		},
-		{
-			emailPhone: [
-				{
-					ariaLabel: "email",
-					nameLabel: "Email",
-					type: "email",
-					value: "",
-					inputMode: "email",
-					actionFunction: () => console.log("I am for here"),
-				},
-				{
-					ariaLabel: "phone",
-					hasExtraInfo: true,
-					tooltipData: "Write start your phone number starting with your country code",
-					value: "0909737340",
-					type: "phone",
-					nameLabel: "phone",
-					inputMode: "numeric",
-					actionFunction: () => console.log("I am for here"),
-				},
-			],
-		},
-		{
-			CountryCity: [
-				{
-					ariaLabel: "country",
-					hasExtraInfo: true,
-					tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
-					nameLabel: "Country",
-					type: "text",
-					value: "",
-					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-				{
-					ariaLabel: "city",
-					nameLabel: "city",
-					type: "text",
-					value: "",
-					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-			],
-		},
-		{
-			postalcode: [
-				{
-					ariaLabel: "postal code",
-					nameLabel: "postal code",
-					type: "text",
-					value: "",
-					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-				{
-					ariaLabel: "address",
-					nameLabel: "address",
-					type: "text",
-					value: "",
-					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
-				},
-			],
-		},
-	];
 
 	return (
 		<React.Fragment>
@@ -134,47 +39,9 @@ const CreateResumePage = () => {
 				<div className="min-h-screen flex items-stretch">
 					<div className="bg-white h-full p-5 md:p-11 w-1/2" style={{ fontFamily: baseFont.SpaceGrotesk }}>
 						<section id="user-info">
-							<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
-								<InputWithLabel
-									aria-label="position"
-									value={position}
-									name="position"
-									hasDropdown
-									label="Position"
-									placeholder="e.g. Teacher"
-									addInput={handleNameInput}
-									inputMode="text"
-								/>
-								<ImageUploadComponent label="Upload photo" />
-							</div>
-							{userDetails.map((eachDivWrapper, wrapperIndex) => {
-								return (
-									<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
-										{Object.values(eachDivWrapper).map((detail) => {
-											return detail.map(
-												({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
-													return (
-														<React.Fragment key={useDetailIndex}>
-															<InputWithLabel
-																inputMode={inputMode}
-																label={nameLabel}
-																aria-label={ariaLabel}
-																type={type}
-																tooltip={tooltipData}
-																hasExtraInfo={hasExtraInfo}
-															/>
-														</React.Fragment>
-													);
-												}
-											);
-										})}
-									</div>
-								);
-							})}
+							<UserIndex />
 						</section>
-						<section id="user-edu">
-							<EducationSectionBase />
-						</section>
+						<section id="user-education">{/* <EducationIndex /> */}</section>
 					</div>
 					<div
 						className={`w-1/2 right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
