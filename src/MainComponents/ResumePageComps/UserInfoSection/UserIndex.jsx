@@ -130,6 +130,7 @@ const UserIndex = () => {
 											label={nameLabel}
 											aria-label={ariaLabel}
 											type={type}
+											handleInputChange={handleInputChange}
 											tooltip={tooltipData}
 											hasExtraInfo={hasExtraInfo}
 										/>

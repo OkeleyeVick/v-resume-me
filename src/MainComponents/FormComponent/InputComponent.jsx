@@ -37,7 +37,7 @@ const InputWithLabel = ({
 			<input
 				id={label}
 				name={name}
-				value={value}
+				value={value ?? ""}
 				placeholder={placeholder ? placeholder : ""}
 				onChange={handleInputChange}
 				spellCheck="false"
