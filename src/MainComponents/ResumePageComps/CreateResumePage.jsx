@@ -33,7 +33,7 @@ const CreateResumePage = () => {
 		<React.Fragment>
 			<fontContext.Provider value={{ font, setFont }}>
 				<div className="min-h-screen flex items-stretch">
-					<div className="bg-white h-full p-5 md:p-11 w-1/2" style={{ fontFamily: baseFont.SpaceGrotesk }}>
+					<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2" style={{ fontFamily: baseFont.SpaceGrotesk }}>
 						<section id="user-info">
 							<UserIndex />
 						</section>
@@ -51,7 +51,7 @@ const CreateResumePage = () => {
 						</EachComponentAccordionState.Provider>
 					</div>
 					<div
-						className={`w-1/2 right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
+						className={`w-1/2 hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
 						style={{ fontFamily: baseFont.Syne }}>
 						<ResumePreviewPage />
 					</div>

@@ -7,8 +7,10 @@ const WorkExperienceIndex = () => {
 	const { workExperienceState, setWorkExperienceState } = workExperience;
 	return (
 		<Accordion title="work experience" icon="clarity:briefcase-line" toggle={{ state: workExperienceState, action: setWorkExperienceState }}>
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum possimus minima unde deleniti at est provident aliquam maiores. Rem
-			facilis placeat commodi. Recusandae quae vitae dignissimos, omnis ea voluptates facere.
+			<div className="p-3">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. At eum id ullam explicabo inventore et nulla delectus autem unde, laudantium,
+				enim quae porro voluptates hic cum cupiditate possimus provident fugit.
+			</div>
 		</Accordion>
 	);
 };

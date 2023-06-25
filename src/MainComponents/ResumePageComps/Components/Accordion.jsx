@@ -1,10 +1,11 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { easeIn, motion } from "framer-motion";
 
 const Accordion = ({ children, toggle, icon, title }) => {
 	const { state, action } = toggle;
 	return (
-		<div className={`mt-6 accordion border border-solid border-border_clr rounded-2xl overflow-hidden shadow-custom_3`}>
+		<motion.div className={`mt-6 accordion border border-solid border-border_clr rounded-2xl overflow-hidden shadow-custom_3`}>
 			<header className="cursor-pointer flex items-center py-6 px-8 justify-between" onClick={() => action(!state)}>
 				<div id="title" className="select-none">
 					<span className="flex items-center gap-x-3">
@@ -12,10 +13,16 @@ const Accordion = ({ children, toggle, icon, title }) => {
 						<h2 className="capitalize font-bold text-xl">{title}</h2>
 					</span>
 				</div>
-				<Icon icon="ion:chevron-down-outline" className="h-6 w-6 text-slate-600" />
+				<Icon icon="ion:chevron-down-outline" className={`${state === true ? "rotate-180" : "rotate-0"} h-6 w-6 text-slate-600`} />
 			</header>
-			<div className={`accordion-body px-5 text-xs ${state ? "h-0" : "h-auto"}`}>{children}</div>
-		</div>
+			<motion.div
+				initial={{ height: state ? 0 : 100, opacity: state ? "" : 1 }}
+				animate={{ height: state ? 100 : 0, opacity: state ? 1 : "" }}
+				transition={{ duration: 0.01, ease: "easeInOut" }}
+				className={`accordion-body px-5 text-xs`}>
+				{children}
+			</motion.div>
+		</motion.div>
 	);
 };
 
