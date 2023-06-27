@@ -16,8 +16,8 @@ const Accordion = ({ children, toggle, icon, title }) => {
 				<Icon icon="ion:chevron-down-outline" className={`${state === true ? "rotate-180" : "rotate-0"} h-6 w-6 text-slate-600`} />
 			</header>
 			<motion.div
-				initial={{ height: state ? 0 : "100", opacity: state ? "" : 1 }}
-				animate={{ height: state ? 100 : 0, opacity: state ? 1 : "" }}
+				initial={{ height: state ? 0 : 100, opacity: state ? 0 : 1 }}
+				animate={{ height: state ? 100 : 0, opacity: state ? 1 : 0 }}
 				transition={{ duration: 0.01, ease: "easeInOut" }}
 				className={`accordion-body px-5 text-xs overflow-hidden`}>
 				{children}

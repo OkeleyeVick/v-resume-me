@@ -47,7 +47,7 @@ const InputWithLabel = ({
 				type={type ?? "text"}
 				className={`caret-main placeholder:text-sm bg-input_clr py-[13.5px] transition 300ms ease-out outline-none border-none px-4 text-ash-600 text-sm rounded-[3px] min-h-[3rem]`}
 			/>
-			{/* {hasDropdown ? (
+			{hasDropdown ? (
 				<React.Fragment>
 					<motion.div className={"absolute z-10 top-full bg-[rgb(239,242,249)] text-xs rounded-[3px] shadow-custom_3"}>
 						<ul className="my-3 no-scroll overflow-x-hidden h-36 px-1 ">
@@ -67,7 +67,7 @@ const InputWithLabel = ({
 				</React.Fragment>
 			) : (
 				""
-			)} */}
+			)}
 		</div>
 	);
 };
