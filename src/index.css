@@ -39,6 +39,16 @@ body::-webkit-scrollbar {
 	border-radius: 90px;
 }
 
+/* accordion */
+.szh-accordion__item-btn {
+	width: 100%;
+	background-color: red;
+	outline: none;
+}
+.szh-accordion__item-content {
+	padding: 2rem 1.2rem;
+}
+
 @media all and (max-width: 500px) {
 	html {
 		font-size: 15px;

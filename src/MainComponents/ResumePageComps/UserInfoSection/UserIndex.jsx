@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import ImageUploadComponent from "../../FormComponent/ImageUploadComponent";
 import { Icon } from "@iconify/react";
 import TextArea from "../../FormComponent/TextArea";
+import { userDataContext } from "../CreateResumePage";
 
 const UserIndex = () => {
-	const [position, setJobPosition] = useState("");
+	const { userData, setUserData } = useContext(userDataContext);
+	const [userInput, setUserInput] = useState("");
 
 	const handleInputChange = (event) => {
-		setJobPosition(event.target.value);
+		setUserData((prevData) => ({
+			...prevData,
+			userDetails: {
+				...prevData[userDetails], //get other userDetails info
+				[event.target.name]: event.target.value, //set each input based on name
+			},
+		}));
 	};
 	const userDetails = [
 		{
@@ -19,7 +27,6 @@ const UserIndex = () => {
 					nameLabel: "firstname",
 					inputMode: "text",
 					type: "text",
-					actionFunction: () => console.log("I am for here"),
 				},
 				{
 					ariaLabel: "lastname",
@@ -27,7 +34,6 @@ const UserIndex = () => {
 					nameLabel: "Lastname",
 					inputMode: "text",
 					type: "text",
-					actionFunction: () => console.log("I am for here"),
 				},
 			],
 		},
@@ -39,7 +45,6 @@ const UserIndex = () => {
 					type: "email",
 					value: "",
 					inputMode: "email",
-					actionFunction: () => console.log("I am for here"),
 				},
 				{
 					ariaLabel: "phone",
@@ -49,7 +54,6 @@ const UserIndex = () => {
 					type: "phone",
 					nameLabel: "phone",
 					inputMode: "numeric",
-					actionFunction: () => console.log("I am for here"),
 				},
 			],
 		},
@@ -63,7 +67,6 @@ const UserIndex = () => {
 					type: "text",
 					value: "",
 					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
 				},
 				{
 					ariaLabel: "city",
@@ -71,19 +74,17 @@ const UserIndex = () => {
 					type: "text",
 					value: "",
 					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
 				},
 			],
 		},
 		{
 			postalcode: [
 				{
-					ariaLabel: "postal code",
+					ariaLabel: "postal-code",
 					nameLabel: "postal code",
 					type: "text",
 					value: "",
 					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
 				},
 				{
 					ariaLabel: "address",
@@ -91,7 +92,15 @@ const UserIndex = () => {
 					type: "text",
 					value: "",
 					inputMode: "text",
-					actionFunction: () => console.log("I am for here"),
+				},
+				{
+					ariaLabel: "dob",
+					nameLabel: "Date of Birth",
+					hasExtraInfo: true,
+					tooltipData: "Type out the DOB in any format you prefer",
+					type: "text",
+					value: "",
+					inputMode: "text",
 				},
 			],
 		},
@@ -108,7 +117,7 @@ const UserIndex = () => {
 			<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
 				<InputWithLabel
 					aria-label="position"
-					value={position}
+					value={userInput}
 					name="position"
 					hasDropdown
 					label="Position"
@@ -122,12 +131,14 @@ const UserIndex = () => {
 				return (
 					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
 						{Object.values(eachDivWrapper).map((detail) => {
-							return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
+							return detail.map(({ inputMode, value, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
 								return (
 									<React.Fragment key={useDetailIndex}>
 										<InputWithLabel
 											inputMode={inputMode}
 											label={nameLabel}
+											name={ariaLabel}
+											value={value}
 											aria-label={ariaLabel}
 											type={type}
 											handleInputChange={handleInputChange}
