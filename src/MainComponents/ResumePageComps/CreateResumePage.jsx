@@ -24,15 +24,17 @@ export const userDataContext = createContext();
 
 const CreateResumePage = () => {
 	const [userData, setUserData] = useState({
-		userDetails: {
-			firstname: "",
-			lastname: "",
-			position: "",
-			email: "",
-			phone: "",
-			country: "",
-			dob: "",
-		},
+		firstname: "",
+		lastname: "",
+		position: "",
+		email: "",
+		phone: "",
+		country: "",
+		dob: "",
+		userImage: "",
+		"postal-code": "",
+		address: "",
+		city: "",
 	});
 	const [font, setFont] = useState("Mulish"); //fonts and selection
 	const [educationState, setEducationState] = useState(false);

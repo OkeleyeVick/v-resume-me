@@ -7,31 +7,28 @@ import { userDataContext } from "../CreateResumePage";
 
 const UserIndex = () => {
 	const { userData, setUserData } = useContext(userDataContext);
-	const [userInput, setUserInput] = useState("");
 
-	const handleInputChange = (event) => {
-		setUserData((prevData) => ({
-			...prevData,
-			userDetails: {
-				...prevData[userDetails], //get other userDetails info
-				[event.target.name]: event.target.value, //set each input based on name
-			},
+	function updateTheDetail(value, field) {
+		setUserData((prev) => ({
+			...prev,
+			[field ?? field]: value, //if the field does not exist, create one and update the value
 		}));
-	};
+	}
+
 	const userDetails = [
 		{
 			names: [
 				{
 					ariaLabel: "firstname",
-					value: "",
 					nameLabel: "firstname",
 					inputMode: "text",
 					type: "text",
+					runUpdate: updateTheDetail,
 				},
 				{
+					runUpdate: updateTheDetail,
 					ariaLabel: "lastname",
-					value: "",
-					nameLabel: "Lastname",
+					nameLabel: "lastname",
 					inputMode: "text",
 					type: "text",
 				},
@@ -41,19 +38,19 @@ const UserIndex = () => {
 			emailPhone: [
 				{
 					ariaLabel: "email",
-					nameLabel: "Email",
+					nameLabel: "email",
 					type: "email",
-					value: "",
 					inputMode: "email",
+					runUpdate: updateTheDetail,
 				},
 				{
 					ariaLabel: "phone",
 					hasExtraInfo: true,
 					tooltipData: "Write start your phone number starting with your country code",
-					value: "",
 					type: "phone",
 					nameLabel: "phone",
 					inputMode: "numeric",
+					runUpdate: updateTheDetail,
 				},
 			],
 		},
@@ -63,17 +60,17 @@ const UserIndex = () => {
 					ariaLabel: "country",
 					hasExtraInfo: true,
 					tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
-					nameLabel: "Country",
+					nameLabel: "country",
 					type: "text",
-					value: "",
 					inputMode: "text",
+					runUpdate: updateTheDetail,
 				},
 				{
 					ariaLabel: "city",
 					nameLabel: "city",
 					type: "text",
-					value: "",
 					inputMode: "text",
+					runUpdate: updateTheDetail,
 				},
 			],
 		},
@@ -83,15 +80,15 @@ const UserIndex = () => {
 					ariaLabel: "postal-code",
 					nameLabel: "postal code",
 					type: "text",
-					value: "",
 					inputMode: "text",
+					runUpdate: updateTheDetail,
 				},
 				{
 					ariaLabel: "address",
 					nameLabel: "address",
 					type: "text",
-					value: "",
 					inputMode: "text",
+					runUpdate: updateTheDetail,
 				},
 				{
 					ariaLabel: "dob",
@@ -99,8 +96,8 @@ const UserIndex = () => {
 					hasExtraInfo: true,
 					tooltipData: "Type out the DOB in any format you prefer",
 					type: "text",
-					value: "",
 					inputMode: "text",
+					runUpdate: updateTheDetail,
 				},
 			],
 		},
@@ -117,12 +114,12 @@ const UserIndex = () => {
 			<div className="flex flex-col md:grid grid-cols-2 gap-x-8 gap-y-6 md:items-end mb-4">
 				<InputWithLabel
 					aria-label="position"
-					value={userInput}
+					value={userData.position}
 					name="position"
 					hasDropdown
+					runUpdate={updateTheDetail}
 					label="Position"
 					placeholder="e.g. Teacher"
-					handleInputChange={handleInputChange}
 					inputMode="text"
 				/>
 				<ImageUploadComponent label="Upload photo" />
@@ -131,17 +128,17 @@ const UserIndex = () => {
 				return (
 					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
 						{Object.values(eachDivWrapper).map((detail) => {
-							return detail.map(({ inputMode, value, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel }, useDetailIndex) => {
+							return detail.map(({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, runUpdate }, useDetailIndex) => {
 								return (
 									<React.Fragment key={useDetailIndex}>
 										<InputWithLabel
 											inputMode={inputMode}
 											label={nameLabel}
 											name={ariaLabel}
-											value={value}
+											value={userData[ariaLabel]}
 											aria-label={ariaLabel}
 											type={type}
-											handleInputChange={handleInputChange}
+											runUpdate={runUpdate}
 											tooltip={tooltipData}
 											hasExtraInfo={hasExtraInfo}
 										/>

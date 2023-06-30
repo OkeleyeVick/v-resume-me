@@ -1,21 +1,21 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import roles from "../../assets/db/roles.json";
 import { motion } from "framer-motion";
 
 const InputWithLabel = ({
+	hasDropdown,
 	label,
 	type,
 	placeholder,
 	"aria-label": ariaLabel,
 	name,
-	handleInputChange,
+	runUpdate,
 	value,
 	inputMode,
 	tooltip,
 	hasExtraInfo,
-	hasDropdown,
 }) => {
 	return (
 		<div
@@ -39,7 +39,7 @@ const InputWithLabel = ({
 				name={name}
 				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={handleInputChange}
+				onChange={(event) => runUpdate(event.target.value, name)}
 				spellCheck="false"
 				inputMode={inputMode}
 				aria-label={ariaLabel}
