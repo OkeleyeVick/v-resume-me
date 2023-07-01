@@ -15,6 +15,15 @@ const UserIndex = () => {
 		}));
 	}
 
+	function updateProfileImage(imageBlobFile) {
+		setUserData((prevData) => ({
+			...prevData,
+			userImage: imageBlobFile,
+		}));
+	}
+
+	console.log(userData);
+
 	const userDetails = [
 		{
 			names: [
@@ -122,7 +131,7 @@ const UserIndex = () => {
 					placeholder="e.g. Teacher"
 					inputMode="text"
 				/>
-				<ImageUploadComponent label="Upload photo" />
+				<ImageUploadComponent label="Upload photo" updateProfileImage={updateProfileImage} />
 			</div>
 			{userDetails.map((eachDivWrapper, wrapperIndex) => {
 				return (
@@ -138,7 +147,7 @@ const UserIndex = () => {
 											value={userData[ariaLabel]}
 											aria-label={ariaLabel}
 											type={type}
-											runUpdate={runUpdate}
+											runUpdate
 											tooltip={tooltipData}
 											hasExtraInfo={hasExtraInfo}
 										/>

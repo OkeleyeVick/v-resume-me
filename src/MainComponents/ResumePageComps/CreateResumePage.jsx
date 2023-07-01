@@ -68,9 +68,9 @@ const CreateResumePage = () => {
 								</section>
 
 								<ReactSortable list={sections} setList={setSections}>
-									{sections.map(({ section_id_name, id, component }, index) => {
+									{sections.map(({ section_id_name, id, component }) => {
 										return (
-											<React.Fragment key={index}>
+											<React.Fragment key={id}>
 												<section className="bg-white" id={section_id_name}>
 													{component}
 												</section>

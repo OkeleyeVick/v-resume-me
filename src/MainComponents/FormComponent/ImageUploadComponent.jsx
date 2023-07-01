@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Modal from "../ResumePageComps/Components/Modal";
 
-const ImageUploadComponent = ({ label }) => {
+const ImageUploadComponent = ({ label, updateProfileImage }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
 	const [imageError, setImageError] = useState(null);
@@ -24,9 +24,12 @@ const ImageUploadComponent = ({ label }) => {
 	}
 
 	function handleImageUpload(event) {
+		const blob = new FileB();
 		const imageObject = event.target.files;
 		const isValid = checkFileType(imageObject[0].type);
 		isValid ? setImageForDisplay(URL.createObjectURL(imageObject[0])) : null;
+		const blobImage = URL.createObjectURL(imageObject[0]);
+		updateProfileImage(blobImage);
 	}
 
 	function handleRemoveImage() {
@@ -55,12 +58,12 @@ const ImageUploadComponent = ({ label }) => {
 	return (
 		<div id="userImage_container" className="hover:text-main group/image">
 			<div className="flex items-center gap-4 group">
-				<input type="file" ref={imageRef} aria-label={label} hidden onChange={handleImageUpload} />
+				<input type="file" ref={imageRef} aria-label={label} hidden onChange={(event) => handleImageUpload(event)} />
 				<div
 					className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-16 md:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
 						image ? "cursor-default pointer-events-none" : "cursor-pointer"
 					}`}
-					onClick={() => handleClick()}>
+					onClick={handleClick}>
 					{image ? (
 						<motion.img
 							accept="image/*, .png, .jpeg, .jpg, .webp"
