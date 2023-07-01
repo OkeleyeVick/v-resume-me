@@ -23,7 +23,6 @@ const UserIndex = () => {
 	}
 
 	console.log(userData);
-
 	const userDetails = [
 		{
 			names: [
@@ -147,7 +146,7 @@ const UserIndex = () => {
 											value={userData[ariaLabel]}
 											aria-label={ariaLabel}
 											type={type}
-											runUpdate
+											runUpdate={runUpdate}
 											tooltip={tooltipData}
 											hasExtraInfo={hasExtraInfo}
 										/>
