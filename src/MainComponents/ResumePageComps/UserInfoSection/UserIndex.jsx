@@ -6,7 +6,7 @@ import TextArea from "../../FormComponent/TextArea";
 import { userDataContext } from "../CreateResumePage";
 
 const UserIndex = () => {
-	const { userData, setUserData } = useContext(userDataContext);
+	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
 
 	return (
 		<React.Fragment>
@@ -16,7 +16,7 @@ const UserIndex = () => {
 					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
 			</div>
-			{Object.values(userData).map((eachDivWrapper, wrapperIndex) => {
+			{Object.values(userPersonalData).map((eachDivWrapper, wrapperIndex) => {
 				return (
 					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
 						{Object.values(eachDivWrapper).map(
@@ -32,7 +32,7 @@ const UserIndex = () => {
 											inputMode={inputMode}
 											label={nameLabel}
 											name={ariaLabel}
-											value={userData[ariaLabel]}
+											value={userPersonalData[ariaLabel]}
 											aria-label={ariaLabel}
 											type={type}
 											runUpdate={runUpdate}

@@ -131,7 +131,8 @@ const CreateResumePage = () => {
 	};
 
 	// all states
-	const [userData, setUserData] = useState(userDetails);
+	const [userPersonalData, setUserPersonalData] = useState(userDetails);
+	const [userGeneralData, setUserGeneralData] = useState({});
 	const [font, setFont] = useState("Mulish"); //fonts and selection
 	const [educationState, setEducationState] = useState(false);
 	const [workExperienceState, setWorkExperienceState] = useState(false);
@@ -156,7 +157,7 @@ const CreateResumePage = () => {
 	}
 	function updateProfileImage(imageBlobFile) {}
 	return (
-		<userDataContext.Provider value={{ userData, setUserData }}>
+		<userDataContext.Provider value={{ userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData }}>
 			<EachComponentAccordionState.Provider
 				value={{
 					education: { educationState, setEducationState },

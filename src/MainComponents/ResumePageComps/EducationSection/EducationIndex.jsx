@@ -6,13 +6,12 @@ import { EachComponentAccordionState, userDataContext } from "../CreateResumePag
 const EducationIndex = () => {
 	const { education } = useContext(EachComponentAccordionState);
 	const { educationState, setEducationState } = education;
-	const { userData, setUserData } = useContext(userDataContext);
-	const educationArray = userData.education;
+	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
 
 	function updateTheDetail(value, field) {
-		setUserData((prev) => ({
+		setUserPersonalData((prev) => ({
 			...prev,
-			[field ?? field]: value, //if the field does not exist, create one and update the value
+			// [field ?? field]: value, //if the field does not exist, create one and update the value
 		}));
 	}
 

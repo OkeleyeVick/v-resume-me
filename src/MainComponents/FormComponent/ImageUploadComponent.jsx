@@ -8,7 +8,7 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
 	const [imageError, setImageError] = useState(null);
-	const { setUserData } = useContext(userDataContext);
+	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
 
 	const handleClick = () => {
 		imageRef.current.click();
@@ -36,7 +36,7 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 				if (isValid === false) {
 					setImageError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
 				} else {
-					setUserData((prevData) => {
+					setUserPersonalData((prevData) => {
 						console.log(prevData);
 						return { ...prevData };
 					});
