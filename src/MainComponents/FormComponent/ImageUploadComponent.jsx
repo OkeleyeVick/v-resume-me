@@ -38,7 +38,7 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 				} else {
 					setUserData((prevData) => {
 						console.log(prevData);
-						return [...prevData];
+						return { ...prevData };
 					});
 					updateProfileImage(reader.result);
 					setImageForDisplay(reader.result);

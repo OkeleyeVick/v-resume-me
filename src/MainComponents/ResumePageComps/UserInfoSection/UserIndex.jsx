@@ -16,53 +16,33 @@ const UserIndex = () => {
 					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
 			</div>
-			{userData.map((eachDivWrapper, wrapperIndex) => {
+			{Object.values(userData).map((eachDivWrapper, wrapperIndex) => {
 				return (
 					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
-						{Object.values(eachDivWrapper).map((eachInputWrapper, inputIndex) => {
-							return (
-								<React.Fragment key={inputIndex}>
-									{eachInputWrapper.map(
-										(
-											{
-												inputMode,
-												ariaLabel,
-												type,
-												hasExtraInfo,
-												tooltipData,
-												nameLabel,
-												isImage,
-												runUpdate,
-												updateProfileImage,
-											},
-											userDetailIndex
-										) => {
-											return isImage ? (
-												<ImageUploadComponent
-													label={nameLabel}
-													updateProfileImage={updateProfileImage}
-													key={userDetailIndex}
-												/>
-											) : (
-												<React.Fragment key={userDetailIndex}>
-													<InputWithLabel
-														inputMode={inputMode}
-														label={nameLabel}
-														name={ariaLabel}
-														value={userData[ariaLabel]}
-														aria-label={ariaLabel}
-														type={type}
-														runUpdate={runUpdate}
-														tooltip={tooltipData}
-														hasExtraInfo={hasExtraInfo}
-													/>
-												</React.Fragment>
-											);
-										}
-									)}
-								</React.Fragment>
-							);
-						})}
+						{Object.values(eachDivWrapper).map(
+							(
+								{ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, runUpdate, updateProfileImage },
+								inputIndex
+							) => {
+								return isImage ? (
+									<ImageUploadComponent label={nameLabel} updateProfileImage={updateProfileImage} key={inputIndex} />
+								) : (
+									<React.Fragment key={inputIndex}>
+										<InputWithLabel
+											inputMode={inputMode}
+											label={nameLabel}
+											name={ariaLabel}
+											value={userData[ariaLabel]}
+											aria-label={ariaLabel}
+											type={type}
+											runUpdate={runUpdate}
+											tooltip={tooltipData}
+											hasExtraInfo={hasExtraInfo}
+										/>
+									</React.Fragment>
+								);
+							}
+						)}
 					</div>
 				);
 			})}

@@ -24,121 +24,111 @@ export const userDataContext = createContext();
 
 const CreateResumePage = () => {
 	// user initial state
-	const userDetails = [
-		{
-			positionImage: [
-				{
-					ariaLabel: "position",
-					nameLabel: "position",
-					inputMode: "text",
-					value: "",
-					type: "text",
-					runUpdate: updateTheDetail,
-				},
-				{
-					isImage: true,
-					nameLabel: "Upload Photo",
-					ariaLabel: "image",
-					imageSrc: "",
-					updateProfileImage: updateProfileImage,
-				},
-			],
+	const userDetails = {
+		positionImage: {
+			position: {
+				ariaLabel: "position",
+				nameLabel: "position",
+				inputMode: "text",
+				value: "",
+				type: "text",
+				runUpdate: updateTheDetail,
+			},
+			image: {
+				isImage: true,
+				nameLabel: "Upload Photo",
+				ariaLabel: "image",
+				imageSrc: "",
+				updateProfileImage: updateProfileImage,
+			},
 		},
-		{
-			names: [
-				{
-					ariaLabel: "firstname",
-					nameLabel: "firstname",
-					inputMode: "text",
-					value: "",
-					type: "text",
-					runUpdate: updateTheDetail,
-				},
-				{
-					runUpdate: updateTheDetail,
-					ariaLabel: "lastname",
-					nameLabel: "lastname",
-					inputMode: "text",
-					value: "",
-					type: "text",
-				},
-			],
+		names: {
+			firstname: {
+				ariaLabel: "firstname",
+				nameLabel: "firstname",
+				inputMode: "text",
+				value: "",
+				type: "text",
+				runUpdate: updateTheDetail,
+			},
+			lastname: {
+				runUpdate: updateTheDetail,
+				ariaLabel: "lastname",
+				nameLabel: "lastname",
+				inputMode: "text",
+				value: "",
+				type: "text",
+			},
 		},
-		{
-			emailPhone: [
-				{
-					ariaLabel: "email",
-					nameLabel: "email",
-					type: "email",
-					inputMode: "email",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-				{
-					ariaLabel: "phone",
-					hasExtraInfo: true,
-					tooltipData: "Write start your phone number starting with your country code",
-					type: "phone",
-					nameLabel: "phone",
-					inputMode: "numeric",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-			],
+		emailPhone: {
+			email: {
+				ariaLabel: "email",
+				nameLabel: "email",
+				type: "email",
+				inputMode: "email",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
+			phone: {
+				ariaLabel: "phone",
+				hasExtraInfo: true,
+				tooltipData: "Write start your phone number starting with your country code",
+				type: "phone",
+				nameLabel: "phone",
+				inputMode: "numeric",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
 		},
-		{
-			CountryCity: [
-				{
-					ariaLabel: "country",
-					hasExtraInfo: true,
-					tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
-					nameLabel: "country",
-					type: "text",
-					inputMode: "text",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-				{
-					ariaLabel: "city",
-					nameLabel: "city",
-					type: "text",
-					inputMode: "text",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-			],
+		CountryCity: {
+			country: {
+				ariaLabel: "country",
+				hasExtraInfo: true,
+				tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
+				nameLabel: "country",
+				type: "text",
+				inputMode: "text",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
+			city: {
+				ariaLabel: "city",
+				nameLabel: "city",
+				type: "text",
+				inputMode: "text",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
 		},
-		{
-			postalcodeAddress: [
-				{
-					ariaLabel: "postal-code",
-					nameLabel: "postal code",
-					type: "text",
-					inputMode: "text",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-				{
-					ariaLabel: "address",
-					nameLabel: "address",
-					type: "text",
-					inputMode: "text",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-				{
-					ariaLabel: "dob",
-					nameLabel: "Date of Birth",
-					hasExtraInfo: true,
-					tooltipData: "Type out the DOB in any format you prefer",
-					type: "text",
-					inputMode: "text",
-					value: "",
-					runUpdate: updateTheDetail,
-				},
-			],
+		postalcodeAddress: {
+			postalCode: {
+				ariaLabel: "postalCode",
+				nameLabel: "postal code",
+				type: "text",
+				inputMode: "text",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
+			address: {
+				ariaLabel: "address",
+				nameLabel: "address",
+				type: "text",
+				inputMode: "text",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
+			dob: {
+				ariaLabel: "dob",
+				nameLabel: "Date of Birth",
+				hasExtraInfo: true,
+				tooltipData: "Type out the DOB in any format you prefer",
+				type: "text",
+				inputMode: "text",
+				value: "",
+				runUpdate: updateTheDetail,
+			},
 		},
-	];
+	};
 
 	// all states
 	const [userData, setUserData] = useState(userDetails);
@@ -164,12 +154,7 @@ const CreateResumePage = () => {
 			[field ?? field]: value, //if the field does not exist, create one and update the value
 		}));
 	}
-	function updateProfileImage(imageBlobFile) {
-		setUserData((prevUserData) => {
-			console.log(prevUserData[0], prevUserData);
-			return [...prevUserData];
-		});
-	}
+	function updateProfileImage(imageBlobFile) {}
 	return (
 		<userDataContext.Provider value={{ userData, setUserData }}>
 			<EachComponentAccordionState.Provider
