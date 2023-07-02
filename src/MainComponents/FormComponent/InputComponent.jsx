@@ -45,7 +45,7 @@ const InputWithLabel = ({
 				aria-label={ariaLabel}
 				autoComplete="off"
 				type={type ? type : "text"}
-				className={`caret-main placeholder:text-sm bg-input_clr py-[13.5px] transition 300ms ease-out outline-none border-none px-4 text-ash-600 text-sm rounded-[3px] min-h-[3rem]`}
+				className={`caret-main placeholder:text-sm bg-input_clr py-[13.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[3rem] border`}
 			/>
 			{/* {hasDropdown ? (
 				<React.Fragment>

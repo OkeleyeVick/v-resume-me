@@ -27,27 +27,29 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 	}
 
 	function handleImageUpload(event) {
-		const image = event.target.files[0];
-		const isValid = checkFileType(image);
-		const reader = new FileReader();
-		reader.readAsDataURL(image);
-		reader.addEventListener("loadend", () => {
-			if (isValid === false) {
-				setImageError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
-			} else {
-				updateProfileImage(reader.result);
-				setImageForDisplay(reader.result);
-			}
-		});
+		if (event) {
+			const image = event.target.files[0];
+			const isValid = checkFileType(image);
+			const reader = new FileReader();
+			reader.readAsDataURL(image);
+			reader.addEventListener("loadend", () => {
+				if (isValid === false) {
+					setImageError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
+				} else {
+					setUserData((prevData) => {
+						console.log(prevData);
+						return [...prevData];
+					});
+					updateProfileImage(reader.result);
+					setImageForDisplay(reader.result);
+				}
+			});
+		}
 	}
 
 	function handleRemoveImage() {
 		if (image) {
 			setImageForDisplay(null);
-			setUserData((prevData) => ({
-				...prevData,
-				userImage: "",
-			}));
 		}
 	}
 
@@ -71,7 +73,7 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 				<div className="flex items-center gap-4 group">
 					<input type="file" ref={imageRef} aria-label={label} hidden onChange={(event) => handleImageUpload(event)} />
 					<div
-						className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-16 md:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
+						className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-16 lg:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
 						onClick={handleClick}>

@@ -1,35 +1,45 @@
 import React, { useContext, useState } from "react";
 import Accordion from "../Components/Accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
-import { EachComponentAccordionState } from "../CreateResumePage";
+import { EachComponentAccordionState, userDataContext } from "../CreateResumePage";
 
 const EducationIndex = () => {
 	const { education } = useContext(EachComponentAccordionState);
 	const { educationState, setEducationState } = education;
-	const [educationValue, setEducationValue] = useState(""); // use for inputs in education section
+	const { userData, setUserData } = useContext(userDataContext);
+	const educationArray = userData.education;
 
-	function handleEducationInput(event) {
-		setEducationValue(event.target.value);
+	function updateTheDetail(value, field) {
+		setUserData((prev) => ({
+			...prev,
+			[field ?? field]: value, //if the field does not exist, create one and update the value
+		}));
 	}
+
+	const schoolObject = {
+		name: "",
+		degree: "",
+		startDate: "",
+		finishDate: "",
+		isWorkingThere: false,
+	};
 
 	const educationDetails = [
 		{
 			names: [
 				{
-					ariaLabel: "firstname",
-					value: "",
-					nameLabel: "firstname",
+					ariaLabel: "school",
+					nameLabel: "school",
 					inputMode: "text",
 					type: "text",
-					actionFunction: () => console.log("I am for here"),
+					runUpdate: updateTheDetail,
 				},
 				{
-					ariaLabel: "lastname",
-					value: "",
-					nameLabel: "Lastname",
+					ariaLabel: "degree",
+					nameLabel: "degree",
 					inputMode: "text",
 					type: "text",
-					actionFunction: () => console.log("I am for here"),
+					runUpdate: updateTheDetail,
 				},
 			],
 		},
@@ -42,14 +52,14 @@ const EducationIndex = () => {
 					return (
 						<div key={wrapperIndex} className={`flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4`}>
 							{Object.values(eachDivWrapper).map((detail) => {
-								return detail.map(({ inputMode, ariaLabel, type, actionFunction, value, nameLabel }, useDetailIndex) => {
+								return detail.map(({ inputMode, ariaLabel, type, runUpdate, nameLabel }, useDetailIndex) => {
 									return (
 										<React.Fragment key={useDetailIndex}>
 											<InputWithLabel
 												aria-label={ariaLabel}
-												handleInputChange={handleEducationInput}
-												value={value}
+												// value={userData[education][dng]}
 												inputMode={inputMode}
+												runUpdate={runUpdate}
 												type={type}
 												label={nameLabel}
 											/>
