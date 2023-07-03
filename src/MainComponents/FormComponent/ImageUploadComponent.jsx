@@ -17,12 +17,13 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 	function checkFileType(imageFileType) {
 		// check for the fileExtension
 		let isValid = true;
-		const fileExtension = imageFileType.name.split(".").pop();
+		if (imageFileType) {
+			const fileExtension = imageFileType.name.split(".").pop();
 
-		const allowedExtensions = ["jpeg", "jpg", "png", "gif", "webp", "jfif"];
+			const allowedExtensions = ["jpeg", "jpg", "png", "gif", "webp", "jfif"];
 
-		isValid = !allowedExtensions.includes(fileExtension) ? (isValid = false) : (isValid = true);
-
+			isValid = !allowedExtensions.includes(fileExtension) ? (isValid = false) : (isValid = true);
+		}
 		return isValid;
 	}
 
@@ -100,7 +101,10 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 							{imageEditOptions.map(({ label, icon, action, style }, indexValue) => {
 								return (
 									<React.Fragment key={indexValue}>
-										<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
+										<button
+											className="flex outline-1 outline-hoverBgClr outline items-center text-xs gap-2 group/edit-options"
+											type="button"
+											onClick={() => action()}>
 											<Icon
 												icon={icon}
 												className={`w-5 h-5 text-gray-400 ${style ? style : "group-hover/edit-options:text-main"}`}

@@ -5,8 +5,8 @@ import { easeIn, motion } from "framer-motion";
 const Accordion = ({ children, toggle, icon, title }) => {
 	const { state, action } = toggle;
 	return (
-		<motion.div className={`mt-6 accordion border border-solid border-border_clr rounded-2xl overflow-hidden shadow-custom_3`}>
-			<header className="cursor-pointer flex items-center py-6 px-8 justify-between" onClick={() => action(!state)}>
+		<motion.div className={`mt-6 accordion border border-solid border-gray-300 rounded-md overflow-hidden`}>
+			<header className="cursor-pointer flex items-center py-5 px-8 justify-between" onClick={() => action(!state)}>
 				<div id="title" className="select-none">
 					<span className="flex items-center gap-x-3">
 						<Icon icon={icon} className="w-8 h-8" />
