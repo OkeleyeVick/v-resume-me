@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Modal from "../ResumePageComps/Components/Modal";
 import { userDataContext } from "../ResumePageComps/CreateResumePage";
 
-const ImageUploadComponent = ({ label, updateProfileImage }) => {
+const ImageUploadComponent = ({ label }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
 	const [imageError, setImageError] = useState(null);
@@ -37,12 +37,16 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 				if (isValid === false) {
 					setImageError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
 				} else {
-					setUserPersonalData((prevData) => {
-						console.log(prevData);
-						return { ...prevData };
-					});
-					updateProfileImage(reader.result);
 					setImageForDisplay(reader.result);
+					setUserPersonalData((previousData) => {
+						return {
+							...previousData,
+							image: {
+								...previousData.image,
+								imageSrc: reader.result,
+							},
+						};
+					});
 				}
 			});
 		}
@@ -51,6 +55,13 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 	function handleRemoveImage() {
 		if (image) {
 			setImageForDisplay(null);
+			setUserPersonalData((prevData) => ({
+				...prevData,
+				image: {
+					...prevData[image],
+					imageSrc: "",
+				},
+			}));
 		}
 	}
 
@@ -101,10 +112,7 @@ const ImageUploadComponent = ({ label, updateProfileImage }) => {
 							{imageEditOptions.map(({ label, icon, action, style }, indexValue) => {
 								return (
 									<React.Fragment key={indexValue}>
-										<button
-											className="flex outline-1 outline-hoverBgClr outline items-center text-xs gap-2 group/edit-options"
-											type="button"
-											onClick={() => action()}>
+										<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
 											<Icon
 												icon={icon}
 												className={`w-5 h-5 text-gray-400 ${style ? style : "group-hover/edit-options:text-main"}`}

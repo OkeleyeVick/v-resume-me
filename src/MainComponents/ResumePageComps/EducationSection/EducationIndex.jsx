@@ -15,6 +15,7 @@ const EducationIndex = () => {
 		}));
 	}
 
+	// object to create a new education background
 	const schoolObject = {
 		name: "",
 		degree: "",
@@ -56,7 +57,6 @@ const EducationIndex = () => {
 										<React.Fragment key={useDetailIndex}>
 											<InputWithLabel
 												aria-label={ariaLabel}
-												// value={userData[education][dng]}
 												inputMode={inputMode}
 												runUpdate={runUpdate}
 												type={type}

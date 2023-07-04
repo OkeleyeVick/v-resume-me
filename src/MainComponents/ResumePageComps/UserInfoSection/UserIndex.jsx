@@ -8,6 +8,16 @@ import { userDataContext } from "../CreateResumePage";
 const UserIndex = () => {
 	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
 
+	function updateTheDetail(inputValue, field) {
+		setUserPersonalData((previousData) => ({
+			...previousData,
+			[field]: {
+				...previousData[field],
+				value: inputValue,
+			},
+		}));
+	}
+
 	return (
 		<React.Fragment>
 			<div id="title" className="select-none mb-6">
@@ -16,36 +26,33 @@ const UserIndex = () => {
 					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
 			</div>
-			{Object.values(userPersonalData).map((eachDivWrapper, wrapperIndex) => {
-				return (
-					<div key={wrapperIndex} className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
-						{Object.values(eachDivWrapper).map(
-							(
-								{ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, runUpdate, updateProfileImage },
-								inputIndex
-							) => {
-								return isImage ? (
-									<ImageUploadComponent label={nameLabel} updateProfileImage={updateProfileImage} key={inputIndex} />
+			<div className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
+				{Object.values(userPersonalData).map(
+					({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, value }, wrapperIndex) => {
+						return (
+							<React.Fragment key={wrapperIndex}>
+								{isImage ? (
+									<ImageUploadComponent label={nameLabel} key={nameLabel} />
 								) : (
-									<React.Fragment key={inputIndex}>
+									<React.Fragment key={wrapperIndex}>
 										<InputWithLabel
 											inputMode={inputMode}
 											label={nameLabel}
 											name={ariaLabel}
-											value={userPersonalData[ariaLabel]}
+											value={value ?? ""}
 											aria-label={ariaLabel}
 											type={type}
-											runUpdate={runUpdate}
+											updateTheDetail={updateTheDetail}
 											tooltip={tooltipData}
 											hasExtraInfo={hasExtraInfo}
 										/>
 									</React.Fragment>
-								);
-							}
-						)}
-					</div>
-				);
-			})}
+								)}
+							</React.Fragment>
+						);
+					}
+				)}
+			</div>
 			<div className="summary">
 				<TextArea label="summary" aria-label="summary" hasSubText />
 			</div>

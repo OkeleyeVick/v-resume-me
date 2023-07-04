@@ -25,108 +25,87 @@ export const userDataContext = createContext();
 const CreateResumePage = () => {
 	// user initial state
 	const userDetails = {
-		positionImage: {
-			position: {
-				ariaLabel: "position",
-				nameLabel: "position",
-				inputMode: "text",
-				value: "",
-				type: "text",
-				runUpdate: updateTheDetail,
-			},
-			image: {
-				isImage: true,
-				nameLabel: "Upload Photo",
-				ariaLabel: "image",
-				imageSrc: "",
-				updateProfileImage: updateProfileImage,
-			},
+		position: {
+			ariaLabel: "position",
+			nameLabel: "position",
+			inputMode: "text",
+			value: "",
+			type: "text",
 		},
-		names: {
-			firstname: {
-				ariaLabel: "firstname",
-				nameLabel: "firstname",
-				inputMode: "text",
-				value: "",
-				type: "text",
-				runUpdate: updateTheDetail,
-			},
-			lastname: {
-				runUpdate: updateTheDetail,
-				ariaLabel: "lastname",
-				nameLabel: "lastname",
-				inputMode: "text",
-				value: "",
-				type: "text",
-			},
+		image: {
+			isImage: true,
+			nameLabel: "Upload Photo",
+			ariaLabel: "image",
+			imageSrc: "",
 		},
-		emailPhone: {
-			email: {
-				ariaLabel: "email",
-				nameLabel: "email",
-				type: "email",
-				inputMode: "email",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
-			phone: {
-				ariaLabel: "phone",
-				hasExtraInfo: true,
-				tooltipData: "Write start your phone number starting with your country code",
-				type: "phone",
-				nameLabel: "phone",
-				inputMode: "numeric",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
+		firstname: {
+			ariaLabel: "firstname",
+			nameLabel: "firstname",
+			inputMode: "text",
+			value: "",
+			type: "text",
 		},
-		CountryCity: {
-			country: {
-				ariaLabel: "country",
-				hasExtraInfo: true,
-				tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
-				nameLabel: "country",
-				type: "text",
-				inputMode: "text",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
-			city: {
-				ariaLabel: "city",
-				nameLabel: "city",
-				type: "text",
-				inputMode: "text",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
+		lastname: {
+			ariaLabel: "lastname",
+			nameLabel: "lastname",
+			inputMode: "text",
+			value: "",
+			type: "text",
 		},
-		postalcodeAddress: {
-			postalCode: {
-				ariaLabel: "postalCode",
-				nameLabel: "postal code",
-				type: "text",
-				inputMode: "text",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
-			address: {
-				ariaLabel: "address",
-				nameLabel: "address",
-				type: "text",
-				inputMode: "text",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
-			dob: {
-				ariaLabel: "dob",
-				nameLabel: "Date of Birth",
-				hasExtraInfo: true,
-				tooltipData: "Type out the DOB in any format you prefer",
-				type: "text",
-				inputMode: "text",
-				value: "",
-				runUpdate: updateTheDetail,
-			},
+		email: {
+			ariaLabel: "email",
+			nameLabel: "email",
+			type: "email",
+			inputMode: "email",
+			value: "",
+		},
+		phone: {
+			ariaLabel: "phone",
+			hasExtraInfo: true,
+			tooltipData: "Write start your phone number starting with your country code",
+			type: "phone",
+			nameLabel: "phone",
+			inputMode: "numeric",
+			value: "",
+		},
+		country: {
+			ariaLabel: "country",
+			hasExtraInfo: true,
+			tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
+			nameLabel: "country",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
+		city: {
+			ariaLabel: "city",
+			nameLabel: "city",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
+		postalCode: {
+			ariaLabel: "postalCode",
+			nameLabel: "postal code",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
+		address: {
+			ariaLabel: "address",
+			nameLabel: "address",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
+		dob: {
+			ariaLabel: "dob",
+			nameLabel: "Date of Birth",
+			hasExtraInfo: true,
+			tooltipData: "Type out the DOB in any format you prefer",
+			type: "text",
+			inputMode: "text",
+			value: "",
 		},
 	};
 
@@ -149,13 +128,6 @@ const CreateResumePage = () => {
 		},
 	]); // components and draggable sections
 
-	function updateTheDetail(value, field) {
-		setUserData((prev) => ({
-			...prev,
-			[field ?? field]: value, //if the field does not exist, create one and update the value
-		}));
-	}
-	function updateProfileImage(imageBlobFile) {}
 	return (
 		<userDataContext.Provider value={{ userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData }}>
 			<EachComponentAccordionState.Provider

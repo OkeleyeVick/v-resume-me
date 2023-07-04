@@ -11,7 +11,7 @@ const InputWithLabel = ({
 	placeholder,
 	"aria-label": ariaLabel,
 	name,
-	runUpdate,
+	updateTheDetail,
 	value,
 	inputMode,
 	tooltip,
@@ -39,7 +39,7 @@ const InputWithLabel = ({
 				name={name}
 				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={(event) => runUpdate(event.target.value, name)}
+				onChange={(event) => updateTheDetail(event.target.value, name)}
 				spellCheck="false"
 				inputMode={inputMode}
 				aria-label={ariaLabel}
