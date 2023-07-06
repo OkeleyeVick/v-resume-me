@@ -25,13 +25,7 @@ const UserInputObjects = () => {
 			nameLabel: "Upload Photo",
 			ariaLabel: "image",
 			imageSrc: "",
-		},
-		firstname: {
-			ariaLabel: "firstname",
-			nameLabel: "firstname",
-			inputMode: "text",
-			value: "",
-			type: "text",
+			alt: "",
 		},
 		lastname: {
 			ariaLabel: "lastname",
@@ -40,6 +34,14 @@ const UserInputObjects = () => {
 			value: "",
 			type: "text",
 		},
+		firstname: {
+			ariaLabel: "firstname",
+			nameLabel: "firstname",
+			inputMode: "text",
+			value: "",
+			type: "text",
+		},
+
 		email: {
 			ariaLabel: "email",
 			nameLabel: "email",
