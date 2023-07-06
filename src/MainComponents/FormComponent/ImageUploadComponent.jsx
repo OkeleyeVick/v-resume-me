@@ -58,7 +58,7 @@ const ImageUploadComponent = ({ label }) => {
 			setUserPersonalData((prevData) => ({
 				...prevData,
 				image: {
-					...prevData[image],
+					...prevData.image,
 					imageSrc: "",
 				},
 			}));
@@ -89,7 +89,7 @@ const ImageUploadComponent = ({ label }) => {
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
 						onClick={handleClick}>
-						{image ? (
+						{image !== null ? (
 							<motion.img
 								accept="image/*, .png, .jpeg, .jpg, .webp"
 								src={image}

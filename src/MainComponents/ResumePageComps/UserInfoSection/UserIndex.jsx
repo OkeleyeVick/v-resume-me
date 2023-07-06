@@ -26,28 +26,26 @@ const UserIndex = () => {
 					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
 			</div>
-			<div className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-6 md:items-end mb-4">
+			<div className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-4 md:items-end mb-4">
 				{Object.values(userPersonalData).map(
 					({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, value }, wrapperIndex) => {
-						return (
+						return isImage ? (
 							<React.Fragment key={wrapperIndex}>
-								{isImage ? (
-									<ImageUploadComponent label={nameLabel} key={nameLabel} />
-								) : (
-									<React.Fragment key={wrapperIndex}>
-										<InputWithLabel
-											inputMode={inputMode}
-											label={nameLabel}
-											name={ariaLabel}
-											value={value ?? ""}
-											aria-label={ariaLabel}
-											type={type}
-											updateTheDetail={updateTheDetail}
-											tooltip={tooltipData}
-											hasExtraInfo={hasExtraInfo}
-										/>
-									</React.Fragment>
-								)}
+								<ImageUploadComponent label={nameLabel} key={nameLabel} />
+							</React.Fragment>
+						) : (
+							<React.Fragment key={wrapperIndex}>
+								<InputWithLabel
+									inputMode={inputMode}
+									label={nameLabel}
+									name={ariaLabel}
+									value={value ?? ""}
+									aria-label={ariaLabel}
+									type={type}
+									updateTheDetail={updateTheDetail}
+									tooltip={tooltipData}
+									hasExtraInfo={hasExtraInfo}
+								/>
 							</React.Fragment>
 						);
 					}

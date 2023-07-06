@@ -1,15 +1,15 @@
 import React from "react";
 
 const UserInputObjects = () => {
-	const educationDetails = [
-		{
-			name: "",
-			degree: "",
-			startDate: "",
-			finishDate: "",
-			isWorkingThere: false,
+	const educationDetails = [];
+
+	const themeSelection = {
+		font: {
+			default: "sans-serif", //default font
+			customFault: null,
 		},
-	];
+		color: "#000",
+	};
 
 	// user initial state
 	const userDetails = {
@@ -86,11 +86,18 @@ const UserInputObjects = () => {
 			inputMode: "text",
 			value: "",
 		},
+		nationality: {
+			ariaLabel: "nationality",
+			nameLabel: "nationality",
+			type: "text",
+			inputMode: "text",
+			value: "",
+			hasExtraInfo: true,
+			tooltipData: "If you are applying for a job outside the country, you might want to fill this, otherwise you can leave it blank",
+		},
 		dob: {
 			ariaLabel: "dob",
 			nameLabel: "Date of Birth",
-			hasExtraInfo: true,
-			tooltipData: "Type out the DOB in any format you prefer",
 			type: "text",
 			inputMode: "text",
 			value: "",
@@ -133,7 +140,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { educationDetails, userDetails, schoolObject };
+	return { educationDetails, userDetails, schoolObject, themeSelection };
 };
 
 export default UserInputObjects;

@@ -20,11 +20,11 @@ const baseFont = {
 };
 
 export const EachComponentAccordionState = createContext();
-export const fontContext = createContext();
+export const themeContext = createContext();
 export const userDataContext = createContext();
 
 const CreateResumePage = () => {
-	const { userDetails, schoolObject } = UserInputObjects(); //FROM OBJECTS
+	const { userDetails, schoolObject, themeSelection } = UserInputObjects(); //FROM OBJECTS
 
 	// all states
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object for users personal details
@@ -54,7 +54,7 @@ const CreateResumePage = () => {
 					education: { educationState, setEducationState },
 					workExperience: { workExperienceState, setWorkExperienceState },
 				}}>
-				<fontContext.Provider value={{ font, setFont }}>
+				<themeContext.Provider value={{ font, setFont }}>
 					<React.Fragment>
 						<div className="min-h-screen flex items-stretch">
 							<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2" style={{ fontFamily: baseFont.Syne }}>
@@ -75,13 +75,13 @@ const CreateResumePage = () => {
 								</ReactSortable>
 							</div>
 							<div
-								className={`w-1/2 hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 select-none`}
-								style={{ fontFamily: baseFont.Syne }}>
+								className={`w-1/2 hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 pt-0 select-none`}
+								style={{ fontFamily: font }}>
 								<ResumePreviewPage />
 							</div>
 						</div>
 					</React.Fragment>
-				</fontContext.Provider>
+				</themeContext.Provider>
 			</EachComponentAccordionState.Provider>
 		</userDataContext.Provider>
 	);

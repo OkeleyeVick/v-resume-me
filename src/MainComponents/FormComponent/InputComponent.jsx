@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import roles from "../../assets/db/roles.json";
@@ -45,7 +45,7 @@ const InputWithLabel = ({
 				aria-label={ariaLabel}
 				autoComplete="off"
 				type={type ? type : "text"}
-				className={`caret-main placeholder:text-sm bg-input_clr py-[13.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[3rem] border border-transparent`}
+				className={`caret-main placeholder:text-sm bg-input_clr py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[2.8rem] border border-transparent`}
 			/>
 			{/* {hasDropdown ? (
 				<React.Fragment>
