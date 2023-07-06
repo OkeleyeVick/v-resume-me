@@ -24,10 +24,11 @@ export const fontContext = createContext();
 export const userDataContext = createContext();
 
 const CreateResumePage = () => {
-	const { educationDetails, userDetails } = UserInputObjects();
+	const { userDetails, schoolObject } = UserInputObjects(); //FROM OBJECTS
 
 	// all states
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object for users personal details
+	const [userEducationData, setUserEducationData] = useState(schoolObject); //an object for users personal details
 	const [userGeneralData, setUserGeneralData] = useState({}); // an object that contains all user inputs
 	const [font, setFont] = useState("Mulish"); //fonts and selection
 	const [educationState, setEducationState] = useState(false);
@@ -46,7 +47,8 @@ const CreateResumePage = () => {
 	]); // components and draggable sectionsis
 
 	return (
-		<userDataContext.Provider value={{ userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData }}>
+		<userDataContext.Provider
+			value={{ userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData, userEducationData, setUserEducationData }}>
 			<EachComponentAccordionState.Provider
 				value={{
 					education: { educationState, setEducationState },

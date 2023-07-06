@@ -15,7 +15,12 @@ const Accordion = ({ children, toggle, icon, title }) => {
 				</div>
 				<Icon icon="ion:chevron-down-outline" className={`${state === true ? "rotate-180" : "rotate-0"} h-6 w-6 text-slate-600`} />
 			</header>
-			<div className={`transition accordion-body px-5 text-xs overflow-hidden ${state === true ? "h-full" : "h-0"}`}>{children}</div>
+			<div
+				className={`accordion-body px-5 text-xs grid overflow-hidden duration-300 ease-in-out  ${
+					state === true ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+				}`}>
+				<div className={`min-h-0`}>{children}</div>
+			</div>
 		</motion.div>
 	);
 };

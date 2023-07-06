@@ -3,22 +3,11 @@ import React from "react";
 const UserInputObjects = () => {
 	const educationDetails = [
 		{
-			names: [
-				{
-					ariaLabel: "school",
-					nameLabel: "school",
-					inputMode: "text",
-					type: "text",
-					value: "",
-				},
-				{
-					ariaLabel: "degree",
-					nameLabel: "degree",
-					inputMode: "text",
-					type: "text",
-					value: "",
-				},
-			],
+			name: "",
+			degree: "",
+			startDate: "",
+			finishDate: "",
+			isWorkingThere: false,
 		},
 	];
 
@@ -108,7 +97,43 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { educationDetails, userDetails };
+	// object to create a new education background
+	const schoolObject = {
+		school: {
+			ariaLabel: "school",
+			nameLabel: "school",
+			inputMode: "text",
+			type: "text",
+			value: "",
+		},
+		degree: {
+			ariaLabel: "degree",
+			nameLabel: "degree",
+			inputMode: "text",
+			type: "text",
+			value: "",
+		},
+		startDate: {
+			hasExtraInfo: true,
+			nameLabel: "start date",
+			ariaLabel: "startDate",
+			inputMode: "text",
+			type: "text",
+			value: "",
+			tooltipData: "Write just the month and year separated by a character",
+		},
+		endDate: {
+			hasExtraInfo: true,
+			nameLabel: "end date",
+			ariaLabel: "endDate",
+			inputMode: "text",
+			type: "text",
+			value: "",
+			tooltipData: "Write just the month and year separated by a character",
+		},
+	};
+
+	return { educationDetails, userDetails, schoolObject };
 };
 
 export default UserInputObjects;
