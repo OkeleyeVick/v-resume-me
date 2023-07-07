@@ -2,21 +2,33 @@ import React from "react";
 
 const UserInputObjects = () => {
 	const educationDetails = [];
+	templateSelected: {
+	}
 
-	const themeSelection = {
+	const themeDetails = {
+		themeSideBar: {
+			// checks if theme sidebar is open
+			isThemeSideBarOpen: true,
+		},
 		font: {
-			//font that the user selects
-			default: "sans-serif",
-			customFault: null,
+			family: {
+				//font that the user selects
+				default: "Roboto",
+				customFont: null,
+			},
+			fontSize: "16px",
+			lineHeight: {},
 		},
 		userResumeColor: {
-			// resume color that a user picks
-			default: "#000",
-			color: "#000",
-		},
-		colorSelectionMenu: {
-			//is React color active
-			isToggleThemeActive: false,
+			selectedColor: {
+				// resume color that a user picks
+				default: "#000",
+				color: "#000",
+			},
+			colorSelectionMenu: {
+				//is React color active
+				isToggleThemeActive: false,
+			},
 		},
 		backgroundPattern: {},
 	};
@@ -154,7 +166,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { educationDetails, userDetails, schoolObject, themeSelection };
+	return { educationDetails, userDetails, schoolObject, themeDetails };
 };
 
 export default UserInputObjects;

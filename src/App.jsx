@@ -5,10 +5,25 @@ import LandingPage from "./MainComponents/LangingPageComps/LandingPage";
 import CreateResumePage from "./MainComponents/ResumePageComps/CreateResumePage";
 import SelectTemplate from "./MainComponents/TemplateSelectionComps/SelectTemplate";
 import PageNotFound from "./MainComponents/ErrorPage/PageNotFound";
+import { ThemeProvider, createTheme } from "@mui/material";
+import "./assets/css/fonts.css";
+
+const baseFont = {
+	Syne: "Syne",
+	Rubik: "Rubik",
+	Lora: "Lora",
+	Stolzl: "Stolzl",
+};
 
 function App() {
+	const { Syne, Rubik, Lora, Stolzl } = baseFont;
+	const theme = createTheme({
+		typography: {
+			fontFamily: [Syne, Rubik, Lora, Stolzl].join(","),
+		},
+	});
 	return (
-		<React.Fragment>
+		<ThemeProvider theme={theme}>
 			<div className="selection:text-main selection:bg-main group selection:bg-opacity-10">
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
@@ -17,7 +32,7 @@ function App() {
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</div>
-		</React.Fragment>
+		</ThemeProvider>
 	);
 }
 export default App;

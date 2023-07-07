@@ -15,10 +15,6 @@
 	src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Oxygen";
-	src: url("../fonts/Oxygen-Regular.ttf") format("truetype");
-}
-@font-face {
 	font-family: "Mulish";
 	src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
 }
@@ -69,4 +65,36 @@
 @font-face {
 	font-family: "SpaceGrotesk";
 	src: url("../fonts/SpaceGrotesk.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Work Sans";
+	src: url("../fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Epilogue";
+	src: url("../fonts/Epilogue-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Exo";
+	src: url("../fonts/Exo2-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Expletus Sans";
+	src: url("../fonts/ExpletusSans-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Magnat";
+	src: url("../fonts/MagnatText-Regular.otf") format("truetype");
+}
+@font-face {
+	font-family: "Grotesk";
+	src: url("../fonts/FamiljenGrotesk-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Sharp Grotesk";
+	src: url("../fonts/SharpGrotesk-Book20.otf") format("truetype");
 }

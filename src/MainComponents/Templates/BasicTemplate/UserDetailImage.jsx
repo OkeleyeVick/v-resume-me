@@ -22,7 +22,7 @@ const UserDetailImage = () => {
 							<div className="info-wrapper flex items-start flex-wrap gap-1" key={index}>
 								{returnValue(eachUserDetail) && (
 									<>
-										<H4 className="key capitalize">{eachUserDetail.nameLabel}: </H4>
+										<H4 className="key capitalize font-semibold">{eachUserDetail.nameLabel}: </H4>
 										{eachUserDetail === email ? (
 											<Link to="https://www.twitter.com" target="_blank">
 												{eachUserDetail.value}
@@ -37,7 +37,7 @@ const UserDetailImage = () => {
 					})}
 					{(address.value !== "" || city.value !== "" || country.value !== "") && (
 						<Div className="flex items-start gap-1 leading-tight">
-							<H4>Address: </H4>
+							<H4 className="key capitalize font-semibold">Address: </H4>
 							<Span>{fullAddress}</Span>
 						</Div>
 					)}

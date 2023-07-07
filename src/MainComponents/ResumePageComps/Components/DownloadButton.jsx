@@ -46,7 +46,7 @@ const DownloadButton = () => {
 	];
 
 	return (
-		<div className="relative" style={{ fontFamily: baseFont.Syne }}>
+		<div className="relative" style={{ fontFamily: baseFont.Lora }}>
 			<Button
 				id="basic-button"
 				className="flex items-center gap-2 p-3 px-5 shadow-lg bg-main hover:bg-hoverBgClr"
