@@ -17,7 +17,7 @@ const UserDetailImage = () => {
 								{eachUserDetail.value && (
 									<>
 										<H4 className="key capitalize">{eachUserDetail.nameLabel}: </H4>
-										{eachUserDetail == email ? (
+										{eachUserDetail === email ? (
 											<Link to="https://www.twitter.com" target="_blank">
 												{eachUserDetail.value}
 											</Link>
