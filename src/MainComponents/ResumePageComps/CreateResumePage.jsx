@@ -6,19 +6,11 @@ import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
 import { ReactSortable } from "react-sortablejs";
 import UserInputObjects from "./UserInputObjects";
+import ThemeFamily from "../../assets/theme/htmlFonts/ThemeFamily";
 
 const baseFont = {
 	Syne: "Syne",
-	Rubik: "Rubik",
-	Lora: "Lora",
-	Stolzl: "Stolzl",
-	Mulish: "Mulish",
-	Bianco: "Bianco",
-	Cormonrant: "Cormonrant",
-	Roobert: "Roobert",
-	SpaceGrotesk: "SpaceGrotesk",
 };
-
 export const EachComponentAccordionState = createContext();
 export const themeContext = createContext();
 export const userDataContext = createContext();
@@ -48,7 +40,15 @@ const CreateResumePage = () => {
 
 	return (
 		<userDataContext.Provider
-			value={{ userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData, userEducationData, setUserEducationData }}>
+			value={{
+				userGeneralData,
+				setUserGeneralData,
+				userPersonalData,
+				setUserPersonalData,
+				userEducationData,
+				setUserEducationData,
+				themeSelection,
+			}}>
 			<EachComponentAccordionState.Provider
 				value={{
 					education: { educationState, setEducationState },
@@ -57,11 +57,11 @@ const CreateResumePage = () => {
 				<themeContext.Provider value={{ font, setFont }}>
 					<React.Fragment>
 						<div className="min-h-screen flex items-stretch">
-							<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2" style={{ fontFamily: baseFont.Syne }}>
+							<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
+								<ThemeFamily />
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
 								</section>
-
 								<ReactSortable list={sections} setList={setSections}>
 									{sections.map(({ section_id_name, id, component }) => {
 										return (

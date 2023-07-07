@@ -5,10 +5,20 @@ const UserInputObjects = () => {
 
 	const themeSelection = {
 		font: {
-			default: "sans-serif", //default font
+			//font that the user selects
+			default: "sans-serif",
 			customFault: null,
 		},
-		color: "#000",
+		userResumeColor: {
+			// resume color that a user picks
+			default: "#000",
+			color: "#000",
+		},
+		colorSelectionMenu: {
+			//is React color active
+			isToggleThemeActive: false,
+		},
+		backgroundPattern: {},
 	};
 
 	// user initial state
@@ -58,18 +68,26 @@ const UserInputObjects = () => {
 			inputMode: "numeric",
 			value: "",
 		},
+		address: {
+			ariaLabel: "address",
+			nameLabel: "address",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
+
+		city: {
+			ariaLabel: "city",
+			nameLabel: "city",
+			type: "text",
+			inputMode: "text",
+			value: "",
+		},
 		country: {
 			ariaLabel: "country",
 			hasExtraInfo: true,
 			tooltipData: "If you're creating the resume for a remote job, you might want to fill this, else optional",
 			nameLabel: "country",
-			type: "text",
-			inputMode: "text",
-			value: "",
-		},
-		city: {
-			ariaLabel: "city",
-			nameLabel: "city",
 			type: "text",
 			inputMode: "text",
 			value: "",
@@ -81,13 +99,7 @@ const UserInputObjects = () => {
 			inputMode: "text",
 			value: "",
 		},
-		address: {
-			ariaLabel: "address",
-			nameLabel: "address",
-			type: "text",
-			inputMode: "text",
-			value: "",
-		},
+
 		nationality: {
 			ariaLabel: "nationality",
 			nameLabel: "nationality",

@@ -1,20 +1,21 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { Div } from "../../../assets/theme/htmlFonts/fontSizes";
 
 const HeaderContainer = () => {
 	const { userPersonalData } = useContext(userDataContext);
 	const { firstname, lastname } = userPersonalData;
 
-	function trimText(value) {
-		return value.trim();
+	function trimText(textValue) {
+		return textValue.value.trim();
 	}
 	return (
 		<React.Fragment>
 			<div className="mb-3">
 				{(firstname.value || lastname.value) && (
-					<div className="block text-center font-bold text-base leading-none">
-						{trimText(lastname.value)} {trimText(firstname.value)}
-					</div>
+					<Div className="block text-center font-bold text-base leading-none">
+						{trimText(lastname)} {trimText(firstname)}
+					</Div>
 				)}
 			</div>
 		</React.Fragment>
