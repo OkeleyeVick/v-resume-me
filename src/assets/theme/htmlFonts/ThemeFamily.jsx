@@ -57,7 +57,19 @@ const ThemeFamily = () => {
 
 	function useSelectedFont(font) {
 		setSelectedFont(font);
-		setSelectedThemes((previousData) => ({}));
+		setSelectedThemes((previousData) => {
+			return {
+				...previousData,
+				font: {
+					...previousData.font,
+					family: {
+						...previousData.font.family,
+						customFont: font,
+					},
+				},
+			};
+		});
+		console.log(themeSelection.font);
 	}
 
 	return (
@@ -79,7 +91,7 @@ const ThemeFamily = () => {
 					<div className="border border-solid border-border_clr p-2 text-[.8rem] rounded-md relative">
 						<span style={{ fontFamily: `${selectedFont}` }}>Lorem ipsum dolor sit, amet consectetur adipisicing.</span>
 						<div className="font-dropdown-container p-2 rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border border-solid border-gray-100 bg-white z-50 max-h-[200px] overflow-auto flex flex-col items-start">
-							{Object.values(fontFamily).map((font, fontIndex) => (
+							{Object.keys(fontFamily).map((font, fontIndex) => (
 								<button
 									type="button"
 									className="p-2 w-full text-start outline-transparent focus-visible:outline-main"

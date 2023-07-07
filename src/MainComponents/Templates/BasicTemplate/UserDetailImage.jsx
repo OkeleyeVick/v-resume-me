@@ -37,7 +37,7 @@ const UserDetailImage = () => {
 					})}
 					{(address.value !== "" || city.value !== "" || country.value !== "") && (
 						<Div className="flex items-start gap-1 leading-tight">
-							<H4 className="key capitalize font-semibold">Address: </H4>
+							<H4>Address: </H4>
 							<Span>{fullAddress}</Span>
 						</Div>
 					)}
