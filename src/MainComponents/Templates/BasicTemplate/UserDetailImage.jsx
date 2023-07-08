@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Div, H4, Span } from "../../../assets/theme/htmlFonts/fontSizes";
-import { Link } from "react-router-dom";
+import { Div, H4, Link_, Span } from "../../../assets/theme/htmlFonts/fontSizes";
 
 const UserDetailImage = () => {
 	const { userPersonalData } = useContext(userDataContext);
@@ -19,24 +18,24 @@ const UserDetailImage = () => {
 				<div className="user-personal-info col-span-2">
 					{[email, nationality, phone, dob].map((eachUserDetail, index) => {
 						return (
-							<div className="info-wrapper flex items-start flex-wrap gap-1" key={index}>
+							<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]" key={index}>
 								{returnValue(eachUserDetail) && (
 									<>
 										<H4 className="key capitalize font-semibold">{eachUserDetail.nameLabel}: </H4>
 										{eachUserDetail === email ? (
-											<Link to="https://www.twitter.com" target="_blank">
-												{eachUserDetail.value}
-											</Link>
+											<Link_ href="https://www.twitter.com" target="_blank">
+												{returnValue(eachUserDetail)}
+											</Link_>
 										) : (
-											<Span className="value">{eachUserDetail.value}</Span>
+											<Span className="value">{returnValue(eachUserDetail)}</Span>
 										)}
 									</>
 								)}
 							</div>
 						);
 					})}
-					{(address.value !== "" || city.value !== "" || country.value !== "") && (
-						<Div className="flex items-start gap-1 leading-tight">
+					{(returnValue(address) !== "" || returnValue(city) !== "" || returnValue(country) !== "") && (
+						<Div className="flex items-center gap-[2px] leading-tight">
 							<H4 className="font-semibold">Address: </H4>
 							<Span>{fullAddress}</Span>
 						</Div>

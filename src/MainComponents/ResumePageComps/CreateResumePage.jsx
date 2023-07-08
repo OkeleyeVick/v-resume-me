@@ -41,6 +41,8 @@ const CreateResumePage = () => {
 		},
 	]); // components and draggable componentSectionsis
 
+	const [largePreview, setLargePreview] = useState(false);
+
 	return (
 		<userDataContext.Provider
 			value={{
@@ -56,7 +58,14 @@ const CreateResumePage = () => {
 					education: { educationState, setEducationState },
 					workExperience: { workExperienceState, setWorkExperienceState },
 				}}>
-				<themeContext.Provider value={{ themeSelection, setSelectedThemes }}>
+				<themeContext.Provider
+					value={{
+						scale: largePreview === true ? parseFloat(1.2) : parseFloat(0.7),
+						themeSelection,
+						setSelectedThemes,
+						largePreview,
+						setLargePreview,
+					}}>
 					<React.Fragment>
 						<div className="min-h-screen flex items-stretch">
 							<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
@@ -76,7 +85,10 @@ const CreateResumePage = () => {
 									})}
 								</ReactSortable>
 							</div>
-							<div className={`w-1/2 hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm p-8 pt-0 select-none`}>
+							<div
+								className={` hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm py-8 px-4 pt-0 select-none ${
+									largePreview ? "w-full overflow-auto" : "w-1/2"
+								}`}>
 								<ResumePreviewPage />
 							</div>
 						</div>
