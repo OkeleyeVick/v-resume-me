@@ -13,7 +13,7 @@ const HeaderContainer = () => {
 		<React.Fragment>
 			<div className="mb-3">
 				{(firstname.value || lastname.value) && (
-					<Div className="block text-center font-bold text-base leading-none">
+					<Div className="block text-center font-semibold leading-none">
 						{trimText(lastname)} {trimText(firstname)}
 					</Div>
 				)}

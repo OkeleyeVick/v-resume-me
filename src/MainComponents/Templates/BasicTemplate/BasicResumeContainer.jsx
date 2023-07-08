@@ -8,7 +8,7 @@ const BasicResumeContainer = () => {
 			<div>
 				<HeaderContainer />
 			</div>
-			<div className="d-flex align-items-center justify-between">
+			<div className="flex flex-col items-center justify-between">
 				<UserDetailImage />
 			</div>
 		</React.Fragment>

@@ -8,7 +8,7 @@ const UserInputObjects = () => {
 	const themeDetails = {
 		themeSideBar: {
 			// checks if theme sidebar is open
-			isThemeSideBarOpen: true,
+			isThemeSideBarOpen: false,
 		},
 		font: {
 			family: {
@@ -47,7 +47,6 @@ const UserInputObjects = () => {
 			nameLabel: "Upload Photo",
 			ariaLabel: "image",
 			imageSrc: "",
-			alt: "",
 		},
 		lastname: {
 			ariaLabel: "lastname",

@@ -15,7 +15,7 @@ const UserDetailImage = () => {
 
 	return (
 		<>
-			<div className="grid grid-cols-3 gap-2 justify-between">
+			<div className="grid grid-cols-3 items-center gap-2 w-full">
 				<div className="user-personal-info col-span-2">
 					{[email, nationality, phone, dob].map((eachUserDetail, index) => {
 						return (
@@ -37,7 +37,7 @@ const UserDetailImage = () => {
 					})}
 					{(address.value !== "" || city.value !== "" || country.value !== "") && (
 						<Div className="flex items-start gap-1 leading-tight">
-							<H4>Address: </H4>
+							<H4 className="font-semibold">Address: </H4>
 							<Span>{fullAddress}</Span>
 						</Div>
 					)}
@@ -45,7 +45,7 @@ const UserDetailImage = () => {
 				<div className="col-span-1 text-end flex items-center justify-end">
 					{image.imageSrc ? (
 						<Div className="user-image rounded-full overflow-hidden aspect-square w-14 h-14 flex items-center justify-between">
-							<img src={image.imageSrc} alt="user-image" className="" />
+							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
 						</Div>
 					) : (
 						""

@@ -28,10 +28,10 @@ const UserIndex = () => {
 			</div>
 			<div className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-4 md:items-end mb-4">
 				{Object.values(userPersonalData).map(
-					({ inputMode, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, value }, wrapperIndex) => {
+					({ inputMode, imageSrc, ariaLabel, type, hasExtraInfo, tooltipData, nameLabel, isImage, value }, wrapperIndex) => {
 						return isImage ? (
 							<React.Fragment key={wrapperIndex}>
-								<ImageUploadComponent label={nameLabel} key={nameLabel} />
+								<ImageUploadComponent imageSrc={imageSrc} label={nameLabel} key={nameLabel} />
 							</React.Fragment>
 						) : (
 							<React.Fragment key={wrapperIndex}>

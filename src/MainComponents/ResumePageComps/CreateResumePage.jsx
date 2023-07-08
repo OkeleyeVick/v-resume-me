@@ -28,7 +28,7 @@ const CreateResumePage = () => {
 	const [themeSelection, setSelectedThemes] = useState(themeDetails); //fonts and selection
 	const [educationState, setEducationState] = useState(false);
 	const [workExperienceState, setWorkExperienceState] = useState(false);
-	const [sections, setSections] = useState([
+	const [componentSections, setComponentSections] = useState([
 		{
 			id: 1,
 			component: <EducationIndex />,
@@ -39,7 +39,7 @@ const CreateResumePage = () => {
 			component: <WorkExperienceIndex />,
 			section_id_name: "user-work-experience",
 		},
-	]); // components and draggable sectionsis
+	]); // components and draggable componentSectionsis
 
 	return (
 		<userDataContext.Provider
@@ -64,8 +64,8 @@ const CreateResumePage = () => {
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
 								</section>
-								<ReactSortable list={sections} setList={setSections}>
-									{sections.map(({ section_id_name, id, component }) => {
+								<ReactSortable list={componentSections} setList={setComponentSections}>
+									{componentSections.map(({ section_id_name, id, component }) => {
 										return (
 											<React.Fragment key={id}>
 												<section className="bg-white" id={section_id_name}>

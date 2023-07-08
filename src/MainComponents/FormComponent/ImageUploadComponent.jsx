@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Modal from "../ResumePageComps/Components/Modal";
 import { userDataContext } from "../ResumePageComps/CreateResumePage";
 
-const ImageUploadComponent = ({ label }) => {
+const ImageUploadComponent = ({ label, imageSrc }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
 	const [imageError, setImageError] = useState(null);
@@ -89,12 +89,12 @@ const ImageUploadComponent = ({ label }) => {
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
 						onClick={handleClick}>
-						{image !== null ? (
+						{imageSrc !== "" ? (
 							<motion.img
 								accept="image/*, .png, .jpeg, .jpg, .webp"
-								src={image}
+								src={imageSrc}
 								alt="user-image"
-								className="w-full h-full object-cover"
+								className="w-full h-full object-cover object-top"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
@@ -103,7 +103,7 @@ const ImageUploadComponent = ({ label }) => {
 							<Icon icon="mingcute:user-add-line" className="w-8 h-8 text-[rgb(190,196,213)] group-hover/image:text-main" />
 						)}
 					</div>
-					{image === null ? (
+					{imageSrc === "" ? (
 						<label htmlFor={label} className="text-sm cursor-pointer hover:text-main" onClick={() => handleClick()}>
 							{label}
 						</label>
