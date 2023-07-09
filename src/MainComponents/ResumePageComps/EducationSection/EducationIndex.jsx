@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
 import Accordion from "../Components/Accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
-import { EachComponentAccordionState, userDataContext } from "../CreateResumePage";
+import { userDataContext } from "../CreateResumePage";
 
 const EducationIndex = () => {
-	const { education } = useContext(EachComponentAccordionState);
-	const { educationState, setEducationState } = education;
 	const { userGeneralData, setUserGeneralData, userEducationData, setUserEducationData } = useContext(userDataContext);
 
 	function updateTheInput(inputValue, field) {

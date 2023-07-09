@@ -1,5 +1,9 @@
 const UserInputObjects = () => {
 	const educationDetails = [];
+	const workExperienceDetails = {
+		isActiveAccordion: false,
+		listOfExperiences: [],
+	};
 	// templateSelected: {
 	// }
 
@@ -148,7 +152,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { educationDetails, userDetails, schoolObject, themeDetails };
+	return { educationDetails, userDetails, schoolObject, themeDetails, workExperienceDetails };
 };
 
 export default UserInputObjects;

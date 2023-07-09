@@ -2,7 +2,6 @@ import React from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import roles from "../../assets/db/roles.json";
-import { motion } from "framer-motion";
 
 const InputWithLabel = ({
 	hasDropdown,
