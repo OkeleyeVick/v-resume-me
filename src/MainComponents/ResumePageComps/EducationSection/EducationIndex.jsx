@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Accordion from "../Components/Accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { EachComponentAccordionState, userDataContext } from "../CreateResumePage";
-import UserInputObjects from "../UserInputObjects";
 
 const EducationIndex = () => {
 	const { education } = useContext(EachComponentAccordionState);
@@ -43,6 +42,7 @@ const EducationIndex = () => {
 						}
 					)}
 				</div>
+				<div></div>
 			</Accordion>
 		</React.Fragment>
 	);

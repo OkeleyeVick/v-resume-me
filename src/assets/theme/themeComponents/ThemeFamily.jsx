@@ -93,7 +93,7 @@ const ThemeFamily = () => {
 			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-300 ease-in-out`}>
 			<div
 				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative  ${
-					sideBarState ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50"
+					sideBarState ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">
 					<button type="button" className={`bg-gray-50 z-50 shadow-md rounded-full p-2`} onClick={closeSideBar}>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Icon } from "@iconify/react";
-import { themeContext } from "./CreateResumePage";
+import { themeContext } from "../../../MainComponents/ResumePageComps/CreateResumePage";
 
 const ThemeTogglerButton = () => {
 	const { themeSelection, setSelectedThemes, sideBarState, setSideBarState } = useContext(themeContext);

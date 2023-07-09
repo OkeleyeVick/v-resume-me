@@ -8,7 +8,7 @@ import { ReactSortable } from "react-sortablejs";
 import UserInputObjects from "./UserInputObjects";
 import ThemeFamily from "../../assets/theme/themeComponents/ThemeFamily";
 import { Icon } from "@iconify/react";
-import ThemeTogglerButton from "./ThemeTogglerButton";
+import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
 
 const baseFont = {
 	Syne: "Syne",
@@ -87,7 +87,7 @@ const CreateResumePage = () => {
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
 								</section>
-								<ReactSortable list={componentSections} setList={setComponentSections}>
+								{/* <ReactSortable list={componentSections} setList={setComponentSections}>
 									{componentSections.map(({ section_id_name, id, component }) => {
 										return (
 											<React.Fragment key={id}>
@@ -97,7 +97,8 @@ const CreateResumePage = () => {
 											</React.Fragment>
 										);
 									})}
-								</ReactSortable>
+								</ReactSortable> */}
+								<WorkExperienceIndex />
 							</div>
 							<div
 								className={`hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${

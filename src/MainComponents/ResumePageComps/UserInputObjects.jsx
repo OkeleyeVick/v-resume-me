@@ -146,24 +146,6 @@ const UserInputObjects = () => {
 			type: "text",
 			value: "",
 		},
-		startDate: {
-			hasExtraInfo: true,
-			nameLabel: "start date",
-			ariaLabel: "startDate",
-			inputMode: "text",
-			type: "text",
-			value: "",
-			tooltipData: "Write just the month and year separated by a character",
-		},
-		endDate: {
-			hasExtraInfo: true,
-			nameLabel: "end date",
-			ariaLabel: "endDate",
-			inputMode: "text",
-			type: "text",
-			value: "",
-			tooltipData: "Write just the month and year separated by a character",
-		},
 	};
 
 	return { educationDetails, userDetails, schoolObject, themeDetails };
