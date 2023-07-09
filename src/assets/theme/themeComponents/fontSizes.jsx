@@ -52,7 +52,7 @@ export const H6 = ({ children, className }) => {
 export const Span = ({ children, className }) => {
 	const { scale } = useContext(themeContext);
 	return (
-		<span style={{ fontSize: `calc(${9}px * ${scale})` }} className={className}>
+		<span style={{ fontSize: `calc(${10}px * ${scale})` }} className={className}>
 			{children}
 		</span>
 	);
@@ -60,7 +60,7 @@ export const Span = ({ children, className }) => {
 export const Link_ = ({ children, className, href }) => {
 	const { scale } = useContext(themeContext);
 	return (
-		<Link to={href} className={className} style={{ fontSize: `calc(${9}px * ${scale})` }}>
+		<Link to={href} className={className} style={{ fontSize: `calc(${10}px * ${scale})` }}>
 			{children}
 		</Link>
 	);

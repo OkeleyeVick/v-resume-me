@@ -37,6 +37,7 @@ const ThemeFamily = () => {
 	// states
 	const [colorThemeState, setColorThemeState] = useState("#000");
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
+	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(true);
 	const [isSideBarOpen, setSideBarState] = useState(themeSideBar.isThemeSideBarOpen);
 	const [selectedFont, setSelectedFont] = useState(font.family.customFont ?? font.family.default);
 
@@ -49,10 +50,6 @@ const ThemeFamily = () => {
 	function handleColorDropdownState() {
 		// function that handles if the dropdown color state is active or not
 		setisActiveColorDropdown((prevState) => !prevState);
-	}
-
-	function handleSideBarState() {
-		setSideBarState();
 	}
 
 	function useSelectedFont(font) {
@@ -69,38 +66,72 @@ const ThemeFamily = () => {
 				},
 			};
 		});
-		console.log(themeSelection.font);
+		setisActiveFontDropdown(false);
+	}
+
+	function closeSideBar() {
+		// close the sidebar and update the object state
+		setSelectedThemes((previousData) => {
+			return {
+				...previousData,
+				themeSideBar: {
+					...previousData.themeSideBar,
+					isThemeSideBarOpen: false,
+				},
+			};
+		});
+		setSideBarState(false);
+	}
+
+	function openDropdown() {
+		setisActiveFontDropdown((previousData) => !previousData);
 	}
 
 	return (
 		<div
 			className={`${
-				isSideBarOpen ? "opacity-1 w-full lg:w-1/2 " : "w-0 opacity-5 overflow-hidden"
-			} fixed z-50  backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-300 ease-in-out`}>
+				isSideBarOpen === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
+			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-300 ease-in-out`}>
 			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 w-4/5 md:w-3/5 relative  ${
-					isSideBarOpen ? "w-3 overflow-visible " : "overflow-hidden opacity-50"
+				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative  ${
+					isSideBarOpen ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50"
 				}`}>
 				<div className="close absolute -right-12">
-					<button type="button" className={`bg-gray-50 z-50 shadow-md rounded-full p-2`} onClick={() => setSideBarState(false)}>
+					<button type="button" className={`bg-gray-50 z-50 shadow-md rounded-full p-2`} onClick={closeSideBar}>
 						<Icon icon="mi:close" className="w-5 h-5" />
 					</button>
 				</div>
 				<div className="flex flex-col gap-y-2">
 					<h6 className="font-medium">Font</h6>
-					<div className="border border-solid border-border_clr p-2 text-[.8rem] rounded-md relative">
-						<span style={{ fontFamily: `${selectedFont}` }}>Lorem ipsum dolor sit, amet consectetur adipisicing.</span>
-						<div className="font-dropdown-container p-2 rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border border-solid border-gray-100 bg-white z-50 max-h-[200px] overflow-auto flex flex-col items-start">
-							{Object.keys(fontFamily).map((font, fontIndex) => (
-								<button
-									type="button"
-									className="p-2 w-full text-start outline-transparent focus-visible:outline-main"
-									key={fontIndex}
-									style={{ fontFamily: `${font}` }}
-									onClick={() => useSelectedFont(font)}>
-									{font}
-								</button>
-							))}
+					<div className="border border-solid border-border_clr rounded-md relative">
+						<button
+							type="button"
+							className="flex items-center justify-between py-3 px-4 hover:bg-ash_white w-full"
+							onClick={openDropdown}>
+							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont}` }}>
+								{selectedFont}
+							</span>
+							<Icon icon="fluent:chevron-down-24-filled" className="w-5 h-5" />
+						</button>
+						<div
+							className={`${
+								isActiveFontDropdown === true ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+							} origin-top font-dropdown-container rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border-solid bg-white z-50 grid overflow-hidden items-start`}>
+							<div
+								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto  ${
+									isActiveFontDropdown ? "py-2 border" : "py-0 border-0"
+								}`}>
+								{Object.keys(fontFamily).map((font, fontIndex) => (
+									<button
+										type="button"
+										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-gray-200"
+										key={fontIndex}
+										style={{ fontFamily: `${font}` }}
+										onClick={() => useSelectedFont(font)}>
+										{font}
+									</button>
+								))}
+							</div>
 						</div>
 					</div>
 				</div>

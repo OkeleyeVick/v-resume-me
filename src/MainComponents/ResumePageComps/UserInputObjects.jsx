@@ -1,14 +1,12 @@
-import React from "react";
-
 const UserInputObjects = () => {
 	const educationDetails = [];
-	templateSelected: {
-	}
+	// templateSelected: {
+	// }
 
 	const themeDetails = {
 		themeSideBar: {
 			// checks if theme sidebar is open
-			isThemeSideBarOpen: false,
+			isThemeSideBarOpen: true,
 		},
 		font: {
 			family: {
@@ -18,6 +16,9 @@ const UserInputObjects = () => {
 			},
 			fontSize: "16px",
 			lineHeight: {},
+			fontSelection: {
+				isFontDropdownActive: false,
+			},
 		},
 		userResumeColor: {
 			selectedColor: {

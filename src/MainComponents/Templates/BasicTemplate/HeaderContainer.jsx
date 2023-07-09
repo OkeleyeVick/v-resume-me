@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Div } from "../../../assets/theme/htmlFonts/fontSizes";
+import { Div } from "../../../assets/theme/themeComponents/fontSizes";
 
 const HeaderContainer = () => {
 	const { userPersonalData } = useContext(userDataContext);

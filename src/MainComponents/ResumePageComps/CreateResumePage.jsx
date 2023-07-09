@@ -6,7 +6,9 @@ import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
 import { ReactSortable } from "react-sortablejs";
 import UserInputObjects from "./UserInputObjects";
-import ThemeFamily from "../../assets/theme/htmlFonts/ThemeFamily";
+import ThemeFamily from "../../assets/theme/themeComponents/ThemeFamily";
+import { Icon } from "@iconify/react";
+import ThemeTogglerButton from "./ThemeTogglerButton";
 
 const baseFont = {
 	Syne: "Syne",
@@ -28,6 +30,8 @@ const CreateResumePage = () => {
 	const [themeSelection, setSelectedThemes] = useState(themeDetails); //fonts and selection
 	const [educationState, setEducationState] = useState(false);
 	const [workExperienceState, setWorkExperienceState] = useState(false);
+
+	// components and draggable componentSections
 	const [componentSections, setComponentSections] = useState([
 		{
 			id: 1,
@@ -39,9 +43,15 @@ const CreateResumePage = () => {
 			component: <WorkExperienceIndex />,
 			section_id_name: "user-work-experience",
 		},
-	]); // components and draggable componentSectionsis
+	]);
 
 	const [largePreview, setLargePreview] = useState(false);
+	function zoomIn() {
+		setLargePreview((previousView) => !previousView);
+	}
+
+	// the font size should increase differently
+	// the height and width should increase differently ==> the ratio of height and width is 1.414
 
 	return (
 		<userDataContext.Provider
@@ -70,6 +80,7 @@ const CreateResumePage = () => {
 						<div className="min-h-screen flex items-stretch">
 							<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
 								<ThemeFamily />
+								<ThemeTogglerButton />
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
 								</section>
@@ -86,10 +97,23 @@ const CreateResumePage = () => {
 								</ReactSortable>
 							</div>
 							<div
-								className={` hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm py-8 px-4 pt-0 select-none ${
+								className={`hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${
 									largePreview ? "w-full overflow-auto" : "w-1/2"
 								}`}>
-								<ResumePreviewPage />
+								<div className="absolute top-0 flex px-6 z-10 items-start left-0 pt-3">
+									<button
+										type="button"
+										className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative"
+										onClick={zoomIn}>
+										<Icon
+											icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}
+											className="text-white w-6 h-6"
+										/>
+									</button>
+								</div>
+								<div className={`${largePreview ? "my-40" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
+									<ResumePreviewPage />
+								</div>
 							</div>
 						</div>
 					</React.Fragment>
