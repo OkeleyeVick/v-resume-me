@@ -32,13 +32,12 @@ const fontFamily = {
 
 const ThemeFamily = () => {
 	// contexts
-	const { themeSelection, setSelectedThemes } = useContext(themeContext);
+	const { themeSelection, setSelectedThemes, setSideBarState, sideBarState } = useContext(themeContext);
 	const { userResumeColor, themeSideBar, font } = themeSelection;
 	// states
 	const [colorThemeState, setColorThemeState] = useState("#000");
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
 	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(true);
-	const [isSideBarOpen, setSideBarState] = useState(themeSideBar.isThemeSideBarOpen);
 	const [selectedFont, setSelectedFont] = useState(font.family.customFont ?? font.family.default);
 
 	// functions
@@ -90,11 +89,11 @@ const ThemeFamily = () => {
 	return (
 		<div
 			className={`${
-				isSideBarOpen === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
+				sideBarState === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
 			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-300 ease-in-out`}>
 			<div
 				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative  ${
-					isSideBarOpen ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50"
+					sideBarState ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50"
 				}`}>
 				<div className="close absolute -right-12">
 					<button type="button" className={`bg-gray-50 z-50 shadow-md rounded-full p-2`} onClick={closeSideBar}>

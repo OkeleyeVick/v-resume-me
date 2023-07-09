@@ -49,6 +49,7 @@ const CreateResumePage = () => {
 	function zoomIn() {
 		setLargePreview((previousView) => !previousView);
 	}
+	const [sideBarState, setSideBarState] = useState(false);
 
 	// the font size should increase differently
 	// the height and width should increase differently ==> the ratio of height and width is 1.414
@@ -75,6 +76,8 @@ const CreateResumePage = () => {
 						setSelectedThemes,
 						largePreview,
 						setLargePreview,
+						sideBarState,
+						setSideBarState,
 					}}>
 					<React.Fragment>
 						<div className="min-h-screen flex items-stretch">
