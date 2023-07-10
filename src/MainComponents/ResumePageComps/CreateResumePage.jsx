@@ -30,7 +30,7 @@ const CreateResumePage = () => {
 
 	// everything about work experience
 	const [isWorkExperienceAccordionActive, setIsWorkExperienceAccordionActive] = useState(workExperienceDetails.isActiveAccordion);
-	const [userWorkExperience, setUserWorkExperience] = useState(workExperienceDetails); // an object of user work experience
+	const [userWorkExperiences, setUserWorkExperiences] = useState(workExperienceDetails.listOfExperiences); // an object of user work experience
 	const [themeSelection, setSelectedThemes] = useState(themeDetails); //fonts and selection
 
 	const [largePreview, setLargePreview] = useState(false);
@@ -53,7 +53,7 @@ const CreateResumePage = () => {
 				setUserEducationData,
 				workExperience: {
 					accordionState: { isWorkExperienceAccordionActive, setIsWorkExperienceAccordionActive },
-					work_experience: { userWorkExperience, setUserWorkExperience },
+					work_experience: { userWorkExperiences, setUserWorkExperiences },
 				},
 			}}>
 			<themeContext.Provider

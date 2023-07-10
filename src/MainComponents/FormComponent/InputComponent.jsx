@@ -12,6 +12,7 @@ const InputWithLabel = ({
 	name,
 	updateTheDetail,
 	value,
+	className,
 	inputMode,
 	tooltip,
 	hasExtraInfo,
@@ -40,11 +41,13 @@ const InputWithLabel = ({
 				placeholder={placeholder ? placeholder : ""}
 				onChange={(event) => updateTheDetail(event.target.value, name)}
 				spellCheck="false"
-				inputMode={inputMode}
+				inputMode={inputMode ?? "text"}
 				aria-label={ariaLabel}
 				autoComplete="off"
 				type={type ? type : "text"}
-				className={`caret-main placeholder:text-sm bg-input_clr py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[2.8rem] border border-transparent`}
+				className={`caret-main placeholder:text-sm ${
+					className ? className : "bg-input_clr border-transparent"
+				} py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[2.8rem] border`}
 			/>
 			{/* {hasDropdown ? (
 				<React.Fragment>
