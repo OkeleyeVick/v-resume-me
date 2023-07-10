@@ -1,10 +1,8 @@
 import React, { createContext, memo, useState } from "react";
 import ResumePreviewPage from "./ResumePreviewPage";
-import EducationIndex from "./EducationSection/EducationIndex";
 import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
-import { ReactSortable } from "react-sortablejs";
 import UserInputObjects from "./UserInputObjects";
 import ThemeFamily from "../../assets/theme/themeComponents/ThemeFamily";
 import { Icon } from "@iconify/react";
@@ -68,7 +66,7 @@ const CreateResumePage = () => {
 				}}>
 				<React.Fragment>
 					<div className="min-h-screen flex items-stretch">
-						<div className="bg-white h-full p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
+						<div className="bg-white h-full p-3 sm:p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
 							<ThemeFamily />
 							<ThemeTogglerButton />
 							<section className="bg-white" id="user-personal-info">

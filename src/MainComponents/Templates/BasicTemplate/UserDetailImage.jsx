@@ -16,7 +16,7 @@ const UserDetailImage = () => {
 		<>
 			<div className="grid grid-cols-3 items-center gap-2 w-full">
 				<div className="user-personal-info col-span-2">
-					{[email, nationality, phone, dob].map((eachUserDetail, index) => {
+					{[email, phone, nationality, dob].map((eachUserDetail, index) => {
 						return (
 							<React.Fragment key={index}>
 								{returnValue(eachUserDetail) ? (

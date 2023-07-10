@@ -23,7 +23,6 @@
     "react-headless-accordion": "^1.0.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.12.1",
-    "react-sortablejs": "^6.1.4",
     "react-use-is-online": "^1.3.0"
   },
   "devDependencies": {

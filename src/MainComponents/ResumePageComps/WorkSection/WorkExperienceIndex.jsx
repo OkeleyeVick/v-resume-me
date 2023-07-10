@@ -8,15 +8,17 @@ const WorkExperienceIndex = () => {
 	const { workExperience } = useContext(userDataContext);
 	const { accordionState, work_experience } = workExperience;
 	const { userWorkExperiences, setUserWorkExperiences } = work_experience; //array of user's experiences
-	const [objectId, setNewObjectId] = useState(0);
-	const [workObject, setWorkObject] = useState({ id: objectId, company_name: "", job_title: "", location: "", start_date: "", end_date: "" });
-
-	// const [childrenAccordion, setChildrenAccordions] = useState([]);
+	const [currentWorkObject, setWorkObject] = useState({ id: 0, company_name: "", job_title: "", location: "", start_date: "", end_date: "" });
 
 	function addNewExperience() {
-		//initiate a new work object
+		// first thing, add to the array of user's experiences
+		setUserWorkExperiences((currentWorkExperienceArray) => {
+			return [...currentWorkExperienceArray, currentWorkObject];
+		});
+
+		//then initiate a new work object
 		const newWorkObject = {
-			id: objectId + 1,
+			id: currentWorkObject.id + 1,
 			company_name: "",
 			job_title: "",
 			location: "",
@@ -24,15 +26,16 @@ const WorkExperienceIndex = () => {
 			end_date: "",
 		};
 
-		setWorkObject({ ...newWorkObject }); //set the new workObject
-		// add to the array of user's experiences
-		setUserWorkExperiences((currentWorkExperienceArray) => {
-			return [...currentWorkExperienceArray, workObject];
-		});
-
-		setNewObjectId((prevId) => prevId + 1); //increment the Id
+		//set the new workObject
+		setWorkObject({ ...newWorkObject });
 	}
 
+	function deleteExperience(e, id) {
+		e.stopPropagation();
+		e.prevetDefault();
+		const newWorkExperience = userWorkExperiences.filter((accordion) => accordion.id !== id);
+		setUserWorkExperiences([...newWorkExperience]);
+	}
 	return (
 		<div className="border border-gray-300 border-solid rounded-md shadow-md mt-3">
 			<Accordion>
@@ -48,13 +51,17 @@ const WorkExperienceIndex = () => {
 						<div className="flex flex-col gap-y-4">
 							{userWorkExperiences &&
 								userWorkExperiences.map((eachAccordion, accordionIndex) => {
-									console.log(eachAccordion);
 									return (
 										<React.Fragment key={accordionIndex}>
-											<AccordionChild id={workObject.id} workObject={workObject} setWorkObject={setWorkObject} />
+											<AccordionChild
+												count={accordionIndex}
+												id={eachAccordion.id}
+												eachAccordion={eachAccordion}
+												deleteExperience={deleteExperience}
+												setWorkObject={setWorkObject}
+											/>
 										</React.Fragment>
 									);
-									// return <React.Fragment key={accordionIndex}>{eachAccordion}</React.Fragment>;
 								})}
 						</div>
 						<div className="my-4">

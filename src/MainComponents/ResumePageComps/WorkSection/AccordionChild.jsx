@@ -3,7 +3,7 @@ import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-ac
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { Icon } from "@iconify/react";
 
-const AccordionChild = ({ workObject, id, setWorkObject }) => {
+const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count }) => {
 	// function that updates each input
 	function updateTheInput(inputValue, field) {
 		setWorkObject((previousData) => {
@@ -14,9 +14,8 @@ const AccordionChild = ({ workObject, id, setWorkObject }) => {
 		});
 	}
 
-	function DeleteWorkExperience(id) {}
 	return (
-		<div className="border border-solid border-gray-200 rounded-md" id={workObject.id}>
+		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
 			<AccordionItem>
 				{({ open }) => {
 					return (
@@ -26,12 +25,12 @@ const AccordionChild = ({ workObject, id, setWorkObject }) => {
 									className={`flex items-center p-4 justify-between border-b border-solid ${
 										open ? "border-border_clr" : "border-b-transparent"
 									}`}>
-									<span className="id-number">Experience no. {id}</span>
+									<span className="id-number">Experience no. {parseInt(count + 1)}</span>
 									<span className="flex items-center gap-3">
 										<button
 											type="button"
 											className="outline-transparent focus-visible:outline-main"
-											onClick={() => DeleteWorkExperience(id)}>
+											onClick={(e) => deleteExperience(e, eachAccordion.id)}>
 											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
@@ -44,28 +43,33 @@ const AccordionChild = ({ workObject, id, setWorkObject }) => {
 							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
 								<div className="accordion-body p-4 flex flex-col gap-y-4">
 									<InputWithLabel
-										name={workObject.company_name}
+										name={eachAccordion.company_name}
 										label="Company name"
 										className="bg-white border-gray-200"
 										updateTheDetail={updateTheInput}
-										value={workObject.company_name}
+										value={eachAccordion.company_name}
 									/>
 									<InputWithLabel
-										name={workObject.job_title}
+										name={eachAccordion.job_title}
 										label="Job title"
 										className="bg-white border-gray-200"
 										updateTheDetail={updateTheInput}
-										value={workObject.job_title}
+										value={eachAccordion.job_title}
 									/>
 									<InputWithLabel
 										label="Location"
-										name={workObject.location}
-										value={workObject.location}
+										name={eachAccordion.location}
+										value={eachAccordion.location}
 										updateTheDetail={updateTheInput}
 										tooltip="If you are in your country, specify only the state where you worked, else if it's for a remote job role, specify the state, and country separated by comma e.g Lagos, Nigeria"
 										hasExtraInfo={true}
 										className="bg-white border-gray-200"
 									/>
+									<div className="flex items-center justify-between">
+										<div className="start-date"></div>
+										&mdash;
+										<div className="end-date"></div>
+									</div>
 								</div>
 							</AccordionBody>
 						</>
