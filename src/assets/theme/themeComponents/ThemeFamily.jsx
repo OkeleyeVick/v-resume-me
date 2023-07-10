@@ -37,7 +37,7 @@ const ThemeFamily = () => {
 	// states
 	const [colorThemeState, setColorThemeState] = useState("#000");
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
-	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(true);
+	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(font.family.customFont ?? font.family.default);
 
 	// functions

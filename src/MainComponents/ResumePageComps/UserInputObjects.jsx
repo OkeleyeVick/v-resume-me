@@ -10,7 +10,7 @@ const UserInputObjects = () => {
 	const themeDetails = {
 		themeSideBar: {
 			// checks if theme sidebar is open
-			isThemeSideBarOpen: true,
+			isThemeSideBarOpen: false,
 		},
 		font: {
 			family: {

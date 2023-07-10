@@ -7,29 +7,30 @@ import AccordionChild from "./AccordionChild";
 const WorkExperienceIndex = () => {
 	const { workExperience } = useContext(userDataContext);
 	const { accordionState, work_experience } = workExperience;
-	const { userWorkExperiences, setUserWorkExperiences } = work_experience;
-	const [newStateId, setNewStateId] = useState(0);
-	const [workObject, setWorkObject] = useState({
-		id: newStateId,
-		company_name: "",
-		job_title: "",
-		location: "",
-		start_date: "",
-		end_date: "",
-	});
+	const { userWorkExperiences, setUserWorkExperiences } = work_experience; //array of user's experiences
+	const [objectId, setNewObjectId] = useState(0);
+	const [workObject, setWorkObject] = useState({ id: objectId, company_name: "", job_title: "", location: "", start_date: "", end_date: "" });
 
-	const [childrenAccordion, setChildrenAccordions] = useState([
-		<AccordionChild id={workObject.id} workObject={workObject} setWorkObject={setWorkObject} />,
-	]);
+	// const [childrenAccordion, setChildrenAccordions] = useState([]);
 
 	function addNewExperience() {
-		setNewStateId((currentId) => currentId + 1);
-		setWorkObject((previousObject) => ({ ...previousObject, id: newStateId }));
+		//initiate a new work object
+		const newWorkObject = {
+			id: objectId + 1,
+			company_name: "",
+			job_title: "",
+			location: "",
+			start_date: "",
+			end_date: "",
+		};
+
+		setWorkObject({ ...newWorkObject }); //set the new workObject
+		// add to the array of user's experiences
 		setUserWorkExperiences((currentWorkExperienceArray) => {
 			return [...currentWorkExperienceArray, workObject];
 		});
-		const childAccordion = <AccordionChild id={workObject.id} workObject={workObject} setWorkObject={setWorkObject} />;
-		setChildrenAccordions((previousAccordions) => [...previousAccordions, childAccordion]);
+
+		setNewObjectId((prevId) => prevId + 1); //increment the Id
 	}
 
 	return (
@@ -45,16 +46,22 @@ const WorkExperienceIndex = () => {
 
 					<AccordionBody className="px-6">
 						<div className="flex flex-col gap-y-4">
-							{childrenAccordion &&
-								childrenAccordion.map((eachAccordion, accordionIndex) => {
-									return <React.Fragment key={accordionIndex}>{eachAccordion}</React.Fragment>;
+							{userWorkExperiences &&
+								userWorkExperiences.map((eachAccordion, accordionIndex) => {
+									console.log(eachAccordion);
+									return (
+										<React.Fragment key={accordionIndex}>
+											<AccordionChild id={workObject.id} workObject={workObject} setWorkObject={setWorkObject} />
+										</React.Fragment>
+									);
+									// return <React.Fragment key={accordionIndex}>{eachAccordion}</React.Fragment>;
 								})}
 						</div>
 						<div className="my-4">
 							<button
-								className="border-[1px] border-dashed border-main font-semibold text-main w-full text-sm p-3 rounded-md bg-transparent hover:bg-hoverBgClr hover:bg-opacity-10"
+								className="border-[1px] border-dashed border-main font-semibold text-main w-full text-sm p-3 rounded-md bg-transparent hover:bg-hoverBgClr hover:bg-opacity-10  outline-transparent focus-visible:outline-main"
 								onClick={addNewExperience}>
-								Add more
+								Add New Experience
 							</button>
 						</div>
 					</AccordionBody>
