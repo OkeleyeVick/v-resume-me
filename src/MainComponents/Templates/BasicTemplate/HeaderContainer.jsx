@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Div } from "../../../assets/theme/themeComponents/fontSizes";
+import { Div, H1 } from "../../../assets/theme/fontSizes";
 
 const HeaderContainer = () => {
 	const { userPersonalData } = useContext(userDataContext);
@@ -11,13 +11,13 @@ const HeaderContainer = () => {
 	}
 	return (
 		<React.Fragment>
-			<div className="mb-3">
-				{(firstname.value || lastname.value) && (
-					<Div className="block text-center font-semibold leading-none">
+			{(firstname.value || lastname.value) && (
+				<div className="mb-3 border-b-2 border-solid">
+					<H1 className="block text-center font-extrabold leading-none">
 						{trimText(lastname)} {trimText(firstname)}
-					</Div>
-				)}
-			</div>
+					</H1>
+				</div>
+			)}
 		</React.Fragment>
 	);
 };

@@ -4,7 +4,7 @@ import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
 import UserInputObjects from "./UserInputObjects";
-import ThemeFamily from "../../assets/theme/themeComponents/ThemeFamily";
+import ThemeFamily from "../../assets/theme/ThemeFamily";
 import { Icon } from "@iconify/react";
 import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
 
@@ -56,7 +56,7 @@ const CreateResumePage = () => {
 			}}>
 			<themeContext.Provider
 				value={{
-					scale: largePreview === true ? parseFloat(1.2) : parseFloat(0.7),
+					scale: largePreview === true ? parseFloat(2.5) : parseFloat(1.5),
 					themeSelection,
 					setSelectedThemes,
 					largePreview,
@@ -77,7 +77,7 @@ const CreateResumePage = () => {
 							</section>
 						</div>
 						<div
-							className={`hidden lg:block right-0 top-0 fixed bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${
+							className={`hidden lg:block right-0 top-0 fixed z-20 bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${
 								largePreview ? "w-full overflow-auto" : "w-1/2"
 							}`}>
 							<div className="absolute top-0 flex px-6 z-10 items-start left-0 pt-3">

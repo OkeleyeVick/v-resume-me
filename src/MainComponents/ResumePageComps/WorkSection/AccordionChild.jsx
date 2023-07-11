@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { Icon } from "@iconify/react";
+import { memo } from "react";
+import Checkbox from "../Components/Checkbox";
+import MonthPicker from "../Components/MonthPicker";
+import YearPicker from "../Components/YearPicker";
 
 const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count }) => {
 	// function that updates each input
@@ -13,6 +17,16 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 			};
 		});
 	}
+
+	// start work
+	const [startMonth, setStartMonth] = useState("");
+	const [startYear, setStartYear] = useState("");
+	// end job
+	const [endMonth, setEndMonth] = useState("");
+	const [endYear, setEndYear] = useState("");
+
+	const [startDate, setStartDate] = useState(`${startMonth}/${startYear}`);
+	const [endDate, setEndDate] = useState(`${endMonth}/${endYear}`);
 
 	return (
 		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
@@ -41,7 +55,7 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 							</AccordionHeader>
 
 							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
-								<div className="accordion-body p-4 flex flex-col gap-y-4">
+								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
 										name={eachAccordion.company_name}
 										label="Company name"
@@ -56,19 +70,41 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 										updateTheDetail={updateTheInput}
 										value={eachAccordion.job_title}
 									/>
+
 									<InputWithLabel
-										label="Location"
-										name={eachAccordion.location}
-										value={eachAccordion.location}
+										label="city"
+										name={eachAccordion.city}
+										value={eachAccordion.city}
 										updateTheDetail={updateTheInput}
-										tooltip="If you are in your country, specify only the state where you worked, else if it's for a remote job role, specify the state, and country separated by comma e.g Lagos, Nigeria"
-										hasExtraInfo={true}
 										className="bg-white border-gray-200"
 									/>
-									<div className="flex items-center justify-between">
-										<div className="start-date"></div>
-										&mdash;
-										<div className="end-date"></div>
+
+									<InputWithLabel
+										label="County"
+										name={eachAccordion.county}
+										value={eachAccordion.county}
+										updateTheDetail={updateTheInput}
+										className="bg-white border-gray-200"
+									/>
+
+									<div className="col-span-2">
+										<small className="">Time period</small>
+										<div className="flex items-start justify-between gap-x-2 gap-y-4 w-full flex-wrap sm:flex-nowrap relative">
+											<div className="grid grid-cols-3 gap-2 flex-grow">
+												<MonthPicker className="col-span-2" month={startMonth} setMonth={setStartMonth} />
+												<YearPicker className="col-span-1" year={startYear} setYear={setStartYear} />
+											</div>
+											<div className="hidden sm:inline leading-none mt-4">&mdash;</div>
+											<div className="flex-grow">
+												<div className="end-date grid grid-cols-3 gap-2">
+													<MonthPicker month={endMonth} setMonth={setEndMonth} className="col-span-2" />
+													<YearPicker className="col-span-1" year={endYear} setYear={setEndYear} />
+												</div>
+												<div className="mt-3">
+													<Checkbox label="I currently work here" />
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</AccordionBody>
@@ -80,4 +116,4 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 	);
 };
 
-export default AccordionChild;
+export default memo(AccordionChild);

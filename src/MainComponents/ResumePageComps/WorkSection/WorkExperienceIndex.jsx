@@ -3,12 +3,21 @@ import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-
 import { Icon } from "@iconify/react";
 import { userDataContext } from "../CreateResumePage";
 import AccordionChild from "./AccordionChild";
+import { memo } from "react";
 
 const WorkExperienceIndex = () => {
 	const { workExperience } = useContext(userDataContext);
 	const { accordionState, work_experience } = workExperience;
 	const { userWorkExperiences, setUserWorkExperiences } = work_experience; //array of user's experiences
-	const [currentWorkObject, setWorkObject] = useState({ id: 0, company_name: "", job_title: "", location: "", start_date: "", end_date: "" });
+	const [currentWorkObject, setWorkObject] = useState({
+		id: 0,
+		company_name: "",
+		job_title: "",
+		country: "",
+		start_date: "",
+		end_date: "",
+		city: "",
+	});
 
 	function addNewExperience() {
 		// first thing, add to the array of user's experiences
@@ -21,9 +30,10 @@ const WorkExperienceIndex = () => {
 			id: currentWorkObject.id + 1,
 			company_name: "",
 			job_title: "",
-			location: "",
+			country: "",
 			start_date: "",
 			end_date: "",
+			city: "",
 		};
 
 		//set the new workObject
@@ -32,7 +42,7 @@ const WorkExperienceIndex = () => {
 
 	function deleteExperience(e, id) {
 		e.stopPropagation();
-		e.prevetDefault();
+		e.preventDefault();
 		const newWorkExperience = userWorkExperiences.filter((accordion) => accordion.id !== id);
 		setUserWorkExperiences([...newWorkExperience]);
 	}
@@ -78,4 +88,4 @@ const WorkExperienceIndex = () => {
 	);
 };
 
-export default WorkExperienceIndex;
+export default memo(WorkExperienceIndex);

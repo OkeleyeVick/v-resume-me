@@ -14,7 +14,7 @@ const ResumePreviewPage = () => {
 					<div
 						name="resume-preview"
 						className={`bg-white whitespace-pre-wrap p-4 text-xs shadow-md rounded-[4px]`}
-						style={{ height: `calc(${1414 / 2.2}px * ${scale})`, width: `calc(${1150 / 2.2}px * ${scale})` }}>
+						style={{ height: `calc(${297}px * ${scale})`, width: `calc(${210}px * ${scale})` }}>
 						<BasicResumeContainer />
 					</div>
 				</div>

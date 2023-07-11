@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { userDataContext } from "../CreateResumePage";
+import { memo } from "react";
 
 const EducationIndex = () => {
 	const { userGeneralData, setUserGeneralData, userEducationData, setUserEducationData } = useContext(userDataContext);
@@ -18,4 +19,4 @@ const EducationIndex = () => {
 	return <React.Fragment></React.Fragment>;
 };
 
-export default EducationIndex;
+export default memo(EducationIndex);

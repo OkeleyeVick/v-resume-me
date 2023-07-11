@@ -1,8 +1,10 @@
 import { Icon } from "@iconify/react";
 import React, { useContext, useState } from "react";
 import { BlockPicker } from "react-color";
-import { themeContext } from "../../../MainComponents/ResumePageComps/CreateResumePage";
-import "../../css/fonts.css";
+import { themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
+import "../css/fonts.css";
+import "../../MainComponents/ResumePageComps/Components/date.css";
+import { memo } from "react";
 
 const fontFamily = {
 	Stolzl: "Stolzl",
@@ -90,9 +92,9 @@ const ThemeFamily = () => {
 		<div
 			className={`${
 				sideBarState === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
-			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-300 ease-in-out`}>
+			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-200 ease-linear`}>
 			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative  ${
+				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative ease-linear duration-200 ${
 					sideBarState ? "overflow-visible w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">
@@ -110,20 +112,25 @@ const ThemeFamily = () => {
 							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont}` }}>
 								{selectedFont}
 							</span>
-							<Icon icon="fluent:chevron-down-24-filled" className="w-5 h-5" />
+							<Icon
+								icon="fluent:chevron-down-24-filled"
+								className={`w-5 h-5 duration-150 ease-linear transition-transform ${
+									isActiveFontDropdown ? "rotate-180" : "rotate-0"
+								}`}
+							/>
 						</button>
 						<div
 							className={`${
 								isActiveFontDropdown === true ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-							} origin-top font-dropdown-container rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border-solid bg-white z-50 grid overflow-hidden items-start`}>
+							} origin-top font-dropdown-container rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border-solid bg-white z-50 grid overflow-hidden items-start duration-100`}>
 							<div
-								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto  ${
+								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto scroll ${
 									isActiveFontDropdown ? "py-2 border" : "py-0 border-0"
 								}`}>
 								{Object.keys(fontFamily).map((font, fontIndex) => (
 									<button
 										type="button"
-										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-gray-200"
+										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main "
 										key={fontIndex}
 										style={{ fontFamily: `${font}` }}
 										onClick={() => useSelectedFont(font)}>
@@ -158,4 +165,4 @@ const ThemeFamily = () => {
 	);
 };
 
-export default ThemeFamily;
+export default memo(ThemeFamily);

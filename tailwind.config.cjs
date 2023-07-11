@@ -30,8 +30,6 @@ module.exports = {
 				input_clr: "rgb(239,242,249)",
 			},
 			boxShadow: {
-				custom_1: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
-				custom_2: "rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
 				custom_3: "rgba(0, 0, 0, 0.16) 0px 1px 4px;",
 				inputShadow: "0px 0px 2px -1px rgb(131, 144, 250, 0.8)",
 			},
