@@ -1,11 +1,7 @@
 const UserInputObjects = () => {
-	const educationDetails = [];
 	const workExperienceDetails = {
-		isActiveAccordion: false,
 		listOfExperiences: [],
 	};
-	// templateSelected: {
-	// }
 
 	const themeDetails = {
 		themeSideBar: {
@@ -134,25 +130,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	// object to create a new education background
-	const schoolObject = {
-		school: {
-			ariaLabel: "school",
-			nameLabel: "school",
-			inputMode: "text",
-			type: "text",
-			value: "",
-		},
-		degree: {
-			ariaLabel: "degree",
-			nameLabel: "degree",
-			inputMode: "text",
-			type: "text",
-			value: "",
-		},
-	};
-
-	return { educationDetails, userDetails, schoolObject, themeDetails, workExperienceDetails };
+	return { userDetails, themeDetails, workExperienceDetails };
 };
 
 export default UserInputObjects;

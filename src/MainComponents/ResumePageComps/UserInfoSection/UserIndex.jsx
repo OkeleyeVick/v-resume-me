@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import ImageUploadComponent from "../../FormComponent/ImageUploadComponent";
 import { Icon } from "@iconify/react";
@@ -58,4 +58,4 @@ const UserIndex = () => {
 	);
 };
 
-export default UserIndex;
+export default memo(UserIndex);

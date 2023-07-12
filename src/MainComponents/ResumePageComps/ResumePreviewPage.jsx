@@ -3,6 +3,7 @@ import DownloadButton from "./Components/DownloadButton";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
 import { themeContext } from "./CreateResumePage";
 
+//TODO: FIX THE WIDTH AND HEIGHT OF RESUME PREVIEW
 const ResumePreviewPage = () => {
 	const { scale, largePreview, setLargePreview, themeSelection } = useContext(themeContext);
 	const font = themeSelection.font.family.customFont;

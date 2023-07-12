@@ -10,6 +10,7 @@ const fontFamily = {
 	Stolzl: "Stolzl",
 	IBMPlexSans: "IBMPlexSans",
 	Söhne: "Söhne",
+	"Fira Code": "Fira Code",
 	Syne: "Syne",
 	Montserrat: "Montserrat",
 	Mulish: "Mulish",
@@ -92,9 +93,9 @@ const ThemeFamily = () => {
 		<div
 			className={`${
 				sideBarState === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
-			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-200 ease-linear`}>
+			} fixed z-50 backdrop-blur-[2px] h-screen top-0 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
 			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative ease-linear duration-200 ${
+				className={`p-4 h-full rounded-tr-[1rem] rounded-br-[1rem] bg-white shadow-md flex flex-col gap-y-4 relative ease-linear duration-100 ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">

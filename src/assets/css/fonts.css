@@ -43,6 +43,10 @@
 	src: url("../fonts/Lora-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
+	font-family: "Fira Code";
+	src: url("../fonts/FiraCode-VF.ttf") format("truetype");
+}
+@font-face {
 	font-family: "Quicksand";
 	src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
 }

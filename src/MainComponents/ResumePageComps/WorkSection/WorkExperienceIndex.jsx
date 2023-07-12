@@ -6,9 +6,9 @@ import AccordionChild from "./AccordionChild";
 import { memo } from "react";
 
 const WorkExperienceIndex = () => {
-	const { workExperience } = useContext(userDataContext);
-	const { accordionState, work_experience } = workExperience;
-	const { userWorkExperiences, setUserWorkExperiences } = work_experience; //array of user's experiences
+	const { workExperienceValues } = useContext(userDataContext);
+	const { workExperiences } = workExperienceValues;
+	const { userWorkExperiences, setUserWorkExperiences } = workExperiences; //array of user's experiences
 	const [currentWorkObject, setWorkObject] = useState({
 		id: 0,
 		company_name: "",
@@ -49,7 +49,7 @@ const WorkExperienceIndex = () => {
 		setUserWorkExperiences([...newWorkExperience]);
 	}
 	return (
-		<div className="border border-gray-300 border-solid rounded-md shadow-md mt-3">
+		<div className="border border-gray-300 border-solid rounded-md shadow-md">
 			<Accordion>
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">

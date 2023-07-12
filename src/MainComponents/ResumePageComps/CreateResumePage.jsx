@@ -4,9 +4,13 @@ import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
 import UserInputObjects from "./UserInputObjects";
-import ThemeFamily from "../../assets/theme/ThemeFamily";
+// import ThemeFamily from "../../assets/theme/ThemeFamily";
 import { Icon } from "@iconify/react";
 import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
+import SkillsIndex from "./SkillsSection/SkillsIndex";
+import LanguageIndex from "./LanguageSection/LanguageIndex";
+
+const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
 const baseFont = {
 	Syne: "Syne",
@@ -19,16 +23,27 @@ export const themeContext = createContext();
 export const userDataContext = createContext();
 
 const CreateResumePage = () => {
-	const { userDetails, schoolObject, themeDetails, workExperienceDetails } = UserInputObjects(); //FROM OBJECTS
+	const { userDetails, themeDetails, workExperienceDetails } = UserInputObjects(); //FROM OBJECTS
 
 	// all states
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
-	const [userEducationData, setUserEducationData] = useState(schoolObject); //an object of educationDetails details
-	const [userGeneralData, setUserGeneralData] = useState({}); // an object that contains all user inputs
+	const [userEducationData, setUserEducationData] = useState([]); //an array of objects of educationDetails details
+	const [userGeneralData, setUserGeneralData] = useState({
+		USER_PERSONAL_DATA: {},
+		USER_EDUCATION_DATA: [],
+		USER_WORK_EXPERIENCE_DATA: [],
+		USER_HOBBIES_DATA: [],
+		USER_LANGUAGES_DATA: [],
+	}); // an object that contains all user inputs
+	const [hobbies, setHobbies] = useState([]); //array of hobbies
+	const [skills, setSkills] = useState({
+		softSkills: [],
+		softwareSkills: [],
+	}); //ang object of skill types
+	const [languages, setLanguages] = useState([]); //array of objects for languages
 
 	// everything about work experience
-	const [isWorkExperienceAccordionActive, setIsWorkExperienceAccordionActive] = useState(workExperienceDetails.isActiveAccordion);
-	const [userWorkExperiences, setUserWorkExperiences] = useState(workExperienceDetails.listOfExperiences); // an object of user work experience
+	const [userWorkExperiences, setUserWorkExperiences] = useState([]); // an object of user work experience
 	const [themeSelection, setSelectedThemes] = useState(themeDetails); //fonts and selection
 
 	const [largePreview, setLargePreview] = useState(false);
@@ -37,7 +52,7 @@ const CreateResumePage = () => {
 	}
 	const [sideBarState, setSideBarState] = useState(false);
 
-	// the font size should increase differently
+	// TODO: the font size should increase differently
 	// the height and width should increase differently ==> the ratio of height and width is 1.414
 
 	return (
@@ -49,10 +64,15 @@ const CreateResumePage = () => {
 				setUserPersonalData,
 				userEducationData,
 				setUserEducationData,
-				workExperience: {
-					accordionState: { isWorkExperienceAccordionActive, setIsWorkExperienceAccordionActive },
-					work_experience: { userWorkExperiences, setUserWorkExperiences },
+				workExperienceValues: {
+					workExperiences: { userWorkExperiences, setUserWorkExperiences },
 				},
+				hobbies,
+				setHobbies,
+				languages,
+				setLanguages,
+				skills,
+				setSkills,
 			}}>
 			<themeContext.Provider
 				value={{
@@ -66,15 +86,25 @@ const CreateResumePage = () => {
 				}}>
 				<React.Fragment>
 					<div className="min-h-screen flex items-stretch">
-						<div className="bg-white h-full p-3 sm:p-5 md:p-11 w-full lg:w-1/2 relative" style={{ fontFamily: baseFont.Syne }}>
-							<ThemeFamily />
+						<div className="bg-white h-full p-3 sm:p-5 md:p-11 w-full lg:w-1/2 my-8" style={{ fontFamily: baseFont.Syne }}>
+							<React.Suspense>
+								<ThemeFamily />
+							</React.Suspense>
 							<ThemeTogglerButton />
-							<section className="bg-white" id="user-personal-info">
-								<UserIndex />
-							</section>
-							<section id="user-work-experience">
-								<WorkExperienceIndex />
-							</section>
+							<div className="flex flex-col gap-y-3">
+								<section className="bg-white" id="user-personal-info">
+									<UserIndex />
+								</section>
+								<section id="user-work-experience">
+									<WorkExperienceIndex />
+								</section>
+								<section id="user-skills-experience">
+									<SkillsIndex />
+								</section>
+								<section id="user-languages-experience">
+									<LanguageIndex />
+								</section>
+							</div>
 						</div>
 						<div
 							className={`hidden lg:block right-0 top-0 fixed z-20 bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${
