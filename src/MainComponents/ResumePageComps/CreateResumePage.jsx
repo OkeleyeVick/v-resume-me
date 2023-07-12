@@ -57,12 +57,12 @@ const CreateResumePage = () => {
 			<themeContext.Provider
 				value={{
 					scale: largePreview === true ? parseFloat(2.5) : parseFloat(1.5),
-					themeSelection,
 					setSelectedThemes,
 					largePreview,
 					setLargePreview,
 					sideBarState,
 					setSideBarState,
+					themeSelection,
 				}}>
 				<React.Fragment>
 					<div className="min-h-screen flex items-stretch">

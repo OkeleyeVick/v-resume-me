@@ -17,6 +17,7 @@ const WorkExperienceIndex = () => {
 		start_date: "",
 		end_date: "",
 		city: "",
+		isChecked: false,
 	});
 
 	function addNewExperience() {
@@ -34,6 +35,7 @@ const WorkExperienceIndex = () => {
 			start_date: "",
 			end_date: "",
 			city: "",
+			isChecked: false,
 		};
 
 		//set the new workObject
@@ -57,7 +59,7 @@ const WorkExperienceIndex = () => {
 						</span>
 					</AccordionHeader>
 
-					<AccordionBody className="px-6">
+					<AccordionBody className="px-4 md:px-6">
 						<div className="flex flex-col gap-y-4">
 							{userWorkExperiences &&
 								userWorkExperiences.map((eachAccordion, accordionIndex) => {
@@ -65,6 +67,7 @@ const WorkExperienceIndex = () => {
 										<React.Fragment key={accordionIndex}>
 											<AccordionChild
 												count={accordionIndex}
+												currentWorkObject={currentWorkObject}
 												id={eachAccordion.id}
 												eachAccordion={eachAccordion}
 												deleteExperience={deleteExperience}

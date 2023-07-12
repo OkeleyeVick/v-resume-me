@@ -1,5 +1,4 @@
 import React from "react";
-import video from "../../assets/images/PageImages/job-recruiter.gif";
 import { memo } from "react";
 
 const AnimatedSection = () => {
@@ -7,7 +6,8 @@ const AnimatedSection = () => {
 		<div className="py-20">
 			<div className="grid grid-cols-2 gap-8">
 				<div className={`col-span-full md:col-start-1 md:col-end-2`}>
-					<img src={video} alt="" className="max-w-lg mx-auto w-full" />
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id vero hic laborum beatae facere sunt veniam dolorem iusto quisquam,
+					error explicabo quidem totam aspernatur odit. Aperiam tenetur quos fuga repudiandae.
 				</div>
 				<div className="col-span-full md:col-start-2 md:col-end-3 p-4 md:p-8">
 					<span>

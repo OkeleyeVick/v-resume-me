@@ -12,6 +12,7 @@ const InputWithLabel = ({
 	name,
 	updateTheDetail,
 	value,
+	action,
 	className,
 	inputMode,
 	tooltip,
@@ -39,7 +40,7 @@ const InputWithLabel = ({
 				name={name}
 				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={(event) => updateTheDetail(event.target.value, name)}
+				onChange={(event) => updateTheDetail(event.target.value, name, action)}
 				spellCheck="false"
 				inputMode={inputMode ?? "text"}
 				aria-label={ariaLabel}

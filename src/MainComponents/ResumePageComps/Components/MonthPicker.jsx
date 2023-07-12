@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import useComponentVisible from "../../../assets/hooks/useComponentVisible";
 import { Icon } from "@iconify/react";
 
@@ -10,7 +10,6 @@ const MonthPicker = ({ month, setMonth, className }) => {
 	function handleMonthState() {
 		setIsComponentVisible((prev) => !prev);
 	}
-
 	function handleMonthValue(monthValue, monthIndex) {
 		setMonth(monthValue);
 	}
