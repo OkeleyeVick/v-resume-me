@@ -7,42 +7,43 @@ import InputWithLabel from "../../FormComponent/InputComponent";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
-	const { softSkills } = skills;
+	const { softSkills } = skills; //the array of softSkills
 
 	const { soft_skills: skillsArrayData } = data; //from database
 
-	const [inputValue, setInput] = useState("");
+	const arrayOfAvailableSkills = skillsArrayData.slice(10, 18);
 
-	function addSoftSkill(event, value) {
+	const [inputValue, setInput] = useState("");
+	const [skillObject, setSkillObject] = useState({ id: 0, skillName: "", isSet: false });
+
+	function addSkillWithValue(event, value) {
 		event.preventDefault();
-		const checkIfValueInSkills = skills.softSkills.includes(value);
-		if (value && !checkIfValueInSkills) {
-			setSkills((previous) => ({
-				...previous,
-				softSkills: [...previous.softSkills, value],
-			}));
-		}
-		if (inputValue.length !== 0) {
-			setSkills((previous) => ({
-				...previous,
-				softSkills: [...previous.softSkills, inputValue],
-			}));
-			setInput("");
-		}
+		console.log(value);
+	}
+
+	function addSkillWithoutValue() {
+		//function for the add button
+		setInput("");
+		setSkills((oldObjects) => ({ ...oldObjects, softSkills: [...oldObjects.softSkills, skillObject] }));
+		setSkillObject((previousObject) => ({ ...previousObject, id: previousObject.id + 1 }));
 	}
 
 	const handleTheInput = (inputValue) => {
 		setInput(inputValue);
+		setSkillObject((prev) => ({
+			...prev,
+			skillName: inputValue,
+		}));
 	};
 
-	function handleDeleteSkill(skillIndex) {
-		const newArray = softSkills.filter((skill, index) => skillIndex !== index);
-
-		console.log(newArray);
+	function handleDeleteSkill(skillId) {
+		// const newArray = softSkills.filter(({ id }) => id !== skillId);
+		console.log(skillId);
+		// setSkills(newArray);
 	}
 
-	/*	TODO: 1 => delete function isn't working cos it has to be an object with id
-				2 => onclick of any available button on the board,it should toggle its UI that shows that is it part of the array
+	/*	TODO: 1 ==> delete function isn't working cos it has to be an object with id
+				2 ==> onclick of any available button on the board,it should toggle its UI that shows that is it part of the array
 	*/
 	return (
 		<div className="border border-solid overflow-hidden border-gray-200 rounded-md">
@@ -64,12 +65,12 @@ const SoftSkill = () => {
 										<div className="mb-8">
 											<header className="text-sm text-gray-400 mb-2">Soft skills you can possess</header>
 											<div className="flex items-center flex-wrap gap-2">
-												{skillsArrayData.slice(10, 18).map((eachSkill, skillIndex) => (
+												{arrayOfAvailableSkills.map((eachSkill, skillIndex) => (
 													<React.Fragment key={skillIndex}>
 														<span
 															className="flex items-center gap-[4px] hover:bg-main hover:bg-opacity-30 bg-[rgb(239,242,249)] rounded-[4px] p-2"
 															role="button"
-															onClick={(e) => addSoftSkill(e, eachSkill)}>
+															onClick={(e) => addSkillWithValue(e, eachSkill)}>
 															<span className="text-xs">{eachSkill}</span>
 															<Icon icon="iconoir:plus" />
 														</span>
@@ -86,30 +87,29 @@ const SoftSkill = () => {
 											<div
 												name="languages-container"
 												className="flex flex-wrap overflow-hidden items-center gap-2 mt-3 relative">
-												{softSkills && (
-													<>
-														{softSkills.map((skill, skillIndex) => {
-															return (
-																<React.Fragment key={skillIndex}>
-																	<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
-																		<span name="soft-skill" className="text-[.8rem]">
-																			{skill}
-																		</span>
-																		<span
-																			className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
-																			role="button"
-																			onClick={() => handleDeleteSkill(skillIndex)}>
-																			<Icon
-																				icon="ep:delete"
-																				className=" text-slate-700 group-hover/Language:text-red-600"
-																			/>
-																		</span>
+												{softSkills &&
+													softSkills.map(({ id, skillName }) => {
+														return (
+															<React.Fragment key={id}>
+																<span
+																	className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
+																	id={id}>
+																	<span name="soft-skill" className="text-[.8rem]">
+																		{skillName}
 																	</span>
-																</React.Fragment>
-															);
-														})}
-													</>
-												)}
+																	<span
+																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
+																		role="button"
+																		onClick={() => handleDeleteSkill(id)}>
+																		<Icon
+																			icon="ep:delete"
+																			className=" text-slate-700 group-hover/Language:text-red-600"
+																		/>
+																	</span>
+																</span>
+															</React.Fragment>
+														);
+													})}
 											</div>
 										</div>
 									)}
@@ -130,7 +130,7 @@ const SoftSkill = () => {
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
 													: " cursor-not-allowed bg-slate-200 text-gray-400"
 											}`}
-											onClick={addSoftSkill}
+											onClick={addSkillWithoutValue}
 											disable={inputValue ? "false" : "true"}>
 											Add
 										</button>
