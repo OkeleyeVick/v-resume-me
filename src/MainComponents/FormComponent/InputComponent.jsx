@@ -1,7 +1,7 @@
 import React from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
-import roles from "../../assets/db/roles.json";
+import roles from "../../assets/db/databsase.json";
 
 const InputWithLabel = ({
 	hasDropdown,
@@ -40,7 +40,7 @@ const InputWithLabel = ({
 				name={name}
 				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={(event) => updateTheDetail(event.target.value, name, action)}
+				onChange={updateTheDetail ? (event) => updateTheDetail(event.target.value, name, action) : null}
 				spellCheck="false"
 				inputMode={inputMode ?? "text"}
 				aria-label={ariaLabel}
@@ -74,5 +74,4 @@ const InputWithLabel = ({
 		</div>
 	);
 };
-
 export default InputWithLabel;
