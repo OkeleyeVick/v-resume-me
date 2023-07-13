@@ -7,33 +7,57 @@ import InputWithLabel from "../../FormComponent/InputComponent";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
-	const { softSkills } = skills; //the array of softSkills
 
 	const { soft_skills: skillsArrayData } = data; //from database
 
-	const arrayOfAvailableSkills = skillsArrayData.slice(10, 18);
+	const arrayOfAvailableSkills = skillsArrayData.map((skill, index) => ({ id: index, skillName: skill, isSet: false })); // all of their id, skillname and default value of false for isSet property
+
+	const [allSkills, setAllSkills] = useState(arrayOfAvailableSkills);
 
 	const [inputValue, setInput] = useState("");
-	const [skillObject, setSkillObject] = useState({ id: 0, skillName: "", isSet: false });
+	// const [skillObject, setSkillObject] = useState({ id: 0, skillName: "", isSet: false });
 
-	function addSkillWithValue(event, value) {
-		event.preventDefault();
-		console.log(value);
+	function addSkillWithValue(e, { ...value }) {
+		e.preventDefault();
+		const skillInTheArray = skills.softSkills.some(({ id }) => id === value.id);
+		if (!skillInTheArray) {
+			//if there is no such skill, add it to the list of skill
+			setSkills((previousSkills) => ({
+				...previousSkills,
+				softSkills: [...previousSkills.softSkills, { id: value.id, skillName: value.skillName, isSet: !value.isSet }],
+			}));
+		} else {
+			//get the item and set the kini to false
+			const theObject = skills.softSkills.find(({ id }) => id === value.id);
+		}
+		// update the UI of available skills
+		const newArray = allSkills.map((eachSkill) => {
+			if (value.id === eachSkill.id) {
+				return {
+					...eachSkill,
+					isSet: !eachSkill.isSet,
+				};
+			}
+			return eachSkill;
+		});
+		setAllSkills(newArray);
 	}
+
+	console.log(skills.softSkills);
 
 	function addSkillWithoutValue() {
 		//function for the add button
-		setInput("");
-		setSkills((oldObjects) => ({ ...oldObjects, softSkills: [...oldObjects.softSkills, skillObject] }));
-		setSkillObject((previousObject) => ({ ...previousObject, id: previousObject.id + 1 }));
+		// setInput("");
+		// setSkills((oldObjects) => ({ ...oldObjects, softSkills: [...oldObjects.softSkills, skillObject] }));
+		// setSkillObject((previousObject) => ({ ...previousObject, id: previousObject.id + 1 }));
 	}
 
 	const handleTheInput = (inputValue) => {
-		setInput(inputValue);
-		setSkillObject((prev) => ({
-			...prev,
-			skillName: inputValue,
-		}));
+		// setInput(inputValue);
+		// setSkillObject((prev) => ({
+		// 	...prev,
+		// 	skillName: inputValue,
+		// }));
 	};
 
 	function handleDeleteSkill(skillId) {
@@ -63,23 +87,32 @@ const SoftSkill = () => {
 								<div className={`px-2 bg-transparent round-sm ${open ? "py-3" : "py-0"}`}>
 									<>
 										<div className="mb-8">
-											<header className="text-sm text-gray-400 mb-2">Soft skills you can possess</header>
+											<header className="text-sm text-gray-400 mb-2">Select at most 5 Soft skills you might possess</header>
 											<div className="flex items-center flex-wrap gap-2">
-												{arrayOfAvailableSkills.map((eachSkill, skillIndex) => (
-													<React.Fragment key={skillIndex}>
-														<span
-															className="flex items-center gap-[4px] hover:bg-main hover:bg-opacity-30 bg-[rgb(239,242,249)] rounded-[4px] p-2"
-															role="button"
-															onClick={(e) => addSkillWithValue(e, eachSkill)}>
-															<span className="text-xs">{eachSkill}</span>
-															<Icon icon="iconoir:plus" />
-														</span>
-													</React.Fragment>
-												))}
+												{allSkills.map(({ skillName, id, isSet }) => {
+													return (
+														<React.Fragment key={id}>
+															<span
+																className={`flex items-center gap-[4px] rounded-[4px] p-2 ${
+																	isSet === true
+																		? "bg-hoverBgClr text-white hover:bg-opacity-90"
+																		: "text-slate-600 bg-[rgb(239,242,249)] hover:bg-main hover:bg-opacity-30"
+																}`}
+																role="button"
+																onClick={(e) => addSkillWithValue(e, { skillName, id, isSet })}>
+																<span className="text-[.7rem]">{skillName}</span>
+																<Icon
+																	icon={isSet ? "iconamoon:check" : "iconoir:plus"}
+																	className={`${isSet ? "text-white" : "text-slate-600"}`}
+																/>
+															</span>
+														</React.Fragment>
+													);
+												})}
 											</div>
 										</div>
 									</>
-									{softSkills.length !== 0 && (
+									{skills.softSkills.length !== 0 && (
 										<div className="p-3 border border-solid border-border_clr rounded-md">
 											<div className="flex items-center justify-between gap-y-2">
 												<header className="text-sm text-gray-400">Soft skills you possess</header>
@@ -87,8 +120,8 @@ const SoftSkill = () => {
 											<div
 												name="languages-container"
 												className="flex flex-wrap overflow-hidden items-center gap-2 mt-3 relative">
-												{softSkills &&
-													softSkills.map(({ id, skillName }) => {
+												{skills.softSkills &&
+													skills.softSkills.map(({ id, skillName }) => {
 														return (
 															<React.Fragment key={id}>
 																<span
@@ -113,11 +146,15 @@ const SoftSkill = () => {
 											</div>
 										</div>
 									)}
-									<div className="mt-8 flex items-center gap-4 flex-wrap">
+									<div className="mt-8 flex items-end gap-4 flex-wrap">
 										<div className="relative flex-grow">
 											<InputWithLabel
 												value={inputValue}
 												name="Soft-skill"
+												label="Enter skill"
+												hasExtraInfo
+												tooltip={"Enter a skill you can't find in the above listed"}
+												aria-label="soft-skill"
 												placeholder="Enter a skill you possess"
 												updateTheDetail={handleTheInput}
 											/>
