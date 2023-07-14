@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment } from "react";
 import "../../../assets/css/fonts.css";
 
 const baseFont = {
@@ -45,8 +45,9 @@ const DownloadButton = () => {
 						leaveTo="transform opacity-0 scale-95">
 						<Menu.Items className="absolute left-0 bottom-full origin-top-right rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none mb-1">
 							<div className="px-1 py-1 w-max flex flex-col">
-								{DownloadOptions.map(({ icon, size, title, download }) => (
+								{DownloadOptions.map(({ icon, size, title, download }, index) => (
 									<button
+										key={index}
 										type="button"
 										onClick={download}
 										className="flex items-center gap-1 p-2 hover:bg-main hover:text-white rounded-sm text-slate-800">
