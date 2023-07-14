@@ -1,74 +1,121 @@
-import React, { useContext, useMemo, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import { userDataContext } from "../CreateResumePage";
 import { Icon } from "@iconify/react";
-import data from "../../../assets/db/databsase.json";
 import InputWithLabel from "../../FormComponent/InputComponent";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
 
-	const { soft_skills: skillsArrayData } = data; //from database
+	const arrayOfAvailableSoftSkills = skills.softAvailableSkills;
 
-	const arrayOfAvailableSkills = skillsArrayData.map((skill, index) => ({ id: index, skillName: skill, isSet: false })); // all of their id, skillname and default value of false for isSet property
-
-	const [allSkills, setAllSkills] = useState(arrayOfAvailableSkills);
-
+	//states
 	const [inputValue, setInput] = useState("");
-	// const [skillObject, setSkillObject] = useState({ id: 0, skillName: "", isSet: false });
+	const [newSoftSkill, setNewSoftSkill] = useState({ id: arrayOfAvailableSoftSkills.length + 1, skillName: "" });
 
+	// functions
 	function addSkillWithValue(e, { ...value }) {
 		e.preventDefault();
+		//check if the skill in the list of user's skill exist
 		const skillInTheArray = skills.softSkills.some(({ id }) => id === value.id);
+
+		//if there is no such skill, add it to the list of skill
 		if (!skillInTheArray) {
-			//if there is no such skill, add it to the list of skill
+			// update the UI of available skills
+			const newArray = skills.softAvailableSkills.map((eachSkill) => {
+				if (value.id === eachSkill.id) {
+					return {
+						...eachSkill,
+						isSet: true,
+					};
+				}
+				return eachSkill;
+			});
 			setSkills((previousSkills) => ({
 				...previousSkills,
 				softSkills: [...previousSkills.softSkills, { id: value.id, skillName: value.skillName, isSet: !value.isSet }],
+				softAvailableSkills: [...newArray],
 			}));
-		} else {
-			//get the item and set the kini to false
-			const theObject = skills.softSkills.find(({ id }) => id === value.id);
 		}
-		// update the UI of available skills
-		const newArray = allSkills.map((eachSkill) => {
-			if (value.id === eachSkill.id) {
+	}
+
+	function addSkillWithoutValue() {
+		const allTheSkillNames = skills.softSkills.map(({ skillName }) => skillName.toLowerCase());
+		if (allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) {
+			// if the skill in not in the list of entered skills, add it to the list
+			setSkills((previousSkillData) => ({
+				...previousSkillData,
+				softSkills: [...previousSkillData.softSkills, newSoftSkill],
+			}));
+
+			//set the a new SkillItem with an incremented id
+			setNewSoftSkill((previousSkillDatas) => {
+				return {
+					...previousSkillDatas,
+					id: newSoftSkill.id + 1,
+				};
+			});
+
+			setInput(""); //clear the input
+		}
+	}
+
+	const handleTheInput = (inputValue) => {
+		setInput(inputValue);
+		setNewSoftSkill((prev) => ({
+			// update the value of the skillName
+			...prev,
+			skillName: inputValue,
+		}));
+	};
+	//TODO: PSALM 109 TO THE WATER
+	function handleDeleteSkill(skillId) {
+		if (skillId) {
+			const newArray = skills.softSkills.filter(({ id }) => id !== skillId);
+			setSkills((previousData) => ({
+				//delete skill away from the user's list
+				...previousData,
+				softSkills: [...newArray],
+			}));
+
+			const newAvailableSkills = skills.softAvailableSkills.map((eachSkill) => {
+				if (skillId === eachSkill.id) {
+					return {
+						...eachSkill,
+						isSet: false,
+					};
+				}
+				return eachSkill;
+			});
+			setSkills((previous) => ({
+				...previous,
+				softAvailableSkills: [...newAvailableSkills],
+			}));
+		}
+	}
+
+	function deleteAllSkills() {
+		setSkills((previous) => ({
+			...previous,
+			softSkills: [],
+		}));
+
+		// get all skills that has isSet === true
+		const newArray = skills.softAvailableSkills.map((eachSkill) => {
+			if (eachSkill.isSet === true) {
 				return {
 					...eachSkill,
-					isSet: !eachSkill.isSet,
+					isSet: false,
 				};
 			}
 			return eachSkill;
 		});
-		setAllSkills(newArray);
+		setSkills((previous) => ({
+			...previous,
+			softAvailableSkills: [...newArray],
+		}));
 	}
 
-	console.log(skills.softSkills);
-
-	function addSkillWithoutValue() {
-		//function for the add button
-		// setInput("");
-		// setSkills((oldObjects) => ({ ...oldObjects, softSkills: [...oldObjects.softSkills, skillObject] }));
-		// setSkillObject((previousObject) => ({ ...previousObject, id: previousObject.id + 1 }));
-	}
-
-	const handleTheInput = (inputValue) => {
-		// setInput(inputValue);
-		// setSkillObject((prev) => ({
-		// 	...prev,
-		// 	skillName: inputValue,
-		// }));
-	};
-
-	function handleDeleteSkill(skillId) {
-		// const newArray = softSkills.filter(({ id }) => id !== skillId);
-		console.log(skillId);
-		// setSkills(newArray);
-	}
-
-	/*	TODO: 1 ==> delete function isn't working cos it has to be an object with id
-				2 ==> onclick of any available button on the board,it should toggle its UI that shows that is it part of the array
-	*/
 	return (
 		<div className="border border-solid overflow-hidden border-gray-200 rounded-md">
 			<AccordionItem>
@@ -79,7 +126,7 @@ const SoftSkill = () => {
 								<span className="select-none flex flex-col items-start gap-x-3 px-2">
 									<h2 className="Capitalize font-semibold text-lg">Soft Skills</h2>
 									<span className="text-[13px] text-gray-400">
-										Enter the qualities you possess e.g Adaptability, Teamwork, Self-confidence... etc
+										Enter the qualities you possess e.g Adaptability, Teamwork, Self-confidence... etc.
 									</span>
 								</span>
 							</AccordionHeader>
@@ -88,24 +135,25 @@ const SoftSkill = () => {
 									<>
 										<div className="mb-8">
 											<header className="text-sm text-gray-400 mb-2">Select at most 5 Soft skills you might possess</header>
-											<div className="flex items-center flex-wrap gap-2">
-												{allSkills.map(({ skillName, id, isSet }) => {
+											<div className="flex items-center flex-wrap gap-2 overflow-y-scroll max-h-[350px] py-4 px-3 border border-solid border-border_clr rounded-md scroll">
+												{skills.softAvailableSkills.map(({ skillName, id, isSet }) => {
 													return (
 														<React.Fragment key={id}>
-															<span
+															<button
+																type="button"
 																className={`flex items-center gap-[4px] rounded-[4px] p-2 ${
 																	isSet === true
-																		? "bg-hoverBgClr text-white hover:bg-opacity-90"
-																		: "text-slate-600 bg-[rgb(239,242,249)] hover:bg-main hover:bg-opacity-30"
+																		? "bg-hoverBgClr text-white hover:bg-opacity-90 cursor-not-allowed "
+																		: "text-slate-600 bg-[rgb(239,242,249)] hover:bg-main hover:bg-opacity-30 cursor-pointer pointer-events-auto"
 																}`}
-																role="button"
+																disabled={isSet ? true : false}
 																onClick={(e) => addSkillWithValue(e, { skillName, id, isSet })}>
 																<span className="text-[.7rem]">{skillName}</span>
 																<Icon
-																	icon={isSet ? "iconamoon:check" : "iconoir:plus"}
+																	icon={isSet ? "solar:lock-keyhole-broken" : "solar:lock-keyhole-unlocked-broken"}
 																	className={`${isSet ? "text-white" : "text-slate-600"}`}
 																/>
-															</span>
+															</button>
 														</React.Fragment>
 													);
 												})}
@@ -116,27 +164,34 @@ const SoftSkill = () => {
 										<div className="p-3 border border-solid border-border_clr rounded-md">
 											<div className="flex items-center justify-between gap-y-2">
 												<header className="text-sm text-gray-400">Soft skills you possess</header>
+												<button
+													type="button"
+													className="flex items-center gap-2 text-gray-400 group/delete"
+													onClick={deleteAllSkills}>
+													<span className="text-[.8rem] leading-tighter group-hover/delete:text-red-500">Delete all</span>
+													<Icon icon="ep:delete" className="group-hover/delete:text-red-500 w-4 h-4" />
+												</button>
 											</div>
 											<div
 												name="languages-container"
 												className="flex flex-wrap overflow-hidden items-center gap-2 mt-3 relative">
-												{skills.softSkills &&
+												{skills.softSkills.length !== 0 &&
 													skills.softSkills.map(({ id, skillName }) => {
 														return (
 															<React.Fragment key={id}>
 																<span
-																	className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
+																	className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[2px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
 																	id={id}>
-																	<span name="soft-skill" className="text-[.8rem]">
+																	<span name="soft-skill" className="text-[.75rem]">
 																		{skillName}
 																	</span>
 																	<span
-																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
+																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
 																		role="button"
 																		onClick={() => handleDeleteSkill(id)}>
 																		<Icon
 																			icon="ep:delete"
-																			className=" text-slate-700 group-hover/Language:text-red-600"
+																			className=" text-slate-700 group-hover/delete:text-red-600"
 																		/>
 																	</span>
 																</span>

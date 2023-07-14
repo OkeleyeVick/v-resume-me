@@ -9,6 +9,7 @@ import { Icon } from "@iconify/react";
 import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
 import SkillsIndex from "./SkillsSection/SkillsIndex";
 import LanguageIndex from "./LanguageSection/LanguageIndex";
+import data from "../../assets/db/databsase.json";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
@@ -24,6 +25,9 @@ export const userDataContext = createContext();
 
 const CreateResumePage = () => {
 	const { userDetails, themeDetails, workExperienceDetails } = UserInputObjects(); //FROM OBJECTS
+	const { software_skills, soft_skills } = data;
+	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
+	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 
 	// all states
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
@@ -38,7 +42,9 @@ const CreateResumePage = () => {
 	const [hobbies, setHobbies] = useState([]); //array of hobbies
 	const [skills, setSkills] = useState({
 		softSkills: [],
+		softAvailableSkills: [...SOFT],
 		softwareSkills: [],
+		softWareAvailableSkills: [...SOFTWARE],
 	}); //ang object of skill types
 	const [languages, setLanguages] = useState([]); //array of objects for languages
 

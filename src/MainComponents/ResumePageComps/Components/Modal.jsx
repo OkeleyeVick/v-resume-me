@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Icon } from "@iconify/react";
+import React from "react";
 
-export default function Modal({ errorType }) {
-	return <>modal</>;
-}
+const Modal = () => {
+	return <div>Modal</div>;
+};
+
+export default Modal;

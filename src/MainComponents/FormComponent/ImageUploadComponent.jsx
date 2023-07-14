@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useContext, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Modal from "../ResumePageComps/Components/Modal";
+import Modal from "../ResumePageComps/Components/SearchModal";
 import { userDataContext } from "../ResumePageComps/CreateResumePage";
 
 const ImageUploadComponent = ({ label, imageSrc }) => {

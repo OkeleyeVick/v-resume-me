@@ -4,6 +4,7 @@ import ImageUploadComponent from "../../FormComponent/ImageUploadComponent";
 import { Icon } from "@iconify/react";
 import TextArea from "../../FormComponent/TextArea";
 import { userDataContext } from "../CreateResumePage";
+import SearchModal from "../Components/SearchModal";
 
 const UserIndex = () => {
 	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
@@ -25,6 +26,7 @@ const UserIndex = () => {
 					<Icon icon="uiw:user" className="w-8 h-8" />
 					<h2 className="font-semibold text-xl">Personal Information</h2>
 				</span>
+				<SearchModal />
 			</div>
 			<div className="flex flex-col md:grid grid-cols-2 gap-x-7 gap-y-4 md:items-end mb-4">
 				{Object.values(userPersonalData).map(
