@@ -78,7 +78,7 @@ const LanguageIndex = () => {
 									</>
 								)}
 
-								<div className="mt-10 mb-3">
+								<div className={`${languages.length !== 0 ? "mt-10" : "mt-3"} mb-3`}>
 									<div className="flex gap-4 justify-content-between items-end flex-wrap">
 										<div className="flex-grow">
 											<InputWithLabel

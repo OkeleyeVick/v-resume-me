@@ -10,12 +10,14 @@ const WorkExperienceIndex = () => {
 	const { workExperiences } = workExperienceValues;
 	const { userWorkExperiences, setUserWorkExperiences } = workExperiences; //array of user's experiences
 	const [currentWorkObject, setWorkObject] = useState({
-		id: 0,
-		company_name: "",
-		job_title: "",
+		id: -1,
+		companyName: "",
+		jobTitle: "",
 		country: "",
-		start_date: "",
-		end_date: "",
+		startMonth: "",
+		startYear: "",
+		endMonth: "",
+		endYear: "",
 		city: "",
 		isChecked: false,
 	});
@@ -29,13 +31,15 @@ const WorkExperienceIndex = () => {
 		//then initiate a new work object
 		const newWorkObject = {
 			id: currentWorkObject.id + 1,
-			company_name: "",
-			job_title: "",
+			companyName: "",
+			jobTitle: "",
 			country: "",
-			start_date: "",
-			end_date: "",
+			startMonth: "",
+			startYear: "",
+			endMonth: "",
+			endYear: "",
 			city: "",
-			isChecked: false,
+			currentlyWorkingThere: false,
 		};
 
 		//set the new workObject

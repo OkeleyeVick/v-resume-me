@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useComponentVisible from "../../../assets/hooks/useComponentVisible";
 import { Icon } from "@iconify/react";
 
@@ -14,11 +14,17 @@ function getYearList() {
 	return yearList;
 }
 
-const YearPicker = ({ year, setYear, className }) => {
+const YearPicker = ({ className, getYear }) => {
+	const [startYear, setStartYear] = useState("");
+
 	const { dropdownRef, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
 
 	function handleYearState() {
 		setIsComponentVisible((prev) => !prev);
+	}
+	function handleSetYear(year) {
+		setStartYear(year);
+		getYear(year);
 	}
 
 	return (
@@ -27,7 +33,7 @@ const YearPicker = ({ year, setYear, className }) => {
 				type="button"
 				className="bg-white border border-solid border-border_clr rounded-md w-full flex items-center p-2 px-3 lg:px-2 hover:border-main text-sm justify-between"
 				onClick={handleYearState}>
-				<span className="overflow-hidden text-ellipsis mr-1 text-gray-600">{year ? year : "Year"}</span>
+				<span className="overflow-hidden text-ellipsis mr-1 text-gray-600">{startYear ? startYear : "Year"}</span>
 				<span className=" bg-opacity-60 p-1 lg:px-0">
 					<Icon icon="fluent:chevron-down-20-filled" className="w-4 h-4 text-gray-500" />
 				</span>
@@ -43,7 +49,7 @@ const YearPicker = ({ year, setYear, className }) => {
 							<button
 								className="w-full rounded-sm text-sm p-1 px-1 ease-linear bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main text-gray-800 leading-tight "
 								type="button"
-								onClick={() => (setIsComponentVisible(false), setYear(year))}>
+								onClick={() => (setIsComponentVisible(false), handleSetYear(year))}>
 								{year}
 							</button>
 						</React.Fragment>

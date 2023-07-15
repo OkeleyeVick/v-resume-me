@@ -40,7 +40,6 @@ const SoftSkill = () => {
 	}
 
 	function addSkillWithoutValue() {
-		const arrayOfSkills = skills.softWareAvailableSkills.map(({ skillName }) => skillName.toLowerCase());
 		const allTheSkillNames = skills.softwareSkills.map(({ skillName }) => skillName.toLowerCase());
 		if (allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) {
 			// if the skill in not in the list of entered skills, add it to the list
@@ -124,7 +123,7 @@ const SoftSkill = () => {
 					return (
 						<>
 							<AccordionHeader className="px-2 py-3">
-								<span className="select-none flex flex-col items-start gap-x-3 px-2">
+								<span className="select-none flex flex-col items-start gap-x-3 px-2 text-start">
 									<h2 className="Capitalize font-semibold text-lg">Software Skills</h2>
 									<span className="text-[13px] text-gray-400">
 										Prioritize your skills and select the ones you are very good at.
@@ -204,7 +203,7 @@ const SoftSkill = () => {
 											</div>
 										</div>
 									)}
-									<div className="mt-8 flex items-end gap-4 flex-wrap">
+									<div className="mt-8 flex items-end gap-4 flex-wrap justify-end">
 										<div className="relative flex-grow">
 											<InputWithLabel
 												value={inputValue}

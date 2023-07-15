@@ -18,7 +18,6 @@ const SoftSkill = () => {
 		e.preventDefault();
 		//check if the skill in the list of user's skill exist
 		const skillInTheArray = skills.softSkills.some(({ id }) => id === value.id);
-
 		//if there is no such skill, add it to the list of skill
 		if (!skillInTheArray) {
 			// update the UI of available skills
@@ -68,7 +67,7 @@ const SoftSkill = () => {
 			skillName: inputValue,
 		}));
 	};
-	//TODO: PSALM 109 TO THE WATER
+
 	function handleDeleteSkill(skillId) {
 		if (skillId) {
 			const newArray = skills.softSkills.filter(({ id }) => id !== skillId);
@@ -123,7 +122,7 @@ const SoftSkill = () => {
 					return (
 						<>
 							<AccordionHeader className="px-2 py-3">
-								<span className="select-none flex flex-col items-start gap-x-3 px-2">
+								<span className="select-none flex flex-col items-start gap-x-3 px-2 text-start">
 									<h2 className="Capitalize font-semibold text-lg">Soft Skills</h2>
 									<span className="text-[13px] text-gray-400">
 										Enter the qualities you possess e.g Adaptability, Teamwork, Self-confidence... etc.
@@ -201,7 +200,7 @@ const SoftSkill = () => {
 											</div>
 										</div>
 									)}
-									<div className="mt-8 flex items-end gap-4 flex-wrap">
+									<div className="mt-8 flex items-end gap-4 flex-wrap justify-end">
 										<div className="relative flex-grow">
 											<InputWithLabel
 												value={inputValue}

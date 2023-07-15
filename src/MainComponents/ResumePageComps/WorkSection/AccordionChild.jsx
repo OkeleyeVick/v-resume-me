@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { Icon } from "@iconify/react";
@@ -7,25 +7,15 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count }) => {
-	// start work
-	const [startMonth, setStartMonth] = useState("");
-	const [startYear, setStartYear] = useState("");
-	// end job
-	const [endMonth, setEndMonth] = useState("");
-	const [endYear, setEndYear] = useState("");
-
+export const DateContext = createContext();
+const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
-	const [companyName, setCompanyName] = useState("");
-	const [jobTitle, setJobTitle] = useState("");
-	const [city, setCity] = useState("");
-	const [country, setCountry] = useState("");
+	const [workPlaceDetails, setWorkPlaceDetails] = useState(currentWorkObject);
 
 	// function that updates each input
-	function updateTheInput(inputValue, field, action) {
-		action(inputValue);
-		setWorkObject((previousData) => {
+	function updateTheInput(inputValue, field) {
+		setWorkPlaceDetails((previousData) => {
 			return {
 				...previousData,
 				[field]: inputValue,
@@ -33,15 +23,40 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 		});
 	}
 
+	function getStartMonth(monthNumber) {
+		setWorkPlaceDetails((previous) => ({
+			...previous,
+			startMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
+		}));
+	}
+	function getStartYear(startYear) {
+		setWorkPlaceDetails((previous) => ({
+			...previous,
+			startYear: `${startYear}`,
+		}));
+	}
+	function getEndMonth(monthNumber) {
+		setWorkPlaceDetails((previous) => ({
+			...previous,
+			endMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
+		}));
+	}
+	function getEndYear(endYear) {
+		setWorkPlaceDetails((previous) => ({
+			...previous,
+			endYear: `${endYear}`,
+		}));
+	}
+
+	console.log(workPlaceDetails);
+
 	function handleTheCheck() {
 		// handle the check and change the state
 		setIsChecked((oldState) => !oldState);
-		setWorkObject((prev) => {
-			return {
-				...prev,
-				isChecked: !prev.isChecked,
-			};
-		});
+		setWorkPlaceDetails((previousData) => ({
+			...previousData,
+			currentlyWorkingThere: !previousData.currentlyWorkingThere,
+		}));
 	}
 
 	return (
@@ -73,28 +88,28 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
-										name="company_name"
+										name="companyName"
 										label="Company name"
-										className="bg-white border-gray-200"
+										value={workPlaceDetails.companyName}
 										updateTheDetail={updateTheInput}
-										action={setCompanyName}
-										value={companyName}
+										action={setWorkPlaceDetails}
+										className="bg-white border-gray-200"
 									/>
 
 									<InputWithLabel
-										name="job_title"
+										name="jobTitle"
+										updateTheDetail={updateTheInput}
+										value={workPlaceDetails.jobTitle}
+										action={setWorkPlaceDetails}
 										label="Job title"
 										className="bg-white border-gray-200"
-										updateTheDetail={updateTheInput}
-										value={jobTitle}
-										action={setJobTitle}
 									/>
 
 									<InputWithLabel
 										label="city"
 										name="city"
-										value={city}
-										action={setCity}
+										value={workPlaceDetails.city}
+										action={setWorkPlaceDetails}
 										updateTheDetail={updateTheInput}
 										className="bg-white border-gray-200"
 									/>
@@ -102,8 +117,8 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 									<InputWithLabel
 										label="County"
 										name="country"
-										value={country}
-										action={setCountry}
+										value={workPlaceDetails.country}
+										action={setWorkPlaceDetails}
 										updateTheDetail={updateTheInput}
 										className="bg-white border-gray-200"
 									/>
@@ -112,8 +127,8 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 										<small className="mb-2">Time period</small>
 										<div className={`flex items-start justify-between gap-x-2 gap-y-4 w-full flex-wrap sm:flex-nowrap relative`}>
 											<div className="grid grid-cols-3 gap-2 flex-grow">
-												<MonthPicker className="col-span-2" month={startMonth} setMonth={setStartMonth} />
-												<YearPicker className="col-span-1" year={startYear} setYear={setStartYear} />
+												<MonthPicker className="col-span-2" getMonth={getStartMonth} />
+												<YearPicker className="col-span-1" getYear={getStartYear} />
 											</div>
 											<div className="hidden sm:inline leading-none mt-4">&mdash;</div>
 											<div className="flex-grow">
@@ -126,8 +141,8 @@ const AccordionChild = ({ eachAccordion, setWorkObject, deleteExperience, count 
 												) : (
 													<>
 														<div className="end-date grid grid-cols-3 gap-2">
-															<MonthPicker month={endMonth} setMonth={setEndMonth} className="col-span-2" />
-															<YearPicker className="col-span-1" year={endYear} setYear={setEndYear} />
+															<MonthPicker className="col-span-2" getMonth={getEndMonth} />
+															<YearPicker className="col-span-1" getYear={getEndYear} />
 														</div>
 													</>
 												)}

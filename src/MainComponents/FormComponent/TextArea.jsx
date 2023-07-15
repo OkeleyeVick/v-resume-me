@@ -1,10 +1,15 @@
 import { Icon } from "@iconify/react";
 import { Editor } from "@tinymce/tinymce-react";
 import { useRef } from "react";
+import "../../assets/css/fonts.css";
+
+const font = {
+	Syne: "Syne",
+};
 
 const key = import.meta.env.VITE_TINY_MCE_KEY;
 
-const TextArea = ({ hasSubText, name, placeholder, "aria-label": ariaLabel }) => {
+const TextArea = ({ hasSubText, name }) => {
 	const editorRef = useRef(null);
 	const log = () => {
 		if (editorRef.current) {
@@ -23,7 +28,7 @@ const TextArea = ({ hasSubText, name, placeholder, "aria-label": ariaLabel }) =>
 			) : (
 				""
 			)}
-			<div>
+			<>
 				<Editor
 					apiKey={key}
 					onInit={(evt, editor) => (editorRef.current = editor)}
@@ -31,12 +36,12 @@ const TextArea = ({ hasSubText, name, placeholder, "aria-label": ariaLabel }) =>
 					init={{
 						height: 300,
 						menubar: false,
+						statusbar: false,
 						plugins: [
 							"advlist",
 							"autolink",
 							"lists",
 							"link",
-							"image",
 							"charmap",
 							"preview",
 							"anchor",
@@ -46,7 +51,6 @@ const TextArea = ({ hasSubText, name, placeholder, "aria-label": ariaLabel }) =>
 							"fullscreen",
 							"insertdatetime",
 							"media",
-							"table",
 							"code",
 							"help",
 							"wordcount",
@@ -56,10 +60,10 @@ const TextArea = ({ hasSubText, name, placeholder, "aria-label": ariaLabel }) =>
 							"bold italic forecolor | alignleft aligncenter " +
 							"alignright alignjustify | bullist numlist outdent indent | " +
 							"removeformat | help",
-						content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+						content_style: `body { font-family: ${font.Syne},Helvetica,Arial,sans-serif; font-size:14px }`,
 					}}
 				/>
-			</div>
+			</>
 		</div>
 	);
 };

@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import TextArea from "../../FormComponent/TextArea";
 import { userDataContext } from "../CreateResumePage";
 import SearchModal from "../Components/SearchModal";
+import TipTap from "../../FormComponent/Tiptap.jsx";
 
 const UserIndex = () => {
 	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
@@ -54,7 +55,8 @@ const UserIndex = () => {
 				)}
 			</div>
 			<div className="summary">
-				<TextArea label="summary" aria-label="summary" hasSubText />
+				{/* <TextArea label="summary" aria-label="summary" hasSubText /> */}
+				{/* <TipTap /> */}
 			</div>
 		</React.Fragment>
 	);

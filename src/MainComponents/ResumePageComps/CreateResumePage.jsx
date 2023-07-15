@@ -3,13 +3,13 @@ import ResumePreviewPage from "./ResumePreviewPage";
 import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import "../../assets/css/fonts.css";
-import UserInputObjects from "./UserInputObjects";
-// import ThemeFamily from "../../assets/theme/ThemeFamily";
 import { Icon } from "@iconify/react";
 import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
 import SkillsIndex from "./SkillsSection/SkillsIndex";
 import LanguageIndex from "./LanguageSection/LanguageIndex";
 import data from "../../assets/db/databsase.json";
+import UserInputObjects from "./UserInputObjects";
+import EducationIndex from "./EducationSection/EducationIndex";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
@@ -24,34 +24,47 @@ export const themeContext = createContext();
 export const userDataContext = createContext();
 
 const CreateResumePage = () => {
-	const { userDetails, themeDetails, workExperienceDetails } = UserInputObjects(); //FROM OBJECTS
+	const { userDetails, themeDetails } = UserInputObjects(); //FROM OBJECTS
 	const { software_skills, soft_skills } = data;
 	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 
 	// all states
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
-	const [userEducationData, setUserEducationData] = useState([]); //an array of objects of educationDetails details
+
+	//an array of objects of educationDetails details
+	const [userEducationData, setUserEducationData] = useState([]);
+
+	// an object that contains all user inputs
 	const [userGeneralData, setUserGeneralData] = useState({
 		USER_PERSONAL_DATA: {},
 		USER_EDUCATION_DATA: [],
 		USER_WORK_EXPERIENCE_DATA: [],
 		USER_HOBBIES_DATA: [],
 		USER_LANGUAGES_DATA: [],
-	}); // an object that contains all user inputs
-	const [hobbies, setHobbies] = useState([]); //array of hobbies
+	});
+
+	//array of hobbies
+	const [hobbies, setHobbies] = useState([]);
+
+	//an object of skill types
 	const [skills, setSkills] = useState({
 		softSkills: [],
 		softAvailableSkills: [...SOFT],
 		softwareSkills: [],
 		softWareAvailableSkills: [...SOFTWARE],
-	}); //ang object of skill types
-	const [languages, setLanguages] = useState([]); //array of objects for languages
+	});
+
+	//array of objects for languages
+	const [languages, setLanguages] = useState([]);
 
 	// everything about work experience
 	const [userWorkExperiences, setUserWorkExperiences] = useState([]); // an object of user work experience
-	const [themeSelection, setSelectedThemes] = useState(themeDetails); //fonts and selection
 
+	//fonts and selection
+	const [themeSelection, setSelectedThemes] = useState(themeDetails);
+
+	//setting the look of the preview resume
 	const [largePreview, setLargePreview] = useState(false);
 	function zoomIn() {
 		setLargePreview((previousView) => !previousView);
@@ -100,6 +113,9 @@ const CreateResumePage = () => {
 							<div className="flex flex-col gap-y-3">
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
+								</section>
+								<section id="user-education">
+									<EducationIndex />
 								</section>
 								<section id="user-work-experience">
 									<WorkExperienceIndex />
