@@ -2,7 +2,6 @@ import React, { memo, useContext } from "react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import ImageUploadComponent from "../../FormComponent/ImageUploadComponent";
 import { Icon } from "@iconify/react";
-import TextArea from "../../FormComponent/TextArea";
 import { userDataContext } from "../CreateResumePage";
 import SearchModal from "../Components/SearchModal";
 import TipTap from "../../FormComponent/Tiptap.jsx";
@@ -55,8 +54,7 @@ const UserIndex = () => {
 				)}
 			</div>
 			<div className="summary">
-				{/* <TextArea label="summary" aria-label="summary" hasSubText /> */}
-				{/* <TipTap /> */}
+				<TipTap />
 			</div>
 		</React.Fragment>
 	);

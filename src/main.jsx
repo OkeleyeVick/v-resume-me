@@ -8,9 +8,7 @@ import { MotionConfig } from "framer-motion";
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<MotionConfig>
-				<App />
-			</MotionConfig>
+			<App />
 		</BrowserRouter>
 	</React.StrictMode>
 );

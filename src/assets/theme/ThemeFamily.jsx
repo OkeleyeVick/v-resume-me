@@ -7,11 +7,13 @@ import "../../MainComponents/ResumePageComps/Components/date.css";
 import { memo } from "react";
 
 const fontFamily = {
+	Roboto: "Roboto",
 	Stolzl: "Stolzl",
 	IBMPlexSans: "IBMPlexSans",
 	Söhne: "Söhne",
 	"Fira Code": "Fira Code",
 	Syne: "Syne",
+	Inter: "Inter",
 	Montserrat: "Montserrat",
 	Mulish: "Mulish",
 	"Nunito Sans": "Nunito Sans",
@@ -41,7 +43,7 @@ const ThemeFamily = () => {
 	const [colorThemeState, setColorThemeState] = useState("#000");
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
 	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(false);
-	const [selectedFont, setSelectedFont] = useState(font.family.customFont ?? font.family.default);
+	const [selectedFont, setSelectedFont] = useState(font.family.customFont);
 
 	// functions
 	function handleColorThemeChange(event) {
@@ -110,8 +112,8 @@ const ThemeFamily = () => {
 							type="button"
 							className="flex items-center justify-between py-3 px-4 hover:bg-ash_white w-full"
 							onClick={openDropdown}>
-							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont}` }}>
-								{selectedFont}
+							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont ?? "system-ui"}` }}>
+								{selectedFont ?? "Select font"}
 							</span>
 							<Icon
 								icon="fluent:chevron-down-24-filled"

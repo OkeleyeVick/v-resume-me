@@ -3,6 +3,10 @@
 	src: url("../fonts/Syne-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
+	font-family: "Inter";
+	src: url("../fonts/Inter-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
 	font-family: "Rubik";
 	src: url("../fonts/Rubik-VariableFont_wght.ttf") format("truetype");
 }

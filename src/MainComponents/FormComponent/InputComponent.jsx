@@ -20,7 +20,7 @@ const InputWithLabel = ({
 }) => {
 	return (
 		<div
-			className={`input_container flex flex-col relative before:block before:absolute before:content-[''] before:bg-main before:w-full before:h-[1.6px] before:bottom-0 before:transition before:duration-300 before:origin-center h-fit`}>
+			className={`input_container flex flex-col relative before:block before:absolute before:content-[''] before:bg-main before:w-full before:h-[1.4px] before:bottom-0 before:transition before:duration-300 before:origin-center h-fit`}>
 			<div className={`${hasExtraInfo ? "flex items-center gap-x-2" : ""}`}>
 				<label htmlFor={label} className="capitalize md:text-[.85rem] leading-5 mb-[2px] text-[rgb(130,139,162)]">
 					{label}
