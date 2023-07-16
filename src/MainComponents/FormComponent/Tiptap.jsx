@@ -45,24 +45,16 @@ const Tiptap = () => {
 			<div className="bg-input_clr rounded-sm p-2 before:bg-main relative before:absolute before:bottom-0 before:h-[1.5px] before:w-full before:content-normal before:left-0 before:right-0 focus-within:before:scale-x-100 before:scale-x-0 before:transition before:duration-300 before:ease-in-out">
 				<div className="flex items-center">
 					<div className="flex items-center gap-1 px-1">
-						<button
-							onClick={() => editor.chain().focus().toggleBold().run()}
-							className={`${editor.isActive("bold") ? "bg-main text-white p-1" : " "}`}>
+						<button onClick={() => editor.chain().focus().toggleBold().run()}>
 							<Icon icon="healthicons:b" className="w-4 h-4" />
 						</button>
-						<button
-							onClick={() => editor.chain().focus().toggleItalic().run()}
-							className={`${editor.isActive("italic") ? "bg-main text-white p-1" : " "}`}>
+						<button onClick={() => editor.chain().focus().toggleItalic().run()}>
 							<Icon icon="healthicons:i" className="w-4 h-4" />
 						</button>
-						<button
-							onClick={() => editor.chain().focus().toggleStrike().run()}
-							className={`${editor.isActive("strike") ? "bg-main text-white p-1" : " "}`}>
+						<button onClick={() => editor.chain().focus().toggleStrike().run()}>
 							<Icon icon="tabler:strikethrough" className="w-4 h-4" />
 						</button>
-						<button
-							onClick={() => editor.chain().focus().toggleUnderline().run()}
-							className={`${editor.isActive("underline") ? "bg-main text-white p-1" : " "}`}>
+						<button onClick={() => editor.chain().focus().toggleUnderline().run()}>
 							<Icon icon="fe:underline" className="w-4 h-4" />
 						</button>
 					</div>
@@ -73,9 +65,7 @@ const Tiptap = () => {
 							className={isActive === "" ? "bg-main text-white p-1" : " "}>
 							<Icon icon="ant-design:ordered-list-outlined" className="w-4 h-4" />
 						</button>
-						<button
-							onClick={() => editor.chain().focus().toggleBlockquote().run()}
-							className={`${editor.isActive("blockquote") ? "bg-main text-white p-1" : " "}`}>
+						<button onClick={() => editor.chain().focus().toggleBlockquote().run()}>
 							<Icon icon="ant-design:unordered-list-outlined" className="w-4 h-4" />
 						</button>
 					</div>
