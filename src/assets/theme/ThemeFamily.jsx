@@ -37,10 +37,10 @@ const fontFamily = {
 
 const ThemeFamily = () => {
 	// contexts
-	const { themeSelection, setSelectedThemes, setSideBarState, sideBarState } = useContext(themeContext);
+	const { themeSelection, setSelectedThemes, setSideBarState, sideBarState, largePreview } = useContext(themeContext);
 	const { userResumeColor, themeSideBar, font } = themeSelection;
 	// states
-	const [colorThemeState, setColorThemeState] = useState("#000");
+	const [colorThemeState, setColorThemeState] = useState(userResumeColor.selectedColor.color);
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
 	const [isActiveFontDropdown, setisActiveFontDropdown] = useState(false);
 	const [selectedFont, setSelectedFont] = useState(font.family.customFont);
@@ -49,6 +49,16 @@ const ThemeFamily = () => {
 	function handleColorThemeChange(event) {
 		// function that handles the color set by the user
 		setColorThemeState(event.hex);
+		setSelectedThemes((previousTheme) => ({
+			...previousTheme,
+			userResumeColor: {
+				...previousTheme.userResumeColor,
+				selectedColor: {
+					...previousTheme.userResumeColor.selectedColor,
+					color: event.hex,
+				},
+			},
+		}));
 	}
 
 	function handleColorDropdownState() {
@@ -105,6 +115,9 @@ const ThemeFamily = () => {
 						<Icon icon="mi:close" className="w-5 h-5" />
 					</button>
 				</div>
+				<div title="theme-title">
+					<h1 className="text-slate-900 font-medium text-xl">Theme Options</h1>
+				</div>
 				<div className="flex flex-col gap-y-2">
 					<h6 className="font-medium">Font</h6>
 					<div className="border border-solid border-border_clr rounded-md relative">
@@ -153,7 +166,7 @@ const ThemeFamily = () => {
 								isActiveColorDropdown ? "bg-main hover:bg-hoverBgClr" : "bg-white"
 							}`}
 							onClick={handleColorDropdownState}>
-							<Icon icon="fluent-emoji:artist-medium-light" className="w-10 h-10" />
+							<Icon icon="fluent-emoji:artist-medium-light" className="w-8 h-8" />
 						</button>
 					</div>
 					<div
@@ -162,6 +175,9 @@ const ThemeFamily = () => {
 						}`}>
 						<BlockPicker color={colorThemeState} onChange={handleColorThemeChange} />
 					</div>
+				</div>
+				<div className="mt-4 p-4 border border-solid border-border_clr rounded-md">
+					<span className="text-slate-400">More theme options coming soon...</span>
 				</div>
 			</div>
 		</div>

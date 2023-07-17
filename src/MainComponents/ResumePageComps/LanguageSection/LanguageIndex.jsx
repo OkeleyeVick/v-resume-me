@@ -41,8 +41,8 @@ const LanguageIndex = () => {
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
 						<span className="select-none flex items-center gap-x-3">
-							<Icon icon="heroicons:language-solid" className="w-8 h-8" />
-							<h2 className="Capitalize font-semibold text-xl">Languages</h2>
+							<Icon icon="clarity:language-line" className="w-8 h-8" />
+							<h2 className="Capitalize font-semibold text-xl">Language</h2>
 						</span>
 					</AccordionHeader>
 

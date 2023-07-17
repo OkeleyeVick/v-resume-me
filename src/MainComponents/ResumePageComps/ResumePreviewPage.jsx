@@ -6,6 +6,7 @@ import { themeContext } from "./CreateResumePage";
 //TODO: FIX THE WIDTH AND HEIGHT OF RESUME PREVIEW
 const ResumePreviewPage = () => {
 	const { scale, largePreview, setLargePreview, themeSelection } = useContext(themeContext);
+	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
 	return (
@@ -15,7 +16,7 @@ const ResumePreviewPage = () => {
 					<div
 						name="resume-preview"
 						className={`bg-white whitespace-pre-wrap p-4 text-xs shadow-md rounded-[4px]`}
-						style={{ height: `calc(${297}px * ${scale})`, width: `calc(${240}px * ${scale})` }}>
+						style={{ height: `calc(${297}px * ${scale})`, width: `calc(${240}px * ${scale})`, backgroundColor: `${color}` }}>
 						<BasicResumeContainer />
 					</div>
 				</div>

@@ -20,7 +20,7 @@ const HobbyIndex = () => {
 		});
 	}
 
-	function addLanguage() {
+	function addHobby() {
 		if (hobbiesInput.trim().length !== 0) {
 			setHobbies((previousHobbies) => {
 				return [...previousHobbies, hobbyItem];
@@ -30,8 +30,8 @@ const HobbyIndex = () => {
 		}
 	}
 
-	const handleDeleteHobby = (LanguageId) => {
-		const newHobbies = hobbies.filter((eachLanguage) => eachLanguage.id !== LanguageId);
+	const handleDeleteHobby = (HobbyId) => {
+		const newHobbies = hobbies.filter((eachHobby) => eachHobby.id !== HobbyId);
 		setHobbies(newHobbies);
 	};
 
@@ -52,24 +52,21 @@ const HobbyIndex = () => {
 								{hobbies.length !== 0 && (
 									<>
 										<div className="flex items-center justify-between gap-y-2">
-											<header className="text-sm text-gray-400">Hobbies you can speak</header>
+											<header className="text-sm text-gray-400">Your favourite hobbies</header>
 										</div>
 										<div name="hobbies-container" className="flex flex-wrap overflow-hidden items-center gap-3 mt-3 relative">
 											{hobbies &&
 												hobbies.map(({ hobbyName, id }, langIndex) => (
 													<React.Fragment key={langIndex}>
 														<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
-															<span name="language" className="text-sm">
+															<span name="hobby" className="text-sm">
 																{hobbyName}
 															</span>
 															<span
-																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
+																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Hobby -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
 																role="button"
 																onClick={() => handleDeleteHobby(id)}>
-																<Icon
-																	icon="ep:delete"
-																	className=" text-slate-700 group-hover/Language:text-red-600"
-																/>
+																<Icon icon="ep:delete" className=" text-slate-700 group-hover/Hobby:text-red-600" />
 															</span>
 														</span>
 													</React.Fragment>
@@ -83,10 +80,10 @@ const HobbyIndex = () => {
 										<div className="flex-grow">
 											<InputWithLabel
 												value={hobbiesInput}
-												name="language"
-												label="Language"
+												name="hobby"
+												label="Hobby"
 												updateTheDetail={setTheInput}
-												placeholder="Enter a language you speak "
+												placeholder="Enter your hobbies"
 											/>
 										</div>
 										<button
@@ -96,7 +93,7 @@ const HobbyIndex = () => {
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
 													: " cursor-not-allowed bg-slate-200 text-gray-400"
 											}`}
-											onClick={addLanguage}
+											onClick={addHobby}
 											disable={hobbiesInput ? "false" : "true"}>
 											Add
 										</button>

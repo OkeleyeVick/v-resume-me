@@ -63,13 +63,13 @@ const CreateResumePage = () => {
 	const [userWorkExperiences, setUserWorkExperiences] = useState([]); // an object of user work experience
 
 	//fonts and selection
-	const [themeSelection, setSelectedThemes] = useState(themeDetails);
 
 	//setting the look of the preview resume
 	const [largePreview, setLargePreview] = useState(false);
 	function zoomIn() {
 		setLargePreview((previousView) => !previousView);
 	}
+	const [themeSelection, setSelectedThemes] = useState(themeDetails);
 	const [sideBarState, setSideBarState] = useState(false);
 
 	// TODO: the font size should increase differently
@@ -97,12 +97,12 @@ const CreateResumePage = () => {
 			<themeContext.Provider
 				value={{
 					scale: largePreview === true ? parseFloat(1.8) : parseFloat(1.5),
-					setSelectedThemes,
 					largePreview,
 					setLargePreview,
 					sideBarState,
 					setSideBarState,
 					themeSelection,
+					setSelectedThemes,
 				}}>
 				<React.Fragment>
 					<div className="min-h-screen flex items-stretch">

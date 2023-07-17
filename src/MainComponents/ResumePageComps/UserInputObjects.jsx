@@ -23,7 +23,6 @@ const UserInputObjects = () => {
 		userResumeColor: {
 			selectedColor: {
 				// resume color that a user picks
-				default: "#000",
 				color: "#000",
 			},
 			colorSelectionMenu: {

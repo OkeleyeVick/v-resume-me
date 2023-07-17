@@ -21,19 +21,19 @@ const resumes = [
 		image: resumeSeven,
 		resumetype: "basic",
 		name: "basic_II",
-		locked: false,
+		locked: true,
 	},
 	{
 		image: resumeEight,
 		resumetype: "basic",
 		name: "basic_I",
-		locked: false,
+		locked: true,
 	},
 	{
 		image: resumeSix,
 		resumetype: "standard",
 		name: "standard",
-		locked: false,
+		locked: true,
 	},
 	{
 		image: resumeFive,
@@ -75,13 +75,18 @@ const SelectTemplate = () => {
 						<h1 className="text-main font-bold text-2xl md:text-4xl">Select any template of your choice</h1>
 						<small className="text-sm">You can only select one template for use</small>
 					</div>
+					<div className="text-center mt-8">
+						<Link to="/create-resume/demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
+							Create a very basic demo Resume
+						</Link>
+					</div>
 					<div className="py-8 px-4 md:py-16">
 						<ul className="grid grid-cols-2 lg:grid-cols-3 gap-4 gap-y-10 md:gap-8 md:gap-y-20">
 							{resumes.map(({ image, resumetype, locked, name }, resumeIndex) => {
 								return (
 									<React.Fragment key={resumeIndex}>
 										<div className="flex flex-col justify-between">
-											<div className="border border-main rounded-md overflow-hidden relative">
+											<div className="border border-main rounded-md h-full overflow-hidden relative">
 												<div
 													className={`absolute inset-0 m-auto flex items-center justify-center bg-black/50 ${
 														locked ? "hover:bg-main" : ""

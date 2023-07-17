@@ -26,7 +26,8 @@
 		"react-dom": "^18.2.0",
 		"react-headless-accordion": "^1.0.2",
 		"react-router-dom": "^6.12.1",
-		"react-use-is-online": "^1.3.0"
+		"react-use-is-online": "^1.3.0",
+		"vanilla-tilt": "^1.8.0"
 	},
 	"devDependencies": {
 		"@iconify/react": "^4.1.0",
