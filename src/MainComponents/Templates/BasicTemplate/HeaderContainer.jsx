@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Div, H1 } from "../../../assets/theme/fontSizes";
+import { themeContext, userDataContext } from "../../ResumePageComps/CreateResumePage";
 
 const HeaderContainer = () => {
+	const { largePreview } = useContext(themeContext);
 	const { userPersonalData } = useContext(userDataContext);
 	const { firstname, lastname } = userPersonalData;
 
@@ -12,10 +12,10 @@ const HeaderContainer = () => {
 	return (
 		<React.Fragment>
 			{(firstname.value || lastname.value) && (
-				<div className="mb-3 border-b-2 border-solid">
-					<H1 className="block text-center font-extrabold leading-none">
+				<div className="mb-3 border-b border-solid">
+					<h1 className={`block text-center font-extrabold leading-none ${largePreview ? "text-xl" : "text-[14px]"}`}>
 						{trimText(lastname)} {trimText(firstname)}
-					</H1>
+					</h1>
 				</div>
 			)}
 		</React.Fragment>

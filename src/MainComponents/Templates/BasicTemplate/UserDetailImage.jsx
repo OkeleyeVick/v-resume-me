@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Div, H4, H5, Link_, ProfileImageContainer, Span } from "../../../assets/theme/fontSizes";
+import { Link } from "react-router-dom";
 
 const UserDetailImage = () => {
 	const { userPersonalData } = useContext(userDataContext);
@@ -21,13 +21,13 @@ const UserDetailImage = () => {
 							<React.Fragment key={index}>
 								{returnValue(eachUserDetail) ? (
 									<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
-										<H5 className="key capitalize font-semibold">{eachUserDetail.nameLabel}: </H5>
+										<h5 className="key capitalize font-semibold">{eachUserDetail.nameLabel}: </h5>
 										{eachUserDetail === email ? (
-											<Link_ href="https://www.twitter.com" target="_blank">
+											<Link to="https://www.twitter.com" target="_blank" className="text-blue-900 underline">
 												{returnValue(eachUserDetail)}
-											</Link_>
+											</Link>
 										) : (
-											<Span className="value">{returnValue(eachUserDetail)}</Span>
+											<span className="value">{returnValue(eachUserDetail)}</span>
 										)}
 									</div>
 								) : null}
@@ -35,17 +35,17 @@ const UserDetailImage = () => {
 						);
 					})}
 					{(returnValue(address) !== "" || returnValue(city) !== "" || returnValue(country) !== "") && (
-						<Div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
-							<H5 className="font-semibold">Address: </H5>
-							<Span>{fullAddress}</Span>
-						</Div>
+						<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
+							<h5 className="font-semibold">Address: </h5>
+							<span>{fullAddress}</span>
+						</div>
 					)}
 				</div>
 				<div className="col-span-1 text-end flex items-center justify-end">
 					{image.imageSrc ? (
-						<ProfileImageContainer className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between">
+						<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-12">
 							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
-						</ProfileImageContainer>
+						</div>
 					) : (
 						""
 					)}

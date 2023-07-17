@@ -7,14 +7,14 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, currentWorkObject }) => {
+const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, currentEducationObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
-	const [workPlaceDetails, setWorkPlaceDetails] = useState(currentWorkObject);
+	const [educationDetails, setEducationDetails] = useState(currentEducationObject);
 
 	// function that updates each input
 	function updateTheInput(inputValue, field) {
-		setWorkPlaceDetails((previousData) => {
+		setEducationDetails((previousData) => {
 			return {
 				...previousData,
 				[field]: inputValue,
@@ -23,38 +23,36 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 	}
 
 	function getStartMonth(monthNumber) {
-		setWorkPlaceDetails((previous) => ({
+		setEducationDetails((previous) => ({
 			...previous,
 			startMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
 		}));
 	}
 	function getStartYear(startYear) {
-		setWorkPlaceDetails((previous) => ({
+		setEducationDetails((previous) => ({
 			...previous,
 			startYear: `${startYear}`,
 		}));
 	}
 	function getEndMonth(monthNumber) {
-		setWorkPlaceDetails((previous) => ({
+		setEducationDetails((previous) => ({
 			...previous,
 			endMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
 		}));
 	}
 	function getEndYear(endYear) {
-		setWorkPlaceDetails((previous) => ({
+		setEducationDetails((previous) => ({
 			...previous,
 			endYear: `${endYear}`,
 		}));
 	}
 
-	console.log(workPlaceDetails);
-
 	function handleTheCheck() {
 		// handle the check and change the state
 		setIsChecked((oldState) => !oldState);
-		setWorkPlaceDetails((previousData) => ({
+		setEducationDetails((previousData) => ({
 			...previousData,
-			currentlyWorkingThere: !previousData.currentlyWorkingThere,
+			currentlySchoolingThere: !previousData.currentlySchoolingThere,
 		}));
 	}
 
@@ -69,11 +67,13 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 									className={`flex items-center p-4 justify-between border-b border-solid ${
 										open ? "border-border_clr" : "border-b-transparent"
 									}`}>
-									<span className="id-number">Experience #{parseInt(count + 1)}</span>
+									<span className="school-name text-sm font-medium">
+										{educationDetails.school.trim().length !== 0 ? educationDetails.school.trim() : "(Not specified)"}
+									</span>
 									<span className="flex items-center gap-3">
 										<button
 											type="button"
-											className="outline-transparent focus-visible:outline-main"
+											className="outline-transparent focus-visible:outline-main p-1"
 											onClick={(e) => deleteExperience(e, eachAccordion.id)}>
 											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500" />
 										</button>
@@ -87,28 +87,28 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
-										name="companyName"
-										label="Company name"
-										value={workPlaceDetails.companyName}
+										name="school"
+										label="School"
+										value={educationDetails.school}
 										updateTheDetail={updateTheInput}
-										action={setWorkPlaceDetails}
+										action={setEducationDetails}
 										className="bg-white border-gray-200"
 									/>
 
 									<InputWithLabel
-										name="jobTitle"
+										name="degree"
 										updateTheDetail={updateTheInput}
-										value={workPlaceDetails.jobTitle}
-										action={setWorkPlaceDetails}
-										label="Job title"
+										value={educationDetails.degree}
+										action={setEducationDetails}
+										label="Degree"
 										className="bg-white border-gray-200"
 									/>
 
 									<InputWithLabel
 										label="city"
 										name="city"
-										value={workPlaceDetails.city}
-										action={setWorkPlaceDetails}
+										value={educationDetails.city}
+										action={setEducationDetails}
 										updateTheDetail={updateTheInput}
 										className="bg-white border-gray-200"
 									/>
@@ -116,8 +116,8 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 									<InputWithLabel
 										label="County"
 										name="country"
-										value={workPlaceDetails.country}
-										action={setWorkPlaceDetails}
+										value={educationDetails.country}
+										action={setEducationDetails}
 										updateTheDetail={updateTheInput}
 										className="bg-white border-gray-200"
 									/>

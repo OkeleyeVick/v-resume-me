@@ -146,7 +146,7 @@ const CreateResumePage = () => {
 									/>
 								</button>
 							</div>
-							<div className={`${largePreview ? "my-40" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
+							<div className={`${largePreview ? "mt-10 mb-60" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
 								<ResumePreviewPage />
 							</div>
 						</div>

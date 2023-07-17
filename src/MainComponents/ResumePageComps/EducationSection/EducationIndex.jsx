@@ -22,7 +22,7 @@ const EducationIndex = () => {
 
 	function addNewEducation() {
 		// first thing, add to the array of user's experiences
-		setUserWorkExperiences((currentEducationArray) => {
+		setUserEducationData((currentEducationArray) => {
 			return [...currentEducationArray, currentEducationObject];
 		});
 
@@ -35,7 +35,8 @@ const EducationIndex = () => {
 			startYear: "",
 			endMonth: "",
 			endYear: "",
-			location: "",
+			city: "",
+			country: "",
 			currentlySchoolingThere: false,
 		};
 
@@ -45,9 +46,8 @@ const EducationIndex = () => {
 
 	function deleteExperience(e, id) {
 		e.stopPropagation();
-		e.preventDefault();
-		const newWorkExperience = setUserEducationData.filter((accordion) => accordion.id !== id);
-		setUserWorkExperiences([...newWorkExperience]);
+		const newWorkExperience = userEducationData.filter((accordion) => accordion.id !== id);
+		setUserEducationData([...newWorkExperience]);
 	}
 	return (
 		<div className="border border-gray-300 border-solid rounded-md shadow-md">
