@@ -1,5 +1,4 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
-import DownloadButton from "./Components/DownloadButton";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
 import { themeContext } from "./CreateResumePage";
 import jsPDF from "jspdf";
