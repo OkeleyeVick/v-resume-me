@@ -4,35 +4,35 @@ import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { userDataContext } from "../CreateResumePage";
 
-const LanguageIndex = () => {
-	const { languages, setLanguages } = useContext(userDataContext);
+const HobbyIndex = () => {
+	const { hobbies, setHobbies } = useContext(userDataContext);
 
-	const [languageInput, setLanguageInput] = useState("");
-	const [languageItem, setLanguageItem] = useState({ id: 0, languageName: "" });
+	const [hobbiesInput, setHobbiesInput] = useState("");
+	const [hobbyItem, setHobbyItem] = useState({ id: 0, hobbyName: "" });
 
 	function setTheInput(inputValue) {
-		setLanguageInput(inputValue.trim());
-		setLanguageItem((previous) => {
+		setHobbiesInput(inputValue.trim());
+		setHobbyItem((previous) => {
 			return {
 				...previous,
-				languageName: inputValue.trim(),
+				hobbyName: inputValue.trim(),
 			};
 		});
 	}
 
 	function addLanguage() {
-		if (languageInput.trim().length !== 0) {
-			setLanguages((previousLanguages) => {
-				return [...previousLanguages, languageItem];
+		if (hobbiesInput.trim().length !== 0) {
+			setHobbies((previousHobbies) => {
+				return [...previousHobbies, hobbyItem];
 			});
-			setLanguageInput("");
-			setLanguageItem((previous) => ({ ...previous, id: languageItem.id + 1 }));
+			setHobbiesInput("");
+			setHobbyItem((previous) => ({ ...previous, id: hobbyItem.id + 1 }));
 		}
 	}
 
-	const handleDeleteLanguage = (LanguageId) => {
-		const newLanguages = languages.filter((eachLanguage) => eachLanguage.id !== LanguageId);
-		setLanguages(newLanguages);
+	const handleDeleteHobby = (LanguageId) => {
+		const newHobbies = hobbies.filter((eachLanguage) => eachLanguage.id !== LanguageId);
+		setHobbies(newHobbies);
 	};
 
 	return (
@@ -41,31 +41,31 @@ const LanguageIndex = () => {
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
 						<span className="select-none flex items-center gap-x-3">
-							<Icon icon="heroicons:language-solid" className="w-8 h-8" />
-							<h2 className="Capitalize font-semibold text-xl">Languages</h2>
+							<Icon icon="fluent-mdl2:cycling" className="w-8 h-8" />
+							<h2 className="Capitalize font-semibold text-xl">Hobbies</h2>
 						</span>
 					</AccordionHeader>
 
 					<AccordionBody className="px-4 md:px-6">
 						<div className="flex flex-col gap-y-3">
 							<div className="pb-3">
-								{languages.length !== 0 && (
+								{hobbies.length !== 0 && (
 									<>
 										<div className="flex items-center justify-between gap-y-2">
-											<header className="text-sm text-gray-400">Languages you can speak</header>
+											<header className="text-sm text-gray-400">Hobbies you can speak</header>
 										</div>
-										<div name="languages-container" className="flex flex-wrap overflow-hidden items-center gap-3 mt-3 relative">
-											{languages &&
-												languages.map(({ languageName, id }, langIndex) => (
+										<div name="hobbies-container" className="flex flex-wrap overflow-hidden items-center gap-3 mt-3 relative">
+											{hobbies &&
+												hobbies.map(({ hobbyName, id }, langIndex) => (
 													<React.Fragment key={langIndex}>
 														<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
 															<span name="language" className="text-sm">
-																{languageName}
+																{hobbyName}
 															</span>
 															<span
 																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
 																role="button"
-																onClick={() => handleDeleteLanguage(id)}>
+																onClick={() => handleDeleteHobby(id)}>
 																<Icon
 																	icon="ep:delete"
 																	className=" text-slate-700 group-hover/Language:text-red-600"
@@ -78,11 +78,11 @@ const LanguageIndex = () => {
 									</>
 								)}
 
-								<div className={`${languages.length !== 0 ? "mt-10" : "mt-3"} mb-3`}>
+								<div className={`${hobbies.length !== 0 ? "mt-10" : "mt-3"} mb-3`}>
 									<div className="flex gap-4 justify-content-between items-end flex-wrap">
 										<div className="flex-grow">
 											<InputWithLabel
-												value={languageInput}
+												value={hobbiesInput}
 												name="language"
 												label="Language"
 												updateTheDetail={setTheInput}
@@ -92,12 +92,12 @@ const LanguageIndex = () => {
 										<button
 											type="button"
 											className={`p-3 px-8 text-sm rounded-sm ${
-												languageInput
+												hobbiesInput
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
 													: " cursor-not-allowed bg-slate-200 text-gray-400"
 											}`}
 											onClick={addLanguage}
-											disable={languageInput ? "false" : "true"}>
+											disable={hobbiesInput ? "false" : "true"}>
 											Add
 										</button>
 									</div>
@@ -111,4 +111,4 @@ const LanguageIndex = () => {
 	);
 };
 
-export default memo(LanguageIndex);
+export default memo(HobbyIndex);

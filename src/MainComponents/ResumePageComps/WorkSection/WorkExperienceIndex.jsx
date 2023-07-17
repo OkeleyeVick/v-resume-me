@@ -19,7 +19,7 @@ const WorkExperienceIndex = () => {
 		endMonth: "",
 		endYear: "",
 		city: "",
-		isChecked: false,
+		currentlyWorkingThere: false,
 	});
 
 	function addNewExperience() {

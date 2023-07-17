@@ -112,7 +112,7 @@ const ThemeFamily = () => {
 							type="button"
 							className="flex items-center justify-between py-3 px-4 hover:bg-ash_white w-full"
 							onClick={openDropdown}>
-							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont ?? "system-ui"}` }}>
+							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont ?? "Roboto"}` }}>
 								{selectedFont ?? "Select font"}
 							</span>
 							<Icon

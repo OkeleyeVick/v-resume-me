@@ -7,7 +7,7 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObject }) => {
+const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, currentWorkObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
 	const [workPlaceDetails, setWorkPlaceDetails] = useState(currentWorkObject);
@@ -46,6 +46,8 @@ const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObj
 			endYear: `${endYear}`,
 		}));
 	}
+
+	console.log(workPlaceDetails);
 
 	function handleTheCheck() {
 		// handle the check and change the state
@@ -159,4 +161,4 @@ const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObj
 	);
 };
 
-export default memo(AccordionChild);
+export default memo(EducationChildAccordion);

@@ -40,7 +40,7 @@ const SoftSkill = () => {
 
 	function addSkillWithoutValue() {
 		const allTheSkillNames = skills.softSkills.map(({ skillName }) => skillName.toLowerCase());
-		if (allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) {
+		if ((allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) && inputValue.trim().length !== 0) {
 			// if the skill in not in the list of entered skills, add it to the list
 			setSkills((previousSkillData) => ({
 				...previousSkillData,
@@ -60,11 +60,11 @@ const SoftSkill = () => {
 	}
 
 	const handleTheInput = (inputValue) => {
-		setInput(inputValue);
+		setInput(inputValue.trim());
 		setNewSoftSkill((prev) => ({
 			// update the value of the skillName
 			...prev,
-			skillName: inputValue,
+			skillName: inputValue.trim(),
 		}));
 	};
 
@@ -219,7 +219,7 @@ const SoftSkill = () => {
 											className={`p-3 px-8 text-sm rounded-sm ${
 												inputValue
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
-													: " cursor-not-allowed bg-slate-200 text-gray-400"
+													: "cursor-not-allowed bg-slate-200 text-gray-400"
 											}`}
 											onClick={addSkillWithoutValue}
 											disable={inputValue ? "false" : "true"}>

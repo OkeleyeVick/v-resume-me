@@ -41,7 +41,7 @@ const SoftSkill = () => {
 
 	function addSkillWithoutValue() {
 		const allTheSkillNames = skills.softwareSkills.map(({ skillName }) => skillName.toLowerCase());
-		if (allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) {
+		if ((allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) && inputValue.trim().length !== 0) {
 			// if the skill in not in the list of entered skills, add it to the list
 			setSkills((previousSkillData) => ({
 				...previousSkillData,
@@ -61,14 +61,14 @@ const SoftSkill = () => {
 	}
 
 	const handleTheInput = (inputValue) => {
-		setInput(inputValue);
+		setInput(inputValue.trim());
 		setNewSoftwareSkill((prev) => ({
 			// update the value of the skillName
 			...prev,
-			skillName: inputValue,
+			skillName: inputValue.trim(),
 		}));
 	};
-	//TODO: PSALM 109 TO THE WATER
+
 	function handleDeleteSkill(skillId) {
 		if (skillId) {
 			const newArray = skills.softwareSkills.filter(({ id }) => id !== skillId);

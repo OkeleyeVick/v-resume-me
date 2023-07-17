@@ -10,6 +10,7 @@ import LanguageIndex from "./LanguageSection/LanguageIndex";
 import data from "../../assets/db/databsase.json";
 import UserInputObjects from "./UserInputObjects";
 import EducationIndex from "./EducationSection/EducationIndex";
+import HobbyIndex from "./HobbySection/HobbyIndex";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
@@ -95,7 +96,7 @@ const CreateResumePage = () => {
 			}}>
 			<themeContext.Provider
 				value={{
-					scale: largePreview === true ? parseFloat(2.5) : parseFloat(1.5),
+					scale: largePreview === true ? parseFloat(1.8) : parseFloat(1.5),
 					setSelectedThemes,
 					largePreview,
 					setLargePreview,
@@ -110,22 +111,27 @@ const CreateResumePage = () => {
 								<ThemeFamily />
 							</React.Suspense>
 							<ThemeTogglerButton />
-							<div className="flex flex-col gap-y-3">
+							<div className="">
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />
 								</section>
-								<section id="user-education">
-									<EducationIndex />
-								</section>
-								<section id="user-work-experience">
-									<WorkExperienceIndex />
-								</section>
-								<section id="user-skills-experience">
-									<SkillsIndex />
-								</section>
-								<section id="user-languages-experience">
-									<LanguageIndex />
-								</section>
+								<div className="mt-8 flex flex-col gap-y-4">
+									<section id="user-education">
+										<EducationIndex />
+									</section>
+									<section id="user-work-experience">
+										<WorkExperienceIndex />
+									</section>
+									<section id="user-skills-experience">
+										<SkillsIndex />
+									</section>
+									<section id="user-hobbies">
+										<HobbyIndex />
+									</section>
+									<section id="user-languages-experience">
+										<LanguageIndex />
+									</section>
+								</div>
 							</div>
 						</div>
 						<div
