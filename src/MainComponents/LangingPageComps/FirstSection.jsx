@@ -4,7 +4,7 @@ import skeletonImage from "../../assets/images/PageImages/skeleton-image.webp";
 
 const FirstSection = () => {
 	return (
-		<div className="bg-main_2 md:grid md:grid-cols-12 p-8 py-28 md:py-40 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
+		<div className="bg-main bg-opacity-30 md:grid md:grid-cols-12 p-8 py-28 md:py-40 relative before:absolute before:contents-[''] before:w-full before:h-20 before:left-0 before:right-0 before:bg-gradient-to-b before:top-0 from-slate-50 to-main_2">
 			<div className="absolute inset-0 h-full w-full p-4 overflow-hidden flex items-start justify-evenly gap-5 md:gap-8">
 				{Array.apply(null, Array(7)).map((_, index) => {
 					return (

@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
 import { themeContext } from "./CreateResumePage";
-import jsPDF from "jspdf";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
@@ -11,22 +10,11 @@ const baseFont = {
 };
 
 const ResumePreviewPage = () => {
-	const pdfRef = useRef(null);
-	const downloadfile = new jsPDF();
-
 	const { scale, largePreview, setLargePreview, themeSelection } = useContext(themeContext);
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
 	// <== download the pdf function ==>
-	useEffect(() => {
-		function downloadFileNow() {
-			if (pdfRef.current !== null) {
-				downloadfile.text(`I love you `, 5, 5);
-				downloadfile.save("okeleye.pdf");
-			}
-		}
-	}, []);
 
 	function downloadPDF() {
 		console.log("I am downloading in pdf format");
@@ -57,7 +45,7 @@ const ResumePreviewPage = () => {
 						className={`bg-white shadow-md mx-auto rounded-[4px] p-3 ${
 							largePreview ? "w-[65%] aspect-[0.20/0.22] scale-[0.8]" : "w-[70%] aspect-[0.20/0.255]"
 						}`}>
-						<div ref={pdfRef}>
+						<div>
 							<BasicResumeContainer />
 						</div>
 					</div>

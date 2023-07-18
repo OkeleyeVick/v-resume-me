@@ -12,7 +12,7 @@ import "../../assets/css/fonts.css";
 import { motion } from "framer-motion";
 
 const baseFont = {
-	Syne: "Rubik",
+	Rubik: "Rubik",
 };
 
 const LandingPage = () => {
@@ -26,7 +26,7 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<div style={{ fontFamily: baseFont.Syne }}>
+		<div style={{ fontFamily: baseFont.Rubik }}>
 			{showPreloader && (
 				<motion.div exit={{ opacity: 0 }}>
 					<PageLoader />
@@ -37,11 +37,11 @@ const LandingPage = () => {
 					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
 						<Header />
 						<HeroSection />
-						<ThirdSection />
 						<FirstSection />
-						<SecondSection />
-						<AnimatedSection />
+						<ThirdSection />
 						<FinalSection />
+						<AnimatedSection />
+						<SecondSection />
 						<Footer />
 					</motion.div>
 				</React.Fragment>

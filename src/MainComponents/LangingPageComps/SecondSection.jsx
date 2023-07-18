@@ -3,7 +3,7 @@ import image from "../../assets/images/PageImages/dart-bullseye.svg";
 
 const SecondSection = () => {
 	return (
-		<div className="bg-main_3 py-28 px-4 text-white">
+		<div className="bg-[#1E2532] py-28 px-4 text-white">
 			<div className="text-center flex items-center justify-center">
 				<img src={image} alt="" />
 			</div>

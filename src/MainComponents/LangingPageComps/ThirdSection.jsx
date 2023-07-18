@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const ThirdSection = () => {
 	return (
-		<div className="py-28">
+		<div className="py-28 bg-white">
 			<div className="grid grid-cols-2 p-4 md:px-16 gap-20">
 				<div className="col-span-full md:col-start-1 md:col-end-2 flex flex-col justify-center gap-y-8">
 					<div className="flex items-center flex-col-reverse md:flex-row justify-center md:justify-around text-center rounded-[12px] overflow-hidden p-3">
