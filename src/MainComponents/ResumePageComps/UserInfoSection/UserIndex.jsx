@@ -5,9 +5,10 @@ import { Icon } from "@iconify/react";
 import { userDataContext } from "../CreateResumePage";
 import SearchModal from "../Components/SearchModal";
 import TipTap from "../../FormComponent/Tiptap.jsx";
+import FileName from "../FileName";
 
 const UserIndex = () => {
-	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
+	const { fileName, setFileName, userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
 
 	function updateTheDetail(inputValue, field) {
 		setUserPersonalData((previousData) => ({
@@ -21,6 +22,7 @@ const UserIndex = () => {
 
 	return (
 		<React.Fragment>
+			{/* <FileName fileName={fileName} setFileName={setFileName} /> */}
 			<div id="title" className="mb-6 flex items-center justify-between">
 				<span className="flex items-end gap-x-3 text-slate-700 select-none">
 					<Icon icon="uiw:user" className="w-8 h-8" />

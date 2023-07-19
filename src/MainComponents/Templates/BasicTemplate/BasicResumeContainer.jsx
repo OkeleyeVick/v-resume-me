@@ -4,6 +4,7 @@ import UserDetailImage from "./UserDetailImage";
 import Language from "./Language";
 import SoftSkills from "./SoftSkill";
 import Software from "./Software";
+import Hobbies from "./Hobbies";
 
 const BasicResumeContainer = () => {
 	return (
@@ -24,6 +25,7 @@ const BasicResumeContainer = () => {
 					<Software />
 					<SoftSkills />
 					<Language />
+					<Hobbies />
 				</div>
 			</div>
 		</React.Fragment>

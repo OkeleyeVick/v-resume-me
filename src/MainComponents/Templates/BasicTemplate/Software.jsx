@@ -9,18 +9,16 @@ const Software = () => {
 		<>
 			{skills && skills.softwareSkills.length !== 0 && (
 				<>
-					<div name="skills">
-						<div name="soft-skills">
-							<h1>Softwareskills</h1>
-							<div className="mt-1 flex items-center gap-1 flex-wrap">
-								{softwareSkills.map(({ skillName }) => {
-									return (
-										<span key={skillName} className="flex-grow  text-center bg-gray-200 rounded-sm p-1 px-2 leading-none">
-											{skillName}
-										</span>
-									);
-								})}
-							</div>
+					<div name="soft-skills">
+						<h1>Softwareskills</h1>
+						<div className="mt-1 flex items-center gap-1 flex-wrap">
+							{softwareSkills.map(({ skillName }) => {
+								return (
+									<span key={skillName} className="text-center bg-gray-200 rounded-sm p-1 px-2 leading-none">
+										{skillName}
+									</span>
+								);
+							})}
 						</div>
 					</div>
 				</>

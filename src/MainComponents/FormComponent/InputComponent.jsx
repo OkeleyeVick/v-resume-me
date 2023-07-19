@@ -12,7 +12,6 @@ const InputWithLabel = ({
 	name,
 	updateTheDetail,
 	value,
-	action,
 	className,
 	inputMode,
 	tooltip,

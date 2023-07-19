@@ -10,8 +10,10 @@ const HobbyIndex = () => {
 	const [hobbiesInput, setHobbiesInput] = useState("");
 	const [hobbyItem, setHobbyItem] = useState({ id: 0, hobbyName: "" });
 
+	console.log(hobbies);
+
 	function setTheInput(inputValue) {
-		setHobbiesInput(inputValue.trim());
+		setHobbiesInput(inputValue);
 		setHobbyItem((previous) => {
 			return {
 				...previous,
