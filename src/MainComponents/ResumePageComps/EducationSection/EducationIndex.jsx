@@ -6,8 +6,10 @@ import { memo } from "react";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 const EducationIndex = () => {
 	const { userEducationData, setUserEducationData } = useContext(userDataContext); //array of user's experiences
+
+	//TODO: WHEN I UPDATE THE FORM THE, IT DOES NOT UPDATE THE UI
 	const [currentEducationObject, setEducationObject] = useState({
-		id: -1,
+		id: 0,
 		degree: "",
 		school: "",
 		startMonth: "",
@@ -17,8 +19,6 @@ const EducationIndex = () => {
 		location: "",
 		currentlySchoolingThere: false,
 	});
-
-	//TODO: FIX THE ACCORDION CHILD
 
 	function addNewEducation() {
 		// first thing, add to the array of user's experiences

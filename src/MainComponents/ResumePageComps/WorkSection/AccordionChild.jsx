@@ -73,7 +73,7 @@ const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObj
 											type="button"
 											className="outline-transparent focus-visible:outline-main"
 											onClick={(e) => deleteExperience(e, eachAccordion.id)}>
-											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500" />
+											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500 pointer-events-none" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
 											<Icon icon="mdi-light:chevron-down" className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"}`} />
@@ -82,7 +82,7 @@ const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObj
 								</span>
 							</AccordionHeader>
 
-							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
+							<AccordionBody className="overflow-hidden bg-gray-50/40" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
 										name="companyName"

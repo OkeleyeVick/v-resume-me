@@ -5,6 +5,7 @@ import Language from "./Language";
 import SoftSkills from "./SoftSkill";
 import Software from "./Software";
 import Hobbies from "./Hobbies";
+import Education from "./Education";
 
 const BasicResumeContainer = () => {
 	return (
@@ -14,13 +15,11 @@ const BasicResumeContainer = () => {
 			</div>
 			<div className="flex flex-col items-center justify-between">
 				<UserDetailImage />
-				<span>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati a, fugiat culpa maiores, adipisci ullam esse iure rerum
-					inventore sequi, debitis optio laboriosam quaerat autem eius asperiores ea tenetur iste?
-				</span>
 			</div>
 			<div className="grid grid-cols-2 gap-4">
-				<div></div>
+				<div>
+					<Education />
+				</div>
 				<div className="flex flex-col gap-y-3">
 					<Software />
 					<SoftSkills />

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { Icon } from "@iconify/react";
@@ -7,7 +7,7 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, currentEducationObject }) => {
+const EducationChildAccordion = ({ eachAccordion, deleteExperience, currentEducationObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
 	const [educationDetails, setEducationDetails] = useState(currentEducationObject);
@@ -75,7 +75,7 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 											type="button"
 											className="outline-transparent focus-visible:outline-main p-1"
 											onClick={(e) => deleteExperience(e, eachAccordion.id)}>
-											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500" />
+											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500 pointer-events-none" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
 											<Icon icon="mdi-light:chevron-down" className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"}`} />
@@ -84,7 +84,7 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, count, curre
 								</span>
 							</AccordionHeader>
 
-							<AccordionBody className="overflow-hidden bg-gray-50" as="section">
+							<AccordionBody className="overflow-hidden bg-gray-50/40" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
 										name="school"
