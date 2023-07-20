@@ -56,8 +56,8 @@ const HobbyIndex = () => {
 										</div>
 										<div name="hobbies-container" className="flex flex-wrap overflow-hidden items-center gap-3 mt-3 relative">
 											{hobbies &&
-												hobbies.map(({ hobbyName, id }, langIndex) => (
-													<React.Fragment key={langIndex}>
+												hobbies.map(({ hobbyName, id }, hobbyIndex) => (
+													<React.Fragment key={hobbyIndex}>
 														<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
 															<span name="hobby" className="text-sm">
 																{hobbyName}
@@ -66,7 +66,10 @@ const HobbyIndex = () => {
 																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Hobby -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
 																role="button"
 																onClick={() => handleDeleteHobby(id)}>
-																<Icon icon="ep:delete" className=" text-slate-700 group-hover/Hobby:text-red-600" />
+																<Icon
+																	icon="ep:delete"
+																	className=" text-slate-700 group-hover/Hobby:text-red-600 pointer-events-none"
+																/>
 															</span>
 														</span>
 													</React.Fragment>

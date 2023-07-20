@@ -10,7 +10,7 @@ const WorkExperienceIndex = () => {
 	const { workExperiences } = workExperienceValues;
 	const { userWorkExperiences, setUserWorkExperiences } = workExperiences; //array of user's experiences
 	const [currentWorkObject, setWorkObject] = useState({
-		id: -1,
+		id: 0,
 		companyName: "",
 		jobTitle: "",
 		country: "",
@@ -72,6 +72,8 @@ const WorkExperienceIndex = () => {
 											<AccordionChild
 												count={accordionIndex}
 												currentWorkObject={currentWorkObject}
+												userWorkExperiences={userWorkExperiences}
+												setUserWorkExperiences={setUserWorkExperiences}
 												id={eachAccordion.id}
 												eachAccordion={eachAccordion}
 												deleteExperience={deleteExperience}

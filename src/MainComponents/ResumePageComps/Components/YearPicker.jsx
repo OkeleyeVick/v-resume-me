@@ -24,7 +24,7 @@ const YearPicker = ({ className, getYear }) => {
 	}
 	function handleSetYear(year) {
 		setStartYear(year);
-		getYear(year);
+		getYear(year.toString());
 	}
 
 	return (

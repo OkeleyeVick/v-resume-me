@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { Icon } from "@iconify/react";
@@ -7,10 +7,29 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObject }) => {
+const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccordion, deleteExperience, count, currentWorkObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
-	const [workPlaceDetails, setWorkPlaceDetails] = useState(currentWorkObject);
+	const [workPlaceDetails, setWorkPlaceDetails] = useState(currentWorkObject); // this updates the form UI
+
+	/* get all the previous states, 
+		get the current one whose id matches, then
+		update the it
+	*/
+
+	const autoUpdate = (fieldToUpdate, fieldValue) => {
+		const newWorkExperiences = userWorkExperiences.map((work) => {
+			if (eachAccordion.id === work.id) {
+				return {
+					...work,
+					[fieldToUpdate]: fieldValue,
+				};
+			}
+			return work;
+		});
+
+		setUserWorkExperiences(newWorkExperiences);
+	};
 
 	// function that updates each input
 	function updateTheInput(inputValue, field) {
@@ -20,40 +39,57 @@ const AccordionChild = ({ eachAccordion, deleteExperience, count, currentWorkObj
 				[field]: inputValue,
 			};
 		});
+
+		autoUpdate(field, inputValue);
 	}
 
 	function getStartMonth(monthNumber) {
 		setWorkPlaceDetails((previous) => ({
 			...previous,
-			startMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
+			startMonth: monthNumber,
 		}));
+
+		autoUpdate("startMonth", monthNumber);
 	}
 	function getStartYear(startYear) {
 		setWorkPlaceDetails((previous) => ({
 			...previous,
-			startYear: `${startYear}`,
+			startYear: startYear,
 		}));
+
+		autoUpdate("startYear", startYear);
 	}
+
 	function getEndMonth(monthNumber) {
 		setWorkPlaceDetails((previous) => ({
 			...previous,
-			endMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
+			endMonth: monthNumber,
 		}));
+
+		autoUpdate("endMonth", monthNumber);
 	}
 	function getEndYear(endYear) {
 		setWorkPlaceDetails((previous) => ({
 			...previous,
-			endYear: `${endYear}`,
+			endYear: endYear,
 		}));
+
+		autoUpdate("endYear", endYear);
 	}
 
 	function handleTheCheck() {
+		let state = false; // by default, it is false
+
 		// handle the check and change the state
-		setIsChecked((oldState) => !oldState);
+		setIsChecked((oldState) => {
+			state = !oldState;
+			return !oldState;
+		});
 		setWorkPlaceDetails((previousData) => ({
 			...previousData,
 			currentlyWorkingThere: !previousData.currentlyWorkingThere,
 		}));
+		autoUpdate("currentlyWorkingThere", state);
 	}
 
 	return (

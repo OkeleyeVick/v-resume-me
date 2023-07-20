@@ -13,8 +13,9 @@ const MonthPicker = ({ className, getMonth }) => {
 		setIsComponentVisible((prev) => !prev);
 	}
 	function handleMonthValue(monthName, monthIndex) {
+		const monthInNumber = monthIndex.toString().length < 2 ? `${0}${monthIndex}` : `${monthIndex}`;
 		setStartMonth(monthName);
-		getMonth(monthIndex);
+		getMonth(monthInNumber.toString());
 	}
 	return (
 		<div name="month" ref={dropdownRef} className={`border border-solid border-gray-50 rounded-md relative ${className}`}>

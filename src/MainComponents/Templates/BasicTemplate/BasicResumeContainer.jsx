@@ -6,6 +6,7 @@ import SoftSkills from "./SoftSkill";
 import Software from "./Software";
 import Hobbies from "./Hobbies";
 import Education from "./Education";
+import WorkExperience from "./WorkExperience";
 
 const BasicResumeContainer = () => {
 	return (
@@ -18,9 +19,10 @@ const BasicResumeContainer = () => {
 			</div>
 			<div className="grid grid-cols-2 gap-4">
 				<div>
-					<Education />
+					<WorkExperience />
 				</div>
 				<div className="flex flex-col gap-y-3">
+					<Education />
 					<Software />
 					<SoftSkills />
 					<Language />
