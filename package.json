@@ -11,7 +11,9 @@
 	"dependencies": {
 		"@headlessui/react": "^1.7.15",
 		"@tinymce/tinymce-react": "^4.3.0",
-		"@tiptap/extension-list-item": "^2.0.3",
+		"@tiptap/extension-bullet-list": "^2.0.4",
+		"@tiptap/extension-list-item": "^2.0.4",
+		"@tiptap/extension-ordered-list": "^2.0.4",
 		"@tiptap/extension-text-align": "^2.0.3",
 		"@tiptap/extension-underline": "^2.0.3",
 		"@tiptap/pm": "^2.0.3",
@@ -30,6 +32,7 @@
 	},
 	"devDependencies": {
 		"@iconify/react": "^4.1.0",
+		"@tailwindcss/typography": "^0.5.9",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
 		"@vitejs/plugin-react-swc": "^3.0.0",

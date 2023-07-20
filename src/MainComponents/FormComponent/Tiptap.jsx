@@ -4,6 +4,11 @@ import { EditorView } from "prosemirror-view";
 import { Icon } from "@iconify/react";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
+import BulletList from "@tiptap/extension-bullet-list";
+import ListItem from "@tiptap/extension-list-item";
+import OrderedList from "@tiptap/extension-ordered-list";
+
+export const NewIcon = ({ size, iconName }) => <Icon icon={iconName} className={`${size} text-slate-500 hover:text-main`} />;
 
 const Tiptap = () => {
 	// console.clear();
@@ -13,11 +18,29 @@ const Tiptap = () => {
 		this.updateStateInner(state, this.state.plugins != state.plugins);
 	};
 
-	const content = `<div >Enter your summary...</div>`;
+	// const content = `<div >Enter your summary...</div>`;
+	const content = `
+			<div>
+				<p>
+					<p>A list item</p>
+					<p>And another one</p>
+				</p>
+			</div>`;
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
 			Underline,
+			ListItem.configure({
+				HTMLAttributes: {
+					class: "auto",
+				},
+			}),
+			BulletList.configure({
+				HTMLAttributes: {
+					class: "list-disc",
+				},
+			}),
+			OrderedList,
 			TextAlign.configure({
 				types: ["heading", "paragraph"],
 			}),
@@ -42,32 +65,43 @@ const Tiptap = () => {
 			<div className="bg-input_clr rounded-sm p-2 before:bg-main relative before:absolute before:bottom-0 before:h-[1.5px] before:w-full before:content-normal before:left-0 before:right-0 focus-within:before:scale-x-100 before:scale-x-0 before:transition before:duration-300 before:ease-in-out">
 				<div className="flex items-center">
 					<div className="flex items-end gap-1 px-1">
-						<button className="text-slate-500 hover:text-main" onClick={() => editor.chain().focus().toggleBold().run()}>
+						<button
+							className={`text-slate-500 hover:text-main ${editor?.isActive("bold") ? "bg-red-400" : ""}`}
+							onClick={() => editor.chain().focus().toggleBold().run()}>
 							<Icon icon="bx:bold" className="w-[1.1rem] h-[1.1rem] translate-y-[1px]" />
 						</button>
-						<button className="text-slate-500 hover:text-main" onClick={() => editor.chain().focus().toggleItalic().run()}>
+						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleItalic().run()}>
 							<Icon icon="bx:italic" className="w-4 h-4" />
 						</button>
-						<button className="text-slate-500 hover:text-main" onClick={() => editor.chain().focus().toggleStrike().run()}>
+						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleStrike().run()}>
 							<Icon icon="ic:round-strikethrough-s" className="w-[1.1rem] h-[1.1rem] translate-y-[1px]" />
 						</button>
-						<button className="text-slate-500 hover:text-main" onClick={() => editor.chain().focus().toggleUnderline().run()}>
+						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleUnderline().run()}>
 							<Icon icon="mdi:format-underline" className="w-4 h-4" />
 						</button>
 					</div>
 					<div className="divider bg-slate-300 relative inline-flex h-[22px] w-[1px]"></div>
 					<div className="flex items-center px-1 gap-[5px]">
-						<button onClick={() => editor.chain().focus().setTextAlign("left").run()} className="text-slate-500 hover:text-main">
+						<button onClick={() => editor.chain().focus().setTextAlign("left").run()} className={`text-slate-500 hover:text-main`}>
 							<Icon icon="majesticons:text-align-left" className="w-5 h-5" />
 						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("center").run()} className="text-slate-500 hover:text-main">
+						<button onClick={() => editor.chain().focus().setTextAlign("center").run()} className={`text-slate-500 hover:text-main`}>
 							<Icon icon="ci:text-align-center" className="w-5 h-5" />
 						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("right").run()} className="text-slate-500 hover:text-main">
+						<button onClick={() => editor.chain().focus().setTextAlign("right").run()} className={`text-slate-500 hover:text-main`}>
 							<Icon icon="humbleicons:align-text-right" className="w-5 h-5" />
 						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("justify").run()} className="text-slate-500 hover:text-main">
+						<button onClick={() => editor.chain().focus().setTextAlign("justify").run()} className={`text-slate-500 hover:text-main`}>
 							<Icon icon="ph:text-align-justify-bold" className="w-5 h-5" />
+						</button>
+					</div>
+					<div className="divider bg-slate-300 relative inline-flex h-[22px] w-[1px]"></div>
+					<div className="flex items-center px-1 gap-[5px]">
+						<button onClick={() => editor.chain().focus().toggleBulletList().run()} className={`text-slate-500 hover:text-main`}>
+							<Icon icon="fluent:text-bullet-list-ltr-24-filled" className="w-5 h-5 pointer-events-none" />
+						</button>
+						<button onClick={() => editor.chain().focus().toggleOrderedList().run()} className={`text-slate-500 hover:text-main`}>
+							<Icon icon="nimbus:ordered-list" className="w-5 h-5 pointer-events-none" />
 						</button>
 					</div>
 				</div>

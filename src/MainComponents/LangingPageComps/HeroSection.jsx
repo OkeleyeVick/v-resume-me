@@ -23,8 +23,8 @@ const HeroSection = () => {
 							<figure className="hidden lg:flex absolute inset-0 m-auto items-center justify-center">
 								<img src={womanImage} alt="" className="max-w-full w-24 lg:-mt-4" />
 							</figure>
-							<div className="relative">
-								<figure className="hidden lg:block absolute left-[6.3rem] md:left-[13rem] top-0">
+							<div className="relative w-max mx-auto">
+								<figure className="hidden lg:block absolute -left-3 top-0">
 									<img src={leftHand} alt="" className="w-6 max-w-full" />
 								</figure>
 								<Link
@@ -32,7 +32,7 @@ const HeroSection = () => {
 									className="text-white bg-main rounded-md py-4 px-10 md:py-4 transition ease-in-out duration-500 hover:bg-hoverBgClr text-sm selection:text-white font-semibold">
 									Let's create you a resumé
 								</Link>
-								<figure className="hidden lg:block absolute right-[6.25rem] md:right-[13rem] top-0">
+								<figure className="hidden lg:block absolute -right-3 top-0">
 									<img src={rightHand} alt="" className="w-6 max-w-full" />
 								</figure>
 							</div>

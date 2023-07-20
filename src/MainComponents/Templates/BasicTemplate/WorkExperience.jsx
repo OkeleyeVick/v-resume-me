@@ -15,13 +15,22 @@ export default function WorkExperience() {
 					<div className="flex flex-col gap-y-3 mt-2">
 						{userWorkExperiences.map(
 							({ id, companyName, jobTitle, country, startMonth, startYear, endMonth, endYear, city, currentlyWorkingThere }) => {
-								const check = startMonth || startYear || endMonth || endYear || currentlyWorkingThere || city || country;
+								const check =
+									startMonth ||
+									startYear ||
+									endMonth ||
+									endYear ||
+									currentlyWorkingThere ||
+									city ||
+									country ||
+									companyName ||
+									jobTitle;
 								return (
 									<React.Fragment key={id}>
 										<section>
 											{check ? (
 												<>
-													<span className="flex items-center gap-4">
+													<span className="flex items-center gap-2">
 														<span className="date flex items-center gap-1">
 															{startMonth || startYear ? (
 																<span className="start">
@@ -47,8 +56,8 @@ export default function WorkExperience() {
 															)}
 														</span>
 														<span className="flex items-center gap-1">
-															{city && <small className="city uppercase">{city},</small>}
-															{country && <small className="country uppercase">{country}</small>}
+															{city && <small className="city uppercase text-[.6rem]">{city},</small>}
+															{country && <small className="country uppercase text-[.6rem]">{country}</small>}
 														</span>
 													</span>
 													<div>
