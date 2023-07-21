@@ -18,13 +18,10 @@ const Tiptap = () => {
 		this.updateStateInner(state, this.state.plugins != state.plugins);
 	};
 
-	// const content = `<div >Enter your summary...</div>`;
 	const content = `
 			<div>
-				<p>
 					<p>A list item</p>
 					<p>And another one</p>
-				</p>
 			</div>`;
 	const editor = useEditor({
 		extensions: [
@@ -68,7 +65,7 @@ const Tiptap = () => {
 						<button
 							className={`text-slate-500 hover:text-main ${editor?.isActive("bold") ? "bg-red-400" : ""}`}
 							onClick={() => editor.chain().focus().toggleBold().run()}>
-							<Icon icon="bx:bold" className="w-[1.1rem] h-[1.1rem] translate-y-[1px]" />
+							<Icon icon="bx:bold" className="w-[1.1rem] h-[1.1rem] translate-y-[1px] pointer-events-none" />
 						</button>
 						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleItalic().run()}>
 							<Icon icon="bx:italic" className="w-4 h-4" />
