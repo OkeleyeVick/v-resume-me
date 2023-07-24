@@ -7,31 +7,27 @@ import TextAlign from "@tiptap/extension-text-align";
 import BulletList from "@tiptap/extension-bullet-list";
 import ListItem from "@tiptap/extension-list-item";
 import OrderedList from "@tiptap/extension-ordered-list";
+import React from "react";
 
-export const NewIcon = ({ size, iconName }) => <Icon icon={iconName} className={`${size} text-slate-500 hover:text-main`} />;
+export const ButtonIcon = ({ iconName, iconClassName, ButtonClassName, buttonFunction }) => (
+	<button type="button" onClick={buttonFunction} className={`${ButtonClassName}`}>
+		<Icon icon={iconName} className={`${iconClassName} pointer-events-none`} />
+	</button>
+);
 
 const Tiptap = () => {
-	// console.clear();
+	console.clear();
 
 	EditorView.prototype.updateState = function updateState(state) {
 		if (!this.docView) return; // This prevents the matchesNode error on hot reloads
 		this.updateStateInner(state, this.state.plugins != state.plugins);
 	};
 
-	const content = `
-			<div>
-					<p>A list item</p>
-					<p>And another one</p>
-			</div>`;
+	const content = ``;
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
 			Underline,
-			ListItem.configure({
-				HTMLAttributes: {
-					class: "auto",
-				},
-			}),
 			BulletList.configure({
 				HTMLAttributes: {
 					class: "list-disc",
@@ -50,6 +46,76 @@ const Tiptap = () => {
 		},
 	});
 
+	const buttons = [
+		[
+			{
+				buttonFunction: () => editor?.chain().focus().toggleBold().run(),
+				iconName: "bx-bold",
+				iconClassName: "w-[1.1rem] h-[1.1rem] translate-y-[1px]",
+				isActiveFunctionName: "bold",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().toggleItalic().run(),
+				iconName: "bx-italic",
+				iconClassName: "w-4 h-4",
+				isActiveFunctionName: "italic",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().toggleStrike().run(),
+				iconName: "ic:round-strikethrough-s",
+				iconClassName: "w-[1.1rem] h-[1.1rem] translate-y-[1px]",
+				isActiveFunctionName: "strike",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().toggleUnderline().run(),
+				// iconName: "mdi:format-underline",
+				iconName: "mingcute:underline-fill",
+				iconClassName: "w-4 h-4",
+				isActiveFunctionName: "underline",
+			},
+		],
+		[
+			{
+				buttonFunction: () => editor?.chain().focus().setTextAlign("left").run(),
+				iconName: "majesticons:text-align-left",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "left",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().setTextAlign("center").run(),
+				iconName: "ci:text-align-center",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "center",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().setTextAlign("right").run(),
+				iconName: "humbleicons:align-text-right",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "right",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().setTextAlign("justify").run(),
+				iconName: "ph:text-align-justify-bold",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "justify",
+			},
+		],
+		[
+			{
+				buttonFunction: () => editor?.chain().focus().toggleBulletList().run(),
+				iconName: "fluent:text-bullet-list-ltr-24-filled",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "bulletList",
+			},
+			{
+				buttonFunction: () => editor?.chain().focus().toggleOrderedList().run(),
+				iconName: "nimbus:ordered-list",
+				iconClassName: "w-5 h-5",
+				isActiveFunctionName: "underline",
+			},
+		],
+	];
+
 	return (
 		<div className="mt-6">
 			<div className="flex flex-col">
@@ -61,46 +127,22 @@ const Tiptap = () => {
 			</div>
 			<div className="bg-input_clr rounded-sm p-2 before:bg-main relative before:absolute before:bottom-0 before:h-[1.5px] before:w-full before:content-normal before:left-0 before:right-0 focus-within:before:scale-x-100 before:scale-x-0 before:transition before:duration-300 before:ease-in-out">
 				<div className="flex items-center">
-					<div className="flex items-end gap-1 px-1">
-						<button
-							className={`text-slate-500 hover:text-main ${editor?.isActive("bold") ? "bg-red-400" : ""}`}
-							onClick={() => editor.chain().focus().toggleBold().run()}>
-							<Icon icon="bx:bold" className="w-[1.1rem] h-[1.1rem] translate-y-[1px] pointer-events-none" />
-						</button>
-						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleItalic().run()}>
-							<Icon icon="bx:italic" className="w-4 h-4" />
-						</button>
-						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleStrike().run()}>
-							<Icon icon="ic:round-strikethrough-s" className="w-[1.1rem] h-[1.1rem] translate-y-[1px]" />
-						</button>
-						<button className={`text-slate-500 hover:text-main`} onClick={() => editor.chain().focus.toggleUnderline().run()}>
-							<Icon icon="mdi:format-underline" className="w-4 h-4" />
-						</button>
-					</div>
-					<div className="divider bg-slate-300 relative inline-flex h-[22px] w-[1px]"></div>
-					<div className="flex items-center px-1 gap-[5px]">
-						<button onClick={() => editor.chain().focus().setTextAlign("left").run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="majesticons:text-align-left" className="w-5 h-5" />
-						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("center").run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="ci:text-align-center" className="w-5 h-5" />
-						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("right").run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="humbleicons:align-text-right" className="w-5 h-5" />
-						</button>
-						<button onClick={() => editor.chain().focus().setTextAlign("justify").run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="ph:text-align-justify-bold" className="w-5 h-5" />
-						</button>
-					</div>
-					<div className="divider bg-slate-300 relative inline-flex h-[22px] w-[1px]"></div>
-					<div className="flex items-center px-1 gap-[5px]">
-						<button onClick={() => editor.chain().focus().toggleBulletList().run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="fluent:text-bullet-list-ltr-24-filled" className="w-5 h-5 pointer-events-none" />
-						</button>
-						<button onClick={() => editor.chain().focus().toggleOrderedList().run()} className={`text-slate-500 hover:text-main`}>
-							<Icon icon="nimbus:ordered-list" className="w-5 h-5 pointer-events-none" />
-						</button>
-					</div>
+					{buttons.map((eachArray, arrayIndex) => (
+						<div className="flex items-end gap-1 px-1" key={arrayIndex}>
+							{eachArray.map(({ buttonFunction, iconName, iconClassName }, buttonIndex) => (
+								<React.Fragment key={buttonIndex}>
+									{
+										<ButtonIcon
+											iconName={iconName}
+											buttonFunction={buttonFunction}
+											iconClassName={`${iconClassName}`}
+											ButtonClassName="text-slate-500"
+										/>
+									}
+								</React.Fragment>
+							))}
+						</div>
+					))}
 				</div>
 				<EditorContent editor={editor} />
 			</div>
