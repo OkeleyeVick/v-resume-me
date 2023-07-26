@@ -16,7 +16,6 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 		get the current one whose id matches, then
 		update the it
 	*/
-
 	const autoUpdate = (fieldToUpdate, fieldValue) => {
 		const newWorkExperiences = userWorkExperiences.map((work) => {
 			if (eachAccordion.id === work.id) {

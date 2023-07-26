@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
 
+// TODO : FIX THE WIDTH AND HEIGHT OF THE PREVIEW PAGE (in px) from the largePreview, then scale it down to about 0.54 ==> check kickresume to see how its done
 const baseFont = {
 	Syne: "Syne",
 };
@@ -42,8 +43,8 @@ const ResumePreviewPage = () => {
 			<div mode="view-mode" name="resume-wrapper" className="absolute inset-0 h-full w-full">
 				<div name="resume-preview" style={{ fontFamily: `${font}` }} className={`whitespace-pre-wrap p-4 text-xs w-full h-full`}>
 					<div
-						className={`bg-white shadow-md mx-auto rounded-[4px] p-3 ${
-							largePreview ? "w-[65%] aspect-[0.20/0.22] scale-[0.8]" : "w-[70%] aspect-[0.20/0.255]"
+						className={`bg-white shadow-md mx-auto rounded-[4px] p-3   ${
+							largePreview ? "aspect-[1/1.24] h-[100vh]" : "aspect-[1/1.2] h-[90vh]"
 						}`}>
 						<div>
 							<BasicResumeContainer />
@@ -78,7 +79,6 @@ const ResumePreviewPage = () => {
 							</Menu.Item>
 						</Transition>
 						<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-5 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
-							<span className="leading-none">Download</span>
 							<Icon icon="uiw:download" className="w-4 h-4" />
 						</Menu.Button>
 					</Menu>
@@ -89,5 +89,3 @@ const ResumePreviewPage = () => {
 };
 
 export default ResumePreviewPage;
-
-//style {{ height: `calc(${297}px * ${scale})`, width: `calc(${240}px * ${scale})`, backgroundColor: `${color}` }}

@@ -23,10 +23,6 @@
 	src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Söhne";
-	src: url("../fonts/Shone-Regular.otf") format("opentype");
-}
-@font-face {
 	font-family: "Montserrat";
 	src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
 }
@@ -103,6 +99,6 @@
 	src: url("../fonts/FamiljenGrotesk-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Sharp Grotesk";
-	src: url("../fonts/SharpGrotesk-Book20.otf") format("truetype");
+	font-family: "Henk Work";
+	src: url("../fonts/henkwork-regular.otf") format("opentype");
 }

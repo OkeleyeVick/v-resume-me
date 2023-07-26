@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const UserDetailImage = () => {
 	const { userPersonalData } = useContext(userDataContext);
-	const { image, nationality, phone, country, address, dob, email, city } = userPersonalData;
-	const fullAddress = `${returnValue(address)} ${returnValue(city)} ${returnValue(country)}`;
+	const { image, nationality, phone, country, address, dob, email, city, postalCode } = userPersonalData;
+	const fullAddress = `${returnValue(address)} ${returnValue(city)} ${returnValue(postalCode)} ${returnValue(country)}`;
 
 	// return just the value
 	function returnValue(detail) {

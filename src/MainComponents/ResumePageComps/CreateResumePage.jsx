@@ -100,7 +100,6 @@ const CreateResumePage = () => {
 			}}>
 			<themeContext.Provider
 				value={{
-					scale: largePreview === true ? parseFloat(1.8) : parseFloat(1.5),
 					largePreview,
 					setLargePreview,
 					sideBarState,

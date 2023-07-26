@@ -73,7 +73,7 @@ const UserInputObjects = () => {
 		phone: {
 			ariaLabel: "phone",
 			hasExtraInfo: true,
-			tooltipData: "Write start your phone number starting with your country code",
+			tooltipData: "Start your phone number with your country code if you are applying for a remote jon",
 			type: "tel",
 			nameLabel: "phone",
 			inputMode: "numeric",
