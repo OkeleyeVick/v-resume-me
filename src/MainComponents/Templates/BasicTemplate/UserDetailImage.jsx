@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Link } from "react-router-dom";
+import { Link_, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 const UserDetailImage = () => {
 	const { userPersonalData } = useContext(userDataContext);
@@ -9,25 +9,25 @@ const UserDetailImage = () => {
 
 	// return just the value
 	function returnValue(detail) {
-		return detail.value;
+		return `${detail.value}`;
 	}
 
 	return (
 		<>
-			<div className="grid grid-cols-3 items-center gap-2 w-full">
-				<div className="user-personal-info col-span-2">
+			<div className="flex justify-between items-center gap-2 w-full mt-10">
+				<div className="user-personal-info flex-grow">
 					{[email, phone, nationality, dob].map((eachUserDetail, index) => {
 						return (
 							<React.Fragment key={index}>
 								{returnValue(eachUserDetail) ? (
 									<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
-										<h5 className="key capitalize font-semibold">{eachUserDetail.nameLabel}: </h5>
+										<Span1 className="key capitalize text">{eachUserDetail.nameLabel}: </Span1>
 										{eachUserDetail === email ? (
-											<Link to="https://www.twitter.com" target="_blank" className="text-blue-900 underline">
+											<Link_ to="https://www.twitter.com" className="text-blue-900 underline">
 												{returnValue(eachUserDetail)}
-											</Link>
+											</Link_>
 										) : (
-											<span className="value">{returnValue(eachUserDetail)}</span>
+											<Span1 className="value text">{returnValue(eachUserDetail)}</Span1>
 										)}
 									</div>
 								) : null}
@@ -36,14 +36,16 @@ const UserDetailImage = () => {
 					})}
 					{(returnValue(address) !== "" || returnValue(city) !== "" || returnValue(country) !== "") && (
 						<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
-							<h5 className="font-semibold">Address: </h5>
-							<span>{fullAddress}</span>
+							<Span1 className="text">Address: </Span1>
+							<Span1 className="text">{fullAddress}</Span1>
 						</div>
 					)}
 				</div>
 				<div className="col-span-1 text-end flex items-center justify-end">
 					{image.imageSrc ? (
-						<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-12">
+						<div
+							className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between"
+							style={{ height: 100, width: 100 }}>
 							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
 						</div>
 					) : (

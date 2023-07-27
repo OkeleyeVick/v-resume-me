@@ -142,14 +142,17 @@ const CreateResumePage = () => {
 								largePreview ? "w-full overflow-auto" : "w-1/2"
 							}`}>
 							<div className="absolute top-0 flex px-6 z-10 items-start left-0 pt-3">
-								<button type="button" className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative" onClick={zoomIn}>
+								<button
+									type="button"
+									className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
+									onClick={zoomIn}>
 									<Icon
 										icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}
 										className="text-white w-6 h-6"
 									/>
 								</button>
 							</div>
-							<div className={`${largePreview ? "mt-10 mb-60" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
+							<div className={`${largePreview ? "my-20" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
 								<ResumePreviewPage />
 							</div>
 						</div>

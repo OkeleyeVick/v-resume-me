@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { Span, Span1 } from "../../../assets/theme/fontSizes";
 
 const Hobbies = () => {
 	const { hobbies } = useContext(userDataContext);
@@ -9,13 +10,13 @@ const Hobbies = () => {
 			{hobbies && hobbies.length !== 0 && (
 				<>
 					<div name="soft-skills">
-						<h1>Hobbies</h1>
-						<div className="mt-1 flex items-center gap-1 flex-wrap">
+						<Span className="text-title">Hobbies</Span>
+						<div className="flex items-center gap-1 flex-wrap mt-4">
 							{hobbies.map(({ hobbyName }) => {
 								return (
-									<span key={hobbyName} className="text-center bg-gray-200 rounded-sm p-1 px-2 leading-none">
+									<Span1 key={hobbyName} className="pill">
 										{hobbyName}
-									</span>
+									</Span1>
 								);
 							})}
 						</div>

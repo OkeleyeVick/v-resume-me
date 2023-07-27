@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { Small, Span } from "../../../assets/theme/fontSizes";
 
 const SoftSkills = () => {
 	const { skills } = useContext(userDataContext);
@@ -10,13 +11,13 @@ const SoftSkills = () => {
 			{skills && skills.softSkills.length !== 0 && (
 				<>
 					<div name="soft-skills">
-						<h1>Softskills</h1>
-						<div className="mt-1 flex items-center gap-1 flex-wrap">
+						<Span className="text-title">Soft Skills</Span>
+						<div className="mt-4 flex items-center gap-1 flex-wrap">
 							{softSkills.map(({ skillName }) => {
 								return (
-									<span key={skillName} className="bg-gray-200 rounded-sm p-1 px-2 leading-none">
+									<Small key={skillName} className="pill">
 										{skillName}
-									</span>
+									</Small>
 								);
 							})}
 						</div>

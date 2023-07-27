@@ -41,6 +41,7 @@ const UserInputObjects = () => {
 			inputMode: "text",
 			value: "",
 			type: "text",
+			hasDropdown: true,
 		},
 		image: {
 			isImage: true,

@@ -27,7 +27,10 @@ const ThemeTogglerButton = () => {
 				className={`${
 					sideBarState ? "scale-0" : "scale-100"
 				} duration-75 right-0 top-0 flex z-30 items-start justify-end pr-3 lg:pr-6 pt-3 fixed`}>
-				<button type="button" className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr" onClick={handleThemeSideBarState}>
+				<button
+					type="button"
+					className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100"
+					onClick={handleThemeSideBarState}>
 					<Icon icon="zondicons:color-palette" className="text-white w-6 h-6" />
 				</button>
 			</div>

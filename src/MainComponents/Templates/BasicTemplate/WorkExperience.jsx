@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
-export const Span = ({ children }) => <span className="tracking-wide">{children}</span>;
 export default function WorkExperience() {
 	const { workExperienceValues } = useContext(userDataContext);
 	const { workExperiences } = workExperienceValues;
@@ -10,9 +10,9 @@ export default function WorkExperience() {
 	return (
 		<>
 			{userWorkExperiences && userWorkExperiences.length !== 0 && (
-				<div className="mt-3">
-					<header className="font-bold">Work Experience</header>
-					<div className="flex flex-col gap-y-3 mt-2">
+				<div>
+					<Span className="text-title">Work Experience</Span>
+					<div className="flex flex-col gap-y-3 mt-4">
 						{userWorkExperiences.map(
 							({ id, companyName, jobTitle, country, startMonth, startYear, endMonth, endYear, city, currentlyWorkingThere }) => {
 								const check =
@@ -27,42 +27,43 @@ export default function WorkExperience() {
 									jobTitle;
 								return (
 									<React.Fragment key={id}>
-										<section>
+										<section className="mt-1">
 											{check ? (
 												<>
-													<span className="flex items-center gap-2">
-														<span className="date flex items-center gap-1">
+													<div className="flex items-center gap-2">
+														<div className="date flex items-center gap-1">
 															{startMonth || startYear ? (
-																<span className="start">
-																	<small>{startMonth ?? ""}</small>/<small>{startYear ?? ""}</small>
-																</span>
+																<div className="start">
+																	<Smaller className="text-small">{startMonth ?? ""}</Smaller>/
+																	<Smaller className="text-small">{startYear ?? ""}</Smaller>
+																</div>
 															) : (
 																""
 															)}
 															<span className="divider">-</span>
 															{endMonth || endYear || currentlyWorkingThere ? (
-																<>
+																<div class="end">
 																	{currentlyWorkingThere === true ? (
-																		<small>Present</small>
+																		<Smaller className="text-small">Present</Smaller>
 																	) : (
-																		<span className="end flex items-center">
-																			<small className="tracking-wide">{endMonth ?? ""}</small>/
-																			<small>{endYear ?? ""}</small>
-																		</span>
+																		<div>
+																			<Smaller className="text-small">{endMonth}</Smaller>/
+																			<Smaller className="text-small">{endYear}</Smaller>
+																		</div>
 																	)}
-																</>
+																</div>
 															) : (
 																<></>
 															)}
-														</span>
-														<span className="flex items-center gap-1">
-															{city && <small className="city uppercase text-[.6rem]">{city},</small>}
-															{country && <small className="country uppercase text-[.6rem]">{country}</small>}
-														</span>
-													</span>
-													<div>
-														<h3 className="job-title capitalize font-extrabold">{jobTitle}</h3>
-														<h4 className="company capitalize font-semibold">{companyName}</h4>
+														</div>
+														<div className="flex items-center gap-1">
+															{city && <Smaller className="city uppercase text-small">{city},</Smaller>}
+															{country && <Smaller className="country uppercase text-small">{country}</Smaller>}
+														</div>
+													</div>
+													<div className="flex flex-col mt-1">
+														<Span1 className="job-title capitalize font-extrabold">{jobTitle}</Span1>
+														<Span1 className="company capitalize font-semibold">{companyName}</Span1>
 													</div>
 												</>
 											) : (

@@ -49,9 +49,9 @@ const InputWithLabel = ({
 					className ? className : "bg-input_clr border-transparent"
 				} py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px] min-h-[2.8rem] border`}
 			/>
-			{/* {hasDropdown ? (
+			{hasDropdown ? (
 				<React.Fragment>
-					<motion.div className={"absolute z-10 top-full bg-[rgb(239,242,249)] text-xs rounded-[3px] shadow-custom_3"}>
+					<div className={"absolute z-10 top-full bg-[rgb(239,242,249)] text-xs rounded-[3px] shadow-custom_3"}>
 						<ul className="my-3 no-scroll overflow-x-hidden h-36 px-1 ">
 							{roles.career_roles.map((role, role_index) => {
 								return (
@@ -65,11 +65,11 @@ const InputWithLabel = ({
 								);
 							})}
 						</ul>
-					</motion.div>
+					</div>
 				</React.Fragment>
 			) : (
 				""
-			)} */}
+			)}
 		</div>
 	);
 };

@@ -1,25 +1,25 @@
 import React from "react";
 import { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { H1, H2, Span } from "../../../assets/theme/fontSizes";
+import { Span, Span1 } from "../../../assets/theme/fontSizes";
 
 const Language = () => {
 	const { languages } = useContext(userDataContext);
 	return (
 		<>
 			{languages && languages.length !== 0 && (
-				<span>
-					<h1>Languages</h1>
-					<div className="flex flex-wrap gap-1 mt-1">
+				<div>
+					<Span className="text-title">Languages</Span>
+					<div className="flex flex-wrap gap-1 mt-4">
 						{languages.map(({ languageName }, index) => {
 							return (
-								<span className="bg-gray-200 rounded-sm p-1 px-2 leading-none" key={index}>
+								<Span1 className="pill" key={index}>
 									{languageName}
-								</span>
+								</Span1>
 							);
 						})}
 					</div>
-				</span>
+				</div>
 			)}
 		</>
 	);

@@ -13,7 +13,7 @@ const HeaderContainer = () => {
 		<React.Fragment>
 			{(firstname.value || lastname.value) && (
 				<div className="flex-grow">
-					<h1 className={`block text-center font-extrabold leading-none ${largePreview ? "text-xl" : "text-[14px]"}`}>
+					<h1 className={`block text-center font-bold leading-none uppercase`} style={{ fontSize: 28 }}>
 						{trimText(lastname)} {trimText(firstname)}
 					</h1>
 				</div>

@@ -11,7 +11,7 @@ const baseFont = {
 };
 
 const ResumePreviewPage = () => {
-	const { scale, largePreview, setLargePreview, themeSelection } = useContext(themeContext);
+	const { largePreview, setLargePreview, themeSelection } = useContext(themeContext);
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
@@ -41,12 +41,15 @@ const ResumePreviewPage = () => {
 	return (
 		<React.Fragment>
 			<div mode="view-mode" name="resume-wrapper" className="absolute inset-0 h-full w-full">
-				<div name="resume-preview" style={{ fontFamily: `${font}` }} className={`whitespace-pre-wrap p-4 text-xs w-full h-full`}>
+				<div
+					name="resume-preview"
+					style={{ fontFamily: `${font}` }}
+					className={`whitespace-pre-wrap p-4 text-xs w-full h-full flex items-center justify-center flex-col`}>
 					<div
-						className={`bg-white shadow-md mx-auto rounded-[4px] p-3   ${
-							largePreview ? "aspect-[1/1.24] h-[100vh]" : "aspect-[1/1.2] h-[90vh]"
+						className={`bg-white shadow-md mx-auto rounded-[4px] flex-grow origin-[15%_0] ${
+							largePreview ? "max-w-[794px] h-[1202px] w-full " : "w-[794px] h-[685.776px] scale-[0.57529]"
 						}`}>
-						<div>
+						<div className={`p-8 ${largePreview ? "h-full" : "w-[798px] "}`}>
 							<BasicResumeContainer />
 						</div>
 					</div>

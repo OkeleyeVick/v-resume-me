@@ -44,3 +44,22 @@ body::-webkit-scrollbar {
 		font-size: 15px;
 	}
 }
+
+.pill {
+	@apply bg-gray-200 rounded-sm p-1 px-3 leading-none;
+}
+.text {
+	@apply font-medium;
+}
+.text-small {
+	@apply text-gray-600/90 font-semibold;
+}
+.text-medium {
+	/* @apply; */
+}
+.text-title {
+	@apply font-bold;
+}
+.divider {
+	@apply text-gray-600/90 font-bold;
+}
