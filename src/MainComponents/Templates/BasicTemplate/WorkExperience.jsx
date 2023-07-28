@@ -44,7 +44,7 @@ export default function WorkExperience() {
 															{endMonth || endYear || currentlyWorkingThere ? (
 																<div class="end">
 																	{currentlyWorkingThere === true ? (
-																		<Smaller className="text-small">Present</Smaller>
+																		<Smaller className="text-small uppercase">Present</Smaller>
 																	) : (
 																		<div>
 																			<Smaller className="text-small">{endMonth}</Smaller>/

@@ -2,7 +2,6 @@ import React, { createContext, memo, useState } from "react";
 import ResumePreviewPage from "./ResumePreviewPage";
 import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
-import "../../assets/css/fonts.css";
 import { Icon } from "@iconify/react";
 import ThemeTogglerButton from "../../assets/theme/themeComponents/ThemeTogglerButton";
 import SkillsIndex from "./SkillsSection/SkillsIndex";
@@ -11,6 +10,8 @@ import data from "../../assets/db/databsase.json";
 import UserInputObjects from "./UserInputObjects";
 import EducationIndex from "./EducationSection/EducationIndex";
 import HobbyIndex from "./HobbySection/HobbyIndex";
+import "../../assets/css/fonts.css";
+import { GoBack } from "../GeneralComponents/GoBack";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
@@ -30,7 +31,7 @@ const CreateResumePage = () => {
 	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 
-	// <============ all states ===============>
+	// <============ all states ==================>
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
 
 	const [fileName, setFileName] = useState("");
@@ -62,9 +63,7 @@ const CreateResumePage = () => {
 	const [languages, setLanguages] = useState([]);
 
 	// everything about work experience
-	const [userWorkExperiences, setUserWorkExperiences] = useState([]); // an object of user work experience
-
-	//fonts and selection
+	const [userWorkExperiences, setUserWorkExperiences] = useState([]);
 
 	//setting the look of the preview resume
 	const [largePreview, setLargePreview] = useState(false);
@@ -73,9 +72,6 @@ const CreateResumePage = () => {
 	}
 	const [themeSelection, setSelectedThemes] = useState(themeDetails);
 	const [sideBarState, setSideBarState] = useState(false);
-
-	// TODO: the font size should increase differently
-	// the height and width should increase differently ==> the ratio of height and width is 1.414
 
 	return (
 		<userDataContext.Provider
@@ -114,6 +110,7 @@ const CreateResumePage = () => {
 								<ThemeFamily />
 							</React.Suspense>
 							<ThemeTogglerButton />
+							<GoBack />
 							<div className="">
 								<section className="bg-white" id="user-personal-info">
 									<UserIndex />

@@ -60,11 +60,11 @@ const SoftSkill = () => {
 	}
 
 	const handleTheInput = (inputValue) => {
-		setInput(inputValue.trim());
+		setInput(inputValue);
 		setNewSoftSkill((prev) => ({
 			// update the value of the skillName
 			...prev,
-			skillName: inputValue.trim(),
+			skillName: inputValue,
 		}));
 	};
 

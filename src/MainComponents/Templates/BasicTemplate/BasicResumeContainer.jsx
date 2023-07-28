@@ -17,7 +17,7 @@ const BasicResumeContainer = () => {
 			<div className="flex flex-col items-center justify-between">
 				<UserDetailImage />
 			</div>
-			<div className="grid grid-cols-2 gap-8">
+			<div className="grid grid-cols-2 gap-8 mt-10">
 				<div className="flex flex-col gap-y-3">
 					<WorkExperience />
 				</div>

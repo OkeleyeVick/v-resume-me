@@ -71,6 +71,8 @@ const EducationIndex = () => {
 												currentEducationObject={currentEducationObject}
 												id={eachAccordion.id}
 												eachAccordion={eachAccordion}
+												userEducationData={userEducationData}
+												setUserEducationData={setUserEducationData}
 												deleteExperience={deleteExperience}
 												setEducationObject={setEducationObject}
 											/>

@@ -11,11 +11,11 @@ const LanguageIndex = () => {
 	const [languageItem, setLanguageItem] = useState({ id: 0, languageName: "" });
 
 	function setTheInput(inputValue) {
-		setLanguageInput(inputValue.trim());
+		setLanguageInput(inputValue);
 		setLanguageItem((previous) => {
 			return {
 				...previous,
-				languageName: inputValue.trim(),
+				languageName: inputValue,
 			};
 		});
 	}

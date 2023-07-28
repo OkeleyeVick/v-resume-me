@@ -7,10 +7,28 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 
-const EducationChildAccordion = ({ eachAccordion, deleteExperience, currentEducationObject }) => {
+const EducationChildAccordion = ({ userEducationData, setUserEducationData, eachAccordion, deleteExperience, currentEducationObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
 	const [educationDetails, setEducationDetails] = useState(currentEducationObject);
+
+	/* get all the previous states, 
+		get the current one whose id matches, then
+		update the it
+	*/
+	const autoUpdate = (fieldToUpdate, fieldValue) => {
+		const newEducationDetails = userEducationData.map((education) => {
+			if (eachAccordion.id === education.id) {
+				return {
+					...education,
+					[fieldToUpdate]: fieldValue,
+				};
+			}
+			return education;
+		});
+
+		setUserEducationData(newEducationDetails);
+	};
 
 	// function that updates each input
 	function updateTheInput(inputValue, field) {
@@ -20,6 +38,7 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, currentEduca
 				[field]: inputValue,
 			};
 		});
+		autoUpdate(field, inputValue);
 	}
 
 	function getStartMonth(monthNumber) {
@@ -27,33 +46,44 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, currentEduca
 			...previous,
 			startMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
 		}));
+
+		autoUpdate("startMonth", monthNumber);
 	}
 	function getStartYear(startYear) {
 		setEducationDetails((previous) => ({
 			...previous,
 			startYear: `${startYear}`,
 		}));
+
+		autoUpdate("startYear", startYear);
 	}
 	function getEndMonth(monthNumber) {
 		setEducationDetails((previous) => ({
 			...previous,
 			endMonth: `${monthNumber < 10 ? `0${monthNumber}` : monthNumber}`,
 		}));
+
+		autoUpdate("endMonth", monthNumber);
 	}
 	function getEndYear(endYear) {
 		setEducationDetails((previous) => ({
 			...previous,
 			endYear: `${endYear}`,
 		}));
+		autoUpdate("endYear", endYear);
 	}
-
 	function handleTheCheck() {
+		let state = false; // by default, it is false
 		// handle the check and change the state
-		setIsChecked((oldState) => !oldState);
+		setIsChecked((oldState) => {
+			state = !oldState;
+			return !oldState;
+		});
 		setEducationDetails((previousData) => ({
 			...previousData,
 			currentlySchoolingThere: !previousData.currentlySchoolingThere,
 		}));
+		autoUpdate("currentlySchoolingThere", state);
 	}
 
 	return (
@@ -146,7 +176,7 @@ const EducationChildAccordion = ({ eachAccordion, deleteExperience, currentEduca
 													</>
 												)}
 												<div className="mt-3">
-													<Checkbox label="I currently work here" onChange={() => handleTheCheck(eachAccordion.id)} />
+													<Checkbox label="I currently study here" onChange={() => handleTheCheck(eachAccordion.id)} />
 												</div>
 											</div>
 										</div>

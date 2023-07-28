@@ -19,20 +19,20 @@ const HeroSection = () => {
 						<span className="w-full md:w-4/6 mx-auto block mt-4 text-sm md:text-base relative">
 							Resumé.me is designed to generate job worthy resumés for job seekers, it follows the resume rules employers look for.
 						</span>
-						<div className="relative mt-10 lg:mt-28">
-							<figure className="hidden lg:flex absolute inset-0 m-auto items-center justify-center">
+						<div className="relative mt-28 lg:mt-28">
+							<figure className="flex absolute inset-0 m-auto items-center justify-center">
 								<img src={womanImage} alt="" className="max-w-full w-24 lg:-mt-4" />
 							</figure>
 							<div className="relative w-max mx-auto">
-								<figure className="hidden lg:block absolute -left-3 top-0">
+								<figure className="absolute -left-3 top-0">
 									<img src={leftHand} alt="" className="w-6 max-w-full" />
 								</figure>
 								<Link
-									to="/"
+									to="/select-template"
 									className="text-white bg-main rounded-md py-4 px-10 md:py-4 transition ease-in-out duration-500 hover:bg-hoverBgClr text-sm selection:text-white font-semibold">
 									Let's create you a resumé
 								</Link>
-								<figure className="hidden lg:block absolute -right-3 top-0">
+								<figure className="absolute -right-3 top-0">
 									<img src={rightHand} alt="" className="w-6 max-w-full" />
 								</figure>
 							</div>

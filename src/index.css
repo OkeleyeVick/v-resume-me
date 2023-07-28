@@ -54,9 +54,6 @@ body::-webkit-scrollbar {
 .text-small {
 	@apply text-gray-600/90 font-semibold;
 }
-.text-medium {
-	/* @apply; */
-}
 .text-title {
 	@apply font-bold;
 }

@@ -15,7 +15,7 @@ const HobbyIndex = () => {
 		setHobbyItem((previous) => {
 			return {
 				...previous,
-				hobbyName: inputValue.trim(),
+				hobbyName: inputValue,
 			};
 		});
 	}

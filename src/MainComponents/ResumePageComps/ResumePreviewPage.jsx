@@ -4,11 +4,29 @@ import { themeContext } from "./CreateResumePage";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
+import { jsPDF } from "jspdf";
 
-// TODO : FIX THE WIDTH AND HEIGHT OF THE PREVIEW PAGE (in px) from the largePreview, then scale it down to about 0.54 ==> check kickresume to see how its done
 const baseFont = {
 	Syne: "Syne",
 };
+
+const newPDF = new jsPDF({
+	orientation: "portrait",
+	unit: "px",
+});
+
+newPDF.setFont(`${baseFont.Syne}`, "normal");
+newPDF.text("God is good", 10, 10);
+
+const div = document.querySelector("[mode='view-mode']");
+
+function downloadPDF() {
+	console.log("I am downloading in pdf format");
+	newPDF.save("victor.pdf");
+}
+function downloadDOCXS() {
+	console.log("I am downloading in docxs format");
+}
 
 const ResumePreviewPage = () => {
 	const { largePreview, setLargePreview, themeSelection } = useContext(themeContext);
@@ -16,13 +34,6 @@ const ResumePreviewPage = () => {
 	const font = themeSelection.font.family.customFont;
 
 	// <== download the pdf function ==>
-
-	function downloadPDF() {
-		console.log("I am downloading in pdf format");
-	}
-	function downloadDOCXS() {
-		console.log("I am downloading in docxs format");
-	}
 
 	const DownloadOptions = [
 		{

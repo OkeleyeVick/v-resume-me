@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 export default function Education() {
 	const { userEducationData } = useContext(userDataContext);
@@ -8,43 +9,62 @@ export default function Education() {
 		<>
 			{userEducationData && userEducationData.length !== 0 && (
 				<div>
-					<header className="font-bold">Education</header>
-					{userEducationData.map(
-						({ id, degree, school, startMonth, startYear, endMonth, endYear, city, country, currentlySchoolingThere }) => (
-							<React.Fragment key={id}>
-								<section>
-									<span className="flex items-center">
-										<span className="date flex items-center">
-											{startMonth || startYear ? (
-												<small className="start">
-													{startMonth ?? ""} - {startYear ?? ""}
-												</small>
+					<Span className="text-title">Education</Span>
+					<div className="flex flex-col gap-y-3 mt-4">
+						{userEducationData.map(
+							({ id, degree, school, startMonth, startYear, endMonth, endYear, city, country, currentlySchoolingThere }) => {
+								const check =
+									startMonth || startYear || endMonth || endYear || currentlySchoolingThere || city || country || school || degree;
+								return (
+									<React.Fragment key={id}>
+										<section className="mt-1">
+											{check ? (
+												<>
+													<div className="flex items-center gap-2">
+														<div className="date flex items-center gap-1">
+															{startMonth || startYear ? (
+																<div className="start">
+																	<Smaller className="text-small">{startMonth ?? ""}</Smaller>/
+																	<Smaller className="text-small">{startYear ?? ""}</Smaller>
+																</div>
+															) : (
+																""
+															)}
+															<span className="divider">-</span>
+															{endMonth || endYear || currentlySchoolingThere ? (
+																<div className="end">
+																	{currentlySchoolingThere === true ? (
+																		<Smaller className="text-small uppercase">Present</Smaller>
+																	) : (
+																		<div>
+																			<Smaller className="text-small">{endMonth ?? ""}</Smaller>/
+																			<Smaller className="text-small">{endYear ?? ""}</Smaller>
+																		</div>
+																	)}
+																</div>
+															) : (
+																<></>
+															)}
+														</div>
+														<div className="flex items-center gap-1">
+															{city && <Smaller className="city uppercase text-small">{city},</Smaller>}
+															{country && <Smaller className="country uppercase text-small">{country}</Smaller>}
+														</div>
+													</div>
+													<div className="flex flex-col mt-1">
+														<Span1 className="job-title capitalize font-extrabold">{degree}</Span1>
+														<Span1 className="company capitalize font-semibold">{school}</Span1>
+													</div>
+												</>
 											) : (
 												""
 											)}
-											{endMonth || endYear || currentlySchoolingThere ? (
-												<>
-													{currentlySchoolingThere ? (
-														<small>Present</small>
-													) : (
-														<small className="end">
-															{endMonth ?? ""} - {endYear ?? ""}
-														</small>
-													)}
-												</>
-											) : (
-												<></>
-											)}
-										</span>
-										<span>
-											<small className="city"></small>
-											<small className="country"></small>
-										</span>
-									</span>
-								</section>
-							</React.Fragment>
-						)
-					)}
+										</section>
+									</React.Fragment>
+								);
+							}
+						)}
+					</div>
 				</div>
 			)}
 		</>
