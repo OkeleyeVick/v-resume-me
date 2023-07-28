@@ -17,6 +17,7 @@ const fontFamily = {
 	"Nunito Sans": "Nunito Sans",
 	Rubik: "Rubik",
 	Ubuntu: "Ubuntu",
+	"Source Serif Pro": "Source Serif Pro",
 	Epilogue: "Epilogue",
 	"Henk Work": "Henk Work",
 	Raleway: "Raleway",

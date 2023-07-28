@@ -11,7 +11,7 @@ import UserInputObjects from "./UserInputObjects";
 import EducationIndex from "./EducationSection/EducationIndex";
 import HobbyIndex from "./HobbySection/HobbyIndex";
 import "../../assets/css/fonts.css";
-import { GoBack } from "../GeneralComponents/GoBack";
+import GoBack from "../GeneralComponents/GoBack";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 

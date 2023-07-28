@@ -1,70 +1,70 @@
 @font-face {
 	font-family: "Syne";
-	src: url("../fonts/Syne-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Syne.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Inter";
-	src: url("../fonts/Inter-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Inter.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Rubik";
-	src: url("../fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Rubik.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Sora";
-	src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Sora.ttf") format("truetype");
 }
 @font-face {
 	font-family: "IBMPlexSans";
-	src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
+	src: url("../fonts/IBMPlexSans.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Mulish";
-	src: url("../fonts/Mulish-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Mulish.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Montserrat";
-	src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Montserrat.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Stolzl";
-	src: url("../fonts/Stolzl-Book.ttf") format("truetype");
+	src: url("../fonts/Stolzl.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Nunito Sans";
-	src: url("../fonts/NunitoSans-VariableFont.ttf") format("truetype");
+	src: url("../fonts/Nunito Sans.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Ubuntu";
-	src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+	src: url("../fonts/Ubuntu.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Lora";
-	src: url("../fonts/Lora-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Lora.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Fira Code";
-	src: url("../fonts/FiraCode-VF.ttf") format("truetype");
+	src: url("../fonts/Fira Code.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Quicksand";
-	src: url("../fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Quicksand.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Bianco";
-	src: url("../fonts/BiancoSerif-Regular.ttf") format("truetype");
+	src: url("../fonts/Bianco.ttf") format("truetype");
 }
 @font-face {
 	font-family: "CASaygon";
-	src: url("../fonts/CASaygonText-Regular.ttf") format("truetype");
+	src: url("../fonts/CASaygon.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Cormonrant";
-	src: url("../fonts/CormorantInfant-Regular.ttf") format("truetype");
+	src: url("../fonts/Cormorant.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Roobert";
-	src: url("../fonts/Roobert-Regular.ttf") format("truetype");
+	src: url("../fonts/Roobert.ttf") format("truetype");
 }
 @font-face {
 	font-family: "SpaceGrotesk";
@@ -72,33 +72,37 @@
 }
 @font-face {
 	font-family: "Work Sans";
-	src: url("../fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/WorkSans.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Raleway";
-	src: url("../fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Raleway.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Epilogue";
-	src: url("../fonts/Epilogue-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Epilogue.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Exo";
-	src: url("../fonts/Exo2-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Exo.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Expletus Sans";
-	src: url("../fonts/ExpletusSans-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Expletus Sans.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Magnat";
-	src: url("../fonts/MagnatText-Regular.otf") format("truetype");
+	src: url("../fonts/Magnat.otf") format("opentype");
 }
 @font-face {
 	font-family: "Grotesk";
-	src: url("../fonts/FamiljenGrotesk-VariableFont_wght.ttf") format("truetype");
+	src: url("../fonts/Grotesk.ttf") format("truetype");
 }
 @font-face {
 	font-family: "Henk Work";
-	src: url("../fonts/henkwork-regular.otf") format("opentype");
+	src: url("../fonts/Henk Work.otf") format("opentype");
+}
+@font-face {
+	font-family: "Source Serif Pro";
+	src: url("../fonts/Source Serif Pro.otf") format("opentype");
 }

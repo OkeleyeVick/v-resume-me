@@ -1,5 +1,6 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
+import "../../assets/JSXFonts/Work Sans";
 import { themeContext } from "./CreateResumePage";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
@@ -15,7 +16,7 @@ const newPDF = new jsPDF({
 	unit: "px",
 });
 
-newPDF.setFont(`${baseFont.Syne}`, "normal");
+newPDF.setFont("Work Sans", "normal");
 newPDF.text("God is good", 10, 10);
 
 const div = document.querySelector("[mode='view-mode']");
