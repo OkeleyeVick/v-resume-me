@@ -9,11 +9,12 @@ const HeaderContainer = () => {
 	function trimText(textValue) {
 		return textValue.value.trim();
 	}
+
 	return (
 		<React.Fragment>
 			{(firstname.value || lastname.value) && (
-				<div className="flex-grow">
-					<h1 className={`block text-center font-bold leading-none uppercase`} style={{ fontSize: 28 }}>
+				<div className="flex-grow text-center">
+					<h1 className="font-extrabold uppercase" style={{ fontSize: 26 }}>
 						{trimText(lastname)} {trimText(firstname)}
 					</h1>
 				</div>

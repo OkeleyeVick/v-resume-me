@@ -52,8 +52,8 @@ export default function Education() {
 														</div>
 													</div>
 													<div className="flex flex-col mt-1">
-														<Span1 className="job-title capitalize font-extrabold">{degree}</Span1>
-														<Span1 className="company capitalize font-semibold">{school}</Span1>
+														<Span1 className="job-title font-extrabold">{degree}</Span1>
+														<Span1 className="company font-semibold">{school}</Span1>
 													</div>
 												</>
 											) : (

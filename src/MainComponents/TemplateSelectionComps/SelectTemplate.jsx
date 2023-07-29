@@ -76,7 +76,7 @@ const SelectTemplate = () => {
 						<small className="text-sm">You can only select one template for use</small>
 					</div>
 					<div className="text-center mt-8">
-						<Link to="/create-resume/demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
+						<Link to="/select-template/demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
 							Create a very basic demo Resume
 						</Link>
 					</div>
@@ -111,7 +111,7 @@ const SelectTemplate = () => {
 													type="button"
 													name="view-template"
 													className="text-xs selection:text-white bg-main hover:bg-hoverBgClr transition ease-in-out duration-500 rounded-md py-3 px-3 sm:px-5 text-white"
-													onClick={() => console.log("welll")}>
+													onClick={() => {}}>
 													<span className="hidden md:inline">View template</span>
 													<Icon icon="carbon:document-view" className="md:hidden w-5 h-4" />
 												</button>

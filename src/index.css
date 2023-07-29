@@ -51,6 +51,9 @@ body::-webkit-scrollbar {
 .text {
 	@apply font-medium;
 }
+.test.key {
+	@apply font-semibold;
+}
 .text-small {
 	@apply text-gray-600/90 font-semibold;
 }

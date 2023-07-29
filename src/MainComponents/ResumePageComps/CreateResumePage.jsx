@@ -135,10 +135,10 @@ const CreateResumePage = () => {
 							</div>
 						</div>
 						<div
-							className={`hidden lg:block right-0 top-0 fixed z-20 bg-[rgb(134,138,173)] h-full text-sm px-6 select-none ${
+							className={`hidden lg:block right-0 scroll top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none ${
 								largePreview ? "w-full overflow-auto" : "w-1/2"
 							}`}>
-							<div className="absolute top-0 flex px-6 z-10 items-start left-0 pt-3">
+							<div className=" top-3 flex mt-0 sticky mx-5 z-10 items-start left-0">
 								<button
 									type="button"
 									className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
@@ -149,9 +149,7 @@ const CreateResumePage = () => {
 									/>
 								</button>
 							</div>
-							<div className={`${largePreview ? "my-20" : "my-0"} relative flex items-center justify-center h-full mx-auto`}>
-								<ResumePreviewPage />
-							</div>
+							<ResumePreviewPage />
 						</div>
 					</div>
 				</React.Fragment>

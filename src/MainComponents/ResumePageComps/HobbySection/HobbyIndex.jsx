@@ -25,9 +25,9 @@ const HobbyIndex = () => {
 			setHobbies((previousHobbies) => {
 				return [...previousHobbies, hobbyItem];
 			});
-			setHobbiesInput("");
 			setHobbyItem((previous) => ({ ...previous, id: hobbyItem.id + 1 }));
 		}
+		setHobbiesInput("");
 	}
 
 	const handleDeleteHobby = (HobbyId) => {

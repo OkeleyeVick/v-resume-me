@@ -21,7 +21,7 @@ const LandingPage = () => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowPreloader(false);
-		}, 2500);
+		}, 1800);
 		return () => clearTimeout(timer);
 	}, []);
 

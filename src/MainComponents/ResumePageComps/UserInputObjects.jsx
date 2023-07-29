@@ -73,7 +73,7 @@ const UserInputObjects = () => {
 		phone: {
 			ariaLabel: "phone",
 			hasExtraInfo: true,
-			tooltipData: "Start your phone number with your country code if you are applying for a remote jon",
+			tooltipData: "Start phone number with your country code if you are applying for a remote jon",
 			type: "tel",
 			nameLabel: "phone",
 			inputMode: "numeric",
@@ -118,7 +118,7 @@ const UserInputObjects = () => {
 			inputMode: "text",
 			value: "",
 			hasExtraInfo: true,
-			tooltipData: "If you are applying for a job outside the country, you might want to fill this, otherwise you can leave it blank",
+			tooltipData: "If you're applying for a job outside the country, you might want to fill this, otherwise you can leave it blank",
 		},
 		dob: {
 			ariaLabel: "dob",

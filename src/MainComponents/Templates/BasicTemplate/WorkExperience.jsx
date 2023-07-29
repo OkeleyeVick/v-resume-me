@@ -42,7 +42,7 @@ export default function WorkExperience() {
 															)}
 															<span className="divider">-</span>
 															{endMonth || endYear || currentlyWorkingThere ? (
-																<div class="end">
+																<div className="end">
 																	{currentlyWorkingThere === true ? (
 																		<Smaller className="text-small uppercase">Present</Smaller>
 																	) : (
@@ -62,8 +62,8 @@ export default function WorkExperience() {
 														</div>
 													</div>
 													<div className="flex flex-col mt-1">
-														<Span1 className="job-title capitalize font-extrabold">{jobTitle}</Span1>
-														<Span1 className="company capitalize font-semibold">{companyName}</Span1>
+														<Span1 className="job-title font-extrabold">{jobTitle}</Span1>
+														<Span1 className="company font-semibold">{companyName}</Span1>
 													</div>
 												</>
 											) : (

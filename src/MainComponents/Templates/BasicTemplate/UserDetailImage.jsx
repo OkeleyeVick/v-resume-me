@@ -36,7 +36,7 @@ const UserDetailImage = () => {
 					})}
 					{(returnValue(address) !== "" || returnValue(city) !== "" || returnValue(country) !== "") && (
 						<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
-							<Span1 className="text">Address: </Span1>
+							<Span1 className="text key">Address: </Span1>
 							<Span1 className="text">{fullAddress}</Span1>
 						</div>
 					)}
@@ -45,7 +45,7 @@ const UserDetailImage = () => {
 					{image.imageSrc ? (
 						<div
 							className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between"
-							style={{ height: 100, width: 100 }}>
+							style={{ height: 90, width: 90 }}>
 							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
 						</div>
 					) : (
