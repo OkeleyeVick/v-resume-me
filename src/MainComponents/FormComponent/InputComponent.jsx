@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
+import { debounce } from "lodash";
 
 const InputWithLabel = ({
 	label,
@@ -9,12 +10,20 @@ const InputWithLabel = ({
 	"aria-label": ariaLabel,
 	name,
 	updateTheDetail,
-	value,
 	className,
 	inputMode,
 	tooltip,
 	hasExtraInfo,
 }) => {
+	const debounceFunc = useCallback(
+		debounce((text, fieldName) => updateTheDetail(text, fieldName), 700),
+		[]
+	);
+
+	const handleValueInput = (textInput, fieldName) => {
+		debounceFunc(textInput, fieldName);
+	};
+
 	return (
 		<div
 			className={`input_container flex flex-col relative before:block before:absolute before:content-[''] before:bg-main before:w-full before:h-[1.4px] before:bottom-0 before:transition before:duration-300 before:origin-center h-fit`}>
@@ -35,9 +44,8 @@ const InputWithLabel = ({
 			<input
 				id={label}
 				name={name}
-				value={value}
 				placeholder={placeholder ? placeholder : ""}
-				onChange={(event) => updateTheDetail(event.target.value, name)}
+				onChange={(event) => handleValueInput(event.target.value, name)}
 				spellCheck="false"
 				inputMode={inputMode ?? "text"}
 				aria-label={ariaLabel}

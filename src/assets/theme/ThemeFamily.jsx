@@ -19,6 +19,7 @@ const fontFamily = {
 	Ubuntu: "Ubuntu",
 	"Source Serif Pro": "Source Serif Pro",
 	Epilogue: "Epilogue",
+	SpaceGrotesk: "SpaceGrotesk",
 	"Henk Work": "Henk Work",
 	Raleway: "Raleway",
 	"Work Sans": "Work Sans",
