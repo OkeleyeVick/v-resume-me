@@ -20,6 +20,7 @@ const WorkExperienceIndex = () => {
 		endYear: "",
 		city: "",
 		currentlyWorkingThere: false,
+		description: "",
 	});
 
 	function addNewExperience() {
@@ -40,6 +41,7 @@ const WorkExperienceIndex = () => {
 			endYear: "",
 			city: "",
 			currentlyWorkingThere: false,
+			description: "",
 		};
 
 		//set the new workObject

@@ -6,6 +6,7 @@ import { memo } from "react";
 import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
+import Tiptap from "../../FormComponent/Tiptap";
 
 const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccordion, deleteExperience, count, currentWorkObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
@@ -91,6 +92,14 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 		autoUpdate("currentlyWorkingThere", state);
 	}
 
+	function handleDescription(data) {
+		setUserWorkExperiences((previousData) => ({
+			...previousData,
+			description: data,
+		}));
+		autoUpdate("description", data);
+	}
+
 	return (
 		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
 			<AccordionItem>
@@ -132,6 +141,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 										name="jobTitle"
 										updateTheDetail={updateTheInput}
 										value={workPlaceDetails.jobTitle}
+										placeholder="Frontend Developer, Software Engineer, Accountant, ...etc"
 										action={setWorkPlaceDetails}
 										label="Job title"
 										className="bg-white border-gray-200"
@@ -183,6 +193,11 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 												</div>
 											</div>
 										</div>
+									</div>
+
+									<div className="-mt-2">
+										<span className="text-[.8rem] mb-2 text-label_clr">Description</span>
+										<Tiptap text={workPlaceDetails.description} onUpdate={handleDescription} />
 									</div>
 								</div>
 							</AccordionBody>

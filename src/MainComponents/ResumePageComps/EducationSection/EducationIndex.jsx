@@ -18,6 +18,7 @@ const EducationIndex = () => {
 		endYear: "",
 		location: "",
 		currentlySchoolingThere: false,
+		description: "",
 	});
 
 	function addNewEducation() {
@@ -38,13 +39,14 @@ const EducationIndex = () => {
 			city: "",
 			country: "",
 			currentlySchoolingThere: false,
+			description: "",
 		};
 
 		//set the new workObject
 		setEducationObject({ ...newEducationObject });
 	}
 
-	function deleteExperience(e, id) {
+	function deleteEducation(e, id) {
 		e.stopPropagation();
 		const newWorkExperience = userEducationData.filter((accordion) => accordion.id !== id);
 		setUserEducationData([...newWorkExperience]);
@@ -73,7 +75,7 @@ const EducationIndex = () => {
 												eachAccordion={eachAccordion}
 												userEducationData={userEducationData}
 												setUserEducationData={setUserEducationData}
-												deleteExperience={deleteExperience}
+												deleteEducation={deleteEducation}
 												setEducationObject={setEducationObject}
 											/>
 										</React.Fragment>

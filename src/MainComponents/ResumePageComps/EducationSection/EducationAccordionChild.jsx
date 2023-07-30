@@ -6,15 +6,17 @@ import { memo } from "react";
 import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
+import Tiptap from "../../FormComponent/Tiptap";
 
-const EducationChildAccordion = ({ userEducationData, setUserEducationData, eachAccordion, deleteExperience, currentEducationObject }) => {
+const EducationChildAccordion = ({ userEducationData, setUserEducationData, eachAccordion, deleteEducation, currentEducationObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
 
+	// this updates the UI
 	const [educationDetails, setEducationDetails] = useState(currentEducationObject);
 
 	/* get all the previous states, 
 		get the current one whose id matches, then
-		update the it
+		update the it ==> This updates the data
 	*/
 	const autoUpdate = (fieldToUpdate, fieldValue) => {
 		const newEducationDetails = userEducationData.map((education) => {
@@ -86,6 +88,14 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 		autoUpdate("currentlySchoolingThere", state);
 	}
 
+	const handleDescription = (data) => {
+		setEducationDetails((previousData) => ({
+			...previousData,
+			description: data,
+		}));
+		autoUpdate("description", data);
+	};
+
 	return (
 		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
 			<AccordionItem>
@@ -104,7 +114,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 										<button
 											type="button"
 											className="outline-transparent focus-visible:outline-main p-1"
-											onClick={(e) => deleteExperience(e, eachAccordion.id)}>
+											onClick={(e) => deleteEducation(e, eachAccordion.id)}>
 											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500 pointer-events-none" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
@@ -119,6 +129,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 									<InputWithLabel
 										name="school"
 										label="School"
+										placeholder="e.g University of Lagos"
 										value={educationDetails.school}
 										updateTheDetail={updateTheInput}
 										action={setEducationDetails}
@@ -128,6 +139,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 									<InputWithLabel
 										name="degree"
 										updateTheDetail={updateTheInput}
+										placeholder="e.g   Bsc. Engineering,  PhD Accounting ...etc"
 										value={educationDetails.degree}
 										action={setEducationDetails}
 										label="Degree"
@@ -180,6 +192,11 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 												</div>
 											</div>
 										</div>
+									</div>
+
+									<div className="-mt-2">
+										<span className="text-[.8rem] mb-2 text-label_clr">Description</span>
+										<Tiptap text={educationDetails.description} onUpdate={handleDescription} />
 									</div>
 								</div>
 							</AccordionBody>

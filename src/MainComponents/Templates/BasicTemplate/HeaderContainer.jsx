@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { themeContext, userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { DescriptionText } from "../../../assets/theme/fontSizes";
 
 const HeaderContainer = () => {
-	const { largePreview } = useContext(themeContext);
-	const { userPersonalData } = useContext(userDataContext);
+	const { userPersonalData, userPersonalSummary } = useContext(userDataContext);
 	const { firstname, lastname } = userPersonalData;
 
 	function trimText(textValue) {
@@ -12,11 +12,16 @@ const HeaderContainer = () => {
 
 	return (
 		<React.Fragment>
-			{(firstname.value || lastname.value) && (
-				<div className="flex-grow text-center">
-					<h1 className="font-extrabold uppercase" style={{ fontSize: 26 }}>
+			{(firstname.value || lastname.value || userPersonalSummary) && (
+				<div className="flex-grow">
+					<h1 className="font-extrabold uppercase text-center" style={{ fontSize: 26 }}>
 						{trimText(lastname)} {trimText(firstname)}
 					</h1>
+					{userPersonalSummary && (
+						<div className="mt-4">
+							<DescriptionText textValue={userPersonalSummary} />
+						</div>
+					)}
 				</div>
 			)}
 		</React.Fragment>

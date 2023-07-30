@@ -32,3 +32,7 @@ export const Smaller = ({ children, className }) => (
 		{children}
 	</small>
 );
+
+export const DescriptionText = ({ textValue }) => (
+	<span style={{ fontSize: 11, lineHeight: 1.4 }} dangerouslySetInnerHTML={{ __html: textValue }}></span>
+);

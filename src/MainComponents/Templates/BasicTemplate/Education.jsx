@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
+import { DescriptionText, Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 export default function Education() {
 	const { userEducationData } = useContext(userDataContext);
@@ -12,9 +12,30 @@ export default function Education() {
 					<Span className="text-title">Education</Span>
 					<div className="flex flex-col gap-y-3 mt-4">
 						{userEducationData.map(
-							({ id, degree, school, startMonth, startYear, endMonth, endYear, city, country, currentlySchoolingThere }) => {
+							({
+								id,
+								degree,
+								school,
+								startMonth,
+								startYear,
+								endMonth,
+								endYear,
+								city,
+								country,
+								currentlySchoolingThere,
+								description,
+							}) => {
 								const check =
-									startMonth || startYear || endMonth || endYear || currentlySchoolingThere || city || country || school || degree;
+									startMonth ||
+									startYear ||
+									endMonth ||
+									endYear ||
+									currentlySchoolingThere ||
+									city ||
+									country ||
+									school ||
+									degree ||
+									description;
 								return (
 									<React.Fragment key={id}>
 										<section className="mt-1">
@@ -55,6 +76,11 @@ export default function Education() {
 														<Span1 className="job-title font-extrabold">{degree}</Span1>
 														<Span1 className="company font-semibold">{school}</Span1>
 													</div>
+													{description && (
+														<div className="mt-1 ps-3 marker:text-gray-500 marker:text-[10px]">
+															<DescriptionText textValue={description} />
+														</div>
+													)}
 												</>
 											) : (
 												""

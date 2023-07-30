@@ -34,7 +34,9 @@ const CreateResumePage = () => {
 	// <============ all states ==================>
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
 
-	const [fileName, setFileName] = useState("");
+	const [fileName, setFileName] = useState(""); //filename that the user should enter
+
+	const [userPersonalSummary, setUserPersonalSummary] = useState("");
 
 	//an array of objects of educationDetails details
 	const [userEducationData, setUserEducationData] = useState([]);
@@ -77,6 +79,8 @@ const CreateResumePage = () => {
 		<userDataContext.Provider
 			value={{
 				userGeneralData,
+				userPersonalSummary,
+				setUserPersonalSummary,
 				setUserGeneralData,
 				userPersonalData,
 				setUserPersonalData,

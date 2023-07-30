@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
+import { DescriptionText, Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 export default function WorkExperience() {
 	const { workExperienceValues } = useContext(userDataContext);
@@ -14,7 +14,19 @@ export default function WorkExperience() {
 					<Span className="text-title">Work Experience</Span>
 					<div className="flex flex-col gap-y-3 mt-4">
 						{userWorkExperiences.map(
-							({ id, companyName, jobTitle, country, startMonth, startYear, endMonth, endYear, city, currentlyWorkingThere }) => {
+							({
+								id,
+								companyName,
+								jobTitle,
+								country,
+								startMonth,
+								startYear,
+								endMonth,
+								endYear,
+								city,
+								currentlyWorkingThere,
+								description,
+							}) => {
 								const check =
 									startMonth ||
 									startYear ||
@@ -24,7 +36,8 @@ export default function WorkExperience() {
 									city ||
 									country ||
 									companyName ||
-									jobTitle;
+									jobTitle ||
+									description;
 								return (
 									<React.Fragment key={id}>
 										<section className="mt-1">
@@ -65,6 +78,11 @@ export default function WorkExperience() {
 														<Span1 className="job-title font-extrabold">{jobTitle}</Span1>
 														<Span1 className="company font-semibold">{companyName}</Span1>
 													</div>
+													{description && (
+														<div className="mt-1 ps-3 marker:text-gray-500 marker:text-[10px]">
+															<DescriptionText textValue={description} />
+														</div>
+													)}
 												</>
 											) : (
 												""

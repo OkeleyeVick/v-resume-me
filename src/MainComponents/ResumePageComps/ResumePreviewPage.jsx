@@ -63,8 +63,7 @@ const ResumePreviewPage = () => {
 						name="resume-document"
 						className={`bg-white shadow-md mx-auto rounded-[4px] w-[780px] aspect-[1/1.4141] origin-center ${
 							largePreview ? "scale-[1] my-24" : "scale-[.8]"
-						}`}
-						style={{ fontFamily: "SpaceGrotesk" }}>
+						}`}>
 						<div className="p-6 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
