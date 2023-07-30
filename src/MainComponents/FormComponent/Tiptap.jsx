@@ -8,6 +8,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import BulletList from "@tiptap/extension-bullet-list";
 import ListItem from "@tiptap/extension-list-item";
 import OrderedList from "@tiptap/extension-ordered-list";
+import { debounce } from "lodash";
 
 export const ButtonIcon = ({ iconName, iconClassName, ButtonClassName, buttonFunction }) => (
 	<button type="button" onClick={buttonFunction} className={`${ButtonClassName} flex items-center`}>
@@ -52,9 +53,11 @@ const Tiptap = ({ onUpdate, text }) => {
 		//listen for update
 		onUpdate({ editor }) {
 			const userText = editor.getHTML();
-			onUpdate(userText);
+			debounceFunction(userText);
 		},
 	});
+
+	const debounceFunction = debounce((text) => onUpdate(text), 2000);
 
 	const buttons = [
 		[
