@@ -1,11 +1,12 @@
 import React, { Fragment, useContext, useRef } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
-import { themeContext } from "./CreateResumePage";
+import { GeneralComponent, themeContext } from "./CreateResumePage";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
-import { jsPDF } from "jspdf";
 import "../../assets/JSXFonts/SpaceGrotesk";
+import Swiper from "./Components/Swiper";
+import * as HTML_TO_IMAGE from "html-to-image"; //html to image converter
 
 const baseFont = {
 	Syne: "Syne",
@@ -17,24 +18,18 @@ function downloadDOCXS() {
 
 const ResumePreviewPage = () => {
 	const resumeRef = useRef(null);
-	const { largePreview, setLargePreview, themeSelection } = useContext(themeContext);
+	const { largePreview, setLargePreview, themeSelection } = useContext(themeContext); //theme contexts
+	const { isAllButtonVisible } = useContext(GeneralComponent); //state of all buttons
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
 	// <== download the pdf function ==>
-
-	const newPDF = new jsPDF({
-		orientation: "portrait",
-		unit: "px",
-	});
-
-	newPDF.setFont("SpaceGrotesk", "normal");
-
 	function downloadPDF() {
-		newPDF.html(resumeRef.current, {
-			callback: function (newPDF) {
-				newPDF.save("lorem.pdf");
-			},
+		HTML_TO_IMAGE.toJpeg(resumeRef.current, {
+			backgroundColor: "pink",
+			quality: 1,
+		}).then((dataURL) => {
+			setURL(dataURL);
 		});
 	}
 
@@ -62,6 +57,7 @@ const ResumePreviewPage = () => {
 					<div
 						name="resume-document"
 						className={`bg-white shadow-md mx-auto rounded-[4px] w-[780px] aspect-[1/1.4141] origin-center ${
+							// className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
 							largePreview ? "scale-[1] my-24" : "scale-[.8]"
 						}`}>
 						<div className="p-6 h-full" ref={resumeRef}>
@@ -70,41 +66,46 @@ const ResumePreviewPage = () => {
 					</div>
 				</div>
 			</div>
-			<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
-				<div className="text-start" style={{ fontFamily: baseFont.Syne }}>
-					<Menu as="div" className="relative inline-block">
-						<Transition
-							as={Fragment}
-							enter="transition ease-out duration-100"
-							enterFrom="transform opacity-0 scale-95"
-							enterTo="transform opacity-100 scale-100"
-							leave="transition ease-in duration-75"
-							leaveFrom="transform opacity-100 scale-100"
-							leaveTo="transform opacity-0 scale-95">
-							<Menu.Item className="absolute right-0 bottom-full origin-top-right rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none mb-1">
-								<div className="px-1 py-1 w-max flex flex-col">
-									{DownloadOptions.map(({ icon, size, title, download }, index) => (
-										<button
-											key={index}
-											type="button"
-											onClick={download}
-											className="flex items-center gap-1 p-2 hover:bg-main hover:text-white rounded-sm text-slate-800">
-											<Icon
-												icon={icon}
-												className={`${size} flex items-center duration-75 ease-linear transition pointer-events-none select-none `}
-											/>
-											<span className="text-xs">{title}</span>
-										</button>
-									))}
-								</div>
-							</Menu.Item>
-						</Transition>
-						<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-5 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
-							<Icon icon="uiw:download" className="w-4 h-4 pointer-events-none select-none " />
-						</Menu.Button>
-					</Menu>
+			{!isAllButtonVisible ? (
+				<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
+					<div className="text-start flex flex-col gap-y-4" style={{ fontFamily: baseFont.Syne }}>
+						<Swiper />
+						<Menu as="div" className="relative inline-block">
+							<Transition
+								as={Fragment}
+								enter="transition ease-out duration-100"
+								enterFrom="transform opacity-0 scale-95"
+								enterTo="transform opacity-100 scale-100"
+								leave="transition ease-in duration-75"
+								leaveFrom="transform opacity-100 scale-100"
+								leaveTo="transform opacity-0 scale-95">
+								<Menu.Item className="absolute right-0 bottom-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none mb-1">
+									<div className="px-1 py-1 w-max flex flex-col">
+										{DownloadOptions.map(({ icon, size, title, download }, index) => (
+											<button
+												key={index}
+												type="button"
+												onClick={download}
+												className="flex items-center gap-1 p-2 hover:bg-main hover:text-white rounded-sm text-slate-800">
+												<Icon
+													icon={icon}
+													className={`${size} flex items-center duration-75 ease-linear transition pointer-events-none select-none `}
+												/>
+												<span className="text-xs">{title}</span>
+											</button>
+										))}
+									</div>
+								</Menu.Item>
+							</Transition>
+							<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-5 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
+								<Icon icon="uiw:download" className="w-4 h-4 pointer-events-none select-none " />
+							</Menu.Button>
+						</Menu>
+					</div>
 				</div>
-			</div>
+			) : (
+				""
+			)}
 		</React.Fragment>
 	);
 };

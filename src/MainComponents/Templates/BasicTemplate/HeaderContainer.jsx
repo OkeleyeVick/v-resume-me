@@ -18,7 +18,7 @@ const HeaderContainer = () => {
 						{trimText(lastname)} {trimText(firstname)}
 					</h1>
 					{userPersonalSummary && (
-						<div className="mt-4">
+						<div className="mt-4 marker:text-gray-500 marker:text-[10px]">
 							<DescriptionText textValue={userPersonalSummary} />
 						</div>
 					)}

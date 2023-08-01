@@ -1,10 +1,11 @@
 import { Icon } from "@iconify/react";
 import React, { useContext, useState } from "react";
 import { BlockPicker } from "react-color";
-import { themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
+import { GeneralComponent, themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
 import "../css/fonts.css";
 import "../../MainComponents/ResumePageComps/Components/date.css";
 import { memo } from "react";
+import { Switch } from "@headlessui/react";
 
 const fontFamily = {
 	Roboto: "Roboto",
@@ -37,6 +38,7 @@ const fontFamily = {
 
 const ThemeFamily = () => {
 	// contexts
+	const { isAllButtonVisible, setIsAllButtonVisibility } = useContext(GeneralComponent);
 	const { themeSelection, setSelectedThemes, setSideBarState, sideBarState, largePreview } = useContext(themeContext);
 	const { userResumeColor, themeSideBar, font } = themeSelection;
 	// states
@@ -101,13 +103,17 @@ const ThemeFamily = () => {
 		setisActiveFontDropdown((previousData) => !previousData);
 	}
 
+	const handleButtonsVisibility = function () {
+		setIsAllButtonVisibility((previous) => !previous);
+	};
+
 	return (
 		<div
 			className={`${
 				sideBarState === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
 			} fixed z-50 backdrop-blur-[2px] h-screen top-0 p-1 pl-2 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
 			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] bg-white shadow-md flex flex-col gap-y-4 relative ease-linear duration-100 ${
+				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">
@@ -176,8 +182,22 @@ const ThemeFamily = () => {
 						<BlockPicker color={colorThemeState} onChange={handleColorThemeChange} />
 					</div>
 				</div>
+				<div className="flex align-items-center justify-between">
+					<span className="">Turn off all buttons</span>
+					<Switch
+						checked={isAllButtonVisible}
+						onChange={handleButtonsVisibility}
+						className={`${isAllButtonVisible ? "bg-main" : "bg-gray-200"} relative inline-flex h-6 w-11 items-center rounded-full`}>
+						<span className="sr-only">Enable notifications</span>
+						<span
+							className={`${
+								isAllButtonVisible ? "translate-x-6" : "translate-x-1"
+							} inline-block h-4 w-4 transform rounded-full bg-white transition`}
+						/>
+					</Switch>
+				</div>
 				<div className="mt-4 p-4 border border-solid border-border_clr rounded-md">
-					<span className="text-slate-400">More theme options coming soon...</span>
+					<span className="text-slate-400 text-sm sm:text-base">More theme options coming soon...</span>
 				</div>
 			</div>
 		</div>

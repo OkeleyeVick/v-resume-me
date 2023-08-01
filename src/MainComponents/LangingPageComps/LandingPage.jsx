@@ -27,11 +27,7 @@ const LandingPage = () => {
 
 	return (
 		<div style={{ fontFamily: baseFont.Rubik }}>
-			{showPreloader && (
-				<motion.div exit={{ opacity: 0 }}>
-					<PageLoader />
-				</motion.div>
-			)}
+			{showPreloader && <PageLoader />}
 			{!showPreloader && (
 				<React.Fragment>
 					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>

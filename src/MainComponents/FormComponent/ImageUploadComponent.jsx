@@ -28,7 +28,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 	}
 
 	function handleImageUpload(event) {
-		if (event) {
+		if (event && event.target.files[0]) {
 			const image = event.target.files[0];
 			const isValid = checkFileType(image);
 			const reader = new FileReader();
@@ -84,7 +84,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 			<div id="userImage_container" className="hover:text-main group/image">
 				<div className="flex items-center gap-4 group">
 					<input type="file" ref={imageRef} aria-label={label} hidden onChange={(event) => handleImageUpload(event)} />
-					<div
+					<motion.div
 						className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-16 lg:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
@@ -98,11 +98,12 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								transition={{ duration: 0.3 }}
+								exit={{ opacity: 0 }}
 							/>
 						) : (
 							<Icon icon="mingcute:user-add-line" className="w-8 h-8 text-[rgb(190,196,213)] group-hover/image:text-main" />
 						)}
-					</div>
+					</motion.div>
 					{imageSrc === "" ? (
 						<label htmlFor={label} className="text-sm cursor-pointer hover:text-main" onClick={() => handleClick()}>
 							{label}

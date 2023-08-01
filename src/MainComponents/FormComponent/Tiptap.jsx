@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { EditorView } from "prosemirror-view";
 import { Icon } from "@iconify/react";
 import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
-import BulletList from "@tiptap/extension-bullet-list";
-import ListItem from "@tiptap/extension-list-item";
-import OrderedList from "@tiptap/extension-ordered-list";
 import { debounce } from "lodash";
 
 export const ButtonIcon = ({ iconName, iconClassName, ButtonClassName, buttonFunction }) => (
@@ -27,19 +24,19 @@ const Tiptap = ({ onUpdate, text }) => {
 	const content = `${text}`;
 	const editor = useEditor({
 		extensions: [
-			StarterKit,
+			StarterKit.configure({
+				bulletList: {
+					HTMLAttributes: {
+						class: "list-disc",
+					},
+				},
+				orderedList: {
+					HTMLAttributes: {
+						class: "list-decimal",
+					},
+				},
+			}),
 			Underline,
-			BulletList.configure({
-				HTMLAttributes: {
-					class: "list-disc",
-				},
-			}),
-			ListItem,
-			OrderedList.configure({
-				HTMLAttributes: {
-					class: "list-decimal",
-				},
-			}),
 			TextAlign.configure({
 				types: ["heading", "paragraph"],
 			}),
@@ -57,7 +54,7 @@ const Tiptap = ({ onUpdate, text }) => {
 		},
 	});
 
-	const debounceFunction = debounce((text) => onUpdate(text), 2000);
+	const debounceFunction = debounce((text) => onUpdate(text), 2500);
 
 	const buttons = [
 		[
@@ -107,14 +104,11 @@ const Tiptap = ({ onUpdate, text }) => {
 		[
 			{
 				buttonFunction: () => editor?.chain().focus().toggleOrderedList().run(),
-				// iconName: "nimbus:ordered-list",
 				iconName: "uil:list-ol-alt",
-				// iconClassName: "w-5 h-5",
 				iconClassName: "w-[1.15rem] h-[1.15rem] scale-[0.95]",
 			},
 			{
 				buttonFunction: () => editor?.chain().focus().toggleBulletList().run(),
-				// iconName: "fluent:text-bullet-list-ltr-24-filled",
 				iconName: "uil:list-ul",
 				iconClassName: "w-5 h-4 scale-[1.35] -translate-y-[1px]",
 			},

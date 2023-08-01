@@ -12,6 +12,7 @@ import EducationIndex from "./EducationSection/EducationIndex";
 import HobbyIndex from "./HobbySection/HobbyIndex";
 import "../../assets/css/fonts.css";
 import GoBack from "../GeneralComponents/GoBack";
+import { motion } from "framer-motion";
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
@@ -21,7 +22,7 @@ const baseFont = {
 	Lora: "Lora",
 	Stolzl: "Stolzl",
 };
-export const EachComponentAccordionState = createContext();
+export const GeneralComponent = createContext();
 export const themeContext = createContext();
 export const userDataContext = createContext();
 
@@ -75,90 +76,110 @@ const CreateResumePage = () => {
 	const [themeSelection, setSelectedThemes] = useState(themeDetails);
 	const [sideBarState, setSideBarState] = useState(false);
 
+	const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+	const [isAllButtonVisible, setIsAllButtonVisibility] = useState(false);
+
 	return (
-		<userDataContext.Provider
+		<GeneralComponent.Provider
 			value={{
-				userGeneralData,
-				userPersonalSummary,
-				setUserPersonalSummary,
-				setUserGeneralData,
-				userPersonalData,
-				setUserPersonalData,
-				userEducationData,
-				setUserEducationData,
-				workExperienceValues: {
-					workExperiences: { userWorkExperiences, setUserWorkExperiences },
-				},
-				fileName,
-				setFileName,
-				hobbies,
-				setHobbies,
-				languages,
-				setLanguages,
-				skills,
-				setSkills,
+				isPreviewVisible, // for mobile screen and how it should be handled
+				setIsPreviewVisible,
+				isAllButtonVisible,
+				setIsAllButtonVisibility,
 			}}>
-			<themeContext.Provider
+			<userDataContext.Provider
 				value={{
-					largePreview,
-					setLargePreview,
-					sideBarState,
-					setSideBarState,
-					themeSelection,
-					setSelectedThemes,
+					userGeneralData,
+					userPersonalSummary,
+					setUserPersonalSummary,
+					setUserGeneralData,
+					userPersonalData,
+					setUserPersonalData,
+					userEducationData,
+					setUserEducationData,
+					workExperienceValues: {
+						workExperiences: { userWorkExperiences, setUserWorkExperiences },
+					},
+					fileName,
+					setFileName,
+					hobbies,
+					setHobbies,
+					languages,
+					setLanguages,
+					skills,
+					setSkills,
 				}}>
-				<React.Fragment>
-					<div className="min-h-screen flex items-stretch">
-						<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8" style={{ fontFamily: baseFont.Syne }}>
-							<React.Suspense>
-								<ThemeFamily />
-							</React.Suspense>
-							<ThemeTogglerButton />
-							<GoBack />
-							<div className="">
-								<section className="bg-white" id="user-personal-info">
-									<UserIndex />
-								</section>
-								<div className="mt-8 flex flex-col gap-y-4">
-									<section id="user-education">
-										<EducationIndex />
+				<themeContext.Provider
+					value={{
+						largePreview,
+						setLargePreview,
+						sideBarState,
+						setSideBarState,
+						themeSelection,
+						setSelectedThemes,
+					}}>
+					<React.Fragment>
+						<motion.div
+							initial={{ opacity: 0.22 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className="min-h-screen flex items-stretch">
+							<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8" style={{ fontFamily: baseFont.Syne }}>
+								<React.Suspense>
+									<ThemeFamily />
+								</React.Suspense>
+								<ThemeTogglerButton />
+								<GoBack />
+								<div className="">
+									<section className="bg-white" id="user-personal-info">
+										<UserIndex />
 									</section>
-									<section id="user-work-experience">
-										<WorkExperienceIndex />
-									</section>
-									<section id="user-skills-experience">
-										<SkillsIndex />
-									</section>
-									<section id="user-hobbies">
-										<HobbyIndex />
-									</section>
-									<section id="user-languages-experience">
-										<LanguageIndex />
-									</section>
+									<div className="mt-8 flex flex-col gap-y-4">
+										<section id="user-education">
+											<EducationIndex />
+										</section>
+										<section id="user-work-experience">
+											<WorkExperienceIndex />
+										</section>
+										<section id="user-skills-experience">
+											<SkillsIndex />
+										</section>
+										<section id="user-hobbies">
+											<HobbyIndex />
+										</section>
+										<section id="user-languages-experience">
+											<LanguageIndex />
+										</section>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div
-							className={`hidden lg:block right-0 scroll top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none ${
-								largePreview ? "w-full overflow-auto" : "w-1/2"
-							}`}>
-							<div className=" top-3 flex mt-0 sticky mx-5 z-10 items-start left-0">
-								<button
-									type="button"
-									className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
-									onClick={zoomIn}>
-									<Icon
-										icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}
-										className="text-white w-6 h-6"
-									/>
-								</button>
+							<div
+								className={`-right-full lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] ${
+									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
+								}`}>
+								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
+									<button
+										type="button"
+										className="bg-main lg:flex hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
+										onClick={zoomIn}>
+										<Icon
+											icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}
+											className="text-white w-6 h-6"
+										/>
+									</button>
+									<button
+										type="button"
+										className="bg-main flex lg:hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white">
+										<Icon icon="icon-park-outline:close" className="text-white w-6 h-6" />
+									</button>
+								</div>
+								<ResumePreviewPage />
 							</div>
-							<ResumePreviewPage />
-						</div>
-					</div>
-				</React.Fragment>
-			</themeContext.Provider>
-		</userDataContext.Provider>
+						</motion.div>
+					</React.Fragment>
+				</themeContext.Provider>
+			</userDataContext.Provider>
+		</GeneralComponent.Provider>
 	);
 };
 
