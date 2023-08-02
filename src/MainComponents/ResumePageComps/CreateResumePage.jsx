@@ -158,12 +158,9 @@ const CreateResumePage = () => {
 							</div>
 							{/* isPreviewVisible ? "right-0" : "-right-full" */}
 							<motion.div
-								initial={{ opacity: 0 }}
-								animate={{ opacity: 1 }}
-								transition={{ duration: 0.2 }}
 								className={`${
 									isPreviewVisible ? "right-0" : "-right-full"
-								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] ${
+								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] transition-all duration-200 ease-linear  ${
 									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
 								}`}>
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
