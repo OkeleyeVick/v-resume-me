@@ -38,8 +38,8 @@ const ThirdSection = () => {
 					</div>
 				</div>
 				<div className="col-span-full md:col-start-2 md:col-end-3 flex items-center">
-					<figure>
-						<img src={image} alt="" />
+					<figure className="w-4/5 mx-auto">
+						<img src={image} alt="woman-with-resume-image" />
 					</figure>
 				</div>
 			</div>

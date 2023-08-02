@@ -1,15 +1,25 @@
 import React, { useContext } from "react";
-import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { themeContext, userDataContext } from "../../ResumePageComps/CreateResumePage";
 import { DescriptionText, Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 export default function Education() {
 	const { userEducationData } = useContext(userDataContext);
 
+	const {
+		themeSelection: {
+			userResumeColor: {
+				selectedColor: { color },
+			},
+		},
+	} = useContext(themeContext);
+
 	return (
 		<>
 			{userEducationData && userEducationData.length !== 0 && (
 				<div>
-					<Span className="text-title">Education</Span>
+					<Span className="text-title" style={{ color: `${color}` }}>
+						Education
+					</Span>
 					<div className="flex flex-col gap-y-3 mt-4">
 						{userEducationData.map(
 							({

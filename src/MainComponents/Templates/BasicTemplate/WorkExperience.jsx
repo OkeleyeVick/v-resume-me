@@ -3,9 +3,11 @@ import { userDataContext } from "../../ResumePageComps/CreateResumePage";
 import { DescriptionText, Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
 
 export default function WorkExperience() {
-	const { workExperienceValues } = useContext(userDataContext);
-	const { workExperiences } = workExperienceValues;
-	const { userWorkExperiences } = workExperiences;
+	const {
+		workExperienceValues: {
+			workExperiences: { userWorkExperiences },
+		},
+	} = useContext(userDataContext);
 
 	return (
 		<>

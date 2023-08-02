@@ -7,10 +7,7 @@ const PageLoader = () => {
 	return (
 		<>
 			{createPortal(
-				<motion.div exit={{ opacity: 0 }} className="fixed inset-0 grid place-content-center bg-white">
-					{/* <div className="h-20 w-20 rounded-full border-8 border-r-main border-t-main border-transparent animate-spin flex items-center justify-center">
-						<div className="h-14 w-14 rounded-full border-8 border-l-main border-b-main border-transparent animate-spin"></div>
-					</div> */}
+				<motion.div exit={{ opacity: 0 }} className="absolute z-[1055] inset-0 flex items-center justify-center bg-white">
 					<PreloaderOne />
 				</motion.div>,
 				document.body

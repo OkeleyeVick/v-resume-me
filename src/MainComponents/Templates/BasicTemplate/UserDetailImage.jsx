@@ -43,9 +43,7 @@ const UserDetailImage = () => {
 				</div>
 				<div className="col-span-1 text-end flex items-center justify-end">
 					{image.imageSrc ? (
-						<div
-							className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between"
-							style={{ height: 90, width: 90 }}>
+						<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]">
 							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
 						</div>
 					) : (

@@ -3,11 +3,12 @@ import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-ac
 import { userDataContext } from "../CreateResumePage";
 import { Icon } from "@iconify/react";
 import InputWithLabel from "../../FormComponent/InputComponent";
+import { useMemo } from "react";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
 
-	const arrayOfAvailableSoftSkills = skills.softAvailableSkills;
+	const arrayOfAvailableSoftSkills = useMemo(() => skills.softAvailableSkills, [skills.softAvailableSkills]);
 
 	//states
 	const [inputValue, setInput] = useState("");
@@ -135,7 +136,7 @@ const SoftSkill = () => {
 										<div className="mb-8">
 											<header className="text-sm text-gray-400 mb-2">Select at most 5 Soft skills you might possess</header>
 											<div className="flex items-center flex-wrap gap-2 overflow-y-scroll max-h-[350px] py-4 px-3 border border-solid border-border_clr rounded-md scroll">
-												{skills.softAvailableSkills.map(({ skillName, id, isSet }) => {
+												{arrayOfAvailableSoftSkills.map(({ skillName, id, isSet }) => {
 													return (
 														<React.Fragment key={id}>
 															<button
@@ -179,13 +180,13 @@ const SoftSkill = () => {
 														return (
 															<React.Fragment key={id}>
 																<span
-																	className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[2px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
+																	className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-3 py-[2px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
 																	id={id}>
 																	<span name="soft-skill" className="text-[.75rem]">
 																		{skillName}
 																	</span>
 																	<span
-																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
+																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete md:-mr-8 duration-500 ease-in-out md:group-hover/HoverIt:mr-0 md:scale-0 md:group-hover/HoverIt:scale-100"
 																		role="button"
 																		onClick={() => handleDeleteSkill(id)}>
 																		<Icon

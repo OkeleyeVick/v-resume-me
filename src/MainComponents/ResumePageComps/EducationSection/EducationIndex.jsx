@@ -7,7 +7,6 @@ import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-
 const EducationIndex = () => {
 	const { userEducationData, setUserEducationData } = useContext(userDataContext); //array of user's experiences
 
-	//TODO: WHEN I UPDATE THE FORM THE, IT DOES NOT UPDATE THE UI
 	const [currentEducationObject, setEducationObject] = useState({
 		id: 0,
 		degree: "",

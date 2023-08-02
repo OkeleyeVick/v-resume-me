@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Icon } from "@iconify/react";
-import { themeContext } from "../../../MainComponents/ResumePageComps/CreateResumePage";
+import { GeneralComponent, themeContext } from "../../../MainComponents/ResumePageComps/CreateResumePage";
 import { memo } from "react";
+import { motion } from "framer-motion";
 
 const ThemeTogglerButton = () => {
 	const { themeSelection, setSelectedThemes, sideBarState, setSideBarState } = useContext(themeContext);
+	const { isPreviewVisible, setIsPreviewVisible } = useContext(GeneralComponent);
 	const { themeSideBar } = themeSelection;
 
 	function handleThemeSideBarState() {
@@ -21,18 +23,39 @@ const ThemeTogglerButton = () => {
 		});
 	}
 
+	const handlePreviewState = function () {
+		setIsPreviewVisible((previous) => !previous);
+	};
+
 	return (
 		<React.Fragment>
-			<div
-				className={`${
-					sideBarState ? "scale-0" : "scale-100"
-				} duration-75 right-0 top-0 flex z-30 items-start justify-end pr-3 lg:pr-6 pt-3 fixed`}>
-				<button
-					type="button"
-					className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100"
-					onClick={handleThemeSideBarState}>
-					<Icon icon="zondicons:color-palette" className="text-white w-6 h-6" />
-				</button>
+			<div className="flex flex-col gap-y-3 fixed pr-3 lg:pr-6 pt-3 right-0 top-0 z-[28]">
+				<motion.div className={`flex lg:hidden duration-75 items-start justify-end`}>
+					<motion.button
+						layout
+						type="button"
+						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100"
+						onClick={handlePreviewState}>
+						{/* <Icon icon={isPreviewVisible ? "icon-park-outline:close" : "gg:menu"} className="text-white w-6 h-6" /> */}
+						{isPreviewVisible ? (
+							<motion.span layoutId="icon">
+								<Icon icon="icon-park-outline:close" className="text-white w-6 h-6" />
+							</motion.span>
+						) : (
+							<motion.span layoutId="icon">
+								<Icon icon="gg:menu" className="text-white w-6 h-6" />
+							</motion.span>
+						)}
+					</motion.button>
+				</motion.div>
+				<div className={`${sideBarState ? "scale-0" : "scale-100"} duration-75 flex items-start justify-end `}>
+					<button
+						type="button"
+						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100"
+						onClick={handleThemeSideBarState}>
+						<Icon icon="zondicons:color-palette" className="text-white w-6 h-6" />
+					</button>
+				</div>
 			</div>
 		</React.Fragment>
 	);

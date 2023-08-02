@@ -1,5 +1,4 @@
 import React, { createContext, memo, useState } from "react";
-import ResumePreviewPage from "./ResumePreviewPage";
 import UserIndex from "./UserInfoSection/UserIndex";
 import WorkExperienceIndex from "./WorkSection/WorkExperienceIndex";
 import { Icon } from "@iconify/react";
@@ -13,8 +12,13 @@ import HobbyIndex from "./HobbySection/HobbyIndex";
 import "../../assets/css/fonts.css";
 import GoBack from "../GeneralComponents/GoBack";
 import { motion } from "framer-motion";
+import PageLoader from "../GeneralComponents/PageLoader";
+const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
+
+const database = window.indexedDB.open("v-resume");
+console.log(database);
 
 const baseFont = {
 	Syne: "Syne",
@@ -73,7 +77,7 @@ const CreateResumePage = () => {
 	function zoomIn() {
 		setLargePreview((previousView) => !previousView);
 	}
-	const [themeSelection, setSelectedThemes] = useState(themeDetails);
+	const [themeSelection, setSelectedThemes] = useState({ ...themeDetails });
 	const [sideBarState, setSideBarState] = useState(false);
 
 	const [isPreviewVisible, setIsPreviewVisible] = useState(false);
@@ -154,7 +158,9 @@ const CreateResumePage = () => {
 								</div>
 							</div>
 							<div
-								className={`-right-full lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] ${
+								className={`${
+									isPreviewVisible ? "right-0" : "-right-full"
+								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] ${
 									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
 								}`}>
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
@@ -166,11 +172,6 @@ const CreateResumePage = () => {
 											icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}
 											className="text-white w-6 h-6"
 										/>
-									</button>
-									<button
-										type="button"
-										className="bg-main flex lg:hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white">
-										<Icon icon="icon-park-outline:close" className="text-white w-6 h-6" />
 									</button>
 								</div>
 								<ResumePreviewPage />

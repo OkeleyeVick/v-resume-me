@@ -110,7 +110,7 @@ const ThemeFamily = () => {
 	return (
 		<div
 			className={`${
-				sideBarState === true ? "w-full lg:w-1/2 overflow-auto" : "w-0 opacity-5 overflow-hidden"
+				sideBarState === true ? `w-full lg:w-1/2 overflow-auto` : `w-0 opacity-5 overflow-hidden`
 			} fixed z-50 backdrop-blur-[2px] h-screen top-0 p-1 pl-2 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
 			<div
 				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
@@ -176,14 +176,14 @@ const ThemeFamily = () => {
 						</button>
 					</div>
 					<div
-						className={`border transition duration-200 border-solid border-border_clr p-2 text-[.8rem] rounded-md absolute top-full translate-y-3 origin-top w-max shadow-md ${
+						className={`border transition duration-200 border-solid bg-white border-border_clr p-2 text-[.8rem] rounded-md absolute top-full translate-y-3 origin-top w-max shadow-md ${
 							isActiveColorDropdown ? "scale-100" : " scale-0"
 						}`}>
 						<BlockPicker color={colorThemeState} onChange={handleColorThemeChange} />
 					</div>
 				</div>
 				<div className="flex align-items-center justify-between">
-					<span className="">Turn off all buttons</span>
+					<h6 className="font-medium">Turn off all buttons</h6>
 					<Switch
 						checked={isAllButtonVisible}
 						onChange={handleButtonsVisibility}

@@ -7,6 +7,7 @@ import "../../assets/css/fonts.css";
 import "../../assets/JSXFonts/SpaceGrotesk";
 import Swiper from "./Components/Swiper";
 import * as HTML_TO_IMAGE from "html-to-image"; //html to image converter
+import { memo } from "react";
 
 const baseFont = {
 	Syne: "Syne",
@@ -58,8 +59,8 @@ const ResumePreviewPage = () => {
 						name="resume-document"
 						className={`bg-white shadow-md mx-auto rounded-[4px] w-[780px] aspect-[1/1.4141] origin-center ${
 							// className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
-							largePreview ? "scale-[1] my-24" : "scale-[.8]"
-						}`}>
+							largePreview ? "scale-[1] my-24" : "lg:scale-[.8]"
+						} scale-[0.7] lg:scale-[0.8]`}>
 						<div className="p-6 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
@@ -67,7 +68,7 @@ const ResumePreviewPage = () => {
 				</div>
 			</div>
 			{!isAllButtonVisible ? (
-				<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
+				<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} z-[32] bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
 					<div className="text-start flex flex-col gap-y-4" style={{ fontFamily: baseFont.Syne }}>
 						<Swiper />
 						<Menu as="div" className="relative inline-block">
@@ -98,7 +99,7 @@ const ResumePreviewPage = () => {
 								</Menu.Item>
 							</Transition>
 							<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-5 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
-								<Icon icon="uiw:download" className="w-4 h-4 pointer-events-none select-none " />
+								<Icon icon="uiw:download" className=" w-3 h-3 lg:w-4  lg:h-4 pointer-events-none select-none " />
 							</Menu.Button>
 						</Menu>
 					</div>
@@ -110,4 +111,4 @@ const ResumePreviewPage = () => {
 	);
 };
 
-export default ResumePreviewPage;
+export default memo(ResumePreviewPage);

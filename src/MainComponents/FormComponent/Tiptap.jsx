@@ -14,8 +14,6 @@ export const ButtonIcon = ({ iconName, iconClassName, ButtonClassName, buttonFun
 );
 
 const Tiptap = ({ onUpdate, text }) => {
-	// console.clear();
-
 	EditorView.prototype.updateState = function updateState(state) {
 		if (!this.docView) return; // This prevents the matchesNode error on hot reloads
 		this.updateStateInner(state, this.state.plugins != state.plugins);

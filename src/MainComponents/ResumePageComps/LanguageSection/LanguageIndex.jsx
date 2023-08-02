@@ -58,12 +58,12 @@ const LanguageIndex = () => {
 											{languages &&
 												languages.map(({ languageName, id }, langIndex) => (
 													<React.Fragment key={langIndex}>
-														<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-4 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
+														<span className="bg-[rgb(239,242,249)] text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-3 py-[3px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt">
 															<span name="language" className="text-sm">
 																{languageName}
 															</span>
 															<span
-																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/Language -mr-8 duration-500 ease-in-out group-hover/HoverIt:mr-0 scale-0 group-hover/HoverIt:scale-100"
+																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete md:-mr-8 duration-500 ease-in-out md:group-hover/HoverIt:mr-0 md:scale-0 md:group-hover/HoverIt:scale-100"
 																role="button"
 																onClick={() => handleDeleteLanguage(id)}>
 																<Icon

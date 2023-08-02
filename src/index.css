@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--primary-clr: #8390fa;
+}
 *:not(svg, label) {
 	transition: all 200ms ease;
 	text-rendering: optimizeLegibility;
 }
+
 body::-webkit-scrollbar {
 	display: none;
 }
@@ -62,4 +66,21 @@ body::-webkit-scrollbar {
 }
 .divider {
 	@apply text-gray-600/90 font-bold;
+}
+.splide.is-initialized,
+.splide.is-rendered {
+	height: 100%;
+}
+.splide__pagination {
+	padding-inline: 0 !important;
+	margin-block-start: 2rem !important;
+}
+.splide__pagination__page:focus-visible {
+	outline-color: transparent !important;
+}
+.splide__pagination__page.is-active {
+	background-color: var(--primary-clr) !important;
+}
+.splide__arrow {
+	display: none !important;
 }
