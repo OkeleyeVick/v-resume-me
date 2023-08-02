@@ -12,7 +12,6 @@ import HobbyIndex from "./HobbySection/HobbyIndex";
 import "../../assets/css/fonts.css";
 import GoBack from "../GeneralComponents/GoBack";
 import { motion } from "framer-motion";
-import PageLoader from "../GeneralComponents/PageLoader";
 const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
@@ -157,7 +156,11 @@ const CreateResumePage = () => {
 									</div>
 								</div>
 							</div>
-							<div
+							{/* isPreviewVisible ? "right-0" : "-right-full" */}
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ duration: 0.2 }}
 								className={`${
 									isPreviewVisible ? "right-0" : "-right-full"
 								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] ${
@@ -175,7 +178,7 @@ const CreateResumePage = () => {
 									</button>
 								</div>
 								<ResumePreviewPage />
-							</div>
+							</motion.div>
 						</motion.div>
 					</React.Fragment>
 				</themeContext.Provider>
