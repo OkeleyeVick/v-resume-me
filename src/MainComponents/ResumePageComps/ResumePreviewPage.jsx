@@ -1,33 +1,34 @@
 import React, { Fragment, useContext, useRef } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
-import { GeneralComponent, themeContext } from "./CreateResumePage";
+import { GeneralContext, themeContext } from "./CreateResumePage";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
-import "../../assets/JSXFonts/SpaceGrotesk";
 import Swiper from "./Components/Swiper";
 import * as HTML_TO_IMAGE from "html-to-image"; //html to image converter
 import { memo } from "react";
-
-const baseFont = {
-	Syne: "Syne",
-};
 
 function downloadDOCXS() {
 	console.log("I am downloading in docxs format");
 }
 
+const request = window.indexedDB.open("v-resume");
+request.addEventListener("upgradeneeded", function () {
+	let db = request.result;
+	console.log(db);
+});
+
 const ResumePreviewPage = () => {
 	const resumeRef = useRef(null);
-	const { largePreview, setLargePreview, themeSelection } = useContext(themeContext); //theme contexts
-	const { isAllButtonVisible } = useContext(GeneralComponent); //state of all buttons
+	const { largePreview, themeSelection } = useContext(themeContext); //theme contexts
+	const { isAllButtonVisible } = useContext(GeneralContext); //state of all buttons
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
 	// <== download the pdf function ==>
 	function downloadPDF() {
 		HTML_TO_IMAGE.toJpeg(resumeRef.current, {
-			backgroundColor: "pink",
+			backgroundColor: "#fff",
 			quality: 1,
 		}).then((dataURL) => {
 			setURL(dataURL);
@@ -57,10 +58,10 @@ const ResumePreviewPage = () => {
 					className={`whitespace-pre-wrap p-4 text-xs mx-auto flex items-center justify-center`}>
 					<div
 						name="resume-document"
-						className={`bg-white shadow-md mx-auto rounded-[4px] w-[780px] aspect-[1/1.4141] origin-center ${
+						className={`bg-white shadow-md mx-auto rounded-[4px] w-[800px] aspect-[1/1.4141] origin-center ${
 							// className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
 							largePreview ? "scale-[1] my-24" : "lg:scale-[.8]"
-						} scale-[0.7] lg:scale-[0.8]`}>
+						} scale-[1] lg:scale-[0.8]`}>
 						<div className="p-6 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
@@ -69,7 +70,7 @@ const ResumePreviewPage = () => {
 			</div>
 			{!isAllButtonVisible ? (
 				<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} z-[32] bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
-					<div className="text-start flex flex-col gap-y-4" style={{ fontFamily: baseFont.Syne }}>
+					<div className="text-start flex flex-col gap-y-4 font-[Magnat]">
 						<Swiper />
 						<Menu as="div" className="relative inline-block">
 							<Transition

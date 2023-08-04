@@ -16,20 +16,13 @@ const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
-const database = window.indexedDB.open("v-resume");
-console.log(database);
-
-const baseFont = {
-	Syne: "Syne",
-	Rubik: "Rubik",
-	Lora: "Lora",
-	Stolzl: "Stolzl",
-};
-export const GeneralComponent = createContext();
+export const GeneralContext = createContext();
 export const themeContext = createContext();
 export const userDataContext = createContext();
 
 const CreateResumePage = () => {
+	const [error, setError] = useState(null);
+
 	const { userDetails, themeDetails } = UserInputObjects(); //FROM OBJECTS
 	const { software_skills, soft_skills } = data;
 	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
@@ -47,11 +40,11 @@ const CreateResumePage = () => {
 
 	// an object that contains all user inputs
 	const [userGeneralData, setUserGeneralData] = useState({
-		USER_PERSONAL_DATA: {},
-		USER_EDUCATION_DATA: [],
-		USER_WORK_EXPERIENCE_DATA: [],
-		USER_HOBBIES_DATA: [],
-		USER_LANGUAGES_DATA: [],
+		USER_PERSONAL_DATA: null,
+		USER_EDUCATION_DATA: null,
+		USER_WORK_EXPERIENCE_DATA: null,
+		USER_HOBBIES_DATA: null,
+		USER_LANGUAGES_DATA: null,
 	});
 
 	//array of hobbies
@@ -76,19 +69,47 @@ const CreateResumePage = () => {
 	function zoomIn() {
 		setLargePreview((previousView) => !previousView);
 	}
-	const [themeSelection, setSelectedThemes] = useState({ ...themeDetails });
+	const [themeSelection, setSelectedThemes] = useState({
+		themeSideBar: {
+			// checks if theme sidebar is open
+			isThemeSideBarOpen: false,
+		},
+		font: {
+			family: {
+				//font that the user selects
+				customFont: "system-ui",
+			},
+			fontSize: "16px",
+			lineHeight: {},
+			fontSelection: {
+				isFontDropdownActive: false,
+			},
+		},
+		userResumeColor: {
+			selectedColor: {
+				// resume color that a user picks
+				color: "#000",
+			},
+			colorSelectionMenu: {
+				//is React color active
+				isToggleThemeActive: false,
+			},
+		},
+	});
 	const [sideBarState, setSideBarState] = useState(false);
 
 	const [isPreviewVisible, setIsPreviewVisible] = useState(false);
 	const [isAllButtonVisible, setIsAllButtonVisibility] = useState(false);
 
 	return (
-		<GeneralComponent.Provider
+		<GeneralContext.Provider
 			value={{
 				isPreviewVisible, // for mobile screen and how it should be handled
 				setIsPreviewVisible,
-				isAllButtonVisible,
+				isAllButtonVisible, // state to toggle the visibility of the buttons that might clog-up the user devices on sm screen
 				setIsAllButtonVisibility,
+				error, // global error state
+				setError, // function that sets the error
 			}}>
 			<userDataContext.Provider
 				value={{
@@ -127,7 +148,7 @@ const CreateResumePage = () => {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 							className="min-h-screen flex items-stretch">
-							<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8" style={{ fontFamily: baseFont.Syne }}>
+							<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8 font-[Syne]">
 								<React.Suspense>
 									<ThemeFamily />
 								</React.Suspense>
@@ -156,11 +177,10 @@ const CreateResumePage = () => {
 									</div>
 								</div>
 							</div>
-							{/* isPreviewVisible ? "right-0" : "-right-full" */}
 							<motion.div
 								className={`${
 									isPreviewVisible ? "right-0" : "-right-full"
-								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[90%] transition-all duration-200 ease-linear  ${
+								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[100%] transition-all duration-2b00 ease-linear  ${
 									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
 								}`}>
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
@@ -180,7 +200,7 @@ const CreateResumePage = () => {
 					</React.Fragment>
 				</themeContext.Provider>
 			</userDataContext.Provider>
-		</GeneralComponent.Provider>
+		</GeneralContext.Provider>
 	);
 };
 

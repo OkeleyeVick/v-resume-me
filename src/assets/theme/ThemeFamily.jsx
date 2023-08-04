@@ -1,14 +1,14 @@
 import { Icon } from "@iconify/react";
 import React, { useContext, useState } from "react";
-import { BlockPicker } from "react-color";
-import { GeneralComponent, themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
+import { SketchPicker } from "react-color";
+import { GeneralContext, themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
 import "../css/fonts.css";
 import "../../MainComponents/ResumePageComps/Components/date.css";
 import { memo } from "react";
 import { Switch } from "@headlessui/react";
 
 const fontFamily = {
-	Roboto: "Roboto",
+	Default: "system-ui",
 	Stolzl: "Stolzl",
 	IBMPlexSans: "IBMPlexSans",
 	"Fira Code": "Fira Code",
@@ -38,9 +38,9 @@ const fontFamily = {
 
 const ThemeFamily = () => {
 	// contexts
-	const { isAllButtonVisible, setIsAllButtonVisibility } = useContext(GeneralComponent);
+	const { isAllButtonVisible, setIsAllButtonVisibility } = useContext(GeneralContext);
 	const { themeSelection, setSelectedThemes, setSideBarState, sideBarState, largePreview } = useContext(themeContext);
-	const { userResumeColor, themeSideBar, font } = themeSelection;
+	const { userResumeColor, font } = themeSelection;
 	// states
 	const [colorThemeState, setColorThemeState] = useState(userResumeColor.selectedColor.color);
 	const [isActiveColorDropdown, setisActiveColorDropdown] = useState(userResumeColor.colorSelectionMenu.isToggleThemeActive);
@@ -149,7 +149,7 @@ const ThemeFamily = () => {
 								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto scroll ${
 									isActiveFontDropdown ? "py-2 border" : "py-0 border-0"
 								}`}>
-								{Object.keys(fontFamily).map((font, fontIndex) => (
+								{Object.values(fontFamily).map((font, fontIndex) => (
 									<button
 										type="button"
 										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main "
@@ -176,10 +176,10 @@ const ThemeFamily = () => {
 						</button>
 					</div>
 					<div
-						className={`border transition duration-200 border-solid bg-white border-border_clr p-2 text-[.8rem] rounded-md absolute top-full translate-y-3 origin-top w-max shadow-md ${
+						className={`border transition duration-200 border-solid bg-white border-border_clr p-2 text-[.8rem] rounded-md absolute -right-4 -top-4 z-[2] translate-y-3 origin-top-left w-max shadow-md ${
 							isActiveColorDropdown ? "scale-100" : " scale-0"
 						}`}>
-						<BlockPicker color={colorThemeState} onChange={handleColorThemeChange} />
+						<SketchPicker color={colorThemeState} onChange={handleColorThemeChange} />
 					</div>
 				</div>
 				<div className="flex align-items-center justify-between">

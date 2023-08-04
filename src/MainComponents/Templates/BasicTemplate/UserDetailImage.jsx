@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
 import { Link_, Span, Span1 } from "../../../assets/theme/fontSizes";
+import { motion } from "framer-motion";
 
 const UserDetailImage = () => {
 	const { userPersonalData } = useContext(userDataContext);
@@ -22,13 +23,7 @@ const UserDetailImage = () => {
 								{returnValue(eachUserDetail) ? (
 									<div className="info-wrapper flex items-center flex-wrap leading-tight gap-[2px]">
 										<Span1 className="key capitalize text">{eachUserDetail.nameLabel}: </Span1>
-										{eachUserDetail === email ? (
-											<Link_ to="https://www.twitter.com" className="text-blue-900 underline">
-												{returnValue(eachUserDetail)}
-											</Link_>
-										) : (
-											<Span1 className="value text">{returnValue(eachUserDetail)}</Span1>
-										)}
+										<Span1 className="value text">{returnValue(eachUserDetail)}</Span1>
 									</div>
 								) : null}
 							</React.Fragment>
@@ -42,13 +37,20 @@ const UserDetailImage = () => {
 					)}
 				</div>
 				<div className="col-span-1 text-end flex items-center justify-end">
-					{image.imageSrc ? (
-						<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]">
-							<img src={image.imageSrc} alt="user-image" className="h-full w-full object-cover object-top" />
-						</div>
-					) : (
-						""
-					)}
+					<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]">
+						<motion.img
+							animate={{ opacity: 1 }}
+							initia={{ opacity: 0 }}
+							exit={{ opacity: 0 }}
+							src={
+								image.imageSrc
+									? image.imageSrc
+									: `https://static.vecteezy.com/system/resources/previews/002/534/006/original/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg`
+							}
+							alt="user-image"
+							className="h-full w-full object-cover object-top"
+						/>
+					</div>
 				</div>
 			</div>
 		</>

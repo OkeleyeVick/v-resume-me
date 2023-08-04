@@ -44,7 +44,7 @@ const UserIndex = () => {
 									inputMode={inputMode}
 									label={nameLabel}
 									name={ariaLabel}
-									value={value ?? ""}
+									value={value}
 									aria-label={ariaLabel}
 									type={type}
 									updateTheDetail={updateTheDetail}

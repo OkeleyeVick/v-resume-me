@@ -1,14 +1,13 @@
 import { Icon } from "@iconify/react";
 import React, { useContext, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Modal from "../ResumePageComps/Components/SearchModal";
-import { userDataContext } from "../ResumePageComps/CreateResumePage";
+import { GeneralContext, userDataContext } from "../ResumePageComps/CreateResumePage";
 
 const ImageUploadComponent = ({ label, imageSrc }) => {
 	const [image, setImageForDisplay] = useState(null);
 	const imageRef = useRef(null);
-	const [imageError, setImageError] = useState(null);
 	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData } = useContext(userDataContext);
+	const { error, setError } = useContext(GeneralContext);
 
 	const handleClick = () => {
 		imageRef.current.click();
@@ -35,7 +34,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 			reader.readAsDataURL(image);
 			reader.addEventListener("loadend", () => {
 				if (isValid === false) {
-					setImageError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
+					setError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
 				} else {
 					setImageForDisplay(reader.result);
 					setUserPersonalData((previousData) => {
@@ -131,7 +130,6 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 					)}
 				</div>
 			</div>
-			{imageError && <Modal errorType={imageError} />}
 		</React.Fragment>
 	);
 };

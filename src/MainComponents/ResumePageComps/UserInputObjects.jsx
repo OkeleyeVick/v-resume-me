@@ -3,36 +3,6 @@ const UserInputObjects = () => {
 		listOfExperiences: [],
 	};
 
-	const themeDetails = {
-		themeSideBar: {
-			// checks if theme sidebar is open
-			isThemeSideBarOpen: false,
-		},
-		font: {
-			family: {
-				//font that the user selects
-				default: "Roboto",
-				customFont: null,
-			},
-			fontSize: "16px",
-			lineHeight: {},
-			fontSelection: {
-				isFontDropdownActive: false,
-			},
-		},
-		userResumeColor: {
-			selectedColor: {
-				// resume color that a user picks
-				color: "#000",
-			},
-			colorSelectionMenu: {
-				//is React color active
-				isToggleThemeActive: false,
-			},
-		},
-		backgroundPattern: {},
-	};
-
 	// user initial state
 	const userDetails = {
 		position: {
@@ -129,7 +99,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { userDetails, themeDetails, workExperienceDetails };
+	return { userDetails, workExperienceDetails };
 };
 
 export default UserInputObjects;
