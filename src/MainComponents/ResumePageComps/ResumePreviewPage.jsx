@@ -7,16 +7,12 @@ import "../../assets/css/fonts.css";
 import Swiper from "./Components/Swiper";
 import * as HTML_TO_IMAGE from "html-to-image"; //html to image converter
 import { memo } from "react";
+import html2pdf from "html2pdf.js";
+import FileSaver, { saveAs } from "file-saver";
 
 function downloadDOCXS() {
 	console.log("I am downloading in docxs format");
 }
-
-const request = window.indexedDB.open("v-resume");
-request.addEventListener("upgradeneeded", function () {
-	let db = request.result;
-	console.log(db);
-});
 
 const ResumePreviewPage = () => {
 	const resumeRef = useRef(null);
@@ -27,12 +23,14 @@ const ResumePreviewPage = () => {
 
 	// <== download the pdf function ==>
 	function downloadPDF() {
-		HTML_TO_IMAGE.toJpeg(resumeRef.current, {
+		HTML_TO_IMAGE.toBlob(resumeRef.current, {
 			backgroundColor: "#fff",
 			quality: 1,
 		}).then((dataURL) => {
-			setURL(dataURL);
+			FileSaver.saveAs(dataURL, "image.png");
 		});
+
+		// html2pdf().from(resumeRef.current).outputImg;
 	}
 
 	const DownloadOptions = [

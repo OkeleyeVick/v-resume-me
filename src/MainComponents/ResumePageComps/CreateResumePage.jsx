@@ -16,9 +16,9 @@ const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
-export const GeneralContext = createContext();
-export const themeContext = createContext();
-export const userDataContext = createContext();
+export const GeneralContext = createContext(null);
+export const themeContext = createContext(null);
+export const userDataContext = createContext(null);
 
 const CreateResumePage = () => {
 	const [error, setError] = useState(null);
@@ -186,7 +186,7 @@ const CreateResumePage = () => {
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
 									<button
 										type="button"
-										className="bg-main lg:flex hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
+										className="bg-main hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
 										onClick={zoomIn}>
 										<Icon
 											icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}

@@ -30,19 +30,21 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 		if (event && event.target.files[0]) {
 			const image = event.target.files[0];
 			const isValid = checkFileType(image);
+			const imageFile = URL.createObjectURL(image);
 			const reader = new FileReader();
 			reader.readAsDataURL(image);
 			reader.addEventListener("loadend", () => {
 				if (isValid === false) {
 					setError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
 				} else {
-					setImageForDisplay(reader.result);
+					setImageForDisplay(reader.result ?? imageFile);
 					setUserPersonalData((previousData) => {
 						return {
 							...previousData,
 							image: {
 								...previousData.image,
-								imageSrc: reader.result,
+								// imageSrc: reader.result,
+								imageSrc: reader.result ?? imageFile,
 							},
 						};
 					});
@@ -93,6 +95,9 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 								accept="image/*, .png, .jpeg, .jpg, .webp"
 								src={imageSrc}
 								alt="user-image"
+								onLoad={function (e) {
+									URL.revokeObjectURL(e.target.src); //free memory
+								}}
 								className="w-full h-full object-cover object-top"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}

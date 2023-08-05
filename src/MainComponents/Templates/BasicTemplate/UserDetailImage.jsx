@@ -37,7 +37,7 @@ const UserDetailImage = () => {
 					)}
 				</div>
 				<div className="col-span-1 text-end flex items-center justify-end">
-					<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]">
+					<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[5.5rem] h-[5.5rem]">
 						<motion.img
 							animate={{ opacity: 1 }}
 							initia={{ opacity: 0 }}
