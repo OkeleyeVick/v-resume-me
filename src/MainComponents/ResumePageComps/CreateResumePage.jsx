@@ -16,14 +16,16 @@ const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
 
 const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
 
-export const GeneralContext = createContext(null);
-export const themeContext = createContext(null);
-export const userDataContext = createContext(null);
+export const GeneralContext = createContext("");
+export const themeContext = createContext("");
+export const userDataContext = createContext("");
 
 const CreateResumePage = () => {
 	const [error, setError] = useState(null);
+	const [isModalVisible, setIsModalVisible] = useState(false);
+	const [modalContent, setModalContent] = useState("");
 
-	const { userDetails, themeDetails } = UserInputObjects(); //FROM OBJECTS
+	const { userDetails } = UserInputObjects(); //FROM OBJECTS
 	const { software_skills, soft_skills } = data;
 	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
@@ -104,6 +106,10 @@ const CreateResumePage = () => {
 	return (
 		<GeneralContext.Provider
 			value={{
+				modalContent,
+				setModalContent,
+				isModalVisible,
+				setIsModalVisible,
 				isPreviewVisible, // for mobile screen and how it should be handled
 				setIsPreviewVisible,
 				isAllButtonVisible, // state to toggle the visibility of the buttons that might clog-up the user devices on sm screen

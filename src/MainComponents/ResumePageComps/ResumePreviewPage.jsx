@@ -5,33 +5,31 @@ import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
 import Swiper from "./Components/Swiper";
-import * as HTML_TO_IMAGE from "html-to-image"; //html to image converter
+import { motion } from "framer-motion";
 import { memo } from "react";
-import html2pdf from "html2pdf.js";
-import FileSaver, { saveAs } from "file-saver";
+import Modal from "../GeneralComponents/Modal.jsx";
+import InputWithLabel from "../FormComponent/InputComponent";
 
-function downloadDOCXS() {
-	console.log("I am downloading in docxs format");
-}
+const apiKey = import.meta.env.VITE_CONVERT_API_KEY;
+
+//TODOS: CONVERT IMAGE TAG TO FILE TYPE AND TRY TO UPLOAD IT ON CONVERTAPI
 
 const ResumePreviewPage = () => {
 	const resumeRef = useRef(null);
+	const { isModalVisible, setIsModalVisible } = useContext(GeneralContext);
 	const { largePreview, themeSelection } = useContext(themeContext); //theme contexts
 	const { isAllButtonVisible } = useContext(GeneralContext); //state of all buttons
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
-	// <== download the pdf function ==>
-	function downloadPDF() {
-		HTML_TO_IMAGE.toBlob(resumeRef.current, {
-			backgroundColor: "#fff",
-			quality: 1,
-		}).then((dataURL) => {
-			FileSaver.saveAs(dataURL, "image.png");
-		});
-
-		// html2pdf().from(resumeRef.current).outputImg;
+	function downloadDOCX() {
+		console.log("The docx is working");
 	}
+	function downloadPDF() {
+		setIsModalVisible(true);
+	}
+
+	function handleDownloadResume() {}
 
 	const DownloadOptions = [
 		{
@@ -42,11 +40,12 @@ const ResumePreviewPage = () => {
 		},
 		{
 			title: "Download in DOCX",
-			download: downloadDOCXS,
+			download: downloadDOCX,
 			icon: "bi:filetype-docx",
 			size: "w-5 h-4",
 		},
 	];
+
 	return (
 		<React.Fragment>
 			<div mode="view-mode" name="resume-wrapper">
@@ -67,7 +66,9 @@ const ResumePreviewPage = () => {
 				</div>
 			</div>
 			{!isAllButtonVisible ? (
-				<div className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} z-[32] bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
+				<motion.div
+					exit={{ opacity: 0 }}
+					className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} z-[32] bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
 					<div className="text-start flex flex-col gap-y-4 font-[Magnat]">
 						<Swiper />
 						<Menu as="div" className="relative inline-block">
@@ -102,12 +103,32 @@ const ResumePreviewPage = () => {
 							</Menu.Button>
 						</Menu>
 					</div>
-				</div>
+				</motion.div>
 			) : (
 				""
+			)}
+			{isModalVisible && (
+				<Modal modalTitle="Enter filename">
+					<div className="flex items-center gap-3 flex-wrap">
+						<div className="flex-grow">
+							<InputWithLabel placeholder="Enter filename" updateTheDetail={() => console.log("Y")} />
+						</div>
+						<button
+							type="button"
+							onClick={handleDownloadResume}
+							className="text-white bg-main py-3 px-6 text-sm rounded-md hover:bg-hoverBgClr">
+							Save and Download
+						</button>
+					</div>
+				</Modal>
 			)}
 		</React.Fragment>
 	);
 };
 
 export default memo(ResumePreviewPage);
+
+// downloadRef.current.href = `${dataURL}`;
+// downloadRef.current.download = "victor.pdf";
+// downloadRef.current.click();
+// setIsModalVisible(true);

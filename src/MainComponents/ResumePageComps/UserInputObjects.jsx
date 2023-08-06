@@ -1,8 +1,4 @@
 const UserInputObjects = () => {
-	const workExperienceDetails = {
-		listOfExperiences: [],
-	};
-
 	// user initial state
 	const userDetails = {
 		position: {
@@ -79,6 +75,8 @@ const UserInputObjects = () => {
 			type: "text",
 			inputMode: "text",
 			value: "",
+			hasExtraInfo: true,
+			tooltipData: "If you are applying for job within your country, writing a postal code is considered optional",
 		},
 
 		nationality: {
@@ -99,7 +97,7 @@ const UserInputObjects = () => {
 		},
 	};
 
-	return { userDetails, workExperienceDetails };
+	return { userDetails };
 };
 
 export default UserInputObjects;
