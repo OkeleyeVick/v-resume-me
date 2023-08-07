@@ -1,6 +1,7 @@
+// import jsPDF from "jspdf";
 import React, { Fragment, useContext, useRef } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
-import { GeneralContext, themeContext } from "./CreateResumePage";
+import { GeneralContext, themeContext, userDataContext } from "./CreateResumePage";
 import { Icon } from "@iconify/react";
 import { Menu, Transition } from "@headlessui/react";
 import "../../assets/css/fonts.css";
@@ -8,33 +9,45 @@ import Swiper from "./Components/Swiper";
 import { motion } from "framer-motion";
 import { memo } from "react";
 import Modal from "../GeneralComponents/Modal.jsx";
+import * as html2image from "html-to-image";
+// import { PDFDocument } from "pdf-lib";
 import InputWithLabel from "../FormComponent/InputComponent";
-
-const apiKey = import.meta.env.VITE_CONVERT_API_KEY;
-
-//TODOS: CONVERT IMAGE TAG TO FILE TYPE AND TRY TO UPLOAD IT ON CONVERTAPI
+import { PDFDownloadLink, Document, Page, Image, StyleSheet } from "@react-pdf/renderer";
+import { useState } from "react";
 
 const ResumePreviewPage = () => {
+	console.clear();
+	const [resumeImage, setResumeImage] = useState();
+	const [filename, setFilename] = useState("");
 	const resumeRef = useRef(null);
+
 	const { isModalVisible, setIsModalVisible } = useContext(GeneralContext);
 	const { largePreview, themeSelection } = useContext(themeContext); //theme contexts
 	const { isAllButtonVisible } = useContext(GeneralContext); //state of all buttons
+	const { userPersonalData } = useContext(userDataContext);
 	const { color } = themeSelection.userResumeColor.selectedColor;
 	const font = themeSelection.font.family.customFont;
 
 	function downloadDOCX() {
 		console.log("The docx is working");
 	}
-	function downloadPDF() {
-		setIsModalVisible(true);
+
+	function attemptToDownload() {
+		// convert html page to jpeg
+		html2image.toJpeg(resumeRef.current, { style: { backgroundColor: "#fff" } }).then((file) => {
+			setResumeImage(file);
+			setIsModalVisible(true);
+		});
 	}
 
-	function handleDownloadResume() {}
+	function handleDownloadResume() {
+		console.log("Do nothinG for now");
+	}
 
 	const DownloadOptions = [
 		{
 			title: "Download in PDF",
-			download: downloadPDF,
+			download: attemptToDownload,
 			icon: "ph:file-pdf-duotone",
 			size: "w-5 h-5",
 		},
@@ -45,6 +58,20 @@ const ResumePreviewPage = () => {
 			size: "w-5 h-4",
 		},
 	];
+
+	const styles = StyleSheet.create({
+		page: {
+			backgroundColor: "red",
+		},
+		image: {
+			width: "100%",
+			height: "100%",
+		},
+	});
+
+	const handleFileName = (inputname) => {
+		setFilename(inputname);
+	};
 
 	return (
 		<React.Fragment>
@@ -111,14 +138,25 @@ const ResumePreviewPage = () => {
 				<Modal modalTitle="Enter filename">
 					<div className="flex items-center gap-3 flex-wrap">
 						<div className="flex-grow">
-							<InputWithLabel placeholder="Enter filename" updateTheDetail={() => console.log("Y")} />
+							<InputWithLabel placeholder="Enter filename" updateTheDetail={handleFileName} />
 						</div>
-						<button
-							type="button"
-							onClick={handleDownloadResume}
-							className="text-white bg-main py-3 px-6 text-sm rounded-md hover:bg-hoverBgClr">
-							Save and Download
-						</button>
+
+						<PDFDownloadLink
+							document={
+								<Document>
+									<Page size="A4">
+										<Image src={resumeImage} style={styles.image} />
+									</Page>
+								</Document>
+							}
+							fileName={filename.length !== 0 ? `${filename.trim()}.pdf` : "test.pdf"}>
+							<button
+								type="button"
+								onClick={handleDownloadResume}
+								className="text-white bg-main py-3 px-6 text-sm rounded-md hover:bg-hoverBgClr">
+								Save and Download
+							</button>
+						</PDFDownloadLink>
 					</div>
 				</Modal>
 			)}
@@ -128,7 +166,18 @@ const ResumePreviewPage = () => {
 
 export default memo(ResumePreviewPage);
 
-// downloadRef.current.href = `${dataURL}`;
-// downloadRef.current.download = "victor.pdf";
-// downloadRef.current.click();
-// setIsModalVisible(true);
+/* 
+
+const reader = new FileReader();
+			reader.addEventListener("load", () => {
+				console.log(reader.result);
+
+				const a = document.createElement("a");
+				a.href = `${reader.result}`;
+				a.download = "test.pdf";
+				a.click();
+			});
+
+			reader.readAsDataURL(blob);
+
+*/

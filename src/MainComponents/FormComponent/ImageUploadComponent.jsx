@@ -33,9 +33,10 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 			const imageFile = URL.createObjectURL(image);
 			const reader = new FileReader();
 			reader.readAsDataURL(image);
-			reader.addEventListener("loadend", () => {
+			reader.addEventListener("load", () => {
 				if (isValid === false) {
 					setError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
+					return;
 				} else {
 					setImageForDisplay(reader.result ?? imageFile);
 					setUserPersonalData((previousData) => {
@@ -43,12 +44,12 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 							...previousData,
 							image: {
 								...previousData.image,
-								// imageSrc: reader.result,
 								imageSrc: reader.result ?? imageFile,
 							},
 						};
 					});
 				}
+				URL.revokeObjectURL(image); //free memory space
 			});
 		}
 	}

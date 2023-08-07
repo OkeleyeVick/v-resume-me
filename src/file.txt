@@ -1,83 +1,35 @@
-// Create a new Blob object with the file content
-	// const fileContent = "This is the content of my file.";
-	// const blob = new Blob([fileContent], { type: "text/plain" });
 
-	// // Create a new File object with the Blob object and file name
-	// const fileName = "myFile.docx";
-	// const file = new File([blob], fileName, { type: "text/plain" });
+	const readFile = (file) =>
+		new Promise((res, rej) => {
+			const fileReader = new FileReader();
+			fileReader.addEventListener("load", () => res(fileReader.result));
+			fileReader.addEventListener("error", () => rej(fileReader.error));
+			fileReader.readAsArrayBuffer(file);
+		});
 
-	// // Create a new URL object to create a download link for the file
-	// const url = URL.createObjectURL(file);
+	async function DownloadFile(pdfImage) {
+		const pdfDoc = await PDFDocument.create();
 
-	// // Create a new anchor tag with the download link and click it to download the file
-	// const downloadLink = document.createElement("a");
-	// downloadLink.href = url;
-	// downloadLink.download = fileName;
-	// downloadLink.click();
- /////// work excerpt
+		const jpegDimension = pdfDoc.embedJpg(pdfImage);
+		const resumeImage = await jpegDimension;
 
- let userDetails = {
-	userName: "Kevin Roy",
-	role: "React js Developer",
-	about: `I have 4 years of experience in Reactjs, Redux, Bootstrap, AntDesing, CSS, SASS, HTML5 along with
-    knowledge on React Native, Nodejs, Expressjs, MongoDB, and Angular2 basics. worked around 5 web
-    Applications and 1 cross-platform App, Responsibilities involved in finding the quick Solutions for R&D
-    Tasks, and the end to end development.`,
-	email: "kevin.roy@gmail.com",
-	phone: "9900990010",
-	location: " Hyderabad",
-	linkedinProfileLink: "https://www.linkedin.com/in/durga-raju-tagulla-60a7a3165/",
-	clgName: "XYZ Hyderbad",
-	passedOutYear: "2018",
-	majorDegree: "ECE",
-	persantage: "81%",
-	skills: ["React js", "Reudx", "HTML", "CSS", "Javascript"],
-	workExperience: [
-		{
-			companyName: "Accolite Digital",
-			designation: "Software Engineer",
-			workDuration: "mar/2018 - feb/2022",
-			workingStatus: "currently Working here",
-		},
-		{
-			companyName: "Accolite Digital",
-			designation: "Software Engineer",
-			workDuration: "mar/2018 - feb/2022",
-			workingStatus: "currently Working here",
-		},
-	],
-	projects: [
-		{
-			projectName: "Demo Project",
-			projectDuration: "sep/2021 - feb/2022",
-			projectDesc: "it is video application",
-			techknowledgeyUsed: ["React js", "Reudx", "HTML", "CSS"],
-			responsibility: "I am a major developer here",
-			touchPoints: "",
-		},
-	],
-};
+		const blankPage = pdfDoc.addPage(); //create blank page
+		blankPage.drawImage(resumeImage); // add the image to the blank page
 
+		let base64Chunk = await pdfDoc.saveAsBase64();
+		base64Chunk = `data:application/pdf;base64${base64Chunk}`;
 
-
-  // Browser
-  // const blob = new Blob([pdf.buffer], { type: 'application/pdf' });
-  // window.open(URL.createObjectURL(blob));
-
-
-
-
-
-
-
-
-
-//Options to store user details and make them persist
-1. IndexedDB
-2. Redux-persist
-3. Localstorage
-
-//state management
-1. Redux Toolkit
-2. useState + useContext
-3. useState + useReducer
+		// console.log(base64Chunk); // RESULT ==> SOI not found in JPEG
+	}
+function attemptToDownload() {
+		// convert html page to jpeg
+		html2image.toJpeg(resumeRef.current, { style: { backgroundColor: "#fff" } }).then(async (file) => {
+			/* returns base64 string,
+			then convert it to a file  */
+			const newFile = new File([file], "", { type: "image/jpeg" });
+			console.log(newFile);
+			const result = await readFile(newFile); //read the file
+			DownloadFile(result);
+		});
+	}
+	

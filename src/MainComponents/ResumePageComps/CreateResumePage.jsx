@@ -12,9 +12,8 @@ import HobbyIndex from "./HobbySection/HobbyIndex";
 import "../../assets/css/fonts.css";
 import GoBack from "../GeneralComponents/GoBack";
 import { motion } from "framer-motion";
-const ResumePreviewPage = React.lazy(() => import("./ResumePreviewPage.jsx"));
-
-const ThemeFamily = React.lazy(() => import("../../assets/theme/ThemeFamily.jsx"));
+import ThemeFamily from "../../assets/theme/ThemeFamily";
+import ResumePreviewPage from "./ResumePreviewPage";
 
 export const GeneralContext = createContext("");
 export const themeContext = createContext("");
@@ -155,9 +154,7 @@ const CreateResumePage = () => {
 							exit={{ opacity: 0 }}
 							className="min-h-screen flex items-stretch">
 							<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8 font-[Syne]">
-								<React.Suspense>
-									<ThemeFamily />
-								</React.Suspense>
+								<ThemeFamily />
 								<ThemeTogglerButton />
 								<GoBack />
 								<div className="">
