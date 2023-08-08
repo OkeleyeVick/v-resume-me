@@ -1,8 +1,8 @@
 import { Icon } from "@iconify/react";
 import React, { memo } from "react";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
-const SoftwareSkill = React.lazy(() => import("./SoftwareSkill"));
-const SoftSkill = React.lazy(() => import("./SoftSkill"));
+import SoftwareSkill from "./SoftwareSkill";
+import SoftSkill from "./SoftSkill";
 
 const SkillsIndex = () => {
 	return (

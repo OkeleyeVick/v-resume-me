@@ -35,7 +35,6 @@ const Modal = ({ children, modalTitle }) => {
 				initial={{ translateY: 30, opacity: 0 }}
 				animate={{ translateY: 0, opacity: 1 }}
 				exit={{ translateY: -40, opacity: 0 }}
-				transition={{ duration: 0.2 }}
 				className={`max-w-[550px] w-full h-max bg-white rounded-2xl overflow-hidden shadow-md`}>
 				<div className={`${modalTitle ? " justify-between" : "justify-end"} modal-header flex items-center p-4 border-b`}>
 					{modalTitle ? <span className="font-semibold text-base md:text-lg">{modalTitle}</span> : ""}

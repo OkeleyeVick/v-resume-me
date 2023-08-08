@@ -1,3 +1,5 @@
+const options = "Optional if you don't have one";
+
 const UserInputObjects = () => {
 	// user initial state
 	const userDetails = {
@@ -28,13 +30,13 @@ const UserInputObjects = () => {
 			value: "",
 			type: "text",
 		},
-
 		email: {
 			ariaLabel: "email",
 			nameLabel: "email",
 			type: "email",
 			inputMode: "email",
 			value: "",
+			icon: "bxs:envelope",
 		},
 		phone: {
 			ariaLabel: "phone",
@@ -44,15 +46,16 @@ const UserInputObjects = () => {
 			nameLabel: "phone",
 			inputMode: "numeric",
 			value: "",
+			icon: "ri:phone-fill",
 		},
-		address: {
-			ariaLabel: "address",
-			nameLabel: "address",
-			type: "text",
-			inputMode: "text",
-			value: "",
-		},
-
+		// address: {
+		// 	ariaLabel: "address",
+		// 	nameLabel: "address",
+		// 	type: "text",
+		// 	inputMode: "text",
+		// 	value: "",
+		// 	icon: "zondicons:location",
+		// },
 		city: {
 			ariaLabel: "city",
 			nameLabel: "city",
@@ -78,7 +81,6 @@ const UserInputObjects = () => {
 			hasExtraInfo: true,
 			tooltipData: "If you are applying for job within your country, writing a postal code is considered optional",
 		},
-
 		nationality: {
 			ariaLabel: "nationality",
 			nameLabel: "nationality",
@@ -88,12 +90,50 @@ const UserInputObjects = () => {
 			hasExtraInfo: true,
 			tooltipData: "If you're applying for a job outside the country, you might want to fill this, otherwise you can leave it blank",
 		},
-		dob: {
-			ariaLabel: "dob",
-			nameLabel: "Date of Birth",
-			type: "text",
+		// dob: {
+		// 	ariaLabel: "dob",
+		// 	nameLabel: "Date of Birth",
+		// 	type: "text",
+		// 	inputMode: "text",
+		// 	value: "",
+		// 	hasExtraInfo: true,
+		// 	tooltipData: "This is very optional as many do not recommend adding your age to your resume",
+		// },
+		webLink: {
+			ariaLabel: "website-link",
+			nameLabel: "Portfolio or Website URL",
+			type: "url",
 			inputMode: "text",
 			value: "",
+			hasExtraInfo: true,
+			tooltipData: `Enter your portfolio or any link that showcases your projects and works. ${options}`,
+		},
+		github: {
+			ariaLabel: "github",
+			nameLabel: "Github URL",
+			type: "url",
+			inputMode: "text",
+			value: "",
+			hasExtraInfo: true,
+			tooltipData: `Enter your Github, Gitlab, or Bitbucket link. ${options}`,
+		},
+		linkedIn: {
+			ariaLabel: "linkedIn",
+			nameLabel: "Linkedin URL",
+			type: "url",
+			inputMode: "text",
+			value: "",
+			hasExtraInfo: true,
+			tooltipData: `Enter your Linkedin profile URL. ${options}`,
+		},
+		designers_link: {
+			ariaLabel: "designers_link",
+			nameLabel: "Behance or Dribbble Link",
+			type: "url",
+			inputMode: "text",
+			value: "",
+			hasExtraInfo: true,
+			tooltipData: `Enter your Behance or Dribbble profile URL ${options}`,
 		},
 	};
 

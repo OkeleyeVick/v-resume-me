@@ -23,6 +23,8 @@ const UserIndex = () => {
 		}));
 	}
 
+	console.log(userPersonalData);
+
 	return (
 		<React.Fragment>
 			<div id="title" className="mb-6 flex items-center justify-between">
@@ -60,7 +62,7 @@ const UserIndex = () => {
 				<div className="flex flex-col">
 					<label className="text-lg font-semibold text-slate-700 mb-[1px]">Professional Summary</label>
 					<span className="text-[.8rem] mb-2 text-label_clr">
-						Write a brief summary about yourself. Mention your role, experience & <span className="text-slate-600">most importantly</span>{" "}
+						Write a brief summary about yourself. Mention your role, experience & <span className="text-slate-600">most importantly</span>
 						- your biggest achievements, best qualities and skills.
 					</span>
 				</div>

@@ -96,9 +96,6 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 								accept="image/*, .png, .jpeg, .jpg, .webp"
 								src={imageSrc}
 								alt="user-image"
-								onLoad={function (e) {
-									URL.revokeObjectURL(e.target.src); //free memory
-								}}
 								className="w-full h-full object-cover object-top"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}

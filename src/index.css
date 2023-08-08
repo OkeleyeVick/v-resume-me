@@ -64,6 +64,9 @@ body::-webkit-scrollbar {
 .text-title {
 	@apply font-bold;
 }
+.value {
+	@apply font-normal;
+}
 .divider {
 	@apply text-gray-600/90 font-bold;
 }

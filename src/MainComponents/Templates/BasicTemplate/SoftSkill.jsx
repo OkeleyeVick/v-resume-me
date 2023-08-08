@@ -23,11 +23,7 @@ const SoftSkills = () => {
 						</Span>
 						<div className="mt-4 flex items-center gap-1 flex-wrap">
 							{softSkills.map(({ skillName }) => {
-								return (
-									<Small key={skillName} className="pill">
-										{skillName}
-									</Small>
-								);
+								return <Small key={skillName}>{skillName}</Small>;
 							})}
 						</div>
 					</div>

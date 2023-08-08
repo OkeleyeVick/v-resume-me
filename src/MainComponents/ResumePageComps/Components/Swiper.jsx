@@ -23,7 +23,7 @@ export default function Swiper() {
 						leave="transition ease-in duration-150"
 						leaveFrom="opacity-100 translate-y-0"
 						leaveTo="opacity-0 translate-y-1">
-						<Popover.Panel className="absolute bottom-full right-0 z-[32] w-72 md:w-80 h-64 md:h-60 -translate-y-2">
+						<Popover.Panel className="absolute bottom-full right-0 z-[32] w-72 md:w-80 h-64 md:h-60 mb-3">
 							<div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 h-full flex flex-col gap-y-3 mb-2 p-4">
 								<span className="flex items-center justify-end">
 									<Icon icon="fluent:chat-help-24-filled" className="text-main w-7 h-7" />

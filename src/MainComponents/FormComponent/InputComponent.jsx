@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import { debounce } from "lodash";
@@ -17,7 +17,7 @@ const InputWithLabel = ({
 }) => {
 	const debounceFunc = debounce((text, fieldName) => {
 		updateTheDetail(text, fieldName);
-	}, 600);
+	}, 300);
 
 	return (
 		<div

@@ -77,7 +77,7 @@ export default function WorkExperience() {
 														</div>
 													</div>
 													<div className="flex flex-col mt-1">
-														<Span1 className="job-title font-extrabold">{jobTitle}</Span1>
+														<Span1 className="job-title font-bold">{jobTitle}</Span1>
 														<Span1 className="company font-semibold">{companyName}</Span1>
 													</div>
 													{description && (

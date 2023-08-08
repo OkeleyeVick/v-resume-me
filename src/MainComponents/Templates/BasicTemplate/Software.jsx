@@ -22,7 +22,7 @@ const Software = () => {
 						<Span className="text-title" style={{ color: `${color}` }}>
 							Software Skills
 						</Span>
-						<div className="mt-4 flex items-center gap-1 flex-wrap">
+						<div className="mt-2 flex items-center gap-1 flex-wrap">
 							{softwareSkills.map(({ skillName }) => {
 								return (
 									<Small key={skillName} className="pill">

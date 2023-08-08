@@ -29,10 +29,8 @@ const CreateResumePage = () => {
 	const SOFTWARE = software_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 
-	// <============ all states ==================>
+	// <== ========== all states ================ ==>
 	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
-
-	const [fileName, setFileName] = useState(""); //filename that the user should enter
 
 	const [userPersonalSummary, setUserPersonalSummary] = useState("");
 
@@ -129,8 +127,6 @@ const CreateResumePage = () => {
 					workExperienceValues: {
 						workExperiences: { userWorkExperiences, setUserWorkExperiences },
 					},
-					fileName,
-					setFileName,
 					hobbies,
 					setHobbies,
 					languages,

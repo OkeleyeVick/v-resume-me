@@ -11,7 +11,7 @@ const Hobbies = () => {
 				<>
 					<div name="soft-skills">
 						<Span className="text-title">Hobbies</Span>
-						<div className="flex items-center gap-1 flex-wrap mt-4">
+						<div className="flex items-center gap-1 flex-wrap mt-2">
 							{hobbies.map(({ hobbyName }) => {
 								return (
 									<Span1 key={hobbyName} className="pill">

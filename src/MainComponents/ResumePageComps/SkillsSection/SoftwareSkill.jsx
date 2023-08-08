@@ -58,9 +58,8 @@ const SoftSkill = () => {
 					id: newSoftwareSkill.id + 1,
 				};
 			});
-
-			setInput(""); //clear the input
 		}
+		setInput(""); //clear the input
 	}
 
 	const handleTheInput = (inputValue) => {

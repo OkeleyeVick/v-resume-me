@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderContainer from "./HeaderContainer";
 import UserDetailImage from "./UserDetailImage";
 import Language from "./Language";
 import SoftSkills from "./SoftSkill";
@@ -11,9 +10,6 @@ import WorkExperience from "./WorkExperience";
 const BasicResumeContainer = () => {
 	return (
 		<React.Fragment>
-			<div>
-				<HeaderContainer />
-			</div>
 			<div className="flex flex-col items-center justify-between">
 				<UserDetailImage />
 			</div>

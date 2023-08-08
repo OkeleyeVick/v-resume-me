@@ -10,10 +10,10 @@ const Language = () => {
 			{languages && languages.length !== 0 && (
 				<div>
 					<Span className="text-title">Languages</Span>
-					<div className="flex flex-wrap gap-1 mt-4">
+					<div className="flex flex-wrap gap-1 mt-2">
 						{languages.map(({ languageName }, index) => {
 							return (
-								<Span1 className="pill" key={index}>
+								<Span1 key={index} className="pill">
 									{languageName}
 								</Span1>
 							);

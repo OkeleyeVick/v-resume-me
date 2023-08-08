@@ -10,13 +10,11 @@ import { motion } from "framer-motion";
 import { memo } from "react";
 import Modal from "../GeneralComponents/Modal.jsx";
 import * as html2image from "html-to-image";
-// import { PDFDocument } from "pdf-lib";
 import InputWithLabel from "../FormComponent/InputComponent";
 import { PDFDownloadLink, Document, Page, Image, StyleSheet } from "@react-pdf/renderer";
 import { useState } from "react";
 
 const ResumePreviewPage = () => {
-	console.clear();
 	const [resumeImage, setResumeImage] = useState();
 	const [filename, setFilename] = useState("");
 	const resumeRef = useRef(null);
@@ -24,8 +22,12 @@ const ResumePreviewPage = () => {
 	const { isModalVisible, setIsModalVisible } = useContext(GeneralContext);
 	const { largePreview, themeSelection } = useContext(themeContext); //theme contexts
 	const { isAllButtonVisible } = useContext(GeneralContext); //state of all buttons
-	const { userPersonalData } = useContext(userDataContext);
-	const { color } = themeSelection.userResumeColor.selectedColor;
+	const {
+		userPersonalData: {
+			firstname: { value: fnValue },
+			lastname: { value: lnValue },
+		},
+	} = useContext(userDataContext);
 	const font = themeSelection.font.family.customFont;
 
 	function downloadDOCX() {
@@ -34,14 +36,10 @@ const ResumePreviewPage = () => {
 
 	function attemptToDownload() {
 		// convert html page to jpeg
-		html2image.toJpeg(resumeRef.current, { style: { backgroundColor: "#fff" } }).then((file) => {
+		html2image.toJpeg(resumeRef.current, { style: { backgroundColor: "#fff" }, quality: 1 }).then((file) => {
 			setResumeImage(file);
 			setIsModalVisible(true);
 		});
-	}
-
-	function handleDownloadResume() {
-		console.log("Do nothinG for now");
 	}
 
 	const DownloadOptions = [
@@ -82,11 +80,11 @@ const ResumePreviewPage = () => {
 					className={`whitespace-pre-wrap p-4 text-xs mx-auto flex items-center justify-center`}>
 					<div
 						name="resume-document"
-						className={`bg-white shadow-md mx-auto rounded-[4px] w-[800px] aspect-[1/1.4141] origin-center ${
-							// className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
-							largePreview ? "scale-[1] my-24" : "lg:scale-[.8]"
+						// className={`bg-white shadow-md mx-auto rounded-[4px] w-[800px] aspect-[1/1.4141] origin-center ${
+						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
+							largePreview ? "scale-[1] my-24" : "lg:scale-[.88]"
 						} scale-[1] lg:scale-[0.8]`}>
-						<div className="p-6 h-full" ref={resumeRef}>
+						<div className="p-4 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
 					</div>
@@ -117,7 +115,7 @@ const ResumePreviewPage = () => {
 												className="flex items-center gap-1 p-2 hover:bg-main hover:text-white rounded-sm text-slate-800">
 												<Icon
 													icon={icon}
-													className={`${size} flex items-center duration-75 ease-linear transition pointer-events-none select-none `}
+													className={`${size} flex items-center duration-75 ease-linear transition pointer-events-none select-none`}
 												/>
 												<span className="text-xs">{title}</span>
 											</button>
@@ -125,8 +123,8 @@ const ResumePreviewPage = () => {
 									</div>
 								</Menu.Item>
 							</Transition>
-							<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-5 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
-								<Icon icon="uiw:download" className=" w-3 h-3 lg:w-4  lg:h-4 pointer-events-none select-none " />
+							<Menu.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-sm px-4 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
+								<Icon icon="typcn:download" className="w-5 h-5 pointer-events-none select-none" />
 							</Menu.Button>
 						</Menu>
 					</div>
@@ -149,13 +147,12 @@ const ResumePreviewPage = () => {
 									</Page>
 								</Document>
 							}
-							fileName={filename.length !== 0 ? `${filename.trim()}.pdf` : "test.pdf"}>
-							<button
-								type="button"
-								onClick={handleDownloadResume}
-								className="text-white bg-main py-3 px-6 text-sm rounded-md hover:bg-hoverBgClr">
-								Save and Download
-							</button>
+							fileName={
+								filename.length !== 0
+									? `${filename.trim()}_v-resume.pdf`
+									: `${`${lnValue}${lnValue.length !== 0 ? "-" : ""}${fnValue}` ?? "user"}_v-resume.pdf`
+							}>
+							{({ loading }) => (loading ? <Button disabled>Loading</Button> : <Button disabled={false}>Download</Button>)}
 						</PDFDownloadLink>
 					</div>
 				</Modal>
@@ -166,18 +163,10 @@ const ResumePreviewPage = () => {
 
 export default memo(ResumePreviewPage);
 
-/* 
-
-const reader = new FileReader();
-			reader.addEventListener("load", () => {
-				console.log(reader.result);
-
-				const a = document.createElement("a");
-				a.href = `${reader.result}`;
-				a.download = "test.pdf";
-				a.click();
-			});
-
-			reader.readAsDataURL(blob);
-
-*/
+function Button({ children, disabled }) {
+	return (
+		<button disabled={disabled} type="button" className="text-white bg-main py-3 px-6 text-sm rounded-md hover:bg-hoverBgClr">
+			{children}
+		</button>
+	);
+}
