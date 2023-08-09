@@ -4,7 +4,6 @@ import { userDataContext } from "../CreateResumePage";
 import { Icon } from "@iconify/react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { useMemo } from "react";
-import { useEffect } from "react";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
@@ -43,6 +42,7 @@ const SoftSkill = () => {
 	}
 
 	function addSkillWithoutValue() {
+		setInput(""); //clear the input
 		const allTheSkillNames = skills.softwareSkills.map(({ skillName }) => skillName.toLowerCase());
 		if ((allTheSkillNames.length === 0 || !allTheSkillNames.includes(inputValue.toLowerCase())) && inputValue.trim().length !== 0) {
 			// if the skill in not in the list of entered skills, add it to the list
@@ -59,7 +59,6 @@ const SoftSkill = () => {
 				};
 			});
 		}
-		setInput(""); //clear the input
 	}
 
 	const handleTheInput = (inputValue) => {

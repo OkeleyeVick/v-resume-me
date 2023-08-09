@@ -15,15 +15,64 @@ const UserDetailImage = () => {
 	} = themeSelection;
 	// const { image, nationality, phone, country, address, dob, email, city, postalCode, firstname, lastname, position } = userPersonalData;
 	// const fullAddress = `${trimText(address)} ${trimText(city)} ${trimText(postalCode)} ${trimText(country)}`;
-	const { image, nationality, phone, country, email, city, firstname, lastname, position } = userPersonalData;
-	const fullAddress = `${trimText(city)} ${trimText(country)}`;
+	const { image, phone, country, email, city, firstname, lastname, position, webLink, github, linkedIn, designers_link } = userPersonalData;
 
 	// return just the value
 	function trimText(textValue) {
 		return textValue.value.trim();
 	}
 
-	console.log(position);
+	function getIcontype(link) {
+		let result;
+		if (link) {
+			const weblink = link.toLowerCase();
+			if (weblink.includes("bitbucket")) result = "ion:logo-bitbucket";
+			if (weblink.includes("github")) result = "akar-icons:github-fill";
+			if (weblink.includes("gitlab")) result = "simple-icons:gitlab";
+		}
+		return result;
+	}
+
+	function getDesignersIcon(link) {
+		let resultIcon;
+		if (link) {
+			const webLink = link.toLowerCase();
+			if (webLink.includes("dribbble")) resultIcon = "mingcute:dribbble-fill";
+			if (webLink.includes("behance")) resultIcon = "uil:behance";
+		}
+		return resultIcon;
+	}
+
+	const newList = [
+		{
+			value: trimText(email),
+			icon: "clarity:envelope-solid",
+		},
+		{
+			value: `${trimText(city)}, ${trimText(country)}`,
+			icon: "zondicons:location",
+		},
+		{
+			value: trimText(github),
+			icon: getIcontype(trimText(github)) ?? "akar-icons:github-fill",
+		},
+		{
+			value: trimText(webLink),
+			icon: "fa6-solid:globe",
+		},
+		{
+			value: trimText(phone),
+			icon: "fluent:phone-24-filled",
+		},
+		{
+			value: trimText(linkedIn),
+			icon: "uil:linkedin",
+		},
+		{
+			value: trimText(designers_link),
+			icon: getDesignersIcon(trimText(designers_link)),
+		},
+	];
 
 	return (
 		<>
@@ -50,35 +99,20 @@ const UserDetailImage = () => {
 							</h1>
 						)}
 						{position.value && <h6 className="mt-1 font-semibold text-base text-gray-600">{trimText(position)}</h6>}
+						{userPersonalSummary && <small dangerouslySetInnerHTML={{ __html: userPersonalSummary }}></small>}
 					</span>
 				</div>
 				<div className="user-personal-info flex flex-col gap-y-2">
-					{[email, phone, nationality].map((eachUserDetail, index) => {
+					{newList.map(({ value, icon }, index) => {
 						return (
 							<React.Fragment key={index}>
-								{trimText(eachUserDetail) ? (
-									<div className="info-wrapper flex items-end flex-wrap justify-end leading-tight gap-2">
-										<Span1 className="value text">{trimText(eachUserDetail)}</Span1>
-										{eachUserDetail?.icon ? (
-											<Icon icon={eachUserDetail?.icon} className="h-4 w-4 text-gray-600" />
-										) : (
-											<Span1 className="key capitalize text">{eachUserDetail.nameLabel}</Span1>
-										)}
-									</div>
-								) : null}
+								<div className="info-wrapper flex items-end flex-wrap justify-end leading-tight gap-2">
+									<Span1 className="value text">{value}</Span1>
+									<Icon icon={icon} className="h-4 w-4 text-gray-600" />
+								</div>
 							</React.Fragment>
 						);
 					})}
-					{(trimText(city) !== "" || trimText(country) !== "") && (
-						<div className="info-wrapper flex items-end	 flex-wrap justify-end leading-tight gap-1">
-							<Span1 className="text value">{fullAddress}</Span1>
-							{address.icon ? (
-								<Icon icon={address.icon} className="h-4 w-4 text-gray-600" />
-							) : (
-								<Span1 className="text key">Address</Span1>
-							)}
-						</div>
-					)}
 				</div>
 			</div>
 		</>

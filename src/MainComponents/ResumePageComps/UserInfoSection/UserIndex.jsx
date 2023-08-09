@@ -23,8 +23,6 @@ const UserIndex = () => {
 		}));
 	}
 
-	console.log(userPersonalData);
-
 	return (
 		<React.Fragment>
 			<div id="title" className="mb-6 flex items-center justify-between">

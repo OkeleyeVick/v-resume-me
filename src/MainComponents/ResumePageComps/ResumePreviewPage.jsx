@@ -80,10 +80,7 @@ const ResumePreviewPage = () => {
 					className={`whitespace-pre-wrap p-4 text-xs mx-auto flex items-center justify-center`}>
 					<div
 						name="resume-document"
-						// className={`bg-white shadow-md mx-auto rounded-[4px] w-[800px] aspect-[1/1.4141] origin-center ${
-						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center ${
-							largePreview ? "scale-[1] my-24" : "lg:scale-[.88]"
-						} scale-[1] lg:scale-[0.8]`}>
+						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center scale-[1] lg:scale-[0.8]`}>
 						<div className="p-4 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>

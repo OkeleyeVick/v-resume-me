@@ -13,11 +13,11 @@ const BasicResumeContainer = () => {
 			<div className="flex flex-col items-center justify-between">
 				<UserDetailImage />
 			</div>
-			<div className="grid grid-cols-2 gap-8 mt-10">
-				<div className="flex flex-col gap-y-3">
+			<div className="grid grid-cols-3 gap-3 mt-10">
+				<div className="flex flex-col gap-y-3 col-span-2">
 					<WorkExperience />
 				</div>
-				<div className="flex flex-col gap-y-6">
+				<div className="flex flex-col gap-y-6 col-span-1">
 					<Education />
 					<Software />
 					<SoftSkills />
