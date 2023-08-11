@@ -95,7 +95,7 @@ const SoftSkill = () => {
 		}
 	}
 
-	function deleteAllSkills() {
+	function removeSkills() {
 		setSkills((previous) => ({
 			...previous,
 			softwareSkills: [],
@@ -170,7 +170,7 @@ const SoftSkill = () => {
 												<button
 													type="button"
 													className="flex items-center gap-2 text-gray-400 group/delete"
-													onClick={deleteAllSkills}>
+													onClick={removeSkills}>
 													<span className="text-[.8rem] group-hover/delete:text-red-500 leading-tighter">Delete all</span>
 													<Icon icon="ep:delete" className="group-hover/delete:text-red-500 w-4 h-4" />
 												</button>

@@ -70,7 +70,6 @@ const ResumePreviewPage = () => {
 	const handleFileName = (inputname) => {
 		setFilename(inputname);
 	};
-
 	return (
 		<React.Fragment>
 			<div mode="view-mode" name="resume-wrapper">
@@ -80,7 +79,7 @@ const ResumePreviewPage = () => {
 					className={`whitespace-pre-wrap p-4 text-xs mx-auto flex items-center justify-center`}>
 					<div
 						name="resume-document"
-						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center scale-[1] lg:scale-[0.8]`}>
+						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center scale-[0.5] lg:scale-[0.8]`}>
 						<div className="p-4 h-full" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
@@ -149,7 +148,7 @@ const ResumePreviewPage = () => {
 									? `${filename.trim()}_v-resume.pdf`
 									: `${`${lnValue}${lnValue.length !== 0 ? "-" : ""}${fnValue}` ?? "user"}_v-resume.pdf`
 							}>
-							{({ loading }) => (loading ? <Button disabled>Loading</Button> : <Button disabled={false}>Download</Button>)}
+							{({ loading }) => (loading ? <Button disabled={true}>Loading</Button> : <Button disabled={false}>Download</Button>)}
 						</PDFDownloadLink>
 					</div>
 				</Modal>
