@@ -15,7 +15,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 
 	function checkFileType(imageFileType) {
 		// check for the fileExtension
-		let isValid = true;
+		let isValid;
 		if (imageFileType) {
 			const fileExtension = imageFileType.name.split(".").pop();
 
@@ -32,7 +32,6 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 			const isValid = checkFileType(image);
 			const imageFile = URL.createObjectURL(image);
 			const reader = new FileReader();
-			reader.readAsDataURL(image);
 			reader.addEventListener("load", () => {
 				if (isValid === false) {
 					setError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
@@ -51,6 +50,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 				}
 				URL.revokeObjectURL(image); //free memory space
 			});
+			reader.readAsDataURL(image);
 		}
 	}
 

@@ -7,34 +7,34 @@ import "../../MainComponents/ResumePageComps/Components/date.css";
 import { memo } from "react";
 import { Switch } from "@headlessui/react";
 
-const fontFamily = {
-	Default: "system-ui",
-	Stolzl: "Stolzl",
-	IBMPlexSans: "IBMPlexSans",
-	"Fira Code": "Fira Code",
-	Inter: "Inter",
-	Montserrat: "Montserrat",
-	Mulish: "Mulish",
-	"Nunito Sans": "Nunito Sans",
-	Rubik: "Rubik",
-	Ubuntu: "Ubuntu",
-	"Source Serif Pro": "Source Serif Pro",
-	Epilogue: "Epilogue",
-	SpaceGrotesk: "SpaceGrotesk",
-	"Henk Work": "Henk Work",
-	Raleway: "Raleway",
-	"Work Sans": "Work Sans",
-	Grotesk: "Grotesk",
-	Sora: "Sora",
-	Magnat: "Magnat",
-	Exo: "Exo",
-	"Expletus Sans": "Expletus Sans",
-	Roobert: "Roobert",
-	CASaygon: "CASaygon",
-	Cormonrant: "Cormonrant",
-	Bianco: "Bianco",
-	Quicksand: "Quicksand",
-};
+const fontFamily = [
+	"system-ui",
+	"Stolzl",
+	"IBMPlexSans",
+	"Fira Code",
+	"Inter",
+	"Montserrat",
+	"Mulish",
+	"Nunito Sans",
+	"Rubik",
+	"Ubuntu",
+	"Source Serif Pro",
+	"Epilogue",
+	"SpaceGrotesk",
+	"Henk Work",
+	"Raleway",
+	"Work Sans",
+	"Grotesk",
+	"Sora",
+	"Magnat",
+	"Exo",
+	"Expletus Sans",
+	"Roobert",
+	"CASaygon",
+	"Cormonrant",
+	"Bianco",
+	"Quicksand",
+];
 
 const ThemeFamily = () => {
 	// contexts
@@ -149,11 +149,11 @@ const ThemeFamily = () => {
 								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto scroll ${
 									isActiveFontDropdown ? "py-2 border" : "py-0 border-0"
 								}`}>
-								{Object.values(fontFamily).map((font, fontIndex) => (
+								{fontFamily.map((font) => (
 									<button
 										type="button"
 										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main "
-										key={fontIndex}
+										key={font}
 										style={{ fontFamily: `${font}` }}
 										onClick={() => useSelectedFont(font)}>
 										{font}
