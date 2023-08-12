@@ -55,8 +55,8 @@ const EducationIndex = () => {
 			<Accordion>
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
-						<span className="select-none flex items-center gap-x-3">
-							<Icon icon="ion:school-outline" className="w-8 h-8" />
+						<span className="select-none flex items-center gap-x-3 dark:text-label_clr">
+							<Icon icon="ion:school-outline" className="w-8 h-8 dark:text-label_clr" />
 							<h2 className="capitalize font-semibold text-xl">Education</h2>
 						</span>
 					</AccordionHeader>

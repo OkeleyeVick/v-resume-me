@@ -101,7 +101,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 	}
 
 	return (
-		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
+		<div className="border border-solid border-gray-200 dark:border-main rounded-md" id={parseInt(eachAccordion.id + 1)}>
 			<AccordionItem>
 				{({ open }) => {
 					return (
@@ -111,7 +111,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 									className={`flex items-center p-4 justify-between border-b border-solid ${
 										open ? "border-border_clr" : "border-b-transparent"
 									}`}>
-									<span className="id-number">Experience #{parseInt(count + 1)}</span>
+									<span className="id-number dark:text-label_clr">Experience #{parseInt(count + 1)}</span>
 									<span className="flex items-center gap-3">
 										<button
 											type="button"
@@ -120,7 +120,10 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500 pointer-events-none" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
-											<Icon icon="mdi-light:chevron-down" className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"}`} />
+											<Icon
+												icon="mdi-light:chevron-down"
+												className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"} dark:text-label_clr`}
+											/>
 										</button>
 									</span>
 								</span>

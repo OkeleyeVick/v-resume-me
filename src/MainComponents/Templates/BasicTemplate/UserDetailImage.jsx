@@ -13,34 +13,25 @@ const UserDetailImage = () => {
 			selectedColor: { color },
 		},
 	} = themeSelection;
-	// const { image, nationality, phone, country, address, dob, email, city, postalCode, firstname, lastname, position } = userPersonalData;
-	// const fullAddress = `${trimText(address)} ${trimText(city)} ${trimText(postalCode)} ${trimText(country)}`;
-	const { image, phone, country, email, city, firstname, lastname, position, webLink, github, linkedIn, designers_link } = userPersonalData;
+	const { image, phone, country, email, city, firstname, lastname, position, portfolio_link, profile_link, linkedIn } = userPersonalData;
 
-	// return just the value
-	function trimText(textValue) {
-		return textValue.value.trim();
-	}
+	const trimText = (textValue) => (textValue ? textValue.value.trim() : null); // return just the value
 
 	function getIcontype(link) {
 		let result;
-		if (link) {
-			const weblink = link.toLowerCase();
-			if (weblink.includes("bitbucket")) result = "ion:logo-bitbucket";
-			if (weblink.includes("github")) result = "akar-icons:github-fill";
-			if (weblink.includes("gitlab")) result = "simple-icons:gitlab";
+		switch (link) {
+			case "bitbucket":
+				return (result = "ion:logo-bitbucket");
+			case "github":
+				return (result = "akar-icons:github-fill");
+			case "gitlab":
+				return (result = "simple-icons:gitlab");
+			case "dribbble":
+				return (result = "mingcute:dribbble-fill");
+			case "behance":
+				return (result = "uil:behance");
 		}
 		return result;
-	}
-
-	function getDesignersIcon(link) {
-		let resultIcon;
-		if (link) {
-			const webLink = link.toLowerCase();
-			if (webLink.includes("dribbble")) resultIcon = "mingcute:dribbble-fill";
-			if (webLink.includes("behance")) resultIcon = "uil:behance";
-		}
-		return resultIcon;
 	}
 
 	const newList = [
@@ -53,32 +44,28 @@ const UserDetailImage = () => {
 			icon: "zondicons:location",
 		},
 		{
-			value: trimText(github),
-			icon: getIcontype(trimText(github)) ?? "akar-icons:github-fill",
-		},
-		{
-			value: trimText(webLink),
-			icon: "fa6-solid:globe",
-		},
-		{
 			value: trimText(phone),
 			icon: "fluent:phone-24-filled",
+		},
+		{
+			value: trimText(portfolio_link),
+			icon: "fa6-solid:globe",
 		},
 		{
 			value: trimText(linkedIn),
 			icon: "uil:linkedin",
 		},
 		{
-			value: trimText(designers_link),
-			icon: getDesignersIcon(trimText(designers_link)),
+			value: trimText(profile_link),
+			icon: getIcontype(trimText(profile_link)) ?? "fluent:person-link-24-filled",
 		},
 	];
 
 	return (
 		<>
-			<div className="flex justify-between items-center gap-2 w-full">
-				<div className="text-end flex gap-3 justify-end">
-					<div className="user-image rounded-full overflow-hidden aspect-square flex items-center justify-between w-[6rem] h-[6rem]">
+			<div className="flex justify-between gap-2 w-full">
+				<div className="text-end flex gap-3 mt-2">
+					<div className="user-image rounded-full flex items-center justify-center overflow-hidden aspect-square w-[6rem] h-[6rem]">
 						<motion.img
 							animate={{ opacity: 1 }}
 							initia={{ opacity: 0 }}
@@ -89,31 +76,33 @@ const UserDetailImage = () => {
 									: `https://static.vecteezy.com/system/resources/previews/002/534/006/original/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg`
 							}
 							alt="user-image"
-							className="h-full w-full object-cover object-center scale-[1.1]"
+							className="h-full w-full object-cover object-center scale-[1.1] aspect-square"
 						/>
 					</div>
 					<span className="flex flex-col items-start mt-4">
-						{(firstname.value || lastname.value || userPersonalSummary) && (
+						{(firstname.value || lastname.value) && (
 							<h1 className="uppercase font-semibold text-start block" style={{ fontSize: 22, color: `${color}` }}>
 								{trimText(lastname)} {trimText(firstname)}
 							</h1>
 						)}
 						{position.value && <h6 className="mt-1 font-semibold text-base text-gray-600">{trimText(position)}</h6>}
-						{userPersonalSummary && <small dangerouslySetInnerHTML={{ __html: userPersonalSummary }}></small>}
 					</span>
 				</div>
-				<div className="user-personal-info flex flex-col gap-y-2">
+				<div className="user-personal-info flex flex-col gap-y-[.25rem]">
 					{newList.map(({ value, icon }, index) => {
 						return (
 							<React.Fragment key={index}>
-								<div className="info-wrapper flex items-end flex-wrap justify-end leading-tight gap-2">
+								<div className="info-wrapper flex items-end flex-wrap justify-end leading-tight gap-[.4rem]">
 									<Span1 className="value text">{value}</Span1>
-									<Icon icon={icon} className="h-4 w-4 text-gray-600" />
+									<Icon icon={icon} className="h-[.9rem] w-[.9rem] text-gray-600" />
 								</div>
 							</React.Fragment>
 						);
 					})}
 				</div>
+			</div>
+			<div className="mt-4 leading-3">
+				{userPersonalSummary && <small className="d-block text-start mt-4" dangerouslySetInnerHTML={{ __html: userPersonalSummary }}></small>}
 			</div>
 		</>
 	);

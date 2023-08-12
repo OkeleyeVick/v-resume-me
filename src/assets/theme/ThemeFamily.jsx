@@ -111,9 +111,9 @@ const ThemeFamily = () => {
 		<div
 			className={`${
 				sideBarState === true ? `w-full lg:w-1/2 overflow-auto` : `w-0 opacity-5 overflow-hidden`
-			} fixed z-50 backdrop-blur-[2px] h-screen top-0 p-1 pl-2 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
+			} fixed z-50 backdrop-blur-[2px] h-screen top-0 py-[6px] pl-2 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
 			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
+				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] dark:bg-dark_theme_text_clr bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">
@@ -122,21 +122,25 @@ const ThemeFamily = () => {
 					</button>
 				</div>
 				<div title="theme-title">
-					<h1 className="text-slate-900 font-medium text-xl">Theme Options</h1>
+					<h1 className="text-slate-900 font-medium text-xl dark:text-label_clr">Theme Options</h1>
 				</div>
 				<div className="flex flex-col gap-y-2">
-					<h6 className="font-medium">Font</h6>
-					<div className="border border-solid border-border_clr rounded-md relative">
+					<h6 className="font-medium dark:text-label_clr">Font</h6>
+					<div className="rounded-md relative">
 						<button
 							type="button"
-							className="flex items-center justify-between py-3 px-4 hover:bg-ash_white w-full"
+							className={`flex items-center justify-between py-3 px-4 border border-solid hover:bg-ash_white w-full rounded-md dark:hover:bg-dark_theme ${
+								isActiveFontDropdown
+									? "dark:border-main border-main dark:bg-dark_theme bg-gray-100"
+									: "dark:border-label_clr border-border_clr"
+							}`}
 							onClick={openDropdown}>
-							<span className="text-[.9rem]" name="font" style={{ fontFamily: `${selectedFont ?? "Roboto"}` }}>
+							<span className="text-[.9rem] dark:text-label_clr" name="font" style={{ fontFamily: `${selectedFont ?? "Roboto"}` }}>
 								{selectedFont ?? "Select font"}
 							</span>
 							<Icon
 								icon="fluent:chevron-down-24-filled"
-								className={`w-5 h-5 duration-150 ease-linear transition-transform ${
+								className={`w-5 h-5 duration-150 dark:text-label_clr ease-linear transition-transform ${
 									isActiveFontDropdown ? "rotate-180" : "rotate-0"
 								}`}
 							/>
@@ -144,15 +148,15 @@ const ThemeFamily = () => {
 						<div
 							className={`${
 								isActiveFontDropdown === true ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-							} origin-top font-dropdown-container rounded-md absolute top-full shadow-md mt-2 left-0 right-0 border-solid bg-white z-50 grid overflow-hidden items-start duration-100`}>
+							} origin-top font-dropdown-container rounded-md absolute top-full shadow-md mt-2 left-0 right-0 dark:text-label_clr dark:bg-dark_theme_text_clrbg-white z-50 grid  items-start duration-100 overflow-hidden`}>
 							<div
-								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto scroll ${
+								className={`min-h-0 max-h-[200px] px-2 overflow-x-hidden overflow-y-auto border-main bg-white dark:border-main dark:bg-dark_theme rounded-md scroll ${
 									isActiveFontDropdown ? "py-2 border" : "py-0 border-0"
 								}`}>
 								{fontFamily.map((font) => (
 									<button
 										type="button"
-										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main "
+										className="p-2 w-full rounded-[4px] text-start outline-transparent focus-visible:outline-main text-sm bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main dark:text-label_clr"
 										key={font}
 										style={{ fontFamily: `${font}` }}
 										onClick={() => useSelectedFont(font)}>
@@ -165,7 +169,7 @@ const ThemeFamily = () => {
 				</div>
 				<div className="flex flex-col gap-y-2 relative">
 					<div className="flex items-center gap-x-4">
-						<h6 className="font-medium">Color:</h6>
+						<h6 className="font-medium dark:text-label_clr">Color:</h6>
 						<button
 							type="button"
 							className={`rounded-full active:border-main p-2 shadow-custom_3 border border-solid border-main ${
@@ -183,7 +187,7 @@ const ThemeFamily = () => {
 					</div>
 				</div>
 				<div className="flex align-items-center justify-between">
-					<h6 className="font-medium">Turn off all buttons</h6>
+					<h6 className="font-medium dark:text-label_clr">Turn off all buttons</h6>
 					<Switch
 						checked={isAllButtonVisible}
 						onChange={handleButtonsVisibility}

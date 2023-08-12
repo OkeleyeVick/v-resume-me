@@ -14,10 +14,11 @@ import GoBack from "../GeneralComponents/GoBack";
 import { motion } from "framer-motion";
 import ThemeFamily from "../../assets/theme/ThemeFamily";
 import ResumePreviewPage from "./ResumePreviewPage";
+import ThemeModeSwitcher from "./Components/ThemeModeSwitcher";
 
 export const GeneralContext = createContext("");
 export const themeContext = createContext("");
-export const userDataContext = createContext("");
+export const userDataContext = createContext(null);
 
 const CreateResumePage = () => {
 	const [error, setError] = useState(null);
@@ -30,7 +31,7 @@ const CreateResumePage = () => {
 	const SOFT = soft_skills.map((skill, index) => ({ id: index, skillName: skill, isSet: false }));
 
 	// <== ========== all states ================ ==>
-	const [userPersonalData, setUserPersonalData] = useState(userDetails); //an object of personal details
+	const [userPersonalData, setUserPersonalData] = useState({ ...userDetails }); //an object of personal details
 
 	const [userPersonalSummary, setUserPersonalSummary] = useState("");
 
@@ -148,13 +149,14 @@ const CreateResumePage = () => {
 							initial={{ opacity: 0.22 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="min-h-screen flex items-stretch">
-							<div className="bg-white h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 mb-8 font-[Syne]">
+							className="min-h-screen flex items-stretch relative">
+							<ThemeModeSwitcher />
+							<div className="bg-white dark:bg-dark_theme h-full p-3 sm:p-5 md:p-11 md:pt-5 w-full lg:w-1/2 pb-8 font-[Syne] relative">
 								<ThemeFamily />
 								<ThemeTogglerButton />
 								<GoBack />
 								<div className="">
-									<section className="bg-white" id="user-personal-info">
+									<section className="dark:bg-dark_theme bg-white" id="user-personal-info">
 										<UserIndex />
 									</section>
 									<div className="mt-8 flex flex-col gap-y-4">
@@ -185,7 +187,7 @@ const CreateResumePage = () => {
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
 									<button
 										type="button"
-										className="bg-main hidden shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
+										className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
 										onClick={zoomIn}>
 										<Icon
 											icon={`${largePreview ? "material-symbols:pinch-zoom-in" : "material-symbols:pinch-zoom-out-rounded"}`}

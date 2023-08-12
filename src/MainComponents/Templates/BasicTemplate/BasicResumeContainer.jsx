@@ -10,7 +10,7 @@ import WorkExperience from "./WorkExperience";
 const BasicResumeContainer = () => {
 	return (
 		<React.Fragment>
-			<div className="flex flex-col items-center justify-between">
+			<div className="flex flex-col justify-between">
 				<UserDetailImage />
 			</div>
 			<div className="grid grid-cols-3 gap-3 mt-10">

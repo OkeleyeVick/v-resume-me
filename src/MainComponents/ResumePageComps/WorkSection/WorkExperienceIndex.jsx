@@ -60,8 +60,8 @@ const WorkExperienceIndex = () => {
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
 						<span className="select-none flex items-center gap-x-3">
-							<Icon icon="clarity:briefcase-line" className="w-8 h-8" />
-							<h2 className="capitalize font-semibold text-xl">Work Experience</h2>
+							<Icon icon="clarity:briefcase-line" className="w-8 h-8 dark:text-label_clr" />
+							<h2 className="capitalize font-semibold text-xl dark:bg-dark_clr dark:text-label_clr">Work Experience</h2>
 						</span>
 					</AccordionHeader>
 

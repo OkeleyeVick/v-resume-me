@@ -29,11 +29,11 @@ const ThemeTogglerButton = () => {
 	return (
 		<React.Fragment>
 			<div className="flex flex-col gap-y-3 fixed pr-3 lg:pr-6 pt-3 right-0 top-0 z-[28]">
-				<motion.div className={`flex lg:hidden duration-75 items-start justify-end`}>
+				<motion.div className={`flex duration-75 items-start justify-end`}>
 					<motion.button
 						layout
 						type="button"
-						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100 hidden xs:inline"
+						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100 sm:hidden inline"
 						onClick={handlePreviewState}>
 						<motion.span layoutId="icon">
 							<Icon icon={isPreviewVisible ? `icon-park-outline:close` : `gg:menu`} className="text-white w-6 h-6" />

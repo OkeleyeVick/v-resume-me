@@ -117,15 +117,15 @@ const SoftSkill = () => {
 	}
 
 	return (
-		<div className="border border-solid overflow-hidden border-gray-200 rounded-md">
+		<div className="border border-solid overflow-hidden border-gray-200 dark:border-main rounded-md">
 			<AccordionItem>
 				{({ open }) => {
 					return (
 						<>
 							<AccordionHeader className="px-2 py-3">
 								<span className="select-none flex flex-col items-start gap-x-3 px-2 text-start">
-									<h2 className="Capitalize font-semibold text-lg">Soft Skills</h2>
-									<span className="text-[13px] text-gray-400">
+									<h2 className="Capitalize font-semibold text-lg dark:text-label_clr">Soft Skills</h2>
+									<span className="text-[13px] text-gray-400 dark:text-label_clr">
 										Enter the qualities you possess e.g Adaptability, Teamwork, Self-confidence... etc.
 									</span>
 								</span>

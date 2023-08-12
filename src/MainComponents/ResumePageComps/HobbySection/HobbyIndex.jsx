@@ -41,8 +41,8 @@ const HobbyIndex = () => {
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
 						<span className="select-none flex items-center gap-x-3">
-							<Icon icon="fluent-mdl2:cycling" className="w-8 h-8" />
-							<h2 className="Capitalize font-semibold text-xl">Hobbies</h2>
+							<Icon icon="fluent-mdl2:cycling" className="w-8 h-8 dark:text-label_clr" />
+							<h2 className="Capitalize font-semibold text-xl dark:text-label_clr">Hobbies</h2>
 						</span>
 					</AccordionHeader>
 
@@ -52,7 +52,7 @@ const HobbyIndex = () => {
 								{hobbies.length !== 0 && (
 									<>
 										<div className="flex items-center justify-between gap-y-2">
-											<header className="text-sm text-gray-400">Your favourite hobbies</header>
+											<header className="text-sm text-gray-400 dark:text-label_clr">Your favourite hobbies</header>
 										</div>
 										<div name="hobbies-container" className="flex flex-wrap overflow-hidden items-center gap-3 mt-3 relative">
 											{hobbies &&

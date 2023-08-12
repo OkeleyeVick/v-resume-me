@@ -83,11 +83,11 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 
 	return (
 		<React.Fragment>
-			<div id="userImage_container" className="hover:text-main group/image">
+			<div id="userImage_container" className="hover:text-main dark:hover:text-main group/image">
 				<div className="flex items-center gap-4 group">
 					<input type="file" ref={imageRef} aria-label={label} hidden onChange={(event) => handleImageUpload(event)} />
 					<motion.div
-						className={`flex items-center justify-center bg-input_clr w-20 h-20 lg:w-16 lg:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
+						className={`flex items-center justify-center bg-input_clr dark:bg-dark_theme_text_clr w-20 h-20 lg:w-16 lg:h-16 rounded-sm overflow-hidden hover:border hover:border-main border-transparent border border-solid group-hover/image:border-main ${
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
 						onClick={handleClick}>
@@ -103,11 +103,17 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 								exit={{ opacity: 0 }}
 							/>
 						) : (
-							<Icon icon="mingcute:user-add-line" className="w-8 h-8 text-[rgb(190,196,213)] group-hover/image:text-main" />
+							<Icon
+								icon="mingcute:user-add-line"
+								className="w-8 h-8 dark:text-label_clr text-[rgb(190,196,213)] group-hover/image:text-main"
+							/>
 						)}
 					</motion.div>
 					{imageSrc === "" ? (
-						<label htmlFor={label} className="text-sm cursor-pointer hover:text-main" onClick={() => handleClick()}>
+						<label
+							htmlFor={label}
+							className="text-sm cursor-pointer hover:text-main dark:text-label_clr hover:dark:text-main duration-300"
+							onClick={() => handleClick()}>
 							{label}
 						</label>
 					) : (
@@ -118,11 +124,15 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 										<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
 											<Icon
 												icon={icon}
-												className={`w-5 h-5 text-gray-400 ${style ? style : "group-hover/edit-options:text-main"}`}
+												className={`w-5 h-5 dark:text-label_clr text-gray-400 ${
+													style ? style : "group-hover/edit-options:text-main"
+												}`}
 											/>
 											<label
 												htmlFor={label}
-												className={`cursor-pointer text-gray-600 ${style ? style : "group-hover/edit-options:text-main"}`}>
+												className={`cursor-pointer dark:text-label_clr text-gray-600 ${
+													style ? style : "group-hover/edit-options:text-main"
+												}`}>
 												{label}
 											</label>
 										</button>

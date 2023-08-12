@@ -6,7 +6,7 @@ import InputWithLabel from "../../FormComponent/InputComponent";
 import { useMemo } from "react";
 
 const SoftSkill = () => {
-	const { skills, setSkills } = useContext(userDataContext);
+	const { skills, setSkills, me } = useContext(userDataContext);
 
 	// this should not re-run unless something in "skills" changes e.g any of its children's property
 	const arrayOfAvailableSoftwareSkills = useMemo(() => skills.softWareAvailableSkills, [skills.softWareAvailableSkills]);
@@ -118,15 +118,15 @@ const SoftSkill = () => {
 	}
 
 	return (
-		<div className="border border-solid overflow-hidden border-gray-200 rounded-md">
+		<div className="border border-solid overflow-hidden border-gray-200 dark:border-main rounded-md">
 			<AccordionItem>
 				{({ open }) => {
 					return (
 						<>
 							<AccordionHeader className="px-2 py-3">
 								<span className="select-none flex flex-col items-start gap-x-3 px-2 text-start">
-									<h2 className="Capitalize font-semibold text-lg">Software Skills</h2>
-									<span className="text-[13px] text-gray-400">
+									<h2 className="Capitalize font-semibold text-lg dark:text-label_clr">Software Skills</h2>
+									<span className="text-[13px] text-gray-400 dark:text-label_clr">
 										Prioritize your skills and select the ones you are very good at.
 									</span>
 								</span>
@@ -164,7 +164,7 @@ const SoftSkill = () => {
 										</div>
 									</>
 									{skills.softwareSkills.length !== 0 && (
-										<div className="p-3 border border-solid border-border_clr rounded-md">
+										<div className="p-3 border border-solid border-border_clr dark:border-main rounded-md">
 											<div className="flex items-center justify-between gap-y-2">
 												<header className="text-sm text-gray-400">Software skills you have</header>
 												<button
