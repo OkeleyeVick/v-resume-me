@@ -36,7 +36,7 @@ const LanguageIndex = () => {
 	};
 
 	return (
-		<div className="border border-gray-300 border-solid rounded-md shadow-md">
+		<div className="border border-gray-300 dark:border-label_clr border-solid rounded-md shadow-md">
 			<Accordion>
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
@@ -91,10 +91,10 @@ const LanguageIndex = () => {
 										</div>
 										<button
 											type="button"
-											className={`p-3 px-8 text-sm rounded-sm ${
+											className={`p-3 px-8 text-sm rounded-[5px] border border-slate-300 dark:border-main ${
 												languageInput
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
-													: " cursor-not-allowed bg-slate-200 text-gray-400"
+													: " cursor-not-allowed bg-slate-200 dark:text-label_clr dark:bg-dark_theme border-main text-gray-400"
 											}`}
 											onClick={addLanguage}
 											disable={languageInput ? "false" : "true"}>

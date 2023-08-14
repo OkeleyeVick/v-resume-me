@@ -28,7 +28,7 @@ const ThemeTogglerButton = () => {
 
 	return (
 		<React.Fragment>
-			<div className="flex flex-col gap-y-3 fixed pr-3 lg:pr-6 pt-3 right-0 top-0 z-[28]">
+			<div className="flex flex-col gap-y-3 fixed pr-3 lg:pr-4 pt-2 right-0 top-0 z-[28]">
 				<motion.div className={`flex duration-75 items-start justify-end`}>
 					<motion.button
 						layout

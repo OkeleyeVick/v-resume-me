@@ -7,6 +7,7 @@ import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";
 import YearPicker from "../Components/YearPicker";
 import Tiptap from "../../FormComponent/Tiptap";
+import { motion } from "framer-motion";
 
 const EducationChildAccordion = ({ userEducationData, setUserEducationData, eachAccordion, deleteEducation, currentEducationObject }) => {
 	const [isChecked, setIsChecked] = useState(false); //if user is still working there
@@ -97,7 +98,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 	};
 
 	return (
-		<div className="border border-solid border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
+		<div className="border border-solid dark:border-label_clr  border-gray-200 rounded-md" id={parseInt(eachAccordion.id + 1)}>
 			<AccordionItem>
 				{({ open }) => {
 					return (
@@ -105,7 +106,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 							<AccordionHeader className="w-full rounded-t-sm overflow-hidden cursor-pointer" as="header">
 								<span
 									className={`flex items-center p-4 justify-between border-b border-solid ${
-										open ? "border-border_clr" : "border-b-transparent"
+										open ? "border-border_clr dark:border-label_clr " : "border-b-transparent"
 									}`}>
 									<span className="school-name text-sm font-medium dark:text-label_clr">
 										{educationDetails.school.trim().length !== 0 ? educationDetails.school.trim() : "(Not specified)"}
@@ -127,7 +128,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 								</span>
 							</AccordionHeader>
 
-							<AccordionBody className="overflow-hidden bg-gray-50/40" as="section">
+							<AccordionBody className="overflow-hidden dark:bg-dark_theme_text_clr bg-gray-50/40" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
 										name="school"
@@ -136,7 +137,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 										value={educationDetails.school}
 										updateTheDetail={updateTheInput}
 										action={setEducationDetails}
-										className="bg-white border-gray-200"
+										className="bg-white dark:bg-dark_theme_text_clr dark:border-label_clr border-gray-200"
 									/>
 
 									<InputWithLabel
@@ -146,7 +147,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 										value={educationDetails.degree}
 										action={setEducationDetails}
 										label="Degree"
-										className="bg-white border-gray-200"
+										className="bg-white dark:bg-dark_theme_text_clr dark:border-label_clr border-gray-200"
 									/>
 
 									<InputWithLabel
@@ -155,7 +156,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 										value={educationDetails.city}
 										action={setEducationDetails}
 										updateTheDetail={updateTheInput}
-										className="bg-white border-gray-200"
+										className="bg-white dark:bg-dark_theme_text_clr dark:border-label_clr border-gray-200"
 									/>
 
 									<InputWithLabel
@@ -164,36 +165,41 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 										value={educationDetails.country}
 										action={setEducationDetails}
 										updateTheDetail={updateTheInput}
-										className="bg-white border-gray-200"
+										className="bg-white dark:bg-dark_theme_text_clr dark:border-label_clr border-gray-200"
 									/>
 
 									<div className="col-span-2">
-										<small className="mb-2">Time period</small>
+										<small className="mb-2 dark:text-label_clr ">Time period</small>
 										<div className={`flex items-start justify-between gap-x-2 gap-y-4 w-full flex-wrap sm:flex-nowrap relative`}>
 											<div className="grid grid-cols-3 gap-2 flex-grow">
 												<MonthPicker className="col-span-2" getMonth={getStartMonth} />
 												<YearPicker className="col-span-1" getYear={getStartYear} />
 											</div>
-											<div className="hidden sm:inline leading-none mt-4">&mdash;</div>
-											<div className="flex-grow">
-												{isChecked ? (
-													<>
-														<div className="hover:border-main border border-solid border-gray-200 rounded-md bg-white p-2 px-3 relative">
-															<span className="text-sm text-gray-600">Present</span>
-														</div>
-													</>
-												) : (
-													<>
-														<div className="end-date grid grid-cols-3 gap-2">
-															<MonthPicker className="col-span-2" getMonth={getEndMonth} />
-															<YearPicker className="col-span-1" getYear={getEndYear} />
-														</div>
-													</>
+											<div className="hidden sm:inline leading-none mt-4 dark:text-label_clr">&mdash;</div>
+											<motion.div className="flex-grow">
+												{isChecked && (
+													<motion.div
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														className="hover:border-main border border-solid border-gray-200 rounded-md bg-white dark:bg-dark_theme_text_clr dark:border-label_clr p-2 px-3 relative">
+														<span className="text-sm text-gray-600">Present</span>
+													</motion.div>
+												)}
+												{!isChecked && (
+													<motion.div
+														initial={{ opacity: 0 }}
+														animate={{ opacity: 1 }}
+														exit={{ opacity: 0 }}
+														className="end-date grid grid-cols-3 gap-2">
+														<MonthPicker className="col-span-2" getMonth={getEndMonth} />
+														<YearPicker className="col-span-1" getYear={getEndYear} />
+													</motion.div>
 												)}
 												<div className="mt-3">
 													<Checkbox label="I currently study here" onChange={() => handleTheCheck(eachAccordion.id)} />
 												</div>
-											</div>
+											</motion.div>
 										</div>
 									</div>
 

@@ -55,7 +55,7 @@ const WorkExperienceIndex = () => {
 		setUserWorkExperiences([...newWorkExperience]);
 	}
 	return (
-		<div className="border border-gray-300 border-solid rounded-md shadow-md">
+		<div className="border border-gray-300 dark:border-label_clr border-solid rounded-md shadow-md">
 			<Accordion>
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">

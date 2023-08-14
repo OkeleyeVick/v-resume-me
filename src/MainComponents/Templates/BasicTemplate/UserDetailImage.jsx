@@ -65,10 +65,10 @@ const UserDetailImage = () => {
 		<>
 			<div className="flex justify-between gap-2 w-full">
 				<div className="text-end flex gap-3 mt-2">
-					<div className="user-image rounded-full flex items-center justify-center overflow-hidden aspect-square w-[6rem] h-[6rem]">
+					<div className="user-image rounded-full flex items-center justify-center overflow-hidden aspect-square w-[5.5rem] h-[5.5rem]">
 						<motion.img
 							animate={{ opacity: 1 }}
-							initia={{ opacity: 0 }}
+							initial={{ opacity: 0 }}
 							exit={{ opacity: 0 }}
 							src={
 								image.imageSrc
@@ -88,7 +88,7 @@ const UserDetailImage = () => {
 						{position.value && <h6 className="mt-1 font-semibold text-base text-gray-600">{trimText(position)}</h6>}
 					</span>
 				</div>
-				<div className="user-personal-info flex flex-col gap-y-[.25rem]">
+				<div className="user-personal-info flex flex-col gap-y-[.3rem]">
 					{newList.map(({ value, icon }, index) => {
 						return (
 							<React.Fragment key={index}>

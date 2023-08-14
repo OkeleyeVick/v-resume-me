@@ -10,7 +10,7 @@ export default function Swiper() {
 
 	return (
 		<Popover className="relative">
-			{({ open }) => (
+			{() => (
 				<>
 					<Popover.Button className="inline-flex w-full justify-center rounded-[3px] bg-main shadow-md px-4 py-4 text-sm font-medium text-white hover:bg-hoverBgClr transition duration-150 ease-linear focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 gap-2 items-end">
 						<Icon icon="pepicons-print:question" className="w-5 h-5 md:w-6 md:h-6" />
@@ -24,7 +24,7 @@ export default function Swiper() {
 						leaveFrom="opacity-100 translate-y-0"
 						leaveTo="opacity-0 translate-y-1">
 						<Popover.Panel className="absolute bottom-full right-0 z-[32] w-72 md:w-80 h-64 md:h-60 mb-3">
-							<div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 h-full flex flex-col gap-y-3 mb-2 p-4">
+							<div className="overflow-hidden rounded-lg dark:border-main border dark:bg-dark_theme bg-white shadow-lg ring-1 ring-black ring-opacity-5 h-full flex flex-col gap-y-3 mb-2 p-4">
 								<span className="flex items-center justify-end">
 									<Icon icon="fluent:chat-help-24-filled" className="text-main w-7 h-7" />
 								</span>
@@ -40,8 +40,8 @@ export default function Swiper() {
 											return (
 												<SplideSlide key={index} style={{ height: "100%" }}>
 													<span className="flex flex-col h-full justify-around">
-														<h5 className="title font-semibold">{title}</h5>
-														<span className="text-[.78rem]">{value}</span>
+														<h5 className="title font-semibold dark:text-label_clr">{title}</h5>
+														<span className="text-[.78rem] dark:text-label_clr">{value}</span>
 													</span>
 												</SplideSlide>
 											);

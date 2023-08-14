@@ -111,7 +111,9 @@ const ThemeFamily = () => {
 		<div
 			className={`${
 				sideBarState === true ? `w-full lg:w-1/2 overflow-auto` : `w-0 opacity-5 overflow-hidden`
-			} fixed z-50 backdrop-blur-[2px] h-screen top-0 py-[6px] pl-2 left-0 origin-left bg-black bg-opacity-25 duration-100 ease-linear`}>
+			} fixed z-50 h-screen top-0 py-[6px] pl-2 left-0 origin-left duration-100 bg-black ease-linear ${
+				largePreview ? " bg-opacity-0 backdrop-blur-[0px]" : "bg-opacity-25 backdrop-blur-[2px]"
+			}`}>
 			<div
 				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] dark:bg-dark_theme_text_clr bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
@@ -180,7 +182,7 @@ const ThemeFamily = () => {
 						</button>
 					</div>
 					<div
-						className={`border transition duration-200 border-solid bg-white border-border_clr p-2 text-[.8rem] rounded-md absolute -right-4 -top-4 z-[2] translate-y-3 origin-top-left w-max shadow-md ${
+						className={`border transition duration-200 border-solid dark:bg-dark_theme dark:border-main bg-white border-border_clr p-2 text-[.8rem] rounded-md absolute -right-4 -top-4 z-[2] translate-y-3 origin-top-left w-max shadow-md ${
 							isActiveColorDropdown ? "scale-100" : " scale-0"
 						}`}>
 						<SketchPicker color={colorThemeState} onChange={handleColorThemeChange} />
@@ -191,7 +193,9 @@ const ThemeFamily = () => {
 					<Switch
 						checked={isAllButtonVisible}
 						onChange={handleButtonsVisibility}
-						className={`${isAllButtonVisible ? "bg-main" : "bg-gray-200"} relative inline-flex h-6 w-11 items-center rounded-full`}>
+						className={`${
+							isAllButtonVisible ? "bg-main" : "bg-gray-200 dark:bg-label_clr"
+						} relative inline-flex h-6 w-11 items-center rounded-full`}>
 						<span className="sr-only">Enable notifications</span>
 						<span
 							className={`${

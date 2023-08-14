@@ -144,7 +144,7 @@ const SoftSkill = () => {
 																className={`flex items-center gap-[4px] rounded-[4px] p-2 ${
 																	isSet === true
 																		? "bg-hoverBgClr text-white hover:bg-opacity-90 cursor-not-allowed "
-																		: "text-slate-600 bg-[rgb(239,242,249)] hover:bg-main hover:bg-opacity-30 cursor-pointer pointer-events-auto"
+																		: "text-slate-600 dark:bg-dark_theme_text_clr bg-[rgb(239,242,249)] hover:bg-main dark:text-label_clr hover:bg-opacity-30 cursor-pointer pointer-events-auto dark:hover:bg-dark_theme_text_clr/60"
 																}`}
 																disabled={isSet ? true : false}
 																onClick={(e) => addSkillWithValue(e, { skillName, id, isSet })}>
@@ -217,10 +217,10 @@ const SoftSkill = () => {
 										<button
 											type="button"
 											name="add-skill"
-											className={`p-3 px-8 text-sm rounded-sm ${
+											className={`p-3 px-8 text-sm rounded-[5px] border border-slate-300 dark:border-main ${
 												inputValue
 													? "cursor-pointer bg-main text-white hover:bg-hoverBgClr"
-													: "cursor-not-allowed bg-slate-200 text-gray-400"
+													: " cursor-not-allowed bg-slate-200 dark:text-label_clr dark:bg-dark_theme border-main text-gray-400"
 											}`}
 											onClick={addSkillWithoutValue}
 											disable={inputValue ? "false" : "true"}>

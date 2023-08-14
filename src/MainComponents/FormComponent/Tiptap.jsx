@@ -114,7 +114,7 @@ const Tiptap = ({ onUpdate, text }) => {
 	];
 
 	return (
-		<div className="bg-input_clr rounded-sm px-2 dark:bg-dark_theme_text_clr before:bg-main relative before:absolute before:bottom-0 before:h-[1.5px] before:w-full before:content-normal before:left-0 before:right-0 focus-within:before:scale-x-100 before:scale-x-0 before:transition before:duration-300 before:ease-in-out ">
+		<div className="bg-input_clr rounded-sm px-2 dark:bg-dark_theme_text_clr before:bg-main relative before:absolute before:bottom-0 before:h-[1.5px] before:w-full before:content-normal before:left-0 before:right-0 focus-within:before:scale-x-100 before:scale-x-0 before:transition before:duration-300 before:ease-in-out dark:border-main border">
 			<div className="flex items-center py-2 gap-[2px]">
 				{buttons.map((eachArray, arrayIndex) => {
 					return (

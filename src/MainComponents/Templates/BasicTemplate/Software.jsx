@@ -24,11 +24,7 @@ const Software = () => {
 						</Span>
 						<div className="mt-2 flex items-center gap-1 flex-wrap">
 							{softwareSkills.map(({ skillName }) => {
-								return (
-									<Small key={skillName} className="pill">
-										{skillName}
-									</Small>
-								);
+								return <Small key={skillName}>{skillName}</Small>;
 							})}
 						</div>
 					</div>

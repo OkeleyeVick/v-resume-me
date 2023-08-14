@@ -28,12 +28,12 @@ const YearPicker = ({ className, getYear }) => {
 	}
 
 	return (
-		<div name="year" ref={dropdownRef} className={`${className} border border-solid border-gray-50 rounded-md relative`}>
+		<div name="year" ref={dropdownRef} className={`${className} border border-solid border-gray-50 dark:border-main rounded-md relative`}>
 			<button
 				type="button"
-				className="bg-white border border-solid border-border_clr rounded-md w-full flex items-center p-2 px-3 lg:px-2 hover:border-main text-sm justify-between"
+				className="bg-white dark:bg-dark_theme dark:border-main border border-solid border-border_clr rounded-md w-full flex items-center p-2 px-3 lg:px-2 hover:border-main text-sm justify-between"
 				onClick={handleYearState}>
-				<span className="overflow-hidden text-ellipsis mr-1 text-gray-600">{startYear ? startYear : "Year"}</span>
+				<span className="overflow-hidden text-ellipsis mr-1 text-gray-600 dark:text-label_clr">{startYear ? startYear : "Year"}</span>
 				<span className=" bg-opacity-60 p-1 lg:px-0">
 					<Icon icon="fluent:chevron-down-20-filled" className="w-4 h-4 text-gray-500" />
 				</span>
@@ -41,13 +41,13 @@ const YearPicker = ({ className, getYear }) => {
 			<div
 				className={`${
 					isComponentVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-0"
-				} dropdown scroll origin-bottom max-h-[170px] w-full overflow-auto shadow-custom_3 absolute bottom-full z-10 bg-white rounded-md py-2 grid grid-cols-2 px-1 lg:grid-cols-1 mb-1`}
+				} dropdown scroll origin-bottom max-h-[170px] w-full overflow-auto shadow-custom_3 absolute bottom-full z-10 bg-white dark:bg-dark_theme rounded-md py-2 grid grid-cols-2 px-1 lg:grid-cols-1 mb-1`}
 				name="year-dropdown dropdown">
 				{getYearList().map((year, yearIndex) => {
 					return (
 						<React.Fragment key={yearIndex}>
 							<button
-								className="w-full rounded-sm text-sm p-1 px-1 ease-linear bg-transparent hover:bg-main hover:bg-opacity-20 hover:text-main text-gray-800 leading-tight "
+								className="w-full rounded-sm text-sm p-1 px-1 ease-linear bg-transparent hover:bg-main hover:bg-opacity-20 dark:text-label_clr hover:text-main text-gray-800 leading-tight "
 								type="button"
 								onClick={() => (setIsComponentVisible(false), handleSetYear(year))}>
 								{year}

@@ -12,7 +12,6 @@
 		"@headlessui/react": "^1.7.16",
 		"@react-pdf/renderer": "^3.1.12",
 		"@splidejs/react-splide": "^0.7.12",
-		"@tinymce/tinymce-react": "^4.3.0",
 		"@tiptap/extension-text-align": "^2.0.3",
 		"@tiptap/extension-underline": "^2.0.4",
 		"@tiptap/pm": "^2.0.3",

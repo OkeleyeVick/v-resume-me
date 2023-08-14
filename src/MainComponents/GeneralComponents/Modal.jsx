@@ -35,9 +35,12 @@ const Modal = ({ children, modalTitle }) => {
 				initial={{ translateY: 30, opacity: 0 }}
 				animate={{ translateY: 0, opacity: 1 }}
 				exit={{ translateY: -40, opacity: 0 }}
-				className={`max-w-[550px] w-full h-max bg-white rounded-2xl overflow-hidden shadow-md`}>
-				<div className={`${modalTitle ? " justify-between" : "justify-end"} modal-header flex items-center p-4 border-b`}>
-					{modalTitle ? <span className="font-semibold text-base md:text-lg">{modalTitle}</span> : ""}
+				className={`max-w-[550px] w-full h-max bg-white rounded-2xl overflow-hidden shadow-md dark:bg-dark_theme_text_clr`}>
+				<div
+					className={`${
+						modalTitle ? " justify-between" : "justify-end"
+					} modal-header flex items-center p-4 border-b dark:border-label_clr`}>
+					{modalTitle ? <span className="font-semibold text-base md:text-lg dark:text-label_clr">{modalTitle}</span> : ""}
 					<button
 						className="group transition-[background-color] ease-linear duration-300 rounded-full p-[5px] bg-transparent hover:bg-main/90"
 						onClick={() => setIsModalVisible(false)}>
@@ -45,7 +48,7 @@ const Modal = ({ children, modalTitle }) => {
 					</button>
 				</div>
 				<div className="modal-body py-10 p-6">{children}</div>
-				<div className="modal-footer py-4 px-6 border-t">
+				<div className="modal-footer py-4 px-6 border-t dark:border-label_clr">
 					<div className="flex items-center justify-end">
 						<button
 							onClick={() => setIsModalVisible(false)}

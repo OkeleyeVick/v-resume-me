@@ -79,7 +79,7 @@ const ResumePreviewPage = () => {
 					className={`whitespace-pre-wrap p-4 text-xs mx-auto flex items-center justify-center`}>
 					<div
 						name="resume-document"
-						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center lg:scale-[0.8]`}>
+						className={`bg-white shadow-md mx-auto rounded-[4px] w-[595.28px] h-[841.89px] origin-center scale-[0.5] sm:scale-[0.8] lg:scale-[0.8]`}>
 						<div className="p-4 w-[595.28px] h-[841.89px]" ref={resumeRef}>
 							<BasicResumeContainer />
 						</div>
@@ -102,13 +102,13 @@ const ResumePreviewPage = () => {
 								leaveFrom="transform opacity-100 scale-100"
 								leaveTo="transform opacity-0 scale-95">
 								<Menu.Item className="absolute right-0 bottom-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none mb-1">
-									<div className="px-1 py-1 w-max flex flex-col">
+									<div className="px-1 py-1 w-max flex flex-col bg-white border dark:border-main dark:bg-dark_theme">
 										{DownloadOptions.map(({ icon, size, title, download }, index) => (
 											<button
 												key={index}
 												type="button"
 												onClick={download}
-												className="flex items-center gap-1 p-2 hover:bg-main hover:text-white rounded-sm text-slate-800">
+												className="flex items-center gap-1 p-2 dark:text-label_clr dark:hover:text-white hover:bg-main dark:hover:bg-main/60 hover:text-white rounded-sm text-slate-800">
 												<Icon
 													icon={icon}
 													className={`${size} flex items-center duration-75 ease-linear transition pointer-events-none select-none`}
@@ -132,7 +132,11 @@ const ResumePreviewPage = () => {
 				<Modal modalTitle="Enter filename">
 					<div className="flex items-center gap-3 flex-wrap">
 						<div className="flex-grow">
-							<InputWithLabel placeholder="Enter filename" updateTheDetail={handleFileName} />
+							<InputWithLabel
+								placeholder="Enter filename"
+								className="dark:border-label_clr dark:bg-dark_theme_text_clr"
+								updateTheDetail={handleFileName}
+							/>
 						</div>
 
 						<PDFDownloadLink
