@@ -59,10 +59,10 @@ body::-webkit-scrollbar {
 	@apply font-semibold;
 }
 .text-small {
-	@apply text-gray-600/90 font-semibold;
+	@apply text-gray-600/90 font-normal;
 }
 .text-title {
-	@apply font-bold;
+	@apply font-bold uppercase;
 }
 .value {
 	@apply font-normal;

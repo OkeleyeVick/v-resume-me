@@ -3,10 +3,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
 
-const fontSize12 = ".64rem";
-const fontSize16 = "1rem";
+const fontSize12 = ".62rem";
+const fontSize16 = ".9rem";
 const fontSize10 = ".7rem";
-const fontSize11 = ".79rem";
+const fontSize11 = ".65rem";
 
 export const Span = ({ children, className }) => {
 	const {
@@ -43,11 +43,11 @@ export const Small = ({ children, className }) => (
 	</small>
 );
 export const Smaller = ({ children, className }) => (
-	<small className={`${className} break-words`} style={{ fontSize: `${fontSize10}`, lineHeight: 1.6 }}>
+	<small className={`${className} break-words`} style={{ fontSize: `${fontSize11}`, lineHeight: 1.6 }}>
 		{children}
 	</small>
 );
 
 export const DescriptionText = ({ textValue }) => (
-	<span style={{ fontSize: `${fontSize11}`, lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: textValue }}></span>
+	<small style={{ fontSize: `${fontSize11}`, lineHeight: 1.2 }} dangerouslySetInnerHTML={{ __html: textValue }}></small>
 );

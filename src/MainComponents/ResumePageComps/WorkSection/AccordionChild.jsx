@@ -161,7 +161,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 									/>
 
 									<InputWithLabel
-										label="County"
+										label="Country"
 										name="country"
 										value={workPlaceDetails.country}
 										action={setWorkPlaceDetails}

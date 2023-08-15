@@ -80,7 +80,7 @@ const CreateResumePage = () => {
 				customFont: "system-ui",
 			},
 			fontSize: "16px",
-			lineHeight: {},
+			lineHeight: 16,
 			fontSelection: {
 				isFontDropdownActive: false,
 			},
@@ -160,11 +160,11 @@ const CreateResumePage = () => {
 										<UserIndex />
 									</section>
 									<div className="mt-8 flex flex-col gap-y-4">
-										<section id="user-education">
-											<EducationIndex />
-										</section>
 										<section id="user-work-experience">
 											<WorkExperienceIndex />
+										</section>
+										<section id="user-education">
+											<EducationIndex />
 										</section>
 										<section id="user-skills-experience">
 											<SkillsIndex />

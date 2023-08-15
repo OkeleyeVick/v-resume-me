@@ -17,10 +17,12 @@ export default function Education() {
 		<>
 			{userEducationData && userEducationData.length !== 0 && (
 				<div>
-					<Span className="text-title" style={{ color: `${color}` }}>
+					<Span
+						className="text-title relative before:absolute before:h-[1px] before:-translate-y-1 before:top-0 before:w-3/5 before:bg-slate-500 opacity-80"
+						style={{ color: `${color}` }}>
 						Education
 					</Span>
-					<div className="flex flex-col gap-y-3 mt-4">
+					<div className="flex flex-col gap-y-3 mt-1">
 						{userEducationData.map(
 							({
 								id,
@@ -51,6 +53,10 @@ export default function Education() {
 										<section className="mt-1">
 											{check ? (
 												<>
+													<div className="flex flex-col mt-1">
+														<Span1 className="degree font-extrabold">{degree}</Span1>
+														<Span1 className="school font-normal">{school}</Span1>
+													</div>
 													<div className="flex items-center gap-2">
 														<div className="date flex items-center gap-1">
 															{startMonth || startYear ? (
@@ -67,10 +73,10 @@ export default function Education() {
 																	{currentlySchoolingThere === true ? (
 																		<Smaller className="text-small uppercase">Present</Smaller>
 																	) : (
-																		<div>
+																		<>
 																			<Smaller className="text-small">{endMonth ?? ""}</Smaller>/
 																			<Smaller className="text-small">{endYear ?? ""}</Smaller>
-																		</div>
+																		</>
 																	)}
 																</div>
 															) : (
@@ -78,13 +84,9 @@ export default function Education() {
 															)}
 														</div>
 														<div className="flex items-center gap-1">
-															{city && <Smaller className="city uppercase text-small">{city},</Smaller>}
+															{city && <small className="city uppercase text-small">{city},</small>}
 															{country && <Smaller className="country uppercase text-small">{country}</Smaller>}
 														</div>
-													</div>
-													<div className="flex flex-col mt-1">
-														<Span1 className="job-title font-extrabold">{degree}</Span1>
-														<Span1 className="company font-semibold">{school}</Span1>
 													</div>
 													{description && (
 														<div className="mt-1 ps-3 marker:text-gray-500 marker:text-[10px]">

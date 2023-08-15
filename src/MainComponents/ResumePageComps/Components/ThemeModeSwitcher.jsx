@@ -9,7 +9,7 @@ const ThemeModeSwitcher = () => {
 	};
 
 	return (
-		<div className="fixed lg:left-[43%] z-[10] top-4">
+		<div className="fixed lg:left-[43%] left-[76%] md:left-[85%] z-[10] top-2 md:top-5 lg:top-3">
 			<div className="flex items-center justify-center flex-col">
 				{/* <div className="string h-10 w-[1px] bg-black dark:bg-white"></div> */}
 				<button

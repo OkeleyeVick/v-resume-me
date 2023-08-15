@@ -6,9 +6,9 @@ import InputWithLabel from "../../FormComponent/InputComponent";
 import { useMemo } from "react";
 
 const SoftSkill = () => {
-	const { skills, setSkills, me } = useContext(userDataContext);
+	const { skills, setSkills } = useContext(userDataContext);
 
-	// this should not re-run unless something in "skills" changes e.g any of its children's property
+	// this should not cause a re-render unless something in "skills" changes e.g any of its children's property
 	const arrayOfAvailableSoftwareSkills = useMemo(() => skills.softWareAvailableSkills, [skills.softWareAvailableSkills]);
 
 	//states

@@ -19,16 +19,16 @@ const UserDetailImage = () => {
 
 	function getIcontype(link) {
 		let result;
-		switch (link) {
-			case "bitbucket":
+		switch (true) {
+			case link.includes("bitbucket"):
 				return (result = "ion:logo-bitbucket");
-			case "github":
+			case link.includes("github"):
 				return (result = "akar-icons:github-fill");
-			case "gitlab":
+			case link.includes("gitlab"):
 				return (result = "simple-icons:gitlab");
-			case "dribbble":
+			case link.includes("dribbble"):
 				return (result = "mingcute:dribbble-fill");
-			case "behance":
+			case link.includes("behance"):
 				return (result = "uil:behance");
 		}
 		return result;
@@ -81,7 +81,7 @@ const UserDetailImage = () => {
 					</div>
 					<span className="flex flex-col items-start mt-4">
 						{(firstname.value || lastname.value) && (
-							<h1 className="uppercase font-semibold text-start block" style={{ fontSize: 22, color: `${color}` }}>
+							<h1 className="uppercase font-bold text-start block" style={{ fontSize: 22, color: `${color}` }}>
 								{trimText(lastname)} {trimText(firstname)}
 							</h1>
 						)}
