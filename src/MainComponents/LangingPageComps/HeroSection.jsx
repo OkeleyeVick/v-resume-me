@@ -28,7 +28,7 @@ const HeroSection = () => {
 									<img src={leftHand} alt="" className="w-6 max-w-full" />
 								</figure>
 								<Link
-									to="select-template/demo"
+									to="select-template"
 									className="text-white bg-main rounded-md py-4 px-10 md:py-4 transition ease-in-out duration-500 hover:bg-hoverBgClr text-sm selection:text-white font-semibold">
 									Let's create you a resumé
 								</Link>

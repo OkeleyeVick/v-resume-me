@@ -49,12 +49,6 @@ const ResumePreviewPage = () => {
 			icon: "ph:file-pdf-duotone",
 			size: "w-5 h-5",
 		},
-		{
-			title: "Download in DOCX",
-			download: downloadDOCX,
-			icon: "bi:filetype-docx",
-			size: "w-5 h-4",
-		},
 	];
 
 	const styles = StyleSheet.create({

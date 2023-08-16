@@ -135,7 +135,7 @@ const SoftSkill = () => {
 									<>
 										<div className="mb-8">
 											<header className="text-sm text-gray-400 mb-2">Select at most 5 Soft skills you might possess</header>
-											<div className="flex items-center flex-wrap gap-2 overflow-y-scroll max-h-[350px] py-4 px-3 border border-solid border-border_clr rounded-md scroll">
+											<div className="flex items-center flex-wrap gap-2 overflow-y-scroll max-h-[350px] py-4 px-3 border border-solid border-border_clr dark:border-main rounded-md scroll">
 												{arrayOfAvailableSoftSkills.map(({ skillName, id, isSet }) => {
 													return (
 														<React.Fragment key={id}>
