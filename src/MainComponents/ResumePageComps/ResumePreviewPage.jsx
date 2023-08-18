@@ -1,4 +1,3 @@
-// import jsPDF from "jspdf";
 import React, { Fragment, useContext, useRef } from "react";
 import BasicResumeContainer from "../Templates/BasicTemplate/BasicResumeContainer";
 import { GeneralContext, themeContext, userDataContext } from "./CreateResumePage";
@@ -29,10 +28,6 @@ const ResumePreviewPage = () => {
 		},
 	} = useContext(userDataContext);
 	const font = themeSelection.font.family.customFont;
-
-	function downloadDOCX() {
-		console.log("The docx is working");
-	}
 
 	function attemptToDownload() {
 		// convert html page to jpeg
@@ -80,9 +75,10 @@ const ResumePreviewPage = () => {
 					</div>
 				</div>
 			</div>
-			{!isAllButtonVisible ? (
+			{!isAllButtonVisible && (
 				<motion.div
 					exit={{ opacity: 0 }}
+					transition={{ duration: 200 }}
 					className={`fixed ${largePreview ? "opacity-0" : "opacity-100"} z-[32] bottom-0 right-0 pr-6 pb-4 text-start w-max`}>
 					<div className="text-start flex flex-col gap-y-4 font-[Magnat]">
 						<Swiper />
@@ -119,8 +115,6 @@ const ResumePreviewPage = () => {
 						</Menu>
 					</div>
 				</motion.div>
-			) : (
-				""
 			)}
 			{isModalVisible && (
 				<Modal modalTitle="Enter filename">

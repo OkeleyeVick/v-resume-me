@@ -11,10 +11,6 @@ import ThirdSection from "./ThirdSection";
 import "../../assets/css/fonts.css";
 import { motion } from "framer-motion";
 
-const baseFont = {
-	Rubik: "Rubik",
-};
-
 const LandingPage = () => {
 	const [showPreloader, setShowPreloader] = useState(true);
 
@@ -26,7 +22,7 @@ const LandingPage = () => {
 	}, []);
 
 	return (
-		<div style={{ fontFamily: baseFont.Rubik }}>
+		<div className="font-[Rubik]">
 			{showPreloader && <PageLoader />}
 			{!showPreloader && (
 				<React.Fragment>

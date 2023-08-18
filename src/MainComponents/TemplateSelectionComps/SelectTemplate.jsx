@@ -11,10 +11,7 @@ import resumeEight from "../../assets/images/ResumeImages/resume-8.jpg";
 import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 import "../../assets/css/fonts.css";
-
-const baseFont = {
-	Rubik: "Rubik",
-};
+import { motion } from "framer-motion";
 
 const resumes = [
 	{
@@ -68,7 +65,7 @@ const SelectTemplate = () => {
 	}, [pathname]);
 	return (
 		<React.Fragment>
-			<div style={{ fontFamily: baseFont.Rubik }}>
+			<motion.div initial={{ opacity: 0.2 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="font-[Rubik]">
 				<Header />
 				<div className="py-8 md:p-16 lg:px-20">
 					<div className="text-center">
@@ -87,10 +84,7 @@ const SelectTemplate = () => {
 									<React.Fragment key={resumeIndex}>
 										<div className="flex flex-col justify-between">
 											<div className="border border-main rounded-md h-full overflow-hidden relative">
-												<div
-													className={`absolute inset-0 m-auto flex items-center justify-center bg-black/50 ${
-														locked ? "hover:bg-main" : ""
-													}`}>
+												<div className={`absolute inset-0 m-auto flex items-center justify-center bg-black/50 ${locked ? "hover:bg-main" : ""}`}>
 													{locked ? (
 														<div>
 															<Icon
@@ -131,7 +125,7 @@ const SelectTemplate = () => {
 					</div>
 				</div>
 				<Footer />
-			</div>
+			</motion.div>
 		</React.Fragment>
 	);
 };
