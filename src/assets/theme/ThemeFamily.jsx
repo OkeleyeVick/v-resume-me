@@ -112,14 +112,14 @@ const ThemeFamily = () => {
 		<motion.div
 			animate={sideBarState === true ? { opacity: 1 } : { opacity: 0 }}
 			className={`grid ${
-				sideBarState === true ? `w-full lg:w-1/2 overflow-auto grid-cols-1` : `w-0 opacity-5 overflow-hidden grid-cols-none`
+				sideBarState === true ? `w-full lg:w-1/2 overflow-auto` : `w-0 opacity-5 overflow-hidden `
 			} fixed z-50 h-screen top-0 py-[6px] pl-2 left-0 origin-left duration-100 bg-black ease-linear ${
 				largePreview ? " bg-opacity-0 backdrop-blur-[0px]" : "bg-opacity-25 backdrop-blur-[2px]"
 			}`}>
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ scaleX: 1, opacity: 1 }}
-				exit={sideBarState === true ? { opacity: 0 } : { opacity: 1 }}
+				exit={sideBarState === false ? { opacity: 0 } : {}}
 				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] dark:bg-dark_theme_text_clr bg-white shadow-md flex flex-col gap-y-6 relative ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>

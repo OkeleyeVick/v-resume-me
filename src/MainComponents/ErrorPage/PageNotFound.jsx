@@ -3,9 +3,11 @@ import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
 import "../../assets/css/fonts.css";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PageNotFound = () => {
+	const navigate = useNavigate();
+
 	return (
 		<React.Fragment>
 			<motion.div
@@ -17,9 +19,11 @@ const PageNotFound = () => {
 				<div className="text-center">
 					<h2 className="font-bold text-3xl dark:text-white">PageNotFound</h2>
 					<div className="mt-8">
-						<Link to="/" className="bg-main text-white text-sm hover:bg-hoverBgClr py-3 rounded-full px-10 ">
-							Go home
-						</Link>
+						<button
+							className="bg-main text-white text-sm hover:bg-hoverBgClr py-3 rounded-full px-10"
+							onClick={() => navigate("/", { replace: true })}>
+							Go Home
+						</button>
 					</div>
 				</div>
 				<Footer />
