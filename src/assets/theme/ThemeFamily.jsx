@@ -6,6 +6,7 @@ import "../css/fonts.css";
 import "../../MainComponents/ResumePageComps/Components/date.css";
 import { memo } from "react";
 import { Switch } from "@headlessui/react";
+import { motion } from "framer-motion";
 
 const fontFamily = [
 	"system-ui",
@@ -108,14 +109,18 @@ const ThemeFamily = () => {
 	};
 
 	return (
-		<div
-			className={`${
-				sideBarState === true ? `w-full lg:w-1/2 overflow-auto` : `w-0 opacity-5 overflow-hidden`
+		<motion.div
+			animate={sideBarState === true ? { opacity: 1 } : { opacity: 0 }}
+			className={`grid ${
+				sideBarState === true ? `w-full lg:w-1/2 overflow-auto grid-cols-1` : `w-0 opacity-5 overflow-hidden grid-cols-none`
 			} fixed z-50 h-screen top-0 py-[6px] pl-2 left-0 origin-left duration-100 bg-black ease-linear ${
 				largePreview ? " bg-opacity-0 backdrop-blur-[0px]" : "bg-opacity-25 backdrop-blur-[2px]"
 			}`}>
-			<div
-				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] dark:bg-dark_theme_text_clr bg-white shadow-md flex flex-col gap-y-6 relative ease-linear duration-100 ${
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ scaleX: 1, opacity: 1 }}
+				exit={sideBarState === true ? { opacity: 0 } : { opacity: 1 }}
+				className={`p-4 h-full rounded-tr-[1rem] rounded-[.7rem] dark:bg-dark_theme_text_clr bg-white shadow-md flex flex-col gap-y-6 relative ${
 					sideBarState ? "w-4/5 md:w-3/5" : "overflow-hidden opacity-50 w-0"
 				}`}>
 				<div className="close absolute -right-12">
@@ -132,9 +137,7 @@ const ThemeFamily = () => {
 						<button
 							type="button"
 							className={`flex items-center justify-between py-3 px-4 border border-solid hover:bg-ash_white w-full rounded-md dark:hover:bg-dark_theme ${
-								isActiveFontDropdown
-									? "dark:border-main border-main dark:bg-dark_theme bg-gray-100"
-									: "dark:border-label_clr border-border_clr"
+								isActiveFontDropdown ? "dark:border-main border-main dark:bg-dark_theme bg-gray-100" : "dark:border-label_clr border-border_clr"
 							}`}
 							onClick={openDropdown}>
 							<span className="text-[.9rem] dark:text-label_clr" name="font" style={{ fontFamily: `${selectedFont ?? "Roboto"}` }}>
@@ -193,22 +196,18 @@ const ThemeFamily = () => {
 					<Switch
 						checked={isAllButtonVisible}
 						onChange={handleButtonsVisibility}
-						className={`${
-							isAllButtonVisible ? "bg-main" : "bg-gray-200 dark:bg-label_clr"
-						} relative inline-flex h-6 w-11 items-center rounded-full`}>
+						className={`${isAllButtonVisible ? "bg-main" : "bg-gray-200 dark:bg-label_clr"} relative inline-flex h-6 w-11 items-center rounded-full`}>
 						<span className="sr-only">Enable notifications</span>
 						<span
-							className={`${
-								isAllButtonVisible ? "translate-x-6" : "translate-x-1"
-							} inline-block h-4 w-4 transform rounded-full bg-white transition`}
+							className={`${isAllButtonVisible ? "translate-x-6" : "translate-x-1"} inline-block h-4 w-4 transform rounded-full bg-white transition`}
 						/>
 					</Switch>
 				</div>
 				<div className="mt-4 p-4 border border-solid border-border_clr rounded-md">
 					<span className="text-slate-400 text-sm sm:text-base">More theme options coming soon...</span>
 				</div>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 

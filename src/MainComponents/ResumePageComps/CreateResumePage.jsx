@@ -181,7 +181,7 @@ const CreateResumePage = () => {
 							<motion.div
 								className={`${
 									isPreviewVisible ? "right-0" : "-right-full"
-								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[100%] transition-all duration-2b00 ease-linear  ${
+								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[100%] transition-all duration-300 ease-linear  ${
 									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
 								}`}>
 								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">

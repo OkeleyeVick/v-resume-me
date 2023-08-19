@@ -7,10 +7,10 @@ const PageLoader = () => {
 	return (
 		<>
 			{createPortal(
-				<motion.div exit={{ opacity: 0 }} className="absolute z-[1055] inset-0 flex items-center justify-center bg-white">
+				<motion.div exit={{ opacity: 0 }} className="absolute z-[1055] inset-0 flex items-center justify-center bg-white dark:bg-slate-900">
 					<PreloaderOne />
 				</motion.div>,
-				document.body
+				document.querySelector("#root")
 			)}
 		</>
 	);

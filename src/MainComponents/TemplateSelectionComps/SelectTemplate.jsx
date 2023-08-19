@@ -73,7 +73,7 @@ const SelectTemplate = () => {
 						<small className="text-sm">You can only select one template for use</small>
 					</div>
 					<div className="text-center mt-8">
-						<Link to="/select-template/demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
+						<Link to="demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
 							Create a very basic demo Resume
 						</Link>
 					</div>
@@ -93,7 +93,7 @@ const SelectTemplate = () => {
 															/>
 														</div>
 													) : (
-														<Link to={`/create-resume/${name}`}>
+														<Link to={`create-resume/${name}`}>
 															<span className="uppercase text-white">{resumetype}</span>
 														</Link>
 													)}

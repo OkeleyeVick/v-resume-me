@@ -1,7 +1,7 @@
 export function PreloaderOne() {
 	return (
 		<svg
-			className="w-32 h-32"
+			className="w-20 h-20 md:w-32 md:h-32"
 			viewBox="0 0 846.66 846.66"
 			xmlSpace="preserve"
 			xmlns="http://www.w3.org/2000/svg"

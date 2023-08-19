@@ -12,8 +12,8 @@ function App() {
 			<React.Suspense fallback={<PageLoader />}>
 				<Routes>
 					<Route path="/" element={<LandingPage />} />
-					<Route path="/select-template" element={<SelectTemplate />} />
-					<Route path="/select-template/:id" element={<CreateResumePage />} />
+					<Route path="select-template" element={<SelectTemplate />} />
+					<Route path="select-template/:id" element={<CreateResumePage />} />
 					<Route path="*" element={<PageNotFound />} />
 				</Routes>
 			</React.Suspense>

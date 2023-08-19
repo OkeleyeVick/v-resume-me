@@ -36,12 +36,12 @@ const Footer = () => {
 	};
 
 	return (
-		<div className="border-t py-6 flex items-center justify-between px-4 md:px-8">
-			<span className="text-sm">
+		<div className="border-t dark:border-label_clr/50 py-6 flex items-center justify-between px-4 md:px-8 dark:bg-dark_theme_text_clr">
+			<span className="text-sm dark:text-label_clr">
 				@2023 &nbsp;
-				<a href="https://twitter.com/I_am_Justus" className="hover:underline text-main">
+				<Link to="https://vickkk-portfolio.netlify.app/" className="hover:underline duration-300 ease-linear text-main">
 					Okeleye Victor
-				</a>
+				</Link>
 			</span>
 			<div className="flex items-center gap-4 md:gap-6">
 				{links.map(({ icon, link, button }, index) => {
@@ -49,7 +49,7 @@ const Footer = () => {
 						<button
 							key={index}
 							type="button"
-							className="hover:text-main transition duration-[100ms] ease-in-out"
+							className="dark:text-main hover:text-main transition duration-[100ms] ease-in-out"
 							onClick={() =>
 								handleShare({
 									link: "https://v-resume-me.netlify.app/",
@@ -59,7 +59,7 @@ const Footer = () => {
 							<Icon icon={icon} className="w-5 h-5" />
 						</button>
 					) : (
-						<Link to={link} key={index} className="hover:text-main transition duration-[100ms] ease-in-out">
+						<Link to={link} key={index} className="dark:text-main hover:text-main transition duration-[100ms] ease-in-out">
 							<Icon icon={icon} className="w-5 h-5" />
 						</Link>
 					);

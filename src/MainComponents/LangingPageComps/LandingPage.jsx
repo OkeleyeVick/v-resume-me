@@ -12,32 +12,20 @@ import "../../assets/css/fonts.css";
 import { motion } from "framer-motion";
 
 const LandingPage = () => {
-	const [showPreloader, setShowPreloader] = useState(true);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setShowPreloader(false);
-		});
-		return () => clearTimeout(timer);
-	}, []);
-
 	return (
 		<div className="font-[Rubik]">
-			{showPreloader && <PageLoader />}
-			{!showPreloader && (
-				<React.Fragment>
-					<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
-						<Header />
-						<HeroSection />
-						<FirstSection />
-						<ThirdSection />
-						<FinalSection />
-						<AnimatedSection />
-						<SecondSection />
-						<Footer />
-					</motion.div>
-				</React.Fragment>
-			)}
+			<React.Fragment>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+					<Header />
+					<HeroSection />
+					<FirstSection />
+					<ThirdSection />
+					<FinalSection />
+					<AnimatedSection />
+					<SecondSection />
+					<Footer />
+				</motion.div>
+			</React.Fragment>
 		</div>
 	);
 };
