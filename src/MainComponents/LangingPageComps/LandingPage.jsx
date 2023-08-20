@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useState } from "react";
 import Footer from "../GeneralComponents/Footer";
 import Header from "../GeneralComponents/Header";
-import PageLoader from "../GeneralComponents/PageLoader";
 import AnimatedSection from "./AnimatedSection";
 import FinalSection from "./FinalSection";
 import FirstSection from "./FirstSection";

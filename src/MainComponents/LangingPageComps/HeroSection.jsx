@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import womanImage from "../../assets/images/PageImages/cb-image-06-girl.png";
 import leftHand from "../../assets/images/PageImages/cb-image-06-lefthand.png";
 import rightHand from "../../assets/images/PageImages/cb-image-06-righthand.png";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
 	return (
@@ -16,10 +17,10 @@ const HeroSection = () => {
 						<h1 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-text_clr">
 							Create one of the finest well presentable Resumés you've ever had to present
 						</h1>
-						<span className="w-full md:w-4/6 mx-auto block mt-4 text-sm md:text-base relative">
+						<span className="w-full md:w-4/6 mx-auto block mt-4 text-sm md:text-[.9rem] relative">
 							Resumé.me is designed to generate job worthy resumés for job seekers, it follows the resume rules employers look for.
 						</span>
-						<div className="relative mt-28 lg:mt-28">
+						<motion.div className="relative mt-28 lg:mt-28">
 							<figure className="flex absolute inset-0 m-auto items-center justify-center">
 								<img src={womanImage} alt="" className="max-w-full w-24 lg:-mt-4" />
 							</figure>
@@ -36,7 +37,7 @@ const HeroSection = () => {
 									<img src={rightHand} alt="" className="w-6 max-w-full" />
 								</figure>
 							</div>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 			</div>

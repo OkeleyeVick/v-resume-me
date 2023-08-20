@@ -6,8 +6,7 @@ import { userDataContext } from "../CreateResumePage";
 import TipTap from "../../FormComponent/Tiptap.jsx";
 
 const UserIndex = () => {
-	const { userGeneralData, setUserGeneralData, userPersonalData, setUserPersonalData, userPersonalSummary, setUserPersonalSummary } =
-		useContext(userDataContext);
+	const { userPersonalData, setUserPersonalData, userPersonalSummary, setUserPersonalSummary } = useContext(userDataContext);
 
 	function handleSummaryUpdate(data) {
 		setUserPersonalSummary(data);

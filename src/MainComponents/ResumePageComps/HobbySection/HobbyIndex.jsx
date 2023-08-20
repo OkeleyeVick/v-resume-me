@@ -27,7 +27,8 @@ const HobbyIndex = () => {
 			});
 			setHobbyItem((previous) => ({ ...previous, id: hobbyItem.id + 1 }));
 		}
-		setHobbiesInput("");
+		// setHobbiesInput("");
+		setTheInput("");
 	}
 
 	const handleDeleteHobby = (HobbyId) => {
@@ -66,10 +67,7 @@ const HobbyIndex = () => {
 																className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete md:-mr-8 duration-500 ease-in-out md:group-hover/HoverIt:mr-0 md:scale-0 md:group-hover/HoverIt:scale-100"
 																role="button"
 																onClick={() => handleDeleteHobby(id)}>
-																<Icon
-																	icon="ep:delete"
-																	className=" text-slate-700 group-hover/Hobby:text-red-600 pointer-events-none"
-																/>
+																<Icon icon="ep:delete" className=" text-slate-700 group-hover/Hobby:text-red-600 pointer-events-none" />
 															</span>
 														</span>
 													</React.Fragment>
@@ -81,13 +79,7 @@ const HobbyIndex = () => {
 								<div className={`${hobbies.length !== 0 ? "mt-10" : "mt-3"} mb-3`}>
 									<div className="flex gap-4 justify-content-between items-end flex-wrap">
 										<div className="flex-grow">
-											<InputWithLabel
-												value={hobbiesInput}
-												name="hobby"
-												label="Hobby"
-												updateTheDetail={setTheInput}
-												placeholder="Enter your hobbies"
-											/>
+											<InputWithLabel name="hobby" label="Hobby" updateTheDetail={setTheInput} placeholder="Enter your hobbies" />
 										</div>
 										<button
 											type="button"
@@ -97,7 +89,7 @@ const HobbyIndex = () => {
 													: " cursor-not-allowed bg-slate-200 dark:text-label_clr dark:bg-dark_theme border-main text-gray-400"
 											}`}
 											onClick={addHobby}
-											disable={hobbiesInput ? "false" : "true"}>
+											disable={hobbiesInput === 0 ? "false" : "true"}>
 											Add
 										</button>
 									</div>

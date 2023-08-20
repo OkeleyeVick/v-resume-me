@@ -33,11 +33,9 @@ const ThemeTogglerButton = () => {
 					<motion.button
 						layout
 						type="button"
-						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100 sm:hidden inline"
+						className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr focus-visible:outline-red-100 lg:hidden inline"
 						onClick={handlePreviewState}>
-						<motion.span layoutId="icon">
-							<Icon icon={isPreviewVisible ? `icon-park-outline:close` : `gg:menu`} className="text-white w-6 h-6" />
-						</motion.span>
+						<Icon icon={isPreviewVisible ? `icon-park-outline:close` : `gg:menu`} className="text-white w-6 h-6" />
 					</motion.button>
 				</motion.div>
 				<div className={`${sideBarState ? "scale-0" : "scale-100"} duration-75 flex items-start justify-end `}>

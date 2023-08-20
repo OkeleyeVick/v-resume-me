@@ -15,10 +15,11 @@ import { motion } from "framer-motion";
 import ThemeFamily from "../../assets/theme/ThemeFamily";
 import ResumePreviewPage from "./ResumePreviewPage";
 import ThemeModeSwitcher from "./Components/ThemeModeSwitcher";
+import Toaster from "../GeneralComponents/Toaster";
 
 export const GeneralContext = createContext("");
 export const themeContext = createContext("");
-export const userDataContext = createContext(null);
+export const userDataContext = createContext();
 
 const CreateResumePage = () => {
 	const [error, setError] = useState(null);
@@ -181,10 +182,10 @@ const CreateResumePage = () => {
 							<motion.div
 								className={`${
 									isPreviewVisible ? "right-0" : "-right-full"
-								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none md:w-2/3 lg:w-1/2 w-[100%] transition-all duration-300 ease-linear  ${
+								} lg:right-0 scroll bottom-0 top-0 fixed overflow-y-auto z-20 bg-[rgb(134,138,173)] h-full text-sm select-none lg:w-1/2 w-[100%] transition-all duration-300 ease-linear  ${
 									largePreview ? "lg:w-full overflow-auto" : "w-1/2"
 								}`}>
-								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0">
+								<div className="top-3 mt-0 sticky mx-5 z-10 items-start left-0 hidden lg:block">
 									<button
 										type="button"
 										className="bg-main shadow-md p-3 rounded-full hover:bg-hoverBgClr relative focus-visible:outline-white"
@@ -197,6 +198,7 @@ const CreateResumePage = () => {
 								</div>
 								<ResumePreviewPage />
 							</motion.div>
+							{error !== null && <Toaster message={error} />}
 						</motion.div>
 					</React.Fragment>
 				</themeContext.Provider>

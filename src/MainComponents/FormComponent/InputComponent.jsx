@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import { debounce } from "lodash";
@@ -9,6 +9,7 @@ const InputWithLabel = ({
 	placeholder,
 	"aria-label": ariaLabel,
 	name,
+	value,
 	updateTheDetail,
 	className,
 	inputMode,
@@ -18,7 +19,6 @@ const InputWithLabel = ({
 	const debounceFunc = debounce((text, fieldName) => {
 		updateTheDetail(text, fieldName);
 	}, 300);
-
 	return (
 		<div
 			className={`input_container flex flex-col relative before:block before:absolute before:content-[''] before:bg-main before:w-full before:h-[1.4px] before:bottom-0 before:transition before:duration-300 before:origin-center h-fit`}>
@@ -32,10 +32,7 @@ const InputWithLabel = ({
 							icon="ph:question"
 							className="text-[rgb(130,139,162)] dark:text-label_clrhover:text-hoverBgClr hover:cursor-pointer w-4 h-4 leading-none"
 						/>
-						<Tooltip
-							data={tooltip}
-							className="group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 origin-bottom dark:border-main"
-						/>
+						<Tooltip data={tooltip} className="group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 origin-bottom dark:border-main" />
 					</div>
 				) : null}
 			</div>
