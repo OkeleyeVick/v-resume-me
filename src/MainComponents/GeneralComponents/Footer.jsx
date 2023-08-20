@@ -36,7 +36,7 @@ const Footer = () => {
 	};
 
 	return (
-		<div className="border-t dark:border-label_clr/50 py-6 flex items-center justify-center sm:justify-between px-4 md:px-8 dark:bg-dark_theme_text_clr flex-wrap gap-y-3 ">
+		<div className="border-t dark:border-label_clr/50 py-6 flex items-center justify-between px-4 md:px-8 dark:bg-dark_theme_text_clr flex-wrap gap-y-3 ">
 			<span className="text-sm dark:text-label_clr">
 				@2023 &nbsp;
 				<Link to="https://vickkk-portfolio.netlify.app/" className="hover:underline duration-300 ease-linear text-main">

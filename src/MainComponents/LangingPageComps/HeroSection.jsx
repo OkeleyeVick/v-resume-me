@@ -7,17 +7,17 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
 	return (
-		<div className=" text-center">
+		<div className="text-center dark:bg-dark_theme_text_clr">
 			<div className="md:grid md:grid-cols-10 py-16 pt-12 px-[.6rem]">
 				<div className="flex flex-col md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9 md:grid md:grid-cols-10">
 					<div className="my-4 md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9">
-						<small className="uppercase font-semibold text-text_clr">free online resume builder</small>
+						<small className="uppercase font-semibold text-text_clr dark:text-white">free online resume builder</small>
 					</div>
 					<div className="md:col-start-1 md:col-end-11 sm:px-8 mt-4 flex flex-col px-1 relative">
-						<h1 className="font-extrabold text-3xl md:text-4xl lg:text-5xl text-text_clr">
+						<h1 className="dark:text-main font-extrabold text-3xl md:text-4xl lg:text-5xl text-text_clr">
 							Create one of the finest well presentable Resumés you've ever had to present
 						</h1>
-						<span className="w-full md:w-4/6 mx-auto block mt-4 text-sm md:text-[.9rem] relative">
+						<span className="dark:text-label_clr w-full md:w-4/6 mx-auto block mt-4 text-sm md:text-[.9rem] relative">
 							Resumé.me is designed to generate job worthy resumés for job seekers, it follows the resume rules employers look for.
 						</span>
 						<motion.div className="relative mt-28 lg:mt-28">

@@ -20,7 +20,6 @@ const LandingPage = () => {
 					<FirstSection />
 					<ThirdSection />
 					<FinalSection />
-					<AnimatedSection />
 					<SecondSection />
 					<Footer />
 				</motion.div>

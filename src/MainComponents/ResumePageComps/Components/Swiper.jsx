@@ -40,7 +40,7 @@ export default function Swiper() {
 											return (
 												<SplideSlide key={index} style={{ height: "100%" }}>
 													<span className="flex flex-col h-full justify-around">
-														<h5 className="title font-semibold dark:text-label_clr">{title}</h5>
+														<h5 className="title font-medium dark:text-white/90 tracking-wide">{title}</h5>
 														<span className="text-[.78rem] dark:text-label_clr">{value}</span>
 													</span>
 												</SplideSlide>

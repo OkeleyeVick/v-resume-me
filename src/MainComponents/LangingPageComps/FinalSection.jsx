@@ -9,7 +9,7 @@ import img_six from "../../assets/images/ResumeImages/thumbnail 6.png";
 
 const FinalSection = () => {
 	return (
-		<div className="grid grid-cols-12 py-10 bg-main_2 overflow-x-hidden bg-[#1E2532]">
+		<div className="grid grid-cols-12 py-10 bg-main_2 overflow-x-hidden dark:bg-main/20 bg-[#1E2532]">
 			<div className="col-span-full flex items-center -mb-16 justify-center md:hidden">
 				<figure>
 					<img src={img_two} className="animate-rotate bg-gray-50 max-w-[80px] w-full" alt="alt 1" />

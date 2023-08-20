@@ -6,26 +6,28 @@ import { Link } from "react-router-dom";
 
 const ThirdSection = () => {
 	return (
-		<div className="py-28 bg-white">
+		<div className="dark:bg-dark_theme_text_clr py-28 bg-white">
 			<div className="grid grid-cols-2 p-4 md:px-16 gap-20">
 				<div className="col-span-full md:col-start-1 md:col-end-2 flex flex-col justify-center gap-y-8">
 					<div className="flex items-center flex-col-reverse md:flex-row justify-center md:justify-around text-center rounded-[12px] overflow-hidden p-3">
 						<div className="flex flex-col gap-y-4">
 							<h3 className="font-semibold text-xl text-main">Download Your Resume</h3>
-							<span className="block text-sm">Create your resume and download it in a PDF (.pdf) or DOCX (.docx) format.</span>
+							<span className="block text-sm dark:text-label_clr">Create your resume and download it in a PDF (.pdf) or DOCX (.docx) format.</span>
 						</div>
-						<div className="max-w-[16rem]">
+						<div className="max-w-[16rem] dark:bg-main">
 							<figure>
-								<img src={downloadformat} alt="" />
+								<img src={downloadformat} alt="" className="" />
 							</figure>
 						</div>
 					</div>
 					<div className="flex items-center  flex-col-reverse md:flex-row justify-center md:justify-around text-center rounded-[12px] overflow-hidden p-3">
 						<div className="flex flex-col gap-y-4">
 							<h3 className="font-semibold text-xl text-main">Multi-theme Resume</h3>
-							<span className="block text-sm">Sweet to let you know that you can have your resume in different theme of options.</span>
+							<span className="block text-sm dark:text-label_clr">
+								Sweet to let you know that you can have your resume in different theme of options.
+							</span>
 						</div>
-						<div className="max-w-[16rem]">
+						<div className="max-w-[16rem] dark:bg-main">
 							<img src={documentFormat} alt="" />
 						</div>
 					</div>

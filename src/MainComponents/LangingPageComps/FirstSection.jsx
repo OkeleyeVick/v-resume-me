@@ -24,14 +24,14 @@ const FirstSection = () => {
 					<h2 className="text-3xl md:text-4xl lg:text-5xl text-text_clr font-extrabold">User-friendly. Job-Worthy. Standard</h2>
 					<div className="w-full md:w-4/5 mx-auto mt-5">
 						<span>
-							How long does it take to write a Resume? Hours? Days? With <b className="text-main">Resumé.me</b> you can be done in
-							minutes. Create a convincing and effective application resumé in several clicks. Use our pre-generated phrases, choose a
-							design, fill in your details and ideas. Fast and simple.
+							How long does it take to write a Resume? Hours? Days? With <b className="text-main">Resumé.me</b> you can be done in minutes. Create a
+							convincing and effective application resumé in several clicks. Use our pre-generated phrases, choose a design, fill in your details and
+							ideas. Fast and simple.
 						</span>
 					</div>
 					<div className="mt-8">
 						<Link
-							to="/"
+							to="select-template"
 							className="font-semibold bg-main transition duration-500 ease-in-out hover:bg-hoverBgClr text-white rounded-md py-4 px-6 selection:text-white">
 							Try It Now
 						</Link>

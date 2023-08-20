@@ -9,7 +9,7 @@ const Header = () => {
 	const [colorTheme, setTheme] = useThemeMode();
 	return (
 		<React.Fragment>
-			<div className="flex items-center justify-between p-4 md:px-16 shadow-sm dark:shadow-white/20 dark:bg-dark_theme_text_clr font-[Rubik]">
+			<div className="flex items-center justify-between p-4 md:px-16 shadow-sm bg-white dark:shadow-white/20 dark:bg-dark_theme_text_clr font-[Rubik] sticky top-0 z-10">
 				<Link to="/" className="flex items-center gap-2">
 					<img src={favicon} alt="Logo Image" className="h-6 w-6 md:w-8 md:h-8" />
 					<span className="font-semibold md:font-bold text-hoverBgClr">Resumé.me</span>

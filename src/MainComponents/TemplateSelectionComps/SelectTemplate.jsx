@@ -65,15 +65,15 @@ const SelectTemplate = () => {
 	}, [pathname]);
 	return (
 		<React.Fragment>
-			<motion.div initial={{ opacity: 0.2 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="font-[Rubik]">
+			<motion.div initial={{ opacity: 0.2 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="font-[Rubik] dark:bg-dark_theme_text_clr">
 				<Header />
 				<div className="py-8 md:p-16 lg:px-20">
-					<div className="text-center">
+					<div className="text-center dark:text-label_clr">
 						<h1 className="text-main font-bold text-2xl md:text-4xl">Select any template of your choice</h1>
 						<small className="text-sm">You can only select one template for use</small>
 					</div>
 					<div className="text-center mt-8">
-						<Link to="demo" className="text-sm bg-main text-white p-3 px-5 rounded-[3px]">
+						<Link to="demo" className="text-sm bg-main hover:bg-hoverBgClr text-white p-3 px-5 rounded-[3px]">
 							Create a very basic demo Resume
 						</Link>
 					</div>
