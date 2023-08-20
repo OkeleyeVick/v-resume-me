@@ -2,10 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
+import { motion } from "framer-motion";
 
 const fontSize12 = ".62rem";
 const fontSize16 = ".9rem";
-const fontSize10 = ".7rem";
 const fontSize11 = ".65rem";
 
 export const Span = ({ children, className }) => {
@@ -17,17 +17,25 @@ export const Span = ({ children, className }) => {
 		},
 	} = useContext(themeContext);
 	return (
-		<span style={{ fontSize: `${fontSize16}`, lineHeight: 1.6, color: `${color}` }} className={`${className} break-words`}>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			style={{ fontSize: `${fontSize16}`, lineHeight: 1.6, color: `${color}` }}
+			className={`${className} break-words`}>
 			{children}
-		</span>
+		</motion.div>
 	);
 };
 
 export const Span1 = ({ children, className }) => {
 	return (
-		<span style={{ fontSize: `${fontSize12}`, lineHeight: 1.6 }} className={`${className} break-words`}>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			style={{ fontSize: `${fontSize12}`, lineHeight: 1.6 }}
+			className={`${className} break-words`}>
 			{children}
-		</span>
+		</motion.div>
 	);
 };
 export const Link_ = ({ children, className, to }) => {

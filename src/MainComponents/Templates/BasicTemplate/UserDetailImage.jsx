@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { themeContext, userDataContext } from "../../ResumePageComps/CreateResumePage";
-import { DescriptionText, Link_, Span, Span1 } from "../../../assets/theme/fontSizes";
+import { Span1 } from "../../../assets/theme/fontSizes";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
@@ -40,7 +40,7 @@ const UserDetailImage = () => {
 			icon: "clarity:envelope-solid",
 		},
 		{
-			value: `${trimText(city)}, ${trimText(country)}`,
+			value: `${trimText(city)}${trimText(country).length > 0 ? ", " : ""}${trimText(country)}`,
 			icon: "zondicons:location",
 		},
 		{
@@ -63,9 +63,9 @@ const UserDetailImage = () => {
 
 	return (
 		<>
-			<div className="flex justify-between gap-2 w-full">
-				<div className="text-end flex gap-3 mt-2">
-					<div className="user-image rounded-full flex items-center justify-center overflow-hidden aspect-square w-[5.5rem] h-[5.5rem]">
+			<div className="flex justify-between w-full">
+				<div className="text-end grid grid-cols-5 mt-2 space-x-4">
+					<div className="user-image col-span-1 rounded-full flex items-center justify-center overflow-hidden aspect-square w-[5.5rem] h-[5.5rem] relative">
 						<motion.img
 							animate={{ opacity: 1 }}
 							initial={{ opacity: 0 }}
@@ -79,23 +79,26 @@ const UserDetailImage = () => {
 							className="h-full w-full object-cover object-center scale-[1.1] aspect-square"
 						/>
 					</div>
-					<span className="flex flex-col items-start mt-4">
+					<div className="flex flex-col col-span-3 items-start mt-4 text-start flex-grow">
 						{(firstname.value || lastname.value) && (
-							<h1 className="uppercase font-bold text-start block" style={{ fontSize: 22, color: `${color}` }}>
+							<h1 className="uppercase font-extrabold text-start block" style={{ fontSize: 22, color: `${color}` }}>
 								{trimText(lastname)} {trimText(firstname)}
 							</h1>
 						)}
-						{position.value && <h6 className="mt-1 font-semibold text-base text-gray-600">{trimText(position)}</h6>}
-					</span>
+						{position.value && <h6 className="mt-[8px] font-semibold flex leading-4 text-base text-gray-600">{trimText(position)}</h6>}
+					</div>
 				</div>
 				<div className="user-personal-info flex flex-col gap-y-[.3rem]">
 					{newList.map(({ value, icon }, index) => {
 						return (
 							<React.Fragment key={index}>
-								<div className="info-wrapper flex items-end flex-wrap justify-end leading-tight gap-[.4rem]">
+								<motion.div
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									className="info-wrapper flex items-end flex-nowrap justify-end leading-tight gap-[.4rem]">
 									<Span1 className="value text">{value}</Span1>
 									<Icon icon={icon} className="h-[.9rem] w-[.9rem] text-gray-600" />
-								</div>
+								</motion.div>
 							</React.Fragment>
 						);
 					})}

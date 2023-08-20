@@ -121,16 +121,13 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 											<Icon icon="fluent:delete-48-regular" className="w-5 h-5 text-red-500 pointer-events-none" />
 										</button>
 										<button type="button" className="outline-transparent focus-visible:outline-main">
-											<Icon
-												icon="mdi-light:chevron-down"
-												className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"} dark:text-label_clr`}
-											/>
+											<Icon icon="mdi-light:chevron-down" className={`w-6 h-6 ${open ? "rotate-180" : "rotate-0"} dark:text-label_clr`} />
 										</button>
 									</span>
 								</span>
 							</AccordionHeader>
 
-							<AccordionBody className="overflow-hidden dark:bg-dark_theme_text_clr bg-gray-50/40" as="section">
+							<AccordionBody className="overflow-hidden transition duration-1000 ease-linear dark:bg-dark_theme_text_clr bg-gray-50/40" as="section">
 								<div className="accordion-body p-4 gap-4 flex flex-col">
 									<InputWithLabel
 										name="companyName"
@@ -170,7 +167,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 									/>
 
 									<div className="col-span-2">
-										<small className="mb-2 dark:text-label_clr ">Time period</small>
+										<small className="mb-2 text-label_clr">Time period</small>
 										<div className={`flex items-start justify-between gap-x-2 gap-y-4 w-full flex-wrap sm:flex-nowrap relative`}>
 											<div className="grid grid-cols-3 gap-2 flex-grow">
 												<MonthPicker className="col-span-2" getMonth={getStartMonth} />
@@ -183,8 +180,8 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 														initial={{ opacity: 0 }}
 														animate={{ opacity: 1 }}
 														exit={{ opacity: 0 }}
-														className="hover:border-main border border-solid border-gray-200 rounded-md bg-white p-2 px-3 relative dark:border-label_clr dark:bg-dark_theme_text_clr">
-														<span className="text-sm text-gray-600 dark:text-label_clr ">Present</span>
+														className="hover:border-main border dark:border-[1.5px] border-solid border-gray-200 rounded-md bg-white p-2 px-3 relative dark:bg-dark_theme dark:border-main">
+														<span className="text-sm text-label_clr ">Present</span>
 													</motion.div>
 												)}
 												{!isChecked && (
@@ -205,7 +202,7 @@ const AccordionChild = ({ userWorkExperiences, setUserWorkExperiences, eachAccor
 									</div>
 
 									<div className="-mt-2">
-										<span className="text-[.8rem] mb-2 text-label_clr">Description</span>
+										<span className="text-[.9rem] mb-2 text-label_clr">Description</span>
 										<Tiptap text={workPlaceDetails.description} onUpdate={handleDescription} />
 									</div>
 								</div>

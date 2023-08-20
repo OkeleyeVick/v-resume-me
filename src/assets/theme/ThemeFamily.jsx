@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { SketchPicker } from "react-color";
 import { GeneralContext, themeContext } from "../../MainComponents/ResumePageComps/CreateResumePage";
 import "../css/fonts.css";
@@ -177,7 +177,7 @@ const ThemeFamily = () => {
 						<h6 className="font-medium dark:text-label_clr">Color:</h6>
 						<button
 							type="button"
-							className={`rounded-full active:border-main p-2 shadow-custom_3 border border-solid border-main ${
+							className={`rounded-full dark:hover:bg-hoverBgClr dark:bg-dark_theme_text_clr active:border-main p-2 shadow-custom_3 border border-solid border-main ${
 								isActiveColorDropdown ? "bg-main hover:bg-hoverBgClr" : "bg-white"
 							}`}
 							onClick={handleColorDropdownState}>
@@ -203,7 +203,7 @@ const ThemeFamily = () => {
 						/>
 					</Switch>
 				</div>
-				<div className="mt-4 p-4 border border-solid border-border_clr rounded-md">
+				<div className="mt-4 p-4 border border-solid border-border_clr rounded-md dark:border-label_clr">
 					<span className="text-slate-400 text-sm sm:text-base">More theme options coming soon...</span>
 				</div>
 			</motion.div>
