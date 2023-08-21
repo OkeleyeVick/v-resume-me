@@ -21,7 +21,6 @@ const Toaster = ({ message }) => {
 						initial={{ x: "-100vw" }}
 						animate={{ x: 0 }}
 						transition={{ duration: 0.2 }}
-						exit={{ x: "-100vw" }}
 						className="left-0 fixed font-[Syne] top-0 shadow-md max-w-[270px] w-full m-1 overflow-hidden bg-white flex flex-col rounded-sm dark:shadow-main/30 dark:bg-dark_theme_text_clr">
 						<div className="h-[4px] bg-red-500 w-full"></div>
 						<div className="pb-4 pt-2 ps-4 flex items-center gap-4">

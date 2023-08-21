@@ -138,7 +138,7 @@ const ResumePreviewPage = () => {
 							fileName={
 								filename.length !== 0
 									? `${filename.trim()}-v-resume.pdf`
-									: `${`${lnValue}${lnValue.length !== 0 ? "-" : ""}${fnValue}` ?? "user"}_v-resume.pdf`
+									: `${`${lnValue}${lnValue.length !== 0 ? "-" : ""}${fnValue}` ?? "user"}-v-resume.pdf`
 							}>
 							{({ loading }) => (loading ? <Button disabled={true}>Loading</Button> : <Button disabled={false}>Download</Button>)}
 						</PDFDownloadLink>

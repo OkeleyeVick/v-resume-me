@@ -24,37 +24,16 @@ export default function Education() {
 					</Span>
 					<div className="flex flex-col gap-y-3 mt-1">
 						{userEducationData.map(
-							({
-								id,
-								degree,
-								school,
-								startMonth,
-								startYear,
-								endMonth,
-								endYear,
-								city,
-								country,
-								currentlySchoolingThere,
-								description,
-							}) => {
+							({ id, degree, school, startMonth, startYear, endMonth, endYear, city, country, currentlySchoolingThere, description }) => {
 								const check =
-									startMonth ||
-									startYear ||
-									endMonth ||
-									endYear ||
-									currentlySchoolingThere ||
-									city ||
-									country ||
-									school ||
-									degree ||
-									description;
+									startMonth || startYear || endMonth || endYear || currentlySchoolingThere || city || country || school || degree || description;
 								return (
 									<React.Fragment key={id}>
 										<section className="mt-1">
 											{check ? (
 												<>
 													<div className="flex flex-col mt-1">
-														<Span1 className="degree font-extrabold">{degree}</Span1>
+														<Span1 className="degree font-bold">{degree}</Span1>
 														<Span1 className="school font-normal">{school}</Span1>
 													</div>
 													<div className="flex items-center gap-2">

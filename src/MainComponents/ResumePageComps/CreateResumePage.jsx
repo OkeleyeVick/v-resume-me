@@ -9,13 +9,13 @@ import data from "../../assets/db/databsase.json";
 import UserInputObjects from "./UserInputObjects";
 import EducationIndex from "./EducationSection/EducationIndex";
 import HobbyIndex from "./HobbySection/HobbyIndex";
-import "../../assets/css/fonts.css";
 import GoBack from "../GeneralComponents/GoBack";
 import { motion } from "framer-motion";
 import ThemeFamily from "../../assets/theme/ThemeFamily";
 import ResumePreviewPage from "./ResumePreviewPage";
 import ThemeModeSwitcher from "./Components/ThemeModeSwitcher";
 import Toaster from "../GeneralComponents/Toaster";
+import "../../assets/css/fonts.css";
 
 export const GeneralContext = createContext("");
 export const themeContext = createContext("");
@@ -24,6 +24,7 @@ export const userDataContext = createContext();
 const CreateResumePage = () => {
 	const [error, setError] = useState(null);
 	const [isModalVisible, setIsModalVisible] = useState(false);
+
 	const [modalContent, setModalContent] = useState("");
 
 	const { userDetails } = UserInputObjects(); //FROM OBJECTS

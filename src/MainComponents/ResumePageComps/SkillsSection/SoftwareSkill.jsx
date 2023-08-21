@@ -4,6 +4,7 @@ import { userDataContext } from "../CreateResumePage";
 import { Icon } from "@iconify/react";
 import InputWithLabel from "../../FormComponent/InputComponent";
 import { useMemo } from "react";
+import { motion } from "framer-motion";
 
 const SoftSkill = () => {
 	const { skills, setSkills } = useContext(userDataContext);
@@ -135,9 +136,7 @@ const SoftSkill = () => {
 								<div className={`px-2 bg-transparent round-sm ${open ? "py-3" : "py-0"}`}>
 									<>
 										<div className="mb-8">
-											<header className="text-sm text-gray-400 mb-2">
-												Select the software skills you are well experienced with
-											</header>
+											<header className="text-sm text-gray-400 mb-2">Select the software skills you are well experienced with</header>
 											<div className="flex items-center flex-wrap gap-2 overflow-y-scroll max-h-[350px] py-4 px-3 border border-solid border-border_clr dark:border-main rounded-md scroll">
 												{arrayOfAvailableSoftwareSkills.map(({ skillName, id, isSet }) => {
 													return (
@@ -164,45 +163,46 @@ const SoftSkill = () => {
 										</div>
 									</>
 									{skills.softwareSkills.length !== 0 && (
-										<div className="p-3 border border-solid border-border_clr dark:border-main rounded-md">
+										<motion.div
+											initial={{ opacity: 0 }}
+											animate={{ opacity: 1 }}
+											exit={{ opacity: 0 }}
+											transition={{ duration: 0.5 }}
+											className="p-3 border border-solid border-border_clr dark:border-main rounded-md">
 											<div className="flex items-center justify-between gap-y-2">
 												<header className="text-sm text-gray-400">Software skills you have</header>
-												<button
-													type="button"
-													className="flex items-center gap-2 text-gray-400 group/delete"
-													onClick={removeSkills}>
+												<button type="button" className="flex items-center gap-2 text-gray-400 group/delete" onClick={removeSkills}>
 													<span className="text-[.8rem] group-hover/delete:text-red-500 leading-tighter">Delete all</span>
 													<Icon icon="ep:delete" className="group-hover/delete:text-red-500 w-4 h-4" />
 												</button>
 											</div>
-											<div
-												name="languages-container"
-												className="flex flex-wrap overflow-hidden items-center gap-2 mt-3 relative">
+											<div name="languages-container" className="flex flex-wrap overflow-hidden items-center gap-2 mt-3 relative">
 												{skills.softwareSkills.length !== 0 &&
 													skills.softwareSkills.map(({ id, skillName }) => {
 														return (
 															<React.Fragment key={id}>
-																<span
-																	className="bg-[rgb(239,242,249)] dark:bg-slate- text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-3 py-[2px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
+																<motion.span
+																	initial={{ opacity: 0 }}
+																	animate={{ opacity: 1 }}
+																	exit={{ opacity: 0 }}
+																	transition={{ duration: 0.5 }}
+																	className="bg-[rgb(239,242,249)] dark:bg-slate-800 dark:text-main text-[rgb(30,37,50)] flex items-center gap-[3px] hover:text-main px-3 py-[2px] w-max rounded-[4px] cursor-pointer overflow-hidden group/HoverIt"
 																	id={id}>
 																	<span name="soft-skill" className="text-[.75rem]">
 																		{skillName}
 																	</span>
 																	<span
-																		className="bg-transparent hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete md:-mr-8 duration-500 ease-in-out md:group-hover/HoverIt:mr-0 md:scale-0 md:group-hover/HoverIt:scale-100"
+																		className="bg-transparent dark:hover:bg-slate-900 hover:bg-slate-200 hover:bg-opacity-80 rounded-full p-2 group/delete md:-mr-8 duration-500 ease-in-out md:group-hover/HoverIt:mr-0 md:scale-0 md:group-hover/HoverIt:scale-100"
 																		role="button"
 																		onClick={() => handleDeleteSkill(id)}>
-																		<Icon
-																			icon="ep:delete"
-																			className=" text-slate-700 group-hover/delete:text-red-600"
-																		/>
+																		<Icon icon="ep:delete" className="text-slate-700 group-hover/delete:text-red-600" />
 																	</span>
-																</span>
+																</motion.span>
 															</React.Fragment>
 														);
 													})}
 											</div>
-										</div>
+										</motion.div>
 									)}
 									<div className="mt-8 flex items-end gap-4 flex-wrap justify-end">
 										<div className="relative flex-grow">

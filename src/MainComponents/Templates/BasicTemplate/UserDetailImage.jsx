@@ -65,11 +65,15 @@ const UserDetailImage = () => {
 		<>
 			<div className="flex justify-between w-full">
 				<div className="text-end grid grid-cols-5 mt-2 space-x-4">
-					<div className="user-image col-span-1 rounded-full flex items-center justify-center overflow-hidden aspect-square w-[5.5rem] h-[5.5rem] relative">
+					<motion.div
+						animate={{ opacity: 1 }}
+						initial={{ opacity: 0 }}
+						exit={{ opacity: 0 }}
+						className="user-image col-span-1 rounded-full flex items-center justify-center overflow-hidden aspect-square w-[5.5rem] h-[5.5rem] relative">
 						<motion.img
-							animate={{ opacity: 1 }}
-							initial={{ opacity: 0 }}
-							exit={{ opacity: 0 }}
+							animate={{ scale: 1 }}
+							initial={{ scale: 0 }}
+							exit={{ scale: 0 }}
 							src={
 								image.imageSrc
 									? image.imageSrc
@@ -78,7 +82,7 @@ const UserDetailImage = () => {
 							alt="user-image"
 							className="h-full w-full object-cover object-center scale-[1.1] aspect-square"
 						/>
-					</div>
+					</motion.div>
 					<div className="flex flex-col col-span-3 items-start mt-4 text-start flex-grow">
 						{(firstname.value || lastname.value) && (
 							<h1 className="uppercase font-extrabold text-start block" style={{ fontSize: 22, color: `${color}` }}>

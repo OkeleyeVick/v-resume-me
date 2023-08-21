@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { userDataContext } from "../../ResumePageComps/CreateResumePage";
 import { DescriptionText, Smaller, Span, Span1 } from "../../../assets/theme/fontSizes";
+import { motion } from "framer-motion";
 
 export default function WorkExperience() {
 	const {
@@ -12,25 +13,13 @@ export default function WorkExperience() {
 	return (
 		<>
 			{userWorkExperiences && userWorkExperiences.length !== 0 && (
-				<div>
+				<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 					<Span className="text-title relative before:absolute before:h-[.6px] before:-translate-y-1 before:top-0 before:w-3/5 before:bg-slate-500 opacity-80">
 						Work Experience
 					</Span>
 					<div className="flex flex-col gap-y-3 mt-1">
 						{userWorkExperiences.map(
-							({
-								id,
-								companyName,
-								jobTitle,
-								country,
-								startMonth,
-								startYear,
-								endMonth,
-								endYear,
-								city,
-								currentlyWorkingThere,
-								description,
-							}) => {
+							({ id, companyName, jobTitle, country, startMonth, startYear, endMonth, endYear, city, currentlyWorkingThere, description }) => {
 								const check =
 									startMonth ||
 									startYear ||
@@ -68,8 +57,7 @@ export default function WorkExperience() {
 																		<Smaller className="text-small uppercase">Present</Smaller>
 																	) : (
 																		<div>
-																			<Smaller className="text-small">{endMonth}</Smaller>/
-																			<Smaller className="text-small">{endYear}</Smaller>
+																			<Smaller className="text-small">{endMonth}</Smaller>/<Smaller className="text-small">{endYear}</Smaller>
 																		</div>
 																	)}
 																</div>
@@ -97,7 +85,7 @@ export default function WorkExperience() {
 							}
 						)}
 					</div>
-				</div>
+				</motion.div>
 			)}
 		</>
 	);

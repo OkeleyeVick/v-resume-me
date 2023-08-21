@@ -48,7 +48,7 @@ const InputWithLabel = ({
 				type={type ? type : "text"}
 				className={`caret-main placeholder:text-[13px] ${
 					className ? className : "bg-input_clr dark:bg-dark_theme_text_clr dark:text-label_clr border-transparent"
-				} py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px]  min-h-[2.8rem] border dark:text-label_clr`}
+				} py-[10.5px] transition 300ms ease-in-out outline-0 hover:border-hoverBgClr border-solid px-4 text-ash-600 text-sm rounded-[3px]  min-h-[2.8rem] border dark:text-label_clr dark:placeholder:text-label_clr/60`}
 			/>
 		</div>
 	);

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { GeneralContext, userDataContext } from "../ResumePageComps/CreateResumePage";
 
 const ImageUploadComponent = ({ label, imageSrc }) => {
-	const [image, setImageForDisplay] = useState(null);
+	const [image, setImageForDisplay] = useState("");
 	const imageRef = useRef(null);
 	const { setUserPersonalData } = useContext(userDataContext);
 	const { setError } = useContext(GeneralContext);
@@ -16,47 +16,49 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 	function checkFileType(imageFileType) {
 		// check for the fileExtension
 		let isValid;
+		const allowedExtensions = ["jpeg", "jpg", "png", "webp"];
 		if (imageFileType) {
 			const fileExtension = imageFileType.name.split(".")[1].toLowerCase();
-
-			const allowedExtensions = ["jpeg", "jpg", "png", "gif", "webp", "jfif"];
-
 			isValid = !allowedExtensions.includes(fileExtension) ? false : true;
 		}
 		return isValid;
 	}
 
-	function handleImageUpload(event) {
-		if (event && event.target.files[0]) {
-			const image = event.target.files[0];
+	const readFile = (passedFile) => {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.addEventListener("load", () => resolve(reader.result));
+			reader.addEventListener("error", () => reject(new Error(reader.error)));
 
-			const isValid = checkFileType(image);
-			if (isValid) {
-				const imageFile = URL.createObjectURL(image);
-				const reader = new FileReader();
-				reader.addEventListener("load", () => {
-					setImageForDisplay(reader.result ?? imageFile);
-					setUserPersonalData((previousData) => {
-						return {
-							...previousData,
-							image: {
-								...previousData.image,
-								imageSrc: reader.result ?? imageFile,
-							},
-						};
-					});
-				});
-				reader.readAsDataURL(image);
-			} else {
-				setError("Upload image in jpeg, png, jpg, gif, jfif or webp format");
-			}
-			URL.revokeObjectURL(image); //free memory space
+			reader.readAsDataURL(passedFile);
+		});
+	};
+
+	async function handleImageUpload(event) {
+		const fileGotten = event.target.files[0];
+		if (!fileGotten) return;
+		const isValid = checkFileType(fileGotten);
+		if (!isValid) {
+			return setError("Upload image in jpeg, png or jpg format");
+		} else {
+			const result = await readFile(fileGotten);
+
+			setImageForDisplay(result);
+			setUserPersonalData((previousData) => {
+				return {
+					...previousData,
+					image: {
+						...previousData.image,
+						imageSrc: result,
+					},
+				};
+			});
 		}
 	}
 
 	function handleRemoveImage() {
 		if (image) {
-			setImageForDisplay(null);
+			setImageForDisplay("");
 			setUserPersonalData((prevData) => ({
 				...prevData,
 				image: {
@@ -91,10 +93,10 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 							image ? "cursor-default pointer-events-none" : "cursor-pointer"
 						}`}
 						onClick={handleClick}>
-						{imageSrc !== "" ? (
+						{image !== "" ? (
 							<motion.img
 								accept="image/*, .png, .jpeg, .jpg, .webp"
-								src={imageSrc}
+								src={image}
 								alt="user-image"
 								className="w-full h-full object-cover object-top"
 								initial={{ opacity: 0 }}
@@ -106,7 +108,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 							<Icon icon="mingcute:user-add-line" className="w-8 h-8 dark:text-label_clr text-[rgb(190,196,213)] group-hover/image:text-main" />
 						)}
 					</motion.div>
-					{imageSrc === "" ? (
+					{image === (null || "") ? (
 						<label
 							htmlFor={label}
 							className="text-sm cursor-pointer hover:text-main dark:text-label_clr hover:dark:text-main duration-300"
@@ -114,11 +116,17 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 							{label}
 						</label>
 					) : (
-						<motion.div className="flex flex-col items-start gap-1" animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+						<motion.div animate={{ opacity: 1 }} exit={{ opacity: 0 }} initial={{ opacity: 0 }} className="flex flex-col items-start gap-1">
 							{imageEditOptions.map(({ label, icon, action, style }, indexValue) => {
 								return (
 									<React.Fragment key={indexValue}>
-										<button className="flex items-center text-xs gap-2 group/edit-options" type="button" onClick={() => action()}>
+										<motion.button
+											animate={{ opacity: 1 }}
+											exit={{ opacity: 0 }}
+											initial={{ opacity: 0 }}
+											className="flex items-center text-xs gap-2 group/edit-options"
+											type="button"
+											onClick={() => action()}>
 											<Icon
 												icon={icon}
 												className={`w-5 h-5 dark:text-label_clr text-gray-400 ${style ? style : "group-hover/edit-options:text-main"}`}
@@ -128,7 +136,7 @@ const ImageUploadComponent = ({ label, imageSrc }) => {
 												className={`cursor-pointer dark:text-label_clr text-gray-600 ${style ? style : "group-hover/edit-options:text-main"}`}>
 												{label}
 											</label>
-										</button>
+										</motion.button>
 									</React.Fragment>
 								);
 							})}

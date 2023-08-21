@@ -4,6 +4,7 @@ import { userDataContext } from "../CreateResumePage";
 import EducationAccordionChild from "./EducationAccordionChild";
 import { memo } from "react";
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
+import { motion } from "framer-motion";
 const EducationIndex = () => {
 	const { userEducationData, setUserEducationData } = useContext(userDataContext); //array of user's experiences
 
@@ -51,7 +52,11 @@ const EducationIndex = () => {
 		setUserEducationData([...newWorkExperience]);
 	}
 	return (
-		<div className="border border-gray-300 dark:border-label_clr border-solid rounded-md shadow-md">
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			className="border border-gray-300 dark:border-label_clr border-solid rounded-md shadow-md">
 			<Accordion>
 				<AccordionItem>
 					<AccordionHeader className="flex items-center justify-between w-full p-5 px-6 focus-visible:outline-main">
@@ -91,7 +96,7 @@ const EducationIndex = () => {
 					</AccordionBody>
 				</AccordionItem>
 			</Accordion>
-		</div>
+		</motion.div>
 	);
 };
 

@@ -12,7 +12,7 @@ const HeroSection = () => {
 				<div className="flex flex-col md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9 md:grid md:grid-cols-10">
 					<motion.div
 						initial={{ y: "-40vh" }}
-						transition={{ type: "spring", stiffness: 300 }}
+						transition={{ type: "spring", damping: 10 }}
 						animate={{ y: 0 }}
 						className="my-4 md:col-start-2 md:col-end-10 lg:col-start-3 lg:col-end-9">
 						<small className="uppercase font-semibold text-text_clr dark:text-white/80">free online resume builder</small>
@@ -47,7 +47,7 @@ const HeroSection = () => {
 								</figure>
 								<Link
 									to="select-template"
-									className="text-white bg-main rounded-md py-4 px-10 md:py-4 transition ease-in-out duration-500 hover:bg-hoverBgClr whitespace-nowrap text-xs sm:text-sm selection:text-white font-semibold">
+									className="text-white bg-main rounded-md py-3 px-10 transition ease-in-out duration-500 hover:bg-hoverBgClr whitespace-nowrap text-xs sm:text-sm selection:text-white font-semibold">
 									Let's create you a resumé
 								</Link>
 								<figure className="absolute -right-3 top-0">

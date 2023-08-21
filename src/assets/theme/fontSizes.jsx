@@ -46,16 +46,28 @@ export const Link_ = ({ children, className, to }) => {
 	);
 };
 export const Small = ({ children, className }) => (
-	<small className={`${className} break-words`} style={{ fontSize: `${fontSize12}`, lineHeight: 1.6 }}>
+	<motion.small
+		initial={{ opacity: 0 }}
+		animate={{ opacity: 1 }}
+		className={`${className} break-words`}
+		style={{ fontSize: `${fontSize12}`, lineHeight: 1.6 }}>
 		{children}
-	</small>
+	</motion.small>
 );
 export const Smaller = ({ children, className }) => (
-	<small className={`${className} break-words`} style={{ fontSize: `${fontSize11}`, lineHeight: 1.6 }}>
+	<motion.small
+		initial={{ opacity: 0 }}
+		animate={{ opacity: 1 }}
+		className={`${className} break-words`}
+		style={{ fontSize: `${fontSize11}`, lineHeight: 1.6 }}>
 		{children}
-	</small>
+	</motion.small>
 );
 
 export const DescriptionText = ({ textValue }) => (
-	<small style={{ fontSize: `${fontSize11}`, lineHeight: 1.2 }} dangerouslySetInnerHTML={{ __html: textValue }}></small>
+	<motion.small
+		initial={{ opacity: 0 }}
+		animate={{ opacity: 1 }}
+		style={{ fontSize: `${fontSize11}`, lineHeight: 1.2 }}
+		dangerouslySetInnerHTML={{ __html: textValue }}></motion.small>
 );
