@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 
 const SoftSkill = () => {
+	// commment
 	const { skills, setSkills } = useContext(userDataContext);
 
 	// this should not cause a re-render unless something in "skills" changes e.g any of its children's property
