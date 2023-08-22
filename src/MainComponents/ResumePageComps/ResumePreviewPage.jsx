@@ -59,6 +59,15 @@ const ResumePreviewPage = () => {
 	const handleFileName = (inputname) => {
 		setFilename(inputname);
 	};
+
+	function cleanoutExtension(filename) {
+		let newFilename;
+		if (filename && filename.includes(".")) {
+			return (newFilename = filename.split(".")[0]);
+		}
+		newFilename = filename.trim();
+		return newFilename;
+	}
 	return (
 		<React.Fragment>
 			<div mode="view-mode" name="resume-wrapper">
@@ -117,7 +126,7 @@ const ResumePreviewPage = () => {
 				</motion.div>
 			)}
 			{isModalVisible && (
-				<Modal modalTitle="Enter filename">
+				<Modal modalTitle="Enter filename" subtext="Enter only filename without any extension">
 					<div className="flex items-center gap-3 flex-wrap">
 						<div className="flex-grow">
 							<InputWithLabel
@@ -137,7 +146,7 @@ const ResumePreviewPage = () => {
 							}
 							fileName={
 								filename.length !== 0
-									? `${filename.trim()}-v-resume.pdf`
+									? `${cleanoutExtension(filename)}-v-resume.pdf`
 									: `${`${lnValue}${lnValue.length !== 0 ? "-" : ""}${fnValue}` ?? "user"}-v-resume.pdf`
 							}>
 							{({ loading }) => (loading ? <Button disabled={true}>Loading</Button> : <Button disabled={false}>Download</Button>)}

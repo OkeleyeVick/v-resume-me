@@ -8,7 +8,7 @@ import { GeneralContext } from "../ResumePageComps/CreateResumePage";
 import { useRef } from "react";
 import { useEffect } from "react";
 
-const Modal = ({ children, modalTitle }) => {
+const Modal = ({ children, modalTitle, subtext }) => {
 	const { setIsModalVisible } = useContext(GeneralContext);
 	const ref = useRef(null);
 
@@ -45,7 +45,10 @@ const Modal = ({ children, modalTitle }) => {
 							<Icon icon="lucide:x" className="w-6 h-6 pointer-events-none text-gray-600 group-hover/:text-slate-100" />
 						</button>
 					</div>
-					<div className="modal-body py-10 p-6">{children}</div>
+					<div className="modal-body py-10 p-6">
+						<span className="text-sm text-label_clr">{subtext}</span>
+						{children}
+					</div>
 					<div className="modal-footer py-4 px-6 border-t dark:border-label_clr">
 						<div className="flex items-center justify-end">
 							<button

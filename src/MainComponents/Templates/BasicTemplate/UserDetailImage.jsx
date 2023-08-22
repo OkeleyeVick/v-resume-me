@@ -57,7 +57,7 @@ const UserDetailImage = () => {
 		},
 		{
 			value: trimText(profile_link),
-			icon: getIcontype(trimText(profile_link)) ?? "fluent:person-link-24-filled",
+			icon: getIcontype(trimText(profile_link).toLowerCase()) ?? "fluent:person-link-24-filled",
 		},
 	];
 
@@ -85,11 +85,24 @@ const UserDetailImage = () => {
 					</motion.div>
 					<div className="flex flex-col col-span-3 items-start mt-4 text-start flex-grow">
 						{(firstname.value || lastname.value) && (
-							<h1 className="uppercase font-extrabold text-start block" style={{ fontSize: 22, color: `${color}` }}>
+							<motion.h1
+								animate={{ opacity: 1 }}
+								initial={{ opacity: 0 }}
+								exit={{ opacity: 0 }}
+								className="uppercase font-extrabold text-start block"
+								style={{ fontSize: 22, color: `${color}` }}>
 								{trimText(lastname)} {trimText(firstname)}
-							</h1>
+							</motion.h1>
 						)}
-						{position.value && <h6 className="mt-[8px] font-semibold flex leading-4 text-base text-gray-600">{trimText(position)}</h6>}
+						{position.value && (
+							<motion.h6
+								animate={{ opacity: 1 }}
+								initial={{ opacity: 0 }}
+								exit={{ opacity: 0 }}
+								className="mt-[8px] font-semibold flex leading-4 text-base text-gray-600">
+								{trimText(position)}
+							</motion.h6>
+						)}
 					</div>
 				</div>
 				<div className="user-personal-info flex flex-col gap-y-[.3rem]">
@@ -101,7 +114,9 @@ const UserDetailImage = () => {
 									animate={{ opacity: 1 }}
 									className="info-wrapper flex items-end flex-nowrap justify-end leading-tight gap-[.4rem]">
 									<Span1 className="value text">{value}</Span1>
-									<Icon icon={icon} className="h-[.9rem] w-[.9rem] text-gray-600" />
+									<motion.i initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+										<Icon icon={icon} className="h-[.9rem] w-[.9rem] text-gray-600" />
+									</motion.i>
 								</motion.div>
 							</React.Fragment>
 						);

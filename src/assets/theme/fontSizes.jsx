@@ -27,12 +27,13 @@ export const Span = ({ children, className }) => {
 	);
 };
 
-export const Span1 = ({ children, className }) => {
+export const Span1 = ({ children, className, style }) => {
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			style={{ fontSize: `${fontSize12}`, lineHeight: 1.6 }}
+			initial={{ opacity: 0 }}
+			exit={{ opacity: 0 }}
+			style={{ fontSize: `${fontSize12}`, lineHeight: 1.6, ...style }}
 			className={`${className} break-words`}>
 			{children}
 		</motion.div>

@@ -11,6 +11,8 @@ import { motion } from "framer-motion";
 const fontFamily = [
 	"system-ui",
 	"Stolzl",
+	"Helvetica",
+	"Graphik",
 	"IBMPlexSans",
 	"Fira Code",
 	"Inter",

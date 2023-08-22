@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { userDataContext } from "../../ResumePageComps/CreateResumePage";
+import { themeContext, userDataContext } from "../../ResumePageComps/CreateResumePage";
 import { Span, Span1 } from "../../../assets/theme/fontSizes";
 
 const Hobbies = () => {
@@ -11,12 +11,15 @@ const Hobbies = () => {
 				<>
 					<div name="soft-skills">
 						<Span className="text-title">Hobbies</Span>
-						<div className="flex items-center gap-1 flex-wrap mt-2">
-							{hobbies.map(({ hobbyName }) => {
+						<div className="flex items-center gap-[5px] flex-wrap mt-2">
+							{hobbies.map(({ hobbyName, id }) => {
 								return (
-									<Span1 key={hobbyName} className="pill">
-										{hobbyName}
-									</Span1>
+									<React.Fragment key={id}>
+										<Span1 key={hobbyName}>
+											{hobbyName.trim()}
+											{hobbies.at(-1).hobbyName === hobbyName ? "" : ","}
+										</Span1>
+									</React.Fragment>
 								);
 							})}
 						</div>

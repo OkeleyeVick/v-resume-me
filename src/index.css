@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 }
 
 .pill {
-	@apply bg-gray-200 rounded-sm p-1 px-3 leading-none;
+	@apply rounded-sm p-1 px-3 leading-none;
 }
 .text {
 	@apply font-medium;

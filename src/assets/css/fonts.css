@@ -106,3 +106,11 @@
 	font-family: "Source Serif Pro";
 	src: url("../fonts/Source Serif Pro.otf") format("opentype");
 }
+@font-face {
+	font-family: "Helvetica";
+	src: url("../fonts/Helvetica.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Graphik";
+	src: url("../fonts/GraphikMedium.otf") format("opentype");
+}
