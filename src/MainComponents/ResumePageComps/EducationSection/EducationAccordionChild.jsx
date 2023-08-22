@@ -163,7 +163,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 									/>
 
 									<InputWithLabel
-										label="County"
+										label="Country"
 										name="country"
 										value={educationDetails.country}
 										action={setEducationDetails}

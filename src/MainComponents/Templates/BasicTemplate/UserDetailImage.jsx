@@ -113,7 +113,7 @@ const UserDetailImage = () => {
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									className="info-wrapper flex items-end flex-nowrap justify-end leading-tight gap-[.4rem]">
-									<Span1 className="value text">{value}</Span1>
+									<Span1 className="value text whitespace-nowrap">{value}</Span1>
 									<motion.i initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 										<Icon icon={icon} className="h-[.9rem] w-[.9rem] text-gray-600" />
 									</motion.i>
