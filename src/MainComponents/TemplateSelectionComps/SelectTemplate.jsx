@@ -61,7 +61,13 @@ const resumes = [
 const SelectTemplate = () => {
 	const { pathname } = useLocation();
 	useEffect(() => {
-		window.scrollTo(0, 0);
+		function onChangeRouter() {
+			window.scrollTo(0, 0);
+		}
+
+		onChangeRouter();
+
+		return () => onChangeRouter();
 	}, [pathname]);
 	return (
 		<React.Fragment>
