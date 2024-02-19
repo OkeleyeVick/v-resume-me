@@ -59,7 +59,7 @@ const Footer = () => {
 							<Icon icon={icon} className="w-5 h-5" />
 						</button>
 					) : (
-						<Link to={link} key={index} className="dark:text-main hover:text-main transition duration-[100ms] ease-in-out">
+						<Link to={link} target="_blank" key={index} className="dark:text-main hover:text-main transition duration-[100ms] ease-in-out">
 							<Icon icon={icon} className="w-5 h-5" />
 						</Link>
 					);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Tooltip from "./Tooltip";
 import { Icon } from "@iconify/react";
 import { debounce } from "lodash";
@@ -9,7 +9,6 @@ const InputWithLabel = ({
 	placeholder,
 	"aria-label": ariaLabel,
 	name,
-	value,
 	updateTheDetail,
 	className,
 	inputMode,

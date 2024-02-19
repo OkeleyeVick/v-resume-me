@@ -3,6 +3,7 @@ import { themeContext, userDataContext } from "../../ResumePageComps/CreateResum
 import { Span1 } from "../../../assets/theme/fontSizes";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import defaultProfileImage from "../../../assets/images/PageImages/user-default-profile-image.jpg";
 
 const UserDetailImage = () => {
 	const { userPersonalData, userPersonalSummary } = useContext(userDataContext);
@@ -74,11 +75,7 @@ const UserDetailImage = () => {
 							animate={{ scale: 1 }}
 							initial={{ scale: 0 }}
 							exit={{ scale: 0 }}
-							src={
-								image.imageSrc
-									? image.imageSrc
-									: `https://static.vecteezy.com/system/resources/previews/002/534/006/original/social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background-free-vector.jpg`
-							}
+							src={image.imageSrc ? image.imageSrc : `${defaultProfileImage}`}
 							alt="user-image"
 							className="h-full w-full object-cover object-center scale-[1.1] aspect-square"
 						/>

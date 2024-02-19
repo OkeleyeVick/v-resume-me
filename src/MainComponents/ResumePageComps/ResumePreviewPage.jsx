@@ -30,7 +30,6 @@ const ResumePreviewPage = () => {
 	const font = themeSelection.font.family.customFont;
 
 	function attemptToDownload() {
-		// convert html page to jpeg
 		html2image.toJpeg(resumeRef.current, { style: { backgroundColor: "#fff" }, quality: 1 }).then((file) => {
 			setResumeImage(file);
 			setIsModalVisible(true);
