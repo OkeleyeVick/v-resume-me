@@ -9,7 +9,7 @@ const links = [
 	},
 	{
 		icon: "uit:twitter-alt",
-		link: "https://twitter.com/I_am_Justus",
+		link: "https://twitter.com/o_vickkk",
 	},
 	{
 		icon: "ph:envelope-simple-light",
@@ -17,11 +17,11 @@ const links = [
 	},
 	{
 		icon: "akar-icons:github-outline-fill",
-		link: "https://github.com/OkeleyeVick",
+		link: "https://github.com/OkeleyeVickkk",
 	},
 	{
 		icon: "ph:linkedin-logo-light",
-		link: "https://linkedin.com/in/OkeleyeVick",
+		link: "https://www.linkedin.com/in/okeleyevickkk/",
 	},
 ];
 

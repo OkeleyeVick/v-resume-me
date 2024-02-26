@@ -19,7 +19,7 @@ const Tiptap = ({ onUpdate, text }) => {
 		this.updateStateInner(state, this.state.plugins != state.plugins);
 	};
 
-	const content = `${text}`;
+	// const content = ``;
 	const editor = useEditor({
 		extensions: [
 			StarterKit.configure({
@@ -39,10 +39,11 @@ const Tiptap = ({ onUpdate, text }) => {
 				types: ["heading", "paragraph"],
 			}),
 		],
-		content: content,
+		content: `${text}`,
 		editorProps: {
 			attributes: {
-				class: "min-h-[200px] focus-visible:outline-none outline-none transition duration-300 ease-in-out p-2 text-sm text-slate-600 selection:bg-opacity-20 dark:text-label_clr",
+				class:
+					"min-h-[200px] focus-visible:outline-none outline-none transition duration-300 ease-in-out p-2 text-sm text-slate-600 selection:bg-opacity-20 dark:text-label_clr",
 			},
 		},
 		//listen for update
