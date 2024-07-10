@@ -3,7 +3,7 @@ import React, { useContext, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GeneralContext, userDataContext } from "../ResumePageComps/CreateResumePage";
 
-const ImageUploadComponent = ({ label, imageSrc }) => {
+const ImageUploadComponent = ({ label }) => {
 	const [image, setImageForDisplay] = useState("");
 	const imageRef = useRef(null);
 	const { setUserPersonalData } = useContext(userDataContext);

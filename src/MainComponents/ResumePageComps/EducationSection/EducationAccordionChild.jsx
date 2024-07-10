@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { AccordionBody, AccordionHeader, AccordionItem } from "react-headless-accordion";
 import InputWithLabel from "../../FormComponent/InputComponent";
-import { Icon } from "@iconify/react";
 import { memo } from "react";
 import Checkbox from "../Components/Checkbox";
 import MonthPicker from "../Components/MonthPicker";

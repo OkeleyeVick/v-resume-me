@@ -19,7 +19,6 @@ const Tiptap = ({ onUpdate, text }) => {
 		this.updateStateInner(state, this.state.plugins != state.plugins);
 	};
 
-	// const content = ``;
 	const editor = useEditor({
 		extensions: [
 			StarterKit.configure({
