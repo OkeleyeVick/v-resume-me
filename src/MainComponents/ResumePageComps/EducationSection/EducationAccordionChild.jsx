@@ -51,6 +51,7 @@ const EducationChildAccordion = ({ userEducationData, setUserEducationData, each
 
 		autoUpdate("startMonth", monthNumber);
 	}
+
 	function getStartYear(startYear) {
 		setEducationDetails((previous) => ({
 			...previous,
